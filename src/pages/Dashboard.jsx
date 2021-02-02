@@ -16,7 +16,7 @@ const Dashboard = () => {
     const ac = new AbortController();
     const getPortfolio = async () => {
       try {
-        const portfolio = await axios.get(`${link}common/portfolio/${id}`, {
+        const portfolio = await axios.get(`${link}common/portfolios/${id}`, {
           headers: { "auth-token": token },
         });
         console.log("Portfolio", portfolio.data);

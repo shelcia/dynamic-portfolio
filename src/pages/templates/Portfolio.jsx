@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
 import Topbar from "./components/TopBar";
+import { ThemeContext } from "./context/ThemeContext";
+import Intro from "./components/Intro";
 
 const Portfolio = ({ match }) => {
   const [isLoading, setLoading] = useState(true);
-  const [portfolioDetials, setPortfolioDetials] = useState([]);
+  const [portfolioDetails, setPortfolioDetails] = useState([]);
   const link = process.env.REACT_APP_API_LINK;
+  const [darkTheme, setDarkTheme] = useContext(ThemeContext);
+
   useEffect(() => {
     const ac = new AbortController();
     const getPortfolio = async () => {
@@ -14,27 +18,25 @@ const Portfolio = ({ match }) => {
         const portfolio = await axios.get(
           `${link}common/portfolio/${match.params.id}`
         );
-        const portfolioDeets = portfolio.data.message.filter(
-          (port) => port._id === match.params.id
-        );
-        console.log("Detials", portfolioDeets);
-        setPortfolioDetials(portfolioDeets);
+        console.log("Details", portfolio.data.message);
+        setPortfolioDetails(portfolio.data.message);
         setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-    if (!portfolioDetials.length) getPortfolio();
+    if (!portfolioDetails.length) getPortfolio();
     return () => ac.abort();
-  }, [link, match.params.id, portfolioDetials.length]);
+  }, [link, match.params.id, portfolioDetails.length]);
   return (
     <React.Fragment>
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
-          <Topbar />
-        </div>
+        <React.Fragment>
+          <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+          <Intro portfolioDetails={portfolioDetails} match={match} />
+        </React.Fragment>
       )}
     </React.Fragment>
   );
