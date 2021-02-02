@@ -1,0 +1,51 @@
+$d: 2.5em;
+$p: 0.5em;
+$g: 0.25em;
+
+#time {
+  position: absolute;
+  right: 100vw;
+
+  + label {
+    --i: 0;
+    --j: calc(1 - var(--i));
+    display: grid;
+    grid-gap: $p $g;
+    overflow: hidden;
+    padding: $p;
+    height: $d;
+    border-radius: 0.5 * $d + $p;
+    background: hsl(199, 98%, calc(var(--j) * 48%));
+    color: transparent;
+    user-select: none;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      width: $d;
+      height: $d;
+      transition: inherit;
+      content: "";
+    }
+
+    &:before {
+      transform-origin: 20% 20%;
+      transform: translate(calc(var(--i) * (100% + #{$g})))
+        scale(calc(1 - var(--i) * 0.7));
+      background: hsl(60, 100%, 50%);
+      //   @include star(10, 0.75);
+    }
+
+    &:after {
+      grid-column: 2;
+      border-radius: 50%;
+      transform: translatey(calc(var(--i) * (-100% - #{$p})));
+      background: radial-gradient(circle at 19% 19%, transparent 41%, #fff 43%);
+    }
+  }
+
+  &:checked + label {
+    --i: 1;
+  }
+}

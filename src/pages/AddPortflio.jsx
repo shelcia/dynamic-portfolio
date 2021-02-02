@@ -10,30 +10,31 @@ const AddPortfolio = () => {
         <div className="row">
           <div className="col-sm-6">
             <form>
-              <div class="form-group">
-                <label for="email">Email address:</label>
+              <div className="form-group">
+                <label htmlFor="email">Email address:</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter email"
                   id="email"
                 />
               </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
+              <div className="form-group">
+                <label htmlFor="pwd">Password:</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter password"
                   id="pwd"
                 />
               </div>
-              <div class="form-group form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" /> Remember me
+              <div className="form-group form-check">
+                <label className="form-check-label">
+                  <input className="form-check-input" type="checkbox" />{" "}
+                  Remember me
                 </label>
               </div>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </form>

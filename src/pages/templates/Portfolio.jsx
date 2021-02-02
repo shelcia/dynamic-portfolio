@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import Topbar from "./components/TopBar";
 
 const Portfolio = ({ match }) => {
   const [isLoading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ const Portfolio = ({ match }) => {
         <Loader />
       ) : (
         <div>
-          <h1> Portfolio </h1>
+          <Topbar />
         </div>
       )}
     </React.Fragment>

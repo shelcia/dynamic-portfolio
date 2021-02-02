@@ -78,11 +78,11 @@ const HomePage = () => {
                 <div className="card-body">
                   <form onSubmit={onSubmit}>
                     <div className="form-group">
-                      <label htmlFor="usr">Email:</label>
+                      <label htmlhtmlFor="usr">Email:</label>
                       <input type="text" className="form-control" ref={email} />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="pwd">Password:</label>
+                      <label htmlhtmlFor="pwd">Password:</label>
                       <input
                         type="password"
                         className="form-control"

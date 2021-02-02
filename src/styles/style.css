@@ -3,6 +3,61 @@
   background-color: #151515 !important;
 }
 
+#time {
+  position: absolute;
+  right: 100vw;
+}
+
+#time + label {
+  --i: 0;
+  --j: calc(1 - var(--i));
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0.5em 0.25em;
+  overflow: hidden;
+  padding: 0.5em;
+  height: 2.5em;
+  border-radius: 1.75em;
+  background: hsl(199, 98%, calc(var(--j) * 48%));
+  color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#time + label:before, #time + label:after {
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-transition: inherit;
+  transition: inherit;
+  content: "";
+}
+
+#time + label:before {
+  -webkit-transform-origin: 20% 20%;
+          transform-origin: 20% 20%;
+  -webkit-transform: translate(calc(var(--i) * (100% + 0.25em))) scale(calc(1 - var(--i) * 0.7));
+          transform: translate(calc(var(--i) * (100% + 0.25em))) scale(calc(1 - var(--i) * 0.7));
+  background: yellow;
+}
+
+#time + label:after {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  border-radius: 50%;
+  -webkit-transform: translatey(calc(var(--i) * (-100% - 0.5em)));
+          transform: translatey(calc(var(--i) * (-100% - 0.5em)));
+  background: radial-gradient(circle at 19% 19%, transparent 41%, #fff 43%);
+}
+
+#time:checked + label {
+  --i: 1;
+}
+
 * {
   font-family: "Fira Sans", sans-serif;
 }
