@@ -4,6 +4,10 @@ import Loader from "./Loader";
 import Topbar from "./components/TopBar";
 import { ThemeContext } from "./context/ThemeContext";
 import Intro from "./components/Intro";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Works from "./components/Works";
+import Footer from "./components/Footer";
 
 const Portfolio = ({ match }) => {
   const [isLoading, setLoading] = useState(true);
@@ -36,6 +40,10 @@ const Portfolio = ({ match }) => {
         <React.Fragment>
           <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
           <Intro portfolioDetails={portfolioDetails} match={match} />
+          <Projects portfolioDetails={portfolioDetails} />
+          <Skills portfolioDetails={portfolioDetails} />
+          <Works portfolioDetails={portfolioDetails} />
+          <Footer />
         </React.Fragment>
       )}
     </React.Fragment>

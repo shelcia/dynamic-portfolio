@@ -3,6 +3,58 @@
   background-color: #151515 !important;
 }
 
+.bg-greenishblue {
+  background-color: #01b399 !important;
+}
+
+.text-greenishblue {
+  color: #01b399 !important;
+}
+
+.profile-greenishblue {
+  -webkit-box-shadow: 8px 12px 1px #01b399;
+          box-shadow: 8px 12px 1px #01b399;
+}
+
+.bg-bluieshviolet {
+  background-color: #7601ea !important;
+}
+
+.text-bluieshviolet {
+  color: #7601ea !important;
+}
+
+.profile-bluieshviolet {
+  -webkit-box-shadow: 8px 12px 1px #7601ea;
+          box-shadow: 8px 12px 1px #7601ea;
+}
+
+.bg-greenishyellow {
+  background-color: #a5c600 !important;
+}
+
+.text-greenishyellow {
+  color: #a5c600 !important;
+}
+
+.profile-greenishyellow {
+  -webkit-box-shadow: 8px 12px 1px #a5c600;
+          box-shadow: 8px 12px 1px #a5c600;
+}
+
+.bg-reddishpink {
+  background-color: #a5c600 !important;
+}
+
+.text-reddishpink {
+  color: #a5c600 !important;
+}
+
+.profile-reddishpink {
+  -webkit-box-shadow: 8px 12px 1px #a5c600;
+          box-shadow: 8px 12px 1px #a5c600;
+}
+
 .toggleWrapper input {
   position: absolute;
   left: -99em;
@@ -200,6 +252,56 @@ input:checked + .toggle .star--5 {
 input:checked + .toggle .star--6 {
   -webkit-transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* Timeline holder */
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* Timeline vertical line */
+ul.timeline:before {
+  content: " ";
+  background: #fff;
+  display: inline-block;
+  position: absolute;
+  left: 16px;
+  width: 4px;
+  height: 100%;
+  z-index: 400;
+  border-radius: 1rem;
+}
+
+li.timeline-item {
+  margin: 20px 0;
+}
+
+/* Timeline item arrow */
+.timeline-arrow {
+  border-top: 0.5rem solid transparent;
+  border-right: 0.5rem solid #fff;
+  border-bottom: 0.5rem solid transparent;
+  display: block;
+  position: absolute;
+  left: 2rem;
+}
+
+/* Timeline item circle marker */
+li.timeline-item::before {
+  content: " ";
+  background: #ddd;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  left: 11px;
+  width: 14px;
+  height: 14px;
+  z-index: 400;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 * {

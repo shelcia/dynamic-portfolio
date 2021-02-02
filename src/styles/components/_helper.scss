@@ -3,3 +3,49 @@ $background: rgb(21, 21, 21);
 .bg-dark {
   background-color: $background !important;
 }
+
+// COLOR THEME
+$greenishblue: rgb(1, 179, 153);
+$bluieshviolet: rgb(118, 1, 234);
+$greenishyellow: rgb(165, 198, 0);
+$reddishpink: rgb(213, 0, 153);
+
+.bg-greenishblue {
+  background-color: $greenishblue !important;
+}
+.text-greenishblue {
+  color: $greenishblue !important;
+}
+.profile-greenishblue {
+  box-shadow: 8px 12px 1px $greenishblue;
+}
+
+.bg-bluieshviolet {
+  background-color: $bluieshviolet !important;
+}
+.text-bluieshviolet {
+  color: $bluieshviolet !important;
+}
+.profile-bluieshviolet {
+  box-shadow: 8px 12px 1px $bluieshviolet;
+}
+
+.bg-greenishyellow {
+  background-color: $greenishyellow !important;
+}
+.text-greenishyellow {
+  color: $greenishyellow !important;
+}
+.profile-greenishyellow {
+  box-shadow: 8px 12px 1px $greenishyellow;
+}
+
+.bg-reddishpink {
+  background-color: $greenishyellow !important;
+}
+.text-reddishpink {
+  color: $greenishyellow !important;
+}
+.profile-reddishpink {
+  box-shadow: 8px 12px 1px $greenishyellow;
+}
