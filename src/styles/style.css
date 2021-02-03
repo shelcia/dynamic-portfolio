@@ -7,6 +7,10 @@
   cursor: pointer !important;
 }
 
+.text-primary {
+  color: #0cba00 !important;
+}
+
 .bg-greenishblue {
   background-color: #01b399 !important;
 }
@@ -359,7 +363,8 @@ button.website:hover {
   font-family: "Fira Sans", sans-serif;
 }
 
-.login {
+.login,
+.background {
   background: #0cba00;
   background: linear-gradient(45deg, #0cba00 0%, #00ffd8 100%);
 }

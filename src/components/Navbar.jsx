@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <nav className="navbar bg-dark">
-        <Link className="navbar-brand py-2" to="/">
+        <Link className="navbar-brand py-2 text-primary" to="/">
           Dynamic Portflio.
         </Link>
         <ul className="navbar-nav ml-auto">

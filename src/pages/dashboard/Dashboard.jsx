@@ -40,7 +40,9 @@ const Dashboard = () => {
         <Navbar />
 
         <div className="container mt-3 ">
-          <h1 className="my-2 display-2">Hi {name} !!</h1>
+          <h1 className="mt-2 mb-5 display-2">
+            Hi <span className="text-capitalize">{name}</span>!!
+          </h1>
           {isLoading ? (
             <ReactLoader />
           ) : (
@@ -57,9 +59,16 @@ const Dashboard = () => {
                 </div>
               ))}
               <div
-                className="card ml-0 mr-4 border border-0 rounded-0 shadow-lg"
+                className="card background ml-0 mr-4 border border-0 rounded-0 shadow-lg d-flex justify-content-center align-items-center pointer-cursor"
                 style={{ width: "250px", height: "300px" }}
-              ></div>
+              >
+                <Link to="/add-portfolio">
+                  <i
+                    className="fas fa-plus text-light"
+                    style={{ fontSize: "100px" }}
+                  ></i>
+                </Link>
+              </div>
             </div>
           )}
         </div>
