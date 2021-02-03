@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HashLoader from "react-spinners/HashLoader";
 
 const Verification = ({ match }) => {
   const successNotify = (message) => toast.success(message);
   const failedNotify = (message) => toast.error(message);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const verfiy = async () => {
@@ -14,9 +16,10 @@ const Verification = ({ match }) => {
 
       try {
         axios
-          .put(`${link}admin/dashboard/about`, {}, {})
+          .put(`${link}auth/verification/${match.params.id}`, {}, {})
           .then((response) => {
             console.log(response.data);
+            setIsLoading(false);
             if (response.data.status === "200")
               successNotify(response.data.message);
             else if (response.data.status === "400" || "500" || "401")
@@ -24,6 +27,7 @@ const Verification = ({ match }) => {
           })
           .catch((error) => {
             console.log(error);
+            setIsLoading(false);
             failedNotify(error);
           });
       } catch (error) {
@@ -31,7 +35,7 @@ const Verification = ({ match }) => {
       }
     };
     verfiy();
-  }, []);
+  }, [match.params.id]);
 
   return (
     <React.Fragment>
@@ -43,18 +47,26 @@ const Verification = ({ match }) => {
         <div className="container pt-4">
           <h3 className="display-2 my-4"> Dynamic Portflio </h3>
 
-          <div className="text-center mt-5">
-            <i
-              className="fas fa-check-circle text-success"
-              style={{ fontSize: "100px" }}
-            ></i>
-            <h4 className="display-4 text-success mt-4">
-              You account is verified
-            </h4>
-            <Link to="/">
-              <button className="btn website mt-5">Login</button>
-            </Link>
-          </div>
+          {isLoading ? (
+            <HashLoader
+              color="rgb(12, 186, 0)"
+              loading={isLoading}
+              size={150}
+            />
+          ) : (
+            <div className="text-center mt-5">
+              <i
+                className="fas fa-check-circle text-success"
+                style={{ fontSize: "100px" }}
+              ></i>
+              <h4 className="display-4 text-success mt-4">
+                You account is verified
+              </h4>
+              <Link to="/">
+                <button className="btn normal mt-5">Login</button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </React.Fragment>

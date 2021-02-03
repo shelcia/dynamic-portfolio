@@ -1,14 +1,30 @@
 import React from "react";
 import "./styles/style.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Dashboard from "./pages/Dashboard";
-import AddPortfolio from "./pages/AddPortflio";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import HomePage from "./pages/auth/HomePage";
+import Dashboard from "./pages/dashboard/Dashboard";
+import AddPortfolio from "./pages/dashboard/AddPortflio";
 import Portfolio from "./pages/templates/Portfolio";
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
-import Verification from "./pages/Verification";
+import Verification from "./pages/auth/Verification";
 
 const App = () => {
+  const isAuthenticated = () => {
+    return localStorage.getItem("dynamic-token") &&
+      localStorage.getItem("dynamic-activated")
+      ? true
+      : false;
+  };
+
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated() ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
+  );
+
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -20,8 +36,12 @@ const App = () => {
               exact
               component={Verification}
             />
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/add-portfolio" exact component={AddPortfolio} />
+            <PrivateRoute path="/dashboard" exact component={Dashboard} />
+            <PrivateRoute
+              path="/add-portfolio"
+              exact
+              component={AddPortfolio}
+            />
             <Route path="/portfolio/:id" exact component={Portfolio} />
           </Switch>
         </ThemeProvider>

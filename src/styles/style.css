@@ -308,15 +308,6 @@ li.timeline-item::before {
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-* {
-  font-family: "Fira Sans", sans-serif;
-}
-
-.login {
-  background: #0cba00;
-  background: linear-gradient(45deg, #0cba00 0%, #00ffd8 100%);
-}
-
 .form-group .form-control {
   border: none;
   background-color: rgba(255, 0, 0, 0) !important;
@@ -355,10 +346,40 @@ button.website {
   padding: 0.5rem 1.5rem;
   border: 1.2px solid rgba(255, 255, 255, 0.87);
   color: rgba(255, 255, 255, 0.87);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 button.website:hover {
   color: #0cba00;
   background-color: rgba(255, 255, 255, 0.87);
+}
+
+* {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.login {
+  background: #0cba00;
+  background: linear-gradient(45deg, #0cba00 0%, #00ffd8 100%);
+}
+
+button.normal {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border: 1.2px solid #0cba00;
+  color: #0cba00;
+  -webkit-box-shadow: 0px 0px 0px #0cba00 inset, 0px 0px 0px #0cba00 inset, 3px 3px 3px black;
+          box-shadow: 0px 0px 0px #0cba00 inset, 0px 0px 0px #0cba00 inset, 3px 3px 3px black;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+button.normal:hover {
+  color: white;
+  -webkit-box-shadow: 60px 0px 0px #0cba00 inset, -60px 0px 0px #0cba00 inset, 3px 3px 3px black;
+          box-shadow: 60px 0px 0px #0cba00 inset, -60px 0px 0px #0cba00 inset, 3px 3px 3px black;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import ReactLoader from "../components/Loader";
+import ReactLoader from "../../components/Loader";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");

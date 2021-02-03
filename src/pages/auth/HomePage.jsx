@@ -63,11 +63,21 @@ const Login = ({ setIsLogin }) => {
           <form onSubmit={onSubmit}>
             <div className="form-group">
               <label htmlFor="usr">Email:</label>
-              <input type="text" className="form-control" ref={email} />
+              <input
+                type="text"
+                className="form-control"
+                ref={email}
+                required
+              />
             </div>
             <div className="form-group mt-4">
               <label htmlFor="pwd">Password:</label>
-              <input type="password" className="form-control" ref={password} />
+              <input
+                type="password"
+                className="form-control"
+                ref={password}
+                required
+              />
             </div>
             <div className="text-center pt-4">
               {loading ? (
@@ -148,15 +158,25 @@ const Signup = ({ setIsLogin }) => {
           <form onSubmit={onSubmit}>
             <div className="form-group">
               <label htmlFor="usr">Name:</label>
-              <input type="text" className="form-control" ref={name} />
+              <input type="text" className="form-control" ref={name} required />
             </div>
             <div className="form-group">
               <label htmlFor="usr">Email:</label>
-              <input type="text" className="form-control" ref={email} />
+              <input
+                type="text"
+                className="form-control"
+                ref={email}
+                required
+              />
             </div>
             <div className="form-group mt-4">
               <label htmlFor="pwd">Password:</label>
-              <input type="password" className="form-control" ref={password} />
+              <input
+                type="password"
+                className="form-control"
+                ref={password}
+                required
+              />
             </div>
             <div className="text-center pt-2">
               {loading ? (
