@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Experience from "./Experience";
 import Profile from "./Profile";
 import Projects from "./Projects";
 import SkillSelect from "./SkillsSelect";
@@ -15,6 +16,16 @@ const AddPortfolio = () => {
       title: "",
       desc: "",
       link: "",
+    },
+  ]);
+  const [experiences, setExperience] = useState([
+    {
+      id: 1,
+      name: "",
+      desc: "",
+      start: "",
+      end: "",
+      current: false,
     },
   ]);
 
@@ -80,6 +91,10 @@ const AddPortfolio = () => {
                   setSelectedSkills={setSelectedSkills}
                 />
                 <Projects projects={projects} setProjects={setProjects} />
+                <Experience
+                  experiences={experiences}
+                  setExperience={setExperience}
+                />
                 <div className="text-right mt-5 mb-4">
                   <button type="submit" className="btn normal">
                     Submit
