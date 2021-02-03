@@ -506,4 +506,8 @@ button.normal:hover {
   -webkit-box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
           box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
 }
+
+label.h3 {
+  margin-top: 1.5rem;
+}
 /*# sourceMappingURL=style.css.map */

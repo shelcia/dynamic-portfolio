@@ -29,7 +29,9 @@ const Profile = ({ file, setFile }) => {
   return (
     <React.Fragment>
       <div className="form-group">
-        <label htmlFor="about">Profile Image:</label>
+        <label htmlFor="about" className="h3">
+          Profile Image
+        </label>
 
         <div className="upload-section">
           <Dropzone

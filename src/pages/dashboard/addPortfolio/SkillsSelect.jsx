@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { skills } from "../../templates/context/SkillsContext";
 
-const SkillSelect = () => {
-  const [selectedSkills, setSelectedSkills] = useState([]);
+const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
   const [filtered, setFiltered] = useState([]);
   const [skill, setSkill] = useState("");
 
@@ -22,7 +21,7 @@ const SkillSelect = () => {
   }, [skill]);
 
   const addSkill = (skill) => {
-    if (skill in selectedSkills) {
+    if (selectedSkills.includes(skill.name)) {
       toast.error("You cannot select the skill you already chose xD");
       return;
     }
@@ -35,8 +34,11 @@ const SkillSelect = () => {
 
   return (
     <React.Fragment>
+      <ToastContainer />
       <div className="form-group">
-        <label htmlFor="skills">Skills:</label>
+        <label htmlFor="skills" className="h3">
+          Skills
+        </label>
         <div className="text-light">
           {selectedSkills.map((skill, index) => (
             <span className="badge badge-success px-2 py-1 mr-2" key={index}>
