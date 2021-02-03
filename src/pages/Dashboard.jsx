@@ -47,11 +47,13 @@ const Dashboard = () => {
             <div className="container d-flex">
               {portfolio.map((item) => (
                 <div
-                  className="card ml-0 mr-4 border border-0 rounded-0 shadow-lg"
+                  className="card ml-0 mr-4 border border-0 rounded-0 shadow-lg pointer-cursor"
                   style={{ width: "250px", height: "300px" }}
                   key={item._id}
                 >
-                  <Link to={`/portfolio/${item._id}`}>{item.name}</Link>
+                  <Link to={`/portfolio/${item._id}`} target="_blank">
+                    {item.name}
+                  </Link>
                 </div>
               ))}
               <div

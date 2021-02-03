@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import AddPortfolio from "./pages/AddPortflio";
 import Portfolio from "./pages/templates/Portfolio";
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
+import Verification from "./pages/Verification";
 
 const App = () => {
   return (
@@ -14,6 +15,11 @@ const App = () => {
         <ThemeProvider>
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route
+              path="/verificationtologin/:id"
+              exact
+              component={Verification}
+            />
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/add-portfolio" exact component={AddPortfolio} />
             <Route path="/portfolio/:id" exact component={Portfolio} />

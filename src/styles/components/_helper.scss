@@ -3,6 +3,9 @@ $background: rgb(21, 21, 21);
 .bg-dark {
   background-color: $background !important;
 }
+.pointer-cursor {
+  cursor: pointer !important;
+}
 
 // COLOR THEME
 $greenishblue: rgb(1, 179, 153);

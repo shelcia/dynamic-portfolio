@@ -6,11 +6,61 @@
 
 $background: rgb(21, 21, 21);
 $background2: rgb(98, 98, 98);
+$white: rgba(255, 255, 255, 0.87);
 
 * {
   font-family: "Fira Sans", sans-serif;
 }
 
 .login {
-  background-color: $background2;
+  //   background-color: $background2;
+  background: rgb(12, 186, 0);
+  background: linear-gradient(
+    45deg,
+    rgba(12, 186, 0, 1) 0%,
+    rgba(0, 255, 216, 1) 100%
+  );
+}
+
+.form-group {
+  .form-control {
+    border: none;
+    background-color: rgba(255, 0, 0, 0) !important;
+    border-bottom: 1px solid $white;
+    border-radius: 0px;
+    color: $white;
+    padding-left: 0px;
+    &:focus {
+      border-bottom: 1.3px solid white;
+      box-shadow: none;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  //   border: 1px solid green;
+  border: none !important;
+  border-bottom: 1px solid $white !important;
+  -webkit-text-fill-color: $white;
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+button.website {
+  border-radius: 0px;
+  padding: 0.5rem 1.5rem;
+  border: 1.2px solid $white;
+  color: $white;
+  &:hover {
+    color: rgb(12, 186, 0);
+    background-color: $white;
+  }
 }
