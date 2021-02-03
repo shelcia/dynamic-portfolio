@@ -4,6 +4,7 @@
 @import "./components/toggle";
 @import "./components/timeline";
 @import "./components/form";
+@import "./components/dropzone";
 
 $background: rgb(21, 21, 21);
 $white: rgba(255, 255, 255, 0.87);
@@ -35,7 +36,7 @@ button.normal {
   transition: all 0.2s ease-in;
   &:hover {
     color: white;
-    box-shadow: 60px 0px 0px $primary inset, -60px 0px 0px $primary inset,
+    box-shadow: 100px 0px 0px $primary inset, -100px 0px 0px $primary inset,
       3px 3px 3px black;
   }
 }

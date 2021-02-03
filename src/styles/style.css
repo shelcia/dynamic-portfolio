@@ -359,6 +359,125 @@ button.website:hover {
   background-color: rgba(255, 255, 255, 0.87);
 }
 
+.upload-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.upload-section > div {
+  width: 50%;
+}
+
+.drop-zone {
+  margin-bottom: 10px;
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #e9ebeb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.drop-zone:focus {
+  outline: none;
+}
+
+.image-preview {
+  height: inherit;
+  margin-left: 5%;
+}
+
+.preview-image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: inherit;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.preview-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5%;
+}
+
+.files-container {
+  width: 98%;
+  overflow-x: auto;
+}
+
+.files-table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.files-table tr,
+.files-table td,
+.files-table th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.files-table .file-title {
+  width: 20%;
+}
+
+.files-table .file-description {
+  width: 70%;
+}
+
+@media screen and (max-width: 1000px) {
+  .upload-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .upload-section > div {
+    width: 100%;
+  }
+  .image-preview {
+    margin-left: 0;
+    height: 300px;
+  }
+  .upload-section {
+    height: unset;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 25px;
+  }
+  .drop-zone {
+    width: 100%;
+  }
+}
+
 * {
   font-family: "Fira Sans", sans-serif;
 }
@@ -384,7 +503,7 @@ button.normal {
 
 button.normal:hover {
   color: white;
-  -webkit-box-shadow: 60px 0px 0px #0cba00 inset, -60px 0px 0px #0cba00 inset, 3px 3px 3px black;
-          box-shadow: 60px 0px 0px #0cba00 inset, -60px 0px 0px #0cba00 inset, 3px 3px 3px black;
+  -webkit-box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
+          box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
 }
 /*# sourceMappingURL=style.css.map */

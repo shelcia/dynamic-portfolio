@@ -3,7 +3,7 @@ import "./styles/style.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/auth/HomePage";
 import Dashboard from "./pages/dashboard/Dashboard";
-import AddPortfolio from "./pages/dashboard/AddPortflio";
+import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
 import Portfolio from "./pages/templates/Portfolio";
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
 import Verification from "./pages/auth/Verification";

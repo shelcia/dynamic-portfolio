@@ -11,9 +11,10 @@ const Skills = ({ portfolioDetails }) => {
         <div className="row px-5 py-5 flex-column">
           <h1 className="display-3"> Skills </h1>
           <ul className="mt-3">
-            {portfolioDetails.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
+            {portfolioDetails &&
+              portfolioDetails.skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
           </ul>
         </div>
       </div>
