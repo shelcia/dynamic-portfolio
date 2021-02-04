@@ -28,51 +28,43 @@ const Profile = ({ file, setFile }) => {
   };
   return (
     <React.Fragment>
-      <div className="form-group">
-        <label htmlFor="about" className="h3">
-          Profile Image
-        </label>
-
-        <div className="upload-section">
-          <Dropzone
-            onDrop={onDrop}
-            onDragEnter={() => updateBorder("over")}
-            onDragLeave={() => updateBorder("leave")}
-          >
-            {({ getRootProps, getInputProps }) => (
-              <div
-                {...getRootProps({ className: "drop-zone" })}
-                ref={dropRef}
-                required
-              >
-                <input {...getInputProps()} />
-                <p>Drag and drop a file OR click here to select a file</p>
-                {file && (
-                  <div>
-                    <strong>Selected file:</strong> {file.name}
-                  </div>
-                )}
-              </div>
-            )}
-          </Dropzone>
-          {previewSrc ? (
-            isPreviewAvailable ? (
-              <div className="image-preview">
-                <img className="preview-image" src={previewSrc} alt="Preview" />
-              </div>
-            ) : (
-              <div className="preview-message">
-                <p className="text-danger">
-                  No preview available for this file
-                </p>
-              </div>
-            )
-          ) : (
-            <div className="preview-message">
-              <p>Image preview will be shown here after selection</p>
+      <div className="upload-section">
+        <Dropzone
+          onDrop={onDrop}
+          onDragEnter={() => updateBorder("over")}
+          onDragLeave={() => updateBorder("leave")}
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div
+              {...getRootProps({ className: "drop-zone" })}
+              ref={dropRef}
+              required
+            >
+              <input {...getInputProps()} />
+              <p>Drag and drop a file OR click here to select a file</p>
+              {file && (
+                <div>
+                  <strong>Selected file:</strong> {file.name}
+                </div>
+              )}
             </div>
           )}
-        </div>
+        </Dropzone>
+        {previewSrc ? (
+          isPreviewAvailable ? (
+            <div className="image-preview">
+              <img className="preview-image" src={previewSrc} alt="Preview" />
+            </div>
+          ) : (
+            <div className="preview-message">
+              <p className="text-danger">No preview available for this file</p>
+            </div>
+          )
+        ) : (
+          <div className="preview-message">
+            <p>Image preview will be shown here after selection</p>
+          </div>
+        )}
       </div>
     </React.Fragment>
   );

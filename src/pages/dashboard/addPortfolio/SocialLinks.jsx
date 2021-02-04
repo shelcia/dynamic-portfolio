@@ -47,7 +47,7 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
                 className="form-control"
                 name="name"
                 value={socialhandle.name}
-                onChange={(e) => handleInputs(e, index)}
+                onChange={(e) => handleInputs(e, socialhandle.id)}
               >
                 {social.map((social, index) => (
                   <option className={social.name} key={index}>
@@ -64,7 +64,7 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
                 className="form-control mb-3"
                 placeholder="lorem ipsum"
                 value={socialhandle.link}
-                onChange={(e) => handleInputs(e, index)}
+                onChange={(e) => handleInputs(e, socialhandle.id)}
                 required
               />
             </div>

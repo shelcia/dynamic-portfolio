@@ -42,7 +42,7 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
         <div className="text-light mb-2">
           {selectedSkills.map((skill, index) => (
             <span
-              className="badge badge-success px-3 py-2 mr-2 rounded-sm  border border-success shadow-sm"
+              className="badge badge-success px-3 py-2 mr-2 mb-1 rounded-sm  border border-success shadow-sm"
               key={index}
               style={{ fontSize: "0.9rem" }}
             >

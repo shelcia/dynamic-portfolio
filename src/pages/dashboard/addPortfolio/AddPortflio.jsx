@@ -6,6 +6,7 @@ import Projects from "./Projects";
 import SkillSelect from "./SkillsSelect";
 import { theme, font } from "../../templates/context/TypoColor";
 import SocialLinks from "./SocialLinks";
+import axios from "axios";
 
 const AddPortfolio = () => {
   const [file, setFile] = useState(null);
@@ -41,34 +42,64 @@ const AddPortfolio = () => {
     },
   ]);
 
-  // const failedNotify = (message) => toast.error(message);
+  const failedNotify = (message) => toast.error(message);
+  const successNotify = (message) => toast.success(message);
 
   const onSubmit = (e) => {
     e.preventDefault();
     toast.warn("Please Wait! while we are adding...");
-    // const link = process.env.REACT_APP_API_LINK;
-    // const userID = localStorage.getItem("dynamic-id");
-    // const token = localStorage.getItem("dynamic-token");
-    // const headers = {
-    //   "Content-Type": "multipart/form-data",
-    //   "auth-token": token,
-    // };
-    // const formData = new FormData();
-    // if (!file) {
-    //   failedNotify("Add Image Please");
-    //   return;
-    // }
+    const link = process.env.REACT_APP_API_LINK;
+    const userID = localStorage.getItem("dynamic-id");
+    const token = localStorage.getItem("dynamic-token");
+    const headers = {
+      "auth-token": token,
+    };
+    const headersForm = {
+      "Content-Type": "multipart/form-data",
+      "auth-token": token,
+    };
+    const formData = new FormData();
+    if (!file) {
+      failedNotify("Add Image Please");
+      return;
+    }
     const body = {
+      userID: userID,
       name: name.current.value,
       headerTitle: headerTitle.current.value,
       about: about.current.value,
       skills: selectedSkills,
-      projects: projects,
       exp: experiences,
+      projects: projects,
+      socialLinks: socialLinks,
       theme: themes,
       font: fontfamily,
     };
-    console.log(body);
+    formData.append("image", file);
+
+    axios
+      .post(`${link}common/portfolio`, body, {
+        headers: headers,
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.data.status === "200") {
+          axios
+            .put(`${link}common/portfolio`, formData, {
+              headers: headersForm,
+            })
+            .then((response) => {
+              if (response.data.status === "200") {
+                successNotify(response.data.message);
+              }
+            })
+            .catch((error) => console.log(error));
+        } else if (response.data.status === "400" || "500" || "401")
+          failedNotify(response.data.message);
+      })
+      .catch((error) => console.log(error));
+
+    // console.log(body);
   };
 
   return (
@@ -127,7 +158,13 @@ const AddPortfolio = () => {
                     required
                   />
                 </div>
-                <Profile setFile={setFile} file={file} />
+                <div className="form-group">
+                  <label htmlFor="about" className="h3">
+                    Profile Image
+                  </label>
+                  <Profile setFile={setFile} file={file} />
+                </div>
+
                 <SkillSelect
                   selectedSkills={selectedSkills}
                   setSelectedSkills={setSelectedSkills}
@@ -148,7 +185,7 @@ const AddPortfolio = () => {
                           type="radio"
                           className="form-check-input"
                           name="theme"
-                          value={theme.name}
+                          value={theme.class}
                           onChange={(e) => setTheme(e.target.value)}
                         />
                         <i
@@ -170,7 +207,7 @@ const AddPortfolio = () => {
                           type="radio"
                           className="form-check-input"
                           name="font"
-                          value={theme.name}
+                          value={theme.class}
                           onChange={(e) => setFontFamily(e.target.value)}
                         />
                         <span className={`text-${theme.class}`}>
@@ -184,6 +221,7 @@ const AddPortfolio = () => {
                   socialLinks={socialLinks}
                   setSocialLinks={setSocialLinks}
                 />
+
                 <div className="text-right mt-5 mb-4">
                   <button type="submit" className="btn normal">
                     Submit
