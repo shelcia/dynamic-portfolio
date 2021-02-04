@@ -120,7 +120,7 @@ export const skills = [
     logo: "devicon-csharp-plain colored",
   },
   {
-    name: "CSS#",
+    name: "CSS3",
     logo: "devicon-css3-plain colored",
   },
   {
@@ -270,7 +270,7 @@ export const skills = [
   },
 
   {
-    name: "HML5",
+    name: "HTML5",
     logo: "devicon-html5-plain colored",
   },
   {

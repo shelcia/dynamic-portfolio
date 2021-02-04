@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .bg-dark {
   background-color: #151515 !important;
 }
@@ -51,16 +57,16 @@
 }
 
 .bg-reddishpink {
-  background-color: #a5c600 !important;
+  background-color: #d50099 !important;
 }
 
 .text-reddishpink {
-  color: #a5c600 !important;
+  color: #d50099 !important;
 }
 
 .profile-reddishpink {
-  -webkit-box-shadow: 8px 12px 1px #a5c600;
-          box-shadow: 8px 12px 1px #a5c600;
+  -webkit-box-shadow: 8px 12px 1px #d50099;
+          box-shadow: 8px 12px 1px #d50099;
 }
 
 .toggleWrapper input {
@@ -476,6 +482,30 @@ button.website:hover {
   .drop-zone {
     width: 100%;
   }
+}
+
+.text-roboto-slab {
+  font-family: "Roboto Slab", serif !important;
+}
+
+.text-raleway {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.text-inconsolata {
+  font-family: "Inconsolata", monospace !important;
+}
+
+.text-lemonada {
+  font-family: "Lemonada", cursive !important;
+}
+
+.text-josefin-sans {
+  font-family: "Josefin Sans", sans-serif !important;
+}
+
+.text-fira-sans {
+  font-family: "Fira Sans", sans-serif !important;
 }
 
 * {

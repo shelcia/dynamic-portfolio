@@ -39,9 +39,13 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
         <label htmlFor="skills" className="h3">
           Skills
         </label>
-        <div className="text-light">
+        <div className="text-light mb-2">
           {selectedSkills.map((skill, index) => (
-            <span className="badge badge-success px-2 py-1 mr-2" key={index}>
+            <span
+              className="badge badge-success px-3 py-2 mr-2 rounded-sm  border border-success shadow-sm"
+              key={index}
+              style={{ fontSize: "0.9rem" }}
+            >
               {skill}
               <i
                 className="fas fa-times pointer-cursor ml-2"
