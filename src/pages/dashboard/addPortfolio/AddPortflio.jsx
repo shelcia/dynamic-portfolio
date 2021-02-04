@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import Projects from "./Projects";
 import SkillSelect from "./SkillsSelect";
 import { theme, font } from "../../templates/context/TypoColor";
+import SocialLinks from "./SocialLinks";
 
 const AddPortfolio = () => {
   const [file, setFile] = useState(null);
@@ -14,7 +15,7 @@ const AddPortfolio = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [projects, setProjects] = useState([
     {
-      id: 1,
+      id: Date.now(),
       title: "",
       desc: "",
       link: "",
@@ -22,7 +23,7 @@ const AddPortfolio = () => {
   ]);
   const [experiences, setExperience] = useState([
     {
-      id: 1,
+      id: Date.now(),
       name: "",
       desc: "",
       start: "",
@@ -32,8 +33,14 @@ const AddPortfolio = () => {
   ]);
   const [themes, setTheme] = useState("greenishblue");
   const [fontfamily, setFontFamily] = useState("fira-sans");
+  const [socialLinks, setSocialLinks] = useState([
+    {
+      id: Date.now(),
+      name: "",
+      link: "",
+    },
+  ]);
 
-  console.log(theme);
   // const failedNotify = (message) => toast.error(message);
 
   const onSubmit = (e) => {
@@ -173,6 +180,10 @@ const AddPortfolio = () => {
                     </div>
                   ))}
                 </div>
+                <SocialLinks
+                  socialLinks={socialLinks}
+                  setSocialLinks={setSocialLinks}
+                />
                 <div className="text-right mt-5 mb-4">
                   <button type="submit" className="btn normal">
                     Submit

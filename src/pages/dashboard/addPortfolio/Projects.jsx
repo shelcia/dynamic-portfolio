@@ -1,9 +1,9 @@
 import React from "react";
 
 const Projects = ({ projects, setProjects }) => {
-  const handleInputs = (e, index) => {
+  const handleInputs = (e, id) => {
     const newProjects = projects.map((project) => {
-      if (project.id === index + 1) {
+      if (project.id === id) {
         const updatedProject = {
           ...project,
           [e.target.name]: e.target.value,
@@ -15,12 +15,12 @@ const Projects = ({ projects, setProjects }) => {
 
     setProjects(newProjects);
   };
-  const addProject = (e, index) => {
+  const addProject = (e) => {
     e.preventDefault();
     const newProject = [
       ...projects,
       {
-        id: index + 2,
+        id: Date.now(),
         title: "",
         desc: "",
         link: "",
@@ -28,9 +28,9 @@ const Projects = ({ projects, setProjects }) => {
     ];
     setProjects(newProject);
   };
-  const delProject = (e, index) => {
+  const delProject = (e, id) => {
     e.preventDefault();
-    const newProject = projects.filter((project) => project.id !== index + 1);
+    const newProject = projects.filter((project) => project.id !== id);
     setProjects(newProject);
   };
   return (
@@ -48,7 +48,7 @@ const Projects = ({ projects, setProjects }) => {
               className="form-control mb-3"
               placeholder="Attendance Management"
               value={project.title}
-              onChange={(e) => handleInputs(e, index)}
+              onChange={(e) => handleInputs(e, project.id)}
               required
             />
             <label htmlFor="title">Description</label>
@@ -58,7 +58,7 @@ const Projects = ({ projects, setProjects }) => {
               className="form-control mb-3"
               placeholder="lorem ipsum"
               value={project.desc}
-              onChange={(e) => handleInputs(e, index)}
+              onChange={(e) => handleInputs(e, project.id)}
               required
             />
             <label htmlFor="title">Project Link</label>
@@ -72,20 +72,20 @@ const Projects = ({ projects, setProjects }) => {
             />
             <div className="text-right w-100">
               {index !== 0 && (
-                <button className="btn normal py-1 px-3 mr-2">
+                <button className="btn normal py-1 px-3 mr-2" type="button">
                   <i
                     className="fas fa-minus"
                     style={{ fontSize: "25px" }}
-                    onClick={(e) => delProject(e, index)}
+                    onClick={(e) => delProject(e, project.id)}
                     title="Delete Project"
                   />
                 </button>
               )}
-              <button className="btn normal py-1 px-3">
+              <button className="btn normal py-1 px-3" type="button">
                 <i
                   className="fas fa-plus"
                   style={{ fontSize: "25px" }}
-                  onClick={(e) => addProject(e, index)}
+                  onClick={(e) => addProject(e)}
                   title="Add Project"
                 />
               </button>

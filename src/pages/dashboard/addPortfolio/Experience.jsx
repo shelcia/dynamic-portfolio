@@ -1,10 +1,9 @@
 import React from "react";
 
 const Experience = ({ experiences, setExperience }) => {
-  console.log(experiences);
-  const handleInputs = (e, index) => {
+  const handleInputs = (e, id) => {
     const newExperiences = experiences.map((experience) => {
-      if (experience.id === index + 1) {
+      if (experience.id === id) {
         const updatedExperience = {
           ...experience,
           [e.target.name]: e.target.value,
@@ -15,39 +14,39 @@ const Experience = ({ experiences, setExperience }) => {
     });
     setExperience(newExperiences);
   };
-  const handleCheck = (e, index) => {
-    console.log(e.target.value);
+  const handleCheck = (e, id) => {
     const val = e.target.value === "true" ? false : true;
     const newExperiences = experiences.map((experience) => {
-      if (experience.id === index + 1) {
+      if (experience.id === id) {
         const updatedExperience = {
           ...experience,
           current: val,
         };
-        console.log({ updatedExperience });
         return updatedExperience;
       }
       return experience;
     });
     setExperience(newExperiences);
   };
-  const addExperience = (e, index) => {
+  const addExperience = (e) => {
     e.preventDefault();
     const newExperience = [
       ...experiences,
       {
-        id: index + 2,
-        title: "",
+        id: Date.now(),
+        name: "",
         desc: "",
-        link: "",
+        start: "",
+        end: "",
+        current: false,
       },
     ];
     setExperience(newExperience);
   };
-  const delExperience = (e, index) => {
+  const delExperience = (e, id) => {
     e.preventDefault();
     const newExperience = experiences.filter(
-      (experience) => experience.id !== index + 1
+      (experience) => experience.id !== id
     );
     setExperience(newExperience);
   };
@@ -66,7 +65,7 @@ const Experience = ({ experiences, setExperience }) => {
               className="form-control mb-3"
               placeholder="Amazon"
               value={experience.title}
-              onChange={(e) => handleInputs(e, index)}
+              onChange={(e) => handleInputs(e, experience.id)}
               required
             />
             <label htmlFor="title">Description</label>
@@ -76,7 +75,7 @@ const Experience = ({ experiences, setExperience }) => {
               className="form-control mb-3"
               placeholder="lorem ipsum"
               value={experience.desc}
-              onChange={(e) => handleInputs(e, index)}
+              onChange={(e) => handleInputs(e, experience.id)}
               required
             />
             <div className="row">
@@ -88,7 +87,7 @@ const Experience = ({ experiences, setExperience }) => {
                   className="form-control mb-3"
                   placeholder="22-02-2016"
                   value={experience.start}
-                  onChange={(e) => handleInputs(e, index)}
+                  onChange={(e) => handleInputs(e, experience.id)}
                   required
                 />
               </div>
@@ -101,7 +100,7 @@ const Experience = ({ experiences, setExperience }) => {
                     className="form-control mb-3"
                     placeholder="22-02-2016"
                     value={experience.end}
-                    onChange={(e) => handleInputs(e, index)}
+                    onChange={(e) => handleInputs(e, experience.id)}
                   />
                 </div>
               )}
@@ -114,7 +113,7 @@ const Experience = ({ experiences, setExperience }) => {
                   className="form-check-input"
                   name="current"
                   value={experience.current}
-                  onChange={(e) => handleCheck(e, index)}
+                  onChange={(e) => handleCheck(e, experience.id)}
                 />
                 Currently Working
               </label>
@@ -126,7 +125,7 @@ const Experience = ({ experiences, setExperience }) => {
                   <i
                     className="fas fa-minus"
                     style={{ fontSize: "25px" }}
-                    onClick={(e) => delExperience(e, index)}
+                    onClick={(e) => delExperience(e, experience.id)}
                     title="Delete Experience"
                   />
                 </button>
@@ -135,7 +134,7 @@ const Experience = ({ experiences, setExperience }) => {
                 <i
                   className="fas fa-plus"
                   style={{ fontSize: "25px" }}
-                  onClick={(e) => addExperience(e, index)}
+                  onClick={(e) => addExperience(e)}
                   title="Add Experience"
                 />
               </button>

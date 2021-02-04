@@ -43,3 +43,54 @@ export const theme = [
     name: "Reddish Pink",
   },
 ];
+
+export const social = [
+  {
+    class: "fab fa-angellist",
+    name: "Angel list",
+  },
+  {
+    class: "fab fa-behance",
+    name: "Behance",
+  },
+  {
+    class: "fab fa-bitbucket",
+    name: "Bit Bucket",
+  },
+  {
+    class: "fab fa-codepen",
+    name: "Codepen",
+  },
+  {
+    class: "fab fa-github",
+    name: "Github",
+  },
+  {
+    class: "fas fa-envelope",
+    name: "Mail",
+  },
+  {
+    class: "fab fa-medium-m",
+    name: "Medium",
+  },
+  {
+    class: "fab fa-linkedin-In",
+    name: "LinkedIn",
+  },
+  {
+    class: "fab fa-stack-overflow",
+    name: "Stack Overflow",
+  },
+  {
+    class: "fab fa-tumblr",
+    name: "Tumblr",
+  },
+  {
+    class: "fab fa-twitter",
+    name: "Twitter",
+  },
+  {
+    class: "fab fa-youtube",
+    name: "Youtube",
+  },
+];
