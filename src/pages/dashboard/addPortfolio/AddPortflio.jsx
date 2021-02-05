@@ -75,6 +75,7 @@ const AddPortfolio = () => {
       theme: themes,
       font: fontfamily,
     };
+    console.log(body);
     formData.append("image", file);
 
     axios
@@ -85,7 +86,7 @@ const AddPortfolio = () => {
         console.log(response);
         if (response.data.status === "200") {
           axios
-            .put(`${link}common/portfolio`, formData, {
+            .put(`${link}common/portfolio/${response.data.id}`, formData, {
               headers: headersForm,
             })
             .then((response) => {

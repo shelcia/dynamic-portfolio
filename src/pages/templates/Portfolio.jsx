@@ -38,12 +38,14 @@ const Portfolio = ({ match }) => {
         <Loader />
       ) : (
         <React.Fragment>
-          <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-          <Intro portfolioDetails={portfolioDetails} match={match} />
-          <Projects portfolioDetails={portfolioDetails} />
-          <Skills portfolioDetails={portfolioDetails} />
-          <Works portfolioDetails={portfolioDetails} />
-          <Footer />
+          <div className={`text-${portfolioDetails.font}`}>
+            <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+            <Intro portfolioDetails={portfolioDetails} match={match} />
+            <Projects portfolioDetails={portfolioDetails} />
+            <Skills portfolioDetails={portfolioDetails} />
+            <Works portfolioDetails={portfolioDetails} />
+            <Footer />
+          </div>
         </React.Fragment>
       )}
     </React.Fragment>

@@ -35,7 +35,7 @@ const Dashboard = () => {
     <React.Fragment>
       <div
         className="container-fluid bg-dark text-light"
-        style={{ height: "100vh" }}
+        style={{ minHeight: "100vh" }}
       >
         <Navbar />
 
@@ -48,14 +48,23 @@ const Dashboard = () => {
           ) : (
             <div className="container d-flex">
               {portfolio.map((item) => (
-                <div
-                  className="card ml-0 mr-4 border border-0 rounded-0 shadow-lg pointer-cursor"
-                  style={{ width: "250px", height: "300px" }}
-                  key={item._id}
-                >
-                  <Link to={`/portfolio/${item._id}`} target="_blank">
-                    {item.name}
-                  </Link>
+                <div key={item._id}>
+                  <div
+                    className="card background ml-0 mr-4 border border-0 rounded-0 shadow-lg pointer-cursor d-flex justify-content-center align-items-center"
+                    style={{ width: "250px", height: "300px" }}
+                  >
+                    <Link
+                      to={`/portfolio/${item._id}`}
+                      target="_blank"
+                      class="h3 text-light"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                  <div className="mt-3 pr-4 d-flex justify-content-between">
+                    <button className="btn website">Download</button>
+                    <button className="btn website">Edit</button>
+                  </div>
                 </div>
               ))}
               <div

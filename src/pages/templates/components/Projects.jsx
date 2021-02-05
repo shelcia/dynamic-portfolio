@@ -8,7 +8,7 @@ const Projects = ({ portfolioDetails }) => {
   return (
     <React.Fragment>
       <div
-        className={`container-fluid bg-${portfolioDetails.color}`}
+        className={`container-fluid bg-${portfolioDetails.theme}`}
         id="projects"
       >
         <div className="row px-5 py-5 flex-column">

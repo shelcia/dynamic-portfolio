@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <React.Fragment>
-      <nav className="navbar bg-dark">
+      <nav className="navbar bg-dark shadow-lg">
         <Link className="navbar-brand py-2 text-primary" to="/">
           Dynamic Portflio.
         </Link>

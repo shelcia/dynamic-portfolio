@@ -484,32 +484,37 @@ button.website:hover {
   }
 }
 
-.text-roboto-slab {
+.text-roboto-slab * {
   font-family: "Roboto Slab", serif !important;
 }
 
-.text-raleway {
+.text-raleway * {
   font-family: "Raleway", sans-serif !important;
 }
 
-.text-inconsolata {
+.text-inconsolata * {
   font-family: "Inconsolata", monospace !important;
 }
 
-.text-lemonada {
+.text-lemonada * {
   font-family: "Lemonada", cursive !important;
 }
 
-.text-josefin-sans {
+.text-josefin-sans * {
   font-family: "Josefin Sans", sans-serif !important;
 }
 
-.text-fira-sans {
+.text-fira-sans * {
   font-family: "Fira Sans", sans-serif !important;
 }
 
 * {
   font-family: "Fira Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .login,

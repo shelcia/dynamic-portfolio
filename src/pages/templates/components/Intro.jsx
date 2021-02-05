@@ -16,7 +16,7 @@ const Intro = ({ portfolioDetails, match }) => {
             style={{ minHeight: "80vh" }}
           >
             <h1 className="display-2">Hola Amigo !!</h1>
-            <h1 className={`text-${portfolioDetails.color}`}>
+            <h1 className={`text-${portfolioDetails.theme}`}>
               {portfolioDetails.headerTitle}
             </h1>
             <p className="mt-1">{portfolioDetails.about}</p>
@@ -26,7 +26,7 @@ const Intro = ({ portfolioDetails, match }) => {
               src={`${process.env.REACT_APP_API_LINK}common/portfolio/image/${match.params.id}`}
               width="350px%"
               height="350px"
-              className={`profile-${portfolioDetails.color}`}
+              className={`profile-${portfolioDetails.theme}`}
               style={{
                 objectFit: "cover",
                 borderRadius: "50ex",

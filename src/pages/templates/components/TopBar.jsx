@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import Toggle from "./Toggle";
 
@@ -25,24 +25,24 @@ const Topbar = () => {
         <div className="collapse navbar-collapse" id="collapsibleNavbar">
           <ul className="navbar-nav ml-auto ">
             <li className="nav-item">
-              <NavLink className="nav-link" to="#projects">
+              <a className="nav-link" href="#projects">
                 Projects
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#skills">
+              <a className="nav-link" href="#skills">
                 Skills
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#works">
+              <a className="nav-link" href="#works">
                 Works
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <a className="nav-link" href="/">
                 Resume
-              </NavLink>
+              </a>
             </li>
             <li>
               <Toggle />
