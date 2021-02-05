@@ -1,9 +1,17 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { social } from "../context/TypoColor";
 
 const Intro = ({ portfolioDetails, match }) => {
   const [darkTheme] = useContext(ThemeContext);
   const className = darkTheme ? "bg-dark text-light" : "bg-light";
+
+  const findLogo = (name) => {
+    const classLogo = social.filter((item) => item.name === name);
+    // console.log(classLogo);
+    return classLogo[0].class;
+  };
+
   return (
     <React.Fragment>
       <div
@@ -15,11 +23,22 @@ const Intro = ({ portfolioDetails, match }) => {
             className="col-sm-6 d-flex flex-column justify-content-center"
             style={{ minHeight: "80vh" }}
           >
-            <h1 className="display-2">Hola Amigo !!</h1>
+            <h1 className="display-2">{portfolioDetails.name}</h1>
             <h1 className={`text-${portfolioDetails.theme}`}>
               {portfolioDetails.headerTitle}
             </h1>
             <p className="mt-1">{portfolioDetails.about}</p>
+            <div className="d-flex">
+              {portfolioDetails.socialLinks.map((social) => (
+                <a href={social.link} key={social.id}>
+                  <i
+                    className={
+                      social.name ? `${findLogo(social.name)} social` : ""
+                    }
+                  />
+                </a>
+              ))}
+            </div>
           </div>
           <div className="col-sm-6 d-flex justify-content-center align-items-center py-4">
             <img

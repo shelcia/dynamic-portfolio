@@ -496,48 +496,78 @@ button.website:hover {
   font-family: "Roboto Slab", serif !important;
 }
 
-.text-roboto-slab * i {
+.text-roboto-slab * i.skills {
   font-family: "devicon" !important;
+}
+
+.text-roboto-slab * i.far,
+.text-roboto-slab * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 .text-raleway * {
   font-family: "Raleway", sans-serif !important;
 }
 
-.text-raleway * i {
+.text-raleway * i.skillicons {
   font-family: "devicon" !important;
+}
+
+.text-raleway * i.far,
+.text-raleway * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 .text-inconsolata * {
   font-family: "Inconsolata", monospace !important;
 }
 
-.text-inconsolata * i {
+.text-inconsolata * i.skills {
   font-family: "devicon" !important;
+}
+
+.text-inconsolata * i.far,
+.text-inconsolata * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 .text-lemonada * {
   font-family: "Lemonada", cursive !important;
 }
 
-.text-lemonada * i {
+.text-lemonada * i.skills {
   font-family: "devicon" !important;
+}
+
+.text-lemonada * i.far,
+.text-lemonada * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 .text-josefin-sans * {
   font-family: "Josefin Sans", sans-serif !important;
 }
 
-.text-josefin-sans * i {
+.text-josefin-sans * i.skills {
   font-family: "devicon" !important;
+}
+
+.text-josefin-sans * i.far,
+.text-josefin-sans * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 .text-fira-sans * {
   font-family: "Fira Sans", sans-serif !important;
 }
 
-.text-fira-sans * i {
+.text-fira-sans * i.skills {
   font-family: "devicon" !important;
+}
+
+.text-fira-sans * i.far,
+.text-fira-sans * i.social {
+  font-family: "Font Awesome 5 Free" !important;
 }
 
 * {

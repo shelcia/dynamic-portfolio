@@ -34,7 +34,7 @@ const Works = ({ portfolioDetails }) => {
                   key={index}
                 >
                   <div className="timeline-arrow"></div>
-                  <h2 className="h5 mb-0">{port.name}</h2>
+                  <h2 className="mb-0 text-15">{port.name}</h2>
                   <span className="small text-gray">
                     <i className="far fa-clock mr-1"></i>
                     {port.start ? convertDate(port.start) : ""} -{" "}

@@ -38,7 +38,7 @@ const Skills = ({ portfolioDetails }) => {
                       className={`list-group-item ${className} border border-0 text-15 `}
                     >
                       <i
-                        className={`${findLogo(skill)} icons`}
+                        className={`${findLogo(skill)} icons skillicons`}
                         style={{ fontFamily: "devicon !important" }}
                       ></i>{" "}
                       <span className="pl-5">{skill}</span>
@@ -55,7 +55,7 @@ const Skills = ({ portfolioDetails }) => {
                       className={`list-group-item ${className} border border-0 text-15 `}
                     >
                       <i
-                        className={`${findLogo(skill)} icons`}
+                        className={`${findLogo(skill)} icons skillicons`}
                         style={{ fontFamily: "devicon !important" }}
                       ></i>{" "}
                       <span className="pl-5">{skill}</span>

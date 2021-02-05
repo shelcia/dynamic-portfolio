@@ -8,48 +8,72 @@
 .text-roboto-slab {
   * {
     font-family: "Roboto Slab", serif !important;
-    i {
+    i.skills {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
 .text-raleway {
   * {
     font-family: "Raleway", sans-serif !important;
-    i {
+    i.skillicons {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
 .text-inconsolata {
   * {
     font-family: "Inconsolata", monospace !important;
-    i {
+    i.skills {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
 .text-lemonada {
   * {
     font-family: "Lemonada", cursive !important;
-    i {
+    i.skills {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
 .text-josefin-sans {
   * {
     font-family: "Josefin Sans", sans-serif !important;
-    i {
+    i.skills {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
 .text-fira-sans {
   * {
     font-family: "Fira Sans", sans-serif !important;
-    i {
+    i.skills {
       font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
     }
   }
 }
