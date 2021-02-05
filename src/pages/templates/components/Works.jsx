@@ -17,7 +17,10 @@ const Works = ({ portfolioDetails }) => {
 
   return (
     <React.Fragment>
-      <div className={`container-fluid bg-${portfolioDetails.theme}`}>
+      <div
+        className={`container-fluid bg-${portfolioDetails.theme}`}
+        id="works"
+      >
         <div className="row px-5 py-5">
           <h1 className="display-3"> Works </h1>
         </div>
@@ -35,7 +38,8 @@ const Works = ({ portfolioDetails }) => {
                   <span className="small text-gray">
                     <i className="far fa-clock mr-1"></i>
                     {port.start ? convertDate(port.start) : ""} -{" "}
-                    {port.end ? convertDate(port.end) : ""}
+                    {port.end && !port.current ? convertDate(port.end) : ""}
+                    {port.current && "Present"}
                   </span>
                   <p className="text-small mt-2 font-weight-light">
                     {port.desc}

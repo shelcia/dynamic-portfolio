@@ -8,7 +8,9 @@ const Footer = () => {
     <React.Fragment>
       <div className={`container-fluid ${className} py-4`}>
         <div className="text-center">
-          <p className="mb-0">Developed by Shelcia</p>
+          <p className="mb-0 text-15">
+            Developed with Love and React by Shelcia
+          </p>
         </div>
       </div>
     </React.Fragment>

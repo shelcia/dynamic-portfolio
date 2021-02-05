@@ -29,6 +29,10 @@ body {
   );
 }
 
+.display-3 {
+  font-weight: 400;
+}
+
 button.normal {
   padding: 0.75rem 1.5rem;
   border-radius: 0px;
@@ -48,4 +52,25 @@ button.normal {
 
 label.h3 {
   margin-top: 1.5rem;
+}
+
+.icons {
+  // background: rgb(33, 33, 33);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(33, 33, 33, 1) 0%,
+  //   rgba(83, 83, 83, 1) 100%
+  // );
+  border-radius: 50ex;
+  padding: 0.5rem;
+  box-shadow: 1px 1px 1px #00000029;
+  font-size: 1.5rem;
+  position: absolute;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }

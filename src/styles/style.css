@@ -9,12 +9,20 @@
   background-color: #151515 !important;
 }
 
+.bg-light {
+  background-color: #f7f7f7 !important;
+}
+
 .pointer-cursor {
   cursor: pointer !important;
 }
 
 .text-primary {
   color: #0cba00 !important;
+}
+
+.text-15 {
+  font-size: 1.5rem !important;
 }
 
 .bg-greenishblue {
@@ -488,24 +496,48 @@ button.website:hover {
   font-family: "Roboto Slab", serif !important;
 }
 
+.text-roboto-slab * i {
+  font-family: "devicon" !important;
+}
+
 .text-raleway * {
   font-family: "Raleway", sans-serif !important;
+}
+
+.text-raleway * i {
+  font-family: "devicon" !important;
 }
 
 .text-inconsolata * {
   font-family: "Inconsolata", monospace !important;
 }
 
+.text-inconsolata * i {
+  font-family: "devicon" !important;
+}
+
 .text-lemonada * {
   font-family: "Lemonada", cursive !important;
+}
+
+.text-lemonada * i {
+  font-family: "devicon" !important;
 }
 
 .text-josefin-sans * {
   font-family: "Josefin Sans", sans-serif !important;
 }
 
+.text-josefin-sans * i {
+  font-family: "devicon" !important;
+}
+
 .text-fira-sans * {
   font-family: "Fira Sans", sans-serif !important;
+}
+
+.text-fira-sans * i {
+  font-family: "devicon" !important;
 }
 
 * {
@@ -521,6 +553,10 @@ body {
 .background {
   background: #0cba00;
   background: linear-gradient(45deg, #0cba00 0%, #00ffd8 100%);
+}
+
+.display-3 {
+  font-weight: 400;
 }
 
 button.normal {
@@ -544,5 +580,30 @@ button.normal:hover {
 
 label.h3 {
   margin-top: 1.5rem;
+}
+
+.icons {
+  border-radius: 50ex;
+  padding: 0.5rem;
+  -webkit-box-shadow: 1px 1px 1px #00000029;
+          box-shadow: 1px 1px 1px #00000029;
+  font-size: 1.5rem;
+  position: absolute;
+  -webkit-animation: spin 4s linear infinite;
+          animation: spin 4s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */

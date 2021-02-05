@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { NavLink } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import Toggle from "./Toggle";
 
@@ -39,12 +38,7 @@ const Topbar = () => {
                 Works
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Resume
-              </a>
-            </li>
-            <li>
+            <li className="nav-item ml-4">
               <Toggle />
             </li>
           </ul>

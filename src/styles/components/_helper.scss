@@ -3,11 +3,18 @@ $background: rgb(21, 21, 21);
 .bg-dark {
   background-color: $background !important;
 }
+.bg-light {
+  background-color: rgb(247, 247, 247) !important;
+}
 .pointer-cursor {
   cursor: pointer !important;
 }
 .text-primary {
   color: rgb(12, 186, 0) !important;
+}
+
+.text-15 {
+  font-size: 1.5rem !important;
 }
 
 // COLOR THEME
