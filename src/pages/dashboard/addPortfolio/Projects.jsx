@@ -8,7 +8,6 @@ const Projects = ({ projects, setProjects }) => {
           ...project,
           [e.target.name]: e.target.value,
         };
-        console.log(project);
         return updatedProject;
       }
       return project;
@@ -24,7 +23,7 @@ const Projects = ({ projects, setProjects }) => {
         id: Date.now(),
         title: "",
         desc: "",
-        link: "",
+        links: "",
       },
     ];
     setProjects(newProject);
@@ -64,12 +63,18 @@ const Projects = ({ projects, setProjects }) => {
             />
             <label htmlFor="title">Project Link</label>
             <input
+              // type="text"
+              // name="link"
+              // className="form-control mb-3"
+              // placeholder="https://github.com/shelcia/dynamic-portflio"
+              // value={project.link}
+              // onChange={(e) => handleInputs(e, index)}
               type="text"
-              name="link"
+              name="links"
               className="form-control mb-3"
-              placeholder="https://github.com/shelcia/dynamic-portflio"
+              placeholder="lorem ipsum"
               value={project.link}
-              onChange={(e) => handleInputs(e, index)}
+              onChange={(e) => handleInputs(e, project.id)}
             />
             <div className="text-right w-100">
               {index !== 0 && (

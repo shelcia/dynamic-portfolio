@@ -92,7 +92,7 @@
           box-shadow: 8px 12px 1px #d50099;
 }
 
-.text-shadow-greenishyellow {
+.text-shadow-reddishpink {
   text-shadow: 5px 5px 1px #d50099;
   font-weight: 600;
 }
@@ -542,7 +542,7 @@ button.website:hover {
   font-family: "Inconsolata", monospace !important;
 }
 
-.text-inconsolata * i.skills {
+.text-inconsolata * i.skillicons {
   font-family: "devicon" !important;
 }
 
@@ -555,7 +555,7 @@ button.website:hover {
   font-family: "Lemonada", cursive !important;
 }
 
-.text-lemonada * i.skills {
+.text-lemonada * i.skillicons {
   font-family: "devicon" !important;
 }
 
@@ -568,7 +568,7 @@ button.website:hover {
   font-family: "Josefin Sans", sans-serif !important;
 }
 
-.text-josefin-sans * i.skills {
+.text-josefin-sans * i.skillicons {
   font-family: "devicon" !important;
 }
 
@@ -581,7 +581,7 @@ button.website:hover {
   font-family: "Fira Sans", sans-serif !important;
 }
 
-.text-fira-sans * i.skills {
+.text-fira-sans * i.skillicons {
   font-family: "devicon" !important;
 }
 

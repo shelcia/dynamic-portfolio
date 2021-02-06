@@ -19,7 +19,7 @@ const AddPortfolio = () => {
       id: Date.now(),
       title: "",
       desc: "",
-      link: "",
+      links: "",
     },
   ]);
   const [experiences, setExperience] = useState([

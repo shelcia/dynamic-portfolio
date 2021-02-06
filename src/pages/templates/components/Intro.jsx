@@ -20,7 +20,7 @@ const Intro = ({ portfolioDetails, match }) => {
       >
         <div className="row  px-5 pt-4" style={{ minHeight: "80vh" }}>
           <div
-            className="col-sm-6 d-flex flex-column justify-content-center"
+            className="col-sm-7 d-flex flex-column justify-content-center"
             style={{ minHeight: "80vh" }}
           >
             <h1 className={`display-2 text-shadow-${portfolioDetails.theme}`}>
@@ -42,10 +42,10 @@ const Intro = ({ portfolioDetails, match }) => {
               ))}
             </div>
           </div>
-          <div className="col-sm-6 d-flex justify-content-center align-items-center py-4">
+          <div className="col-sm-5 d-flex justify-content-center align-items-center py-4">
             <img
               src={`${process.env.REACT_APP_API_LINK}common/portfolio/image/${match.params.id}`}
-              width="350px%"
+              width="350px"
               height="350px"
               className={`profile-${portfolioDetails.theme}`}
               style={{

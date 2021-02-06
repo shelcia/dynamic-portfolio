@@ -9,10 +9,10 @@ const Skills = ({ portfolioDetails }) => {
   if (portfolioDetails !== {}) {
     var col1 = portfolioDetails.skills.slice(
       0,
-      portfolioDetails.skills.length / 2
+      portfolioDetails.skills.length / 2 + 1
     );
     var col2 = portfolioDetails.skills.slice(
-      portfolioDetails.skills.length / 2,
+      portfolioDetails.skills.length / 2 + 1,
       portfolioDetails.skills.length
     );
   }
