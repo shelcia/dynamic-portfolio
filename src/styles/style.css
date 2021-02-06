@@ -38,6 +38,11 @@
           box-shadow: 8px 12px 1px #01b399;
 }
 
+.text-shadow-greenishblue {
+  text-shadow: 5px 5px 1px #01b399;
+  font-weight: 600;
+}
+
 .bg-bluieshviolet {
   background-color: #7601ea !important;
 }
@@ -49,6 +54,11 @@
 .profile-bluieshviolet {
   -webkit-box-shadow: 8px 12px 1px #7601ea;
           box-shadow: 8px 12px 1px #7601ea;
+}
+
+.text-shadow-bluieshviolet {
+  text-shadow: 5px 5px 1px #7601ea;
+  font-weight: 600;
 }
 
 .bg-greenishyellow {
@@ -64,6 +74,11 @@
           box-shadow: 8px 12px 1px #a5c600;
 }
 
+.text-shadow-greenishyellow {
+  text-shadow: 5px 5px 1px #a5c600;
+  font-weight: 600;
+}
+
 .bg-reddishpink {
   background-color: #d50099 !important;
 }
@@ -75,6 +90,11 @@
 .profile-reddishpink {
   -webkit-box-shadow: 8px 12px 1px #d50099;
           box-shadow: 8px 12px 1px #d50099;
+}
+
+.text-shadow-greenishyellow {
+  text-shadow: 5px 5px 1px #d50099;
+  font-weight: 600;
 }
 
 .toggleWrapper input {
@@ -586,7 +606,7 @@ body {
 }
 
 .display-3 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 button.normal {

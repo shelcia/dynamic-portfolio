@@ -23,7 +23,9 @@ const Intro = ({ portfolioDetails, match }) => {
             className="col-sm-6 d-flex flex-column justify-content-center"
             style={{ minHeight: "80vh" }}
           >
-            <h1 className="display-2">{portfolioDetails.name}</h1>
+            <h1 className={`display-2 text-shadow-${portfolioDetails.theme}`}>
+              {portfolioDetails.name}
+            </h1>
             <h1 className={`text-${portfolioDetails.theme}`}>
               {portfolioDetails.headerTitle}
             </h1>

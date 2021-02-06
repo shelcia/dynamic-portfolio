@@ -29,12 +29,17 @@ const Projects = ({ portfolioDetails }) => {
                 >
                   <h1 className="card-text">{project.title}</h1>
                 </div>
+                <ProjectModal
+                  title={project.title}
+                  desc={project.desc}
+                  link={project.link}
+                  theme={portfolioDetails.theme}
+                />
               </div>
             ))}
           </div>
         </div>
       </div>
-      <ProjectModal />
     </React.Fragment>
   );
 };

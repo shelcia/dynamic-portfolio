@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
-const ProjectModal = () => {
+const ProjectModal = ({ title, desc, link, theme }) => {
   const [darkTheme] = useContext(ThemeContext);
   const className = darkTheme ? "bg-dark text-white" : "bg-white";
   return (
@@ -10,23 +10,29 @@ const ProjectModal = () => {
         <div className="modal-dialog modal-lg modal-dialog-centered">
           <div className={`modal-content ${className}`}>
             <div className="modal-header border border-0">
-              <h4 className="modal-title">Modal Heading</h4>
-              <button type="button" className="close" data-dismiss="modal">
+              <h2 className="modal-title">{title}</h2>
+              <button
+                type="button"
+                className={`close text-${theme}`}
+                data-dismiss="modal"
+                style={{
+                  textShadow: "none",
+                  outline: "none",
+                  fontSize: "2rem",
+                }}
+              >
                 &times;
               </button>
             </div>
 
-            <div className="modal-body">Modal body..</div>
-
-            {/* <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-danger"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-            </div> */}
+            <div className="modal-body">
+              <p>{desc}</p>
+              {link && (
+                <a href={link} target="blank">
+                  {link}
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

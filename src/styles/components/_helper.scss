@@ -23,6 +23,7 @@ $bluieshviolet: rgb(118, 1, 234);
 $greenishyellow: rgb(165, 198, 0);
 $reddishpink: rgb(213, 0, 153);
 
+// GREENISH BLUE
 .bg-greenishblue {
   background-color: $greenishblue !important;
 }
@@ -32,7 +33,11 @@ $reddishpink: rgb(213, 0, 153);
 .profile-greenishblue {
   box-shadow: 8px 12px 1px $greenishblue;
 }
-
+.text-shadow-greenishblue {
+  text-shadow: 5px 5px 1px $greenishblue;
+  font-weight: 600;
+}
+// BLUEISH VIOLET
 .bg-bluieshviolet {
   background-color: $bluieshviolet !important;
 }
@@ -42,7 +47,11 @@ $reddishpink: rgb(213, 0, 153);
 .profile-bluieshviolet {
   box-shadow: 8px 12px 1px $bluieshviolet;
 }
-
+.text-shadow-bluieshviolet {
+  text-shadow: 5px 5px 1px $bluieshviolet;
+  font-weight: 600;
+}
+// GREENISH YELLOW
 .bg-greenishyellow {
   background-color: $greenishyellow !important;
 }
@@ -52,7 +61,11 @@ $reddishpink: rgb(213, 0, 153);
 .profile-greenishyellow {
   box-shadow: 8px 12px 1px $greenishyellow;
 }
-
+.text-shadow-greenishyellow {
+  text-shadow: 5px 5px 1px $greenishyellow;
+  font-weight: 600;
+}
+// REDDISH PINK
 .bg-reddishpink {
   background-color: $reddishpink !important;
 }
@@ -61,4 +74,8 @@ $reddishpink: rgb(213, 0, 153);
 }
 .profile-reddishpink {
   box-shadow: 8px 12px 1px $reddishpink;
+}
+.text-shadow-greenishyellow {
+  text-shadow: 5px 5px 1px $reddishpink;
+  font-weight: 600;
 }

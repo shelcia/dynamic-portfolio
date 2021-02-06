@@ -8,6 +8,7 @@ const Projects = ({ projects, setProjects }) => {
           ...project,
           [e.target.name]: e.target.value,
         };
+        console.log(project);
         return updatedProject;
       }
       return project;
