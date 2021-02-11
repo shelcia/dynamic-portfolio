@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 @import "./components/helper";
 @import "./components/toggle";
 @import "./components/timeline";
@@ -12,8 +12,7 @@ $white: rgba(255, 255, 255, 0.87);
 $primary: rgba(0, 0, 0, 0.85);
 
 * {
-  // font-family: "Fira Sans", sans-serif;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Patrick Hand", cursive;
   scroll-behavior: smooth;
 }
 body {
@@ -32,11 +31,11 @@ body {
 }
 
 button.normal {
-  padding: 0.75rem 1.5rem;
+  padding: 0.65rem 1.4rem;
   border-radius: 0px;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   text-transform: uppercase;
-  border: 1.2px solid $primary;
+  border: 2px solid $primary;
   color: $primary;
   box-shadow: 0px 0px 0px $primary inset, -0px 0px 0px $primary inset,
     0px 0px 0px black;

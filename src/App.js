@@ -7,6 +7,7 @@ import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
 import Portfolio from "./pages/templates/Portfolio";
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
 import Verification from "./pages/auth/Verification";
+import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 
 const App = () => {
   const isAuthenticated = () => {
@@ -42,6 +43,7 @@ const App = () => {
               exact
               component={AddPortfolio}
             />
+            <Route path="/edit-portfolio/:id" exact component={EditPortfolio} />
             <Route path="/portfolio/:id" exact component={Portfolio} />
           </Switch>
         </ThemeProvider>
