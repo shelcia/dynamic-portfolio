@@ -39,7 +39,7 @@ button.website {
   color: $white;
   transition: all 0.2s ease-in;
   &:hover {
-    color: rgb(12, 186, 0);
+    color: rgba(0, 0, 0, 0.85);
     background-color: $white;
   }
 }

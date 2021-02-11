@@ -60,7 +60,7 @@ const Login = ({ setIsLogin }) => {
   };
   return (
     <React.Fragment>
-      <div className="card p-4 login border border-0 rounded-0 shadow">
+      <div className="card p-4 login border border-0 rounded-0 shadow-sm">
         <div className="card-body">
           <form onSubmit={onSubmit}>
             <div className="form-group">

@@ -29,6 +29,10 @@
   font-size: 1.5rem !important;
 }
 
+.display-3 {
+  font-weight: 500;
+}
+
 .bg-greenishblue {
   background-color: #01b399 !important;
 }
@@ -393,7 +397,7 @@ button.website {
 }
 
 button.website:hover {
-  color: #0cba00;
+  color: rgba(0, 0, 0, 0.85);
   background-color: rgba(255, 255, 255, 0.87);
 }
 
@@ -608,15 +612,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  -webkit-animation: bg 10s linear infinite alternate;
+          animation: bg 10s linear infinite alternate;
 }
 
-.login {
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-}
-
-.display-3 {
-  font-weight: 500;
+.home .login {
+  background: rgba(255, 255, 255, 0.551);
+  background-blend-mode: lighten;
 }
 
 button.normal {
@@ -624,18 +626,18 @@ button.normal {
   border-radius: 0px;
   font-size: 1.5rem;
   text-transform: uppercase;
-  border: 1.2px solid #0cba00;
-  color: #0cba00;
-  -webkit-box-shadow: 0px 0px 0px #0cba00 inset, 0px 0px 0px #0cba00 inset, 3px 3px 3px black;
-          box-shadow: 0px 0px 0px #0cba00 inset, 0px 0px 0px #0cba00 inset, 3px 3px 3px black;
+  border: 1.2px solid rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
+          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 
 button.normal:hover {
   color: white;
-  -webkit-box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
-          box-shadow: 100px 0px 0px #0cba00 inset, -100px 0px 0px #0cba00 inset, 3px 3px 3px black;
+  -webkit-box-shadow: 100px 0px 0px rgba(0, 0, 0, 0.85) inset, -100px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
+          box-shadow: 100px 0px 0px rgba(0, 0, 0, 0.85) inset, -100px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
 }
 
 label.h3 {
@@ -664,6 +666,18 @@ label.h3 {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes bg {
+  100% {
+    background-position: bottom;
+  }
+}
+
+@keyframes bg {
+  100% {
+    background-position: bottom;
   }
 }
 /*# sourceMappingURL=style.css.map */

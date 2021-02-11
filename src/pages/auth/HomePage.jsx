@@ -15,8 +15,11 @@ const HomePage = () => {
         className="container-fluid background home"
         style={{ height: "100vh" }}
       >
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark shadow-lg">
-          <Link className="navbar-brand py-2" to="/">
+        <nav
+          className="navbar text-light"
+          style={{ backgroundColor: "transparent !important" }}
+        >
+          <Link className="navbar-brand py-2 text-light" to="/">
             Dynamic Portflio.
           </Link>
         </nav>
