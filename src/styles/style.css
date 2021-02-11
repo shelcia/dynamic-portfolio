@@ -5,6 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.background {
+  background-color: #ebebeb !important;
+}
+
 .bg-dark {
   background-color: #151515 !important;
 }
@@ -348,15 +352,15 @@ li.timeline-item::before {
 
 .form-group .form-control {
   border: none;
-  background-color: rgba(255, 0, 0, 0) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.87);
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 0px;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.8);
   padding-left: 0px;
 }
 
 .form-group .form-control:focus {
-  border-bottom: 1.3px solid white;
+  border-bottom: 1.3px solid black;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -371,8 +375,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.87) !important;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.87);
+  border-bottom: 1px solid black !important;
+  -webkit-text-fill-color: black;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
           box-shadow: 0 0 0px 1000px transparent inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
@@ -599,10 +603,16 @@ body {
   overflow-x: hidden;
 }
 
-.login,
-.background {
-  background: #0cba00;
-  background: linear-gradient(45deg, #0cba00 0%, #00ffd8 100%);
+.home {
+  background-image: url("https://cdn.discordapp.com/attachments/795010536365752320/809517346725036042/ellen-qin-fIMqGvVaATk-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.login {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .display-3 {

@@ -1,10 +1,11 @@
 import React from "react";
+import HashLoader from "react-spinners/HashLoader";
 
 const ReactLoader = () => {
   return (
     <React.Fragment>
-      <div>
-        <h1> ReactLoader </h1>
+      <div className="d-flex justify-content-center align-items-center">
+        <HashLoader size={100} color="green" />
       </div>
     </React.Fragment>
   );

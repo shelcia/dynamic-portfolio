@@ -1,5 +1,8 @@
 $background: rgb(21, 21, 21);
 
+.background {
+  background-color: rgb(235, 235, 235) !important;
+}
 .bg-dark {
   background-color: $background !important;
 }

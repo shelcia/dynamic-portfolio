@@ -7,7 +7,7 @@
 @import "./components/dropzone";
 @import "./components/typography";
 
-$background: rgb(21, 21, 21);
+$background: rgb(232, 232, 232);
 $white: rgba(255, 255, 255, 0.87);
 $primary: rgb(12, 186, 0);
 
@@ -18,15 +18,16 @@ $primary: rgb(12, 186, 0);
 body {
   overflow-x: hidden;
 }
+.home {
+  background-image: url("https://cdn.discordapp.com/attachments/795010536365752320/809517346725036042/ellen-qin-fIMqGvVaATk-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.login,
-.background {
-  background: rgb(12, 186, 0);
-  background: linear-gradient(
-    45deg,
-    rgba(12, 186, 0, 1) 0%,
-    rgba(0, 255, 216, 1) 100%
-  );
+.login {
+  // background: "#fff";
+  backdrop-filter: blur(10px);
 }
 
 .display-3 {

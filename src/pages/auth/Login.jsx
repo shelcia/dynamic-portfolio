@@ -64,7 +64,7 @@ const Login = ({ setIsLogin }) => {
         <div className="card-body">
           <form onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="usr">Email:</label>
+              <label htmlFor="usr">Email</label>
               <input
                 type="text"
                 className="form-control"
@@ -73,7 +73,7 @@ const Login = ({ setIsLogin }) => {
               />
             </div>
             <div className="form-group mt-4">
-              <label htmlFor="pwd">Password:</label>
+              <label htmlFor="pwd">Password</label>
               <input
                 type="password"
                 className="form-control"

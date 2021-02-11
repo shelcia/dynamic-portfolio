@@ -12,7 +12,7 @@ const HomePage = () => {
     <React.Fragment>
       <ToastContainer />
       <div
-        className="container-fluid bg-dark text-light"
+        className="container-fluid background home"
         style={{ height: "100vh" }}
       >
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark shadow-lg">

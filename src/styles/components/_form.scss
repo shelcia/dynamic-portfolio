@@ -3,13 +3,13 @@ $white: rgba(255, 255, 255, 0.87);
 .form-group {
   .form-control {
     border: none;
-    background-color: rgba(255, 0, 0, 0) !important;
-    border-bottom: 1px solid $white;
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
     border-radius: 0px;
-    color: $white;
+    color: rgba(0, 0, 0, 0.8);
     padding-left: 0px;
     &:focus {
-      border-bottom: 1.3px solid white;
+      border-bottom: 1.3px solid rgba(0, 0, 0, 1);
       box-shadow: none;
     }
   }
@@ -26,8 +26,8 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   //   border: 1px solid green;
   border: none !important;
-  border-bottom: 1px solid $white !important;
-  -webkit-text-fill-color: $white;
+  border-bottom: 1px solid rgb(0, 0, 0) !important;
+  -webkit-text-fill-color: rgb(0, 0, 0);
   box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }

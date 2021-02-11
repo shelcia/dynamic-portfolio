@@ -58,7 +58,7 @@ const Signup = ({ setIsLogin }) => {
         <div className="card-body">
           <form onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="usr">Name:</label>
+              <label htmlFor="usr">Name</label>
               <input type="text" className="form-control" ref={name} required />
             </div>
             <div className="form-group">
@@ -71,7 +71,7 @@ const Signup = ({ setIsLogin }) => {
               />
             </div>
             <div className="form-group mt-4">
-              <label htmlFor="pwd">Password:</label>
+              <label htmlFor="pwd">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -82,11 +82,11 @@ const Signup = ({ setIsLogin }) => {
             <div className="text-center pt-2">
               {loading ? (
                 <button className="btn website disabled" type="submit" disabled>
-                  Login
+                  Signup
                 </button>
               ) : (
                 <button className="btn website" type="submit">
-                  Login
+                  Signup
                 </button>
               )}
             </div>
