@@ -16,14 +16,14 @@ const Profile = ({ file, setFile }) => {
     };
     fileReader.readAsDataURL(uploadedFile);
     setIsPreviewAvailable(uploadedFile.name.match(/\.(jpeg|jpg|png)$/));
-    dropRef.current.style.border = "2px dashed rgb(12, 186, 0)";
+    dropRef.current.style.border = "2px dashed black";
   };
 
   const updateBorder = (dragState) => {
     if (dragState === "over") {
-      dropRef.current.style.border = "2px solid rgb(12, 186, 0)";
+      dropRef.current.style.border = "2px solid black";
     } else if (dragState === "leave") {
-      dropRef.current.style.border = "2px dashed rgb(12, 186, 0)";
+      dropRef.current.style.border = "2px dashed black";
     }
   };
   return (

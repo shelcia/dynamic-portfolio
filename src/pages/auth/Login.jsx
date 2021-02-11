@@ -83,11 +83,11 @@ const Login = ({ setIsLogin }) => {
             </div>
             <div className="text-center pt-4">
               {loading ? (
-                <button className="btn website disabled" type="submit" disabled>
+                <button className="btn normal disabled" type="submit" disabled>
                   Login
                 </button>
               ) : (
-                <button className="btn website" type="submit">
+                <button className="btn normal" type="submit">
                   Login
                 </button>
               )}

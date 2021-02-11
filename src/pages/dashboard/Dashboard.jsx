@@ -34,19 +34,19 @@ const Dashboard = () => {
   return (
     <React.Fragment>
       <div
-        className="container-fluid bg-dark text-light"
+        className="container-fluid background"
         style={{ minHeight: "100vh" }}
       >
         <Navbar />
 
         <div className="container mt-3 ">
-          <h1 className="mt-2 mb-5 display-2">
+          <h1 className="mt-2 mb-5 display-4">
             Hi <span className="text-capitalize">{name}</span>!!
           </h1>
           {isLoading ? (
             <ReactLoader />
           ) : (
-            <div className="container d-flex">
+            <div className="container d-flex" style={{ flexWrap: "wrap" }}>
               {portfolio.map((item) => (
                 <div key={item._id}>
                   <div
@@ -56,24 +56,32 @@ const Dashboard = () => {
                     <Link
                       to={`/portfolio/${item._id}`}
                       target="_blank"
-                      class="h3 text-light"
+                      class="h3 text-dark"
                     >
                       {item.name}
                     </Link>
                   </div>
                   <div className="mt-3 pr-4 d-flex justify-content-between">
-                    <button className="btn website">Download</button>
-                    <button className="btn website">Edit</button>
+                    <button className="btn normal" title="Download Portfolio">
+                      <i className="fas fa-download"></i>
+                    </button>
+                    <button className="btn normal" title="Edit Portfolio">
+                      <i className="fas fa-edit"></i>
+                    </button>
+                    <button className="btn normal" title="Share Portfolio">
+                      <i className="fas fa-share"></i>
+                    </button>
                   </div>
                 </div>
               ))}
               <div
                 className="card background ml-0 mr-4 border border-0 rounded-0 shadow-lg d-flex justify-content-center align-items-center pointer-cursor"
                 style={{ width: "250px", height: "300px" }}
+                title="Create Portfolio"
               >
                 <Link to="/add-portfolio">
                   <i
-                    className="fas fa-plus text-light"
+                    className="fas fa-plus text-dark"
                     style={{ fontSize: "100px" }}
                   ></i>
                 </Link>

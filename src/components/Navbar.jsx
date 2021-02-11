@@ -8,7 +8,7 @@ const Navbar = () => {
         className="navbar"
         style={{ backgroundColor: "transparent !important" }}
       >
-        <Link className="navbar-brand py-2 text-primary" to="/">
+        <Link className="navbar-brand py-2 text-dark" to="/">
           Dynamic Portflio.
         </Link>
         <ul className="navbar-nav ml-auto">

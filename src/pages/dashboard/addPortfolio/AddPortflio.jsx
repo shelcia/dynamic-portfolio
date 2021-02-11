@@ -7,6 +7,8 @@ import SkillSelect from "./SkillsSelect";
 import { theme, font } from "../../templates/context/TypoColor";
 import SocialLinks from "./SocialLinks";
 import axios from "axios";
+import Navbar from "../../../components/Navbar";
+import { Link } from "react-router-dom";
 
 const AddPortfolio = () => {
   const [file, setFile] = useState(null);
@@ -105,23 +107,22 @@ const AddPortfolio = () => {
 
   return (
     <React.Fragment>
-      <div
-        className="container-fluid bg-dark text-light"
-        style={{ height: "100vh" }}
-      >
+      <div className="container-fluid background" style={{ height: "100vh" }}>
+        <Navbar />
         <div className="container">
           <div className="row px-2 pt-5 flex-column">
             <div
-              className="card bg-dark py-3 px-5 border-0 border rounded-0 shadow-lg"
-              style={{ overflowY: "scroll", height: "90vh" }}
+              className="card background py-3 px-5 border-0 border rounded-0 shadow-lg"
+              style={{ overflowY: "scroll", height: "80vh" }}
             >
               <div className="d-flex justify-content-between align-items-center">
-                <h2 className="display-3 text-primary">Add Portfolio</h2>
-                <button type="button" className="btn normal">
-                  Go Back
-                </button>
+                <h2 className="display-3 text-dark">Add Portfolio</h2>
+                <Link to="/dashboard">
+                  <button type="button" className="btn normal">
+                    Go Back
+                  </button>
+                </Link>
               </div>
-              <hr style={{ borderColor: "#fff5" }} />
               <form onSubmit={onSubmit}>
                 <div className="form-group">
                   <label htmlFor="name" className="h3">
