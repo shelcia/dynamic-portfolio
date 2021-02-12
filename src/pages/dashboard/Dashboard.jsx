@@ -65,9 +65,11 @@ const Dashboard = () => {
                     <button className="btn normal" title="Download Portfolio">
                       <i className="fas fa-download"></i>
                     </button>
-                    <button className="btn normal" title="Edit Portfolio">
-                      <i className="fas fa-edit"></i>
-                    </button>
+                    <Link to={`/edit-portfolio/${item._id}`} target="_blank">
+                      <button className="btn normal" title="Edit Portfolio">
+                        <i className="fas fa-edit"></i>
+                      </button>
+                    </Link>
                     <button className="btn normal" title="Share Portfolio">
                       <i className="fas fa-share"></i>
                     </button>

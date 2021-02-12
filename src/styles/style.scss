@@ -60,6 +60,10 @@ label.h3 {
   animation: spin 4s linear infinite;
 }
 
+.fa,
+.fas {
+  font-weight: 900;
+}
 @keyframes spin {
   100% {
     transform: rotate(360deg);

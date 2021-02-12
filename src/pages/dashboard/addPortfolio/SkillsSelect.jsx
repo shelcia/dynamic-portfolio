@@ -42,7 +42,7 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
         <div className="text-light mb-2">
           {selectedSkills.map((skill, index) => (
             <span
-              className="badge badge-success px-3 py-2 mr-2 mb-1 rounded-sm  border border-success shadow-sm"
+              className="badge badge-dark px-3 py-2 mr-2 mb-1 rounded-sm  border border-dark shadow-sm"
               key={index}
               style={{ fontSize: "0.9rem" }}
             >
@@ -61,12 +61,12 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
           value={skill}
           onChange={(e) => setSkill(e.target.value)}
         />
-        <ul className="list-group shadow-lg">
+        <ul className="list-group background shadow-lg">
           {filtered !== [] &&
             filtered.map((skill, index) => (
               <li
                 key={index}
-                className="list-group-item bg-dark pointer-cursor"
+                className="list-group-item background pointer-cursor"
                 onClick={() => addSkill(skill)}
               >
                 {skill.name}
