@@ -63,16 +63,10 @@ const Projects = ({ projects, setProjects }) => {
             />
             <label htmlFor="title">Project Link</label>
             <input
-              // type="text"
-              // name="link"
-              // className="form-control mb-3"
-              // placeholder="https://github.com/shelcia/dynamic-portflio"
-              // value={project.link}
-              // onChange={(e) => handleInputs(e, index)}
               type="text"
               name="links"
               className="form-control mb-3"
-              placeholder="lorem ipsum"
+              placeholder="https://github.com/shelcia/dynamic-portflio"
               value={project.link}
               onChange={(e) => handleInputs(e, project.id)}
             />
