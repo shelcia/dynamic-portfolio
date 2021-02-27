@@ -56,7 +56,7 @@ const Dashboard = () => {
                     <Link
                       to={`/portfolio/${item._id}`}
                       target="_blank"
-                      class="h3 text-dark"
+                      className="h3 text-dark"
                     >
                       {item.name}
                     </Link>
