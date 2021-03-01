@@ -8,9 +8,11 @@ const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
   const token = localStorage.getItem("dynamic-token");
   const id = localStorage.getItem("dynamic-id");
+
+  const link = process.env.REACT_APP_API_LINK;
+
   const [isLoading, setLoading] = useState(true);
   const [portfolio, setPortfolio] = useState([]);
-  const link = process.env.REACT_APP_API_LINK;
 
   useEffect(() => {
     const ac = new AbortController();
