@@ -6,7 +6,7 @@ const Topbar = () => {
       <nav className="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-dark shadow">
         <div className="container">
           <a className="navbar-brand" href="/">
-            ILLAKA.
+            <b>ILLAKA.</b>
           </a>
           <button
             className="navbar-toggler"

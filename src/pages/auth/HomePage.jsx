@@ -1,58 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+// import { Link } from "react-router-dom";
+import Slider from "react-slick";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Topbar from "../../components/Topbar";
+import AboutUs from "../../components/LandingPage/AboutUs";
+import Header from "../../components/LandingPage/Header";
+import Topbar from "../../components/LandingPage/Topbar";
+
 // import Login from "./Login";
 // import Signup from "./Signup";
 
 const HomePage = () => {
   // const [isLogin, setIsLogin] = useState(true);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <React.Fragment>
       <ToastContainer />
       <Topbar />
-      <header className="section section-lg bg-dark">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="display-2 text-center mb-5 text-light">
-                The tool which allows you to create Dynamic Portfolio with no
-                Coding
-              </h3>
-              <p className="text-center">
-                Bonus: Free Hosting on Netlify and it is OPEN SOURCE{" "}
-              </p>
-            </div>
-          </div>
-          <div className="row justify-content-between align-items-center mb-5 mb-lg-7 mt-4">
-            <div className="col-lg-6 order-lg-2 text-right">
-              <button className="btn btn-primary rounded">
-                Explore
-                <span className="ml-2">
-                  <i className="ni ni-spaceship" />
-                </span>
-              </button>
-            </div>
-            <div className="col-lg-6 order-lg-2">
-              <button className="btn btn-info rounded">
-                Github
-                <span className="ml-2">
-                  <i className="fab fa-github" />
-                </span>
-              </button>
-            </div>
-          </div>
+      <Header />
+      <AboutUs />
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
         </div>
-      </header>
-      <section className="section section-lg bg-dark">
-        <div className="container">
-          <div className="row justify-content-between align-items-center mb-5 mb-lg-7 mt-4">
-            <div className="col-lg-6 order-lg-2 text-right">hi</div>
-          </div>
+        <div>
+          <h3>2</h3>
         </div>
-      </section>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
     </React.Fragment>
   );
 };

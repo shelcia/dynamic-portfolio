@@ -13,6 +13,7 @@
     "react-dropzone": "^11.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-slick": "^0.28.1",
     "react-spinners": "^0.10.4",
     "react-toastify": "^7.0.2",
     "web-vitals": "^0.2.4"
