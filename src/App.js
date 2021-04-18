@@ -1,5 +1,6 @@
 import React from "react";
-import "./styles/style.css";
+// import "./styles/style.css";
+import "./styles/scss/front.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/auth/HomePage";
 import Dashboard from "./pages/dashboard/Dashboard";
