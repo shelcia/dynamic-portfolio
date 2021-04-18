@@ -1,6 +1,8 @@
 import React from "react";
 // import "./styles/style.css";
 import "./styles/scss/front.css";
+import "./styles/assets/css/nucleo-icons.css";
+import "./styles/assets/css/nucleo-svg.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/auth/HomePage";
 import Dashboard from "./pages/dashboard/Dashboard";
