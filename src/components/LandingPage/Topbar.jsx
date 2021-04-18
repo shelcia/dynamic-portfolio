@@ -23,6 +23,7 @@ const Topbar = () => {
             <div className="navbar-collapse-header">
               <div className="row">
                 <div className="col-6 collapse-brand">
+                  ILLAKA.
                   {/* <a href="/">
                     <img
                       src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/brand/blue.png"
