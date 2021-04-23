@@ -15,7 +15,7 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
     "react-spinners": "^0.10.6",
-    "react-toastify": "^7.0.2",
+    "react-toastify": "^7.0.3",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
