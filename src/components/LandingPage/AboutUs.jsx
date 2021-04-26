@@ -18,10 +18,19 @@ const AboutUs = () => {
             <div className="col-sm-6 text-light d-flex justify-content-center align-items-left flex-column">
               <h2>Features</h2>
               <hr />
-              <ul>
-                <li className="bg-dark mb-2">Upto 5 Portfolios per User</li>
-                <li className="bg-dark mb-2">Editable as user wishes</li>
-                <li className="bg-dark mb-2">Downloadable Portfolios</li>
+              <ul style={{ listStyle: "none" }}>
+                <li className="bg-dark mb-2">
+                  <i className="ni ni-check-bold mr-2" />
+                  Upto 5 Portfolios per User
+                </li>
+                <li className="bg-dark mb-2">
+                  <i className="ni ni-check-bold mr-2" />
+                  Editable as user wishes
+                </li>
+                <li className="bg-dark mb-2">
+                  <i className="ni ni-check-bold mr-2" />
+                  Downloadable Portfolios
+                </li>
               </ul>
               <div>
                 <button className="btn btn-tertiary rounded mt-4">

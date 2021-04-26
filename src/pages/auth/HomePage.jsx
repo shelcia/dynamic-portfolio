@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AboutUs from "../../components/LandingPage/AboutUs";
+import Contact from "../../components/LandingPage/ContactUs";
+import Footer from "../../components/LandingPage/Footer";
 import Header from "../../components/LandingPage/Header";
 import Topbar from "../../components/LandingPage/Topbar";
 import Template1 from "../../styles/assets/img/templates/template.jpg";
@@ -36,25 +38,18 @@ const HomePage = () => {
                   <img src={Template1} alt="" className="img-fluid" />
                 </div>
                 <div>
-                  <h3>2</h3>
+                  <img src={Template1} alt="" className="img-fluid" />
                 </div>
                 <div>
-                  <h3>3</h3>
-                </div>
-                <div>
-                  <h3>4</h3>
-                </div>
-                <div>
-                  <h3>5</h3>
-                </div>
-                <div>
-                  <h3>6</h3>
+                  <img src={Template1} alt="" className="img-fluid" />
                 </div>
               </Slider>
             </div>
           </div>
         </div>
       </section>
+      <Contact />
+      <Footer />
     </React.Fragment>
   );
 };
