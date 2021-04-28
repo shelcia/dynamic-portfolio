@@ -29,7 +29,7 @@ const HomePage = () => {
       <Topbar />
       <Header />
       <AboutUs />
-      <section className="section section-lg bg-dark pt-0">
+      <section className="section section-lg bg-dark pt-0" id="templates">
         <div className="container">
           <div className="row justify-content-center align-items-center mb-5 mb-lg-7">
             <div className="col-sm-10 d-flex justify-content-center align-items-left flex-column">

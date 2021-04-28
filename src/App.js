@@ -1,5 +1,5 @@
 import React from "react";
-// import "./styles/style.css";
+import "./styles/style.css";
 import "./styles/scss/front.css";
 import "./styles/assets/css/nucleo-icons.css";
 import "./styles/assets/css/nucleo-svg.css";
@@ -11,6 +11,8 @@ import Portfolio from "./pages/templates/Portfolio";
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
 import Verification from "./pages/auth/Verification";
 import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
 
 const App = () => {
   const isAuthenticated = () => {
@@ -35,6 +37,8 @@ const App = () => {
         <ThemeProvider>
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/signup" exact component={Signup} />
             <Route
               path="/verificationtologin/:id"
               exact

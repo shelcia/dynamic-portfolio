@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Topbar = () => {
+const Topbar = ({ auth = false }) => {
   return (
     <React.Fragment>
-      <nav className="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-dark shadow">
+      <nav className="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-dark shadow-box">
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <b>ILLAKA.</b>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -49,15 +50,11 @@ const Topbar = () => {
             </div>
             <ul className="navbar-nav ml-lg-auto">
               <li className="nav-item">
-                <a className="nav-link" href="!#">
+                <a className="nav-link" href="#about">
                   About <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="!#">
-                  Templates
-                </a>
-              </li>
+
               <li className="nav-item dropdown">
                 <a
                   className="nav-link"
@@ -68,7 +65,7 @@ const Topbar = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  Contact
+                  Templates
                 </a>
                 <div
                   className="dropdown-menu dropdown-menu-right"
@@ -86,6 +83,21 @@ const Topbar = () => {
                   </a>
                 </div>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#contact">
+                  Contact
+                </a>
+              </li>
+              {!auth && (
+                <li className="nav-item">
+                  <Link className="nav-link pt-0" to="/login">
+                    <button className="btn btn-primary">
+                      <i className="ni ni-single-02 mr-2" />
+                      Login
+                    </button>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

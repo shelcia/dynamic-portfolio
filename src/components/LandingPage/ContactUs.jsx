@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <React.Fragment>
-      <section className="section section-lg bg-dark pt-0">
+      <section className="section section-lg bg-dark pt-0" id="contact">
         <div className="container">
           <div className="row justify-content-center align-items-center mb-5">
             <div className="card  bg-info shadow-soft p-2 p-md-4 p-lg-5">

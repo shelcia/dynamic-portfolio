@@ -3,7 +3,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <React.Fragment>
-      <section className="section section-lg bg-dark pt-0">
+      <section className="section section-lg bg-dark pt-0" id="about">
         <div className="container">
           <div className="row justify-content-between align-items-center mb-5 mb-lg-7">
             <div className="col-sm-6 d-flex justify-content-center align-items-left flex-column">
