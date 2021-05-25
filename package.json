@@ -16,7 +16,7 @@
     "react-slick": "^0.28.1",
     "react-spinners": "^0.11.0",
     "react-toastify": "^7.0.4",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
