@@ -6,7 +6,7 @@
     "@react-pdf/renderer": "^2.0.20",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.0.3",
     "axios": "^0.24.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
