@@ -1,16 +1,14 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "../../components/LandingPage/Footer";
-import Topbar from "../../components/LandingPage/Topbar";
 
-const Login = () => {
+const Login = ({ setIsLogin }) => {
   const email = useRef("");
   const password = useRef("");
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -52,7 +50,7 @@ const Login = () => {
             "dynamic-activated",
             response.data.message.activated
           );
-          history.push("/dashboard");
+          navigate("/dashboard");
         }
       })
       .catch((error) => {
@@ -62,62 +60,46 @@ const Login = () => {
   };
   return (
     <React.Fragment>
-      <Topbar auth={true} />
-      <section className="section section-lg bg-dark pt-5">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="card bg-primary shadow-soft p-4 rounded">
-                <h1 className="display-1 text-light mb-3">Login</h1>
-                <form onSubmit={onSubmit}>
-                  <div className="form-group">
-                    <label className="text-white">Email address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Enter email"
-                      ref={email}
-                      required
-                    />
-                    <small className="form-text text-white">
-                      We'll never share your email with anyone else.
-                    </small>
-                  </div>
-                  <div className="form-group">
-                    <label className="text-white">Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
-                      ref={password}
-                      required
-                    />
-                  </div>
-                  <div className="text-center pt-4">
-                    {loading ? (
-                      <button
-                        className="btn btn-info disabled"
-                        type="submit"
-                        disabled
-                      >
-                        Login
-                      </button>
-                    ) : (
-                      <button className="btn btn-info" type="submit">
-                        <i className="ni ni-lock-circle-open mt-1"></i> Login
-                      </button>
-                    )}
-                  </div>
-                </form>
-                <div className="w-100 text-center pointer-cursor pt-4 mt-4 text-light">
-                  <Link to="/signup">Don't have an account ? Then Signup</Link>
-                </div>
-              </div>
+      <div className="card p-4 login border border-0 rounded-0 shadow-sm">
+        <div className="card-body">
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <label htmlFor="usr">Email</label>
+              <input
+                type="text"
+                className="form-control"
+                ref={email}
+                required
+              />
             </div>
-          </div>
+            <div className="form-group mt-4">
+              <label htmlFor="pwd">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                ref={password}
+                required
+              />
+            </div>
+            <div className="text-center pt-4">
+              {loading ? (
+                <button className="btn normal disabled" type="submit" disabled>
+                  Login
+                </button>
+              ) : (
+                <button className="btn normal" type="submit">
+                  Login
+                </button>
+              )}
+            </div>
+            <div className="w-100 text-center pointer-cursor pt-4 mt-4">
+              <p onClick={() => setIsLogin(false)}>
+                Don't have an account ? Then Signup
+              </p>
+            </div>
+          </form>
         </div>
-      </section>
-      <Footer />
+      </div>
     </React.Fragment>
   );
 };

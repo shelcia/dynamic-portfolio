@@ -1,55 +1,43 @@
-import React from "react";
-// import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AboutUs from "../../components/LandingPage/AboutUs";
-import Contact from "../../components/LandingPage/ContactUs";
-import Footer from "../../components/LandingPage/Footer";
-import Header from "../../components/LandingPage/Header";
-import Topbar from "../../components/LandingPage/Topbar";
-import Template1 from "../../styles/assets/img/templates/template.jpg";
-
-// import Login from "./Login";
-// import Signup from "./Signup";
+import Login from "./Login";
+import Signup from "./Signup";
 
 const HomePage = () => {
-  // const [isLogin, setIsLogin] = useState(true);
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
     <React.Fragment>
       <ToastContainer />
-      <Topbar />
-      <Header />
-      <AboutUs />
-      <section className="section section-lg bg-dark pt-0" id="templates">
-        <div className="container">
-          <div className="row justify-content-center align-items-center mb-5 mb-lg-7">
-            <div className="col-sm-10 d-flex justify-content-center align-items-left flex-column">
-              <Slider {...settings}>
-                <div>
-                  <img src={Template1} alt="" className="img-fluid" />
-                </div>
-                <div>
-                  <img src={Template1} alt="" className="img-fluid" />
-                </div>
-                <div>
-                  <img src={Template1} alt="" className="img-fluid" />
-                </div>
-              </Slider>
+      <div
+        className="container-fluid background home"
+        style={{ height: "100vh" }}
+      >
+        <nav
+          className="navbar text-light"
+          style={{ backgroundColor: "transparent !important" }}
+        >
+          <Link className="navbar-brand py-2 text-light" to="/">
+            Dynamic Portflio.
+          </Link>
+        </nav>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-sm-7">
+              <h1> Demo </h1>
+            </div>
+            <div className="col-sm-5">
+              {isLogin ? (
+                <Login setIsLogin={setIsLogin} />
+              ) : (
+                <Signup setIsLogin={setIsLogin} />
+              )}
             </div>
           </div>
         </div>
-      </section>
-      <Contact />
-      <Footer />
+      </div>
     </React.Fragment>
   );
 };

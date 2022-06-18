@@ -2,11 +2,8 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
-import Topbar from "../../components/LandingPage/Topbar";
-import Footer from "../../components/LandingPage/Footer";
 
-const Signup = () => {
+const Signup = ({ setIsLogin }) => {
   const name = useRef("");
   const email = useRef("");
   const password = useRef("");
@@ -46,6 +43,7 @@ const Signup = () => {
           failedNotify(response.data.message);
         } else if (response.data.status === "200") {
           setLoading(false);
+          setIsLogin(true);
           toast.success("Signup is succesfull! Please login");
         }
       })
@@ -56,72 +54,50 @@ const Signup = () => {
   };
   return (
     <React.Fragment>
-      <Topbar auth={true} />
-      <section className="section section-lg bg-dark pt-5">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="card bg-primary shadow-soft p-4 rounded">
-                <h1 className="display-1 text-light mb-3">Signup</h1>
-                <form onSubmit={onSubmit}>
-                  <div className="form-group">
-                    <label className="text-white">Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter name"
-                      ref={name}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label className="text-white">Email address</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Enter email"
-                      ref={email}
-                      required
-                    />
-                    <small className="form-text text-white">
-                      We'll never share your email with anyone else.
-                    </small>
-                  </div>
-                  <div className="form-group">
-                    <label className="text-white">Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
-                      ref={password}
-                      required
-                    />
-                  </div>
-                  <div className="text-center pt-4">
-                    {loading ? (
-                      <button
-                        className="btn btn-info disabled"
-                        type="submit"
-                        disabled
-                      >
-                        Signup
-                      </button>
-                    ) : (
-                      <button className="btn btn-info" type="submit">
-                        <i className="ni ni-lock-circle-open mt-1"></i> Signup
-                      </button>
-                    )}
-                  </div>
-                </form>
-                <div className="w-100 text-center pointer-cursor pt-4 mt-4 text-light">
-                  <Link to="/login">Have an account already ? Then Login</Link>
-                </div>
-              </div>
+      <div className="card p-2 login border border-0 rounded-0 shadow">
+        <div className="card-body">
+          <form onSubmit={onSubmit}>
+            <div className="form-group">
+              <label htmlFor="usr">Name</label>
+              <input type="text" className="form-control" ref={name} required />
             </div>
-          </div>
+            <div className="form-group">
+              <label htmlFor="usr">Email:</label>
+              <input
+                type="text"
+                className="form-control"
+                ref={email}
+                required
+              />
+            </div>
+            <div className="form-group mt-4">
+              <label htmlFor="pwd">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                ref={password}
+                required
+              />
+            </div>
+            <div className="text-center pt-2">
+              {loading ? (
+                <button className="btn normal disabled" type="submit" disabled>
+                  Signup
+                </button>
+              ) : (
+                <button className="btn normal" type="submit">
+                  Signup
+                </button>
+              )}
+            </div>
+            <div className="w-100 text-center pointer-cursor pt-4 mt-4">
+              <p onClick={() => setIsLogin(true)}>
+                Have an account already ? Then Login
+              </p>
+            </div>
+          </form>
         </div>
-      </section>
-      <Footer />
+      </div>
     </React.Fragment>
   );
 };
