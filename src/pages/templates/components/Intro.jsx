@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import { useParams } from "react-router";
 import { ThemeContext } from "../context/ThemeContext";
 import { social } from "../context/TypoColor";
 
-const Intro = ({ portfolioDetails, match }) => {
+const Intro = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
   const className = darkTheme ? "bg-dark text-light" : "bg-light";
 
@@ -11,6 +12,8 @@ const Intro = ({ portfolioDetails, match }) => {
     // console.log(classLogo);
     return classLogo[0].class;
   };
+
+  const { id } = useParams();
 
   return (
     <React.Fragment>
@@ -44,7 +47,7 @@ const Intro = ({ portfolioDetails, match }) => {
           </div>
           <div className="col-sm-5 d-flex justify-content-center align-items-center py-4">
             <img
-              src={`${process.env.REACT_APP_API_LINK}common/portfolio/image/${match.params.id}`}
+              src={`${process.env.REACT_APP_API_LINK}common/portfolio/image/${id}`}
               width="350px"
               height="350px"
               className={`profile-${portfolioDetails.theme}`}

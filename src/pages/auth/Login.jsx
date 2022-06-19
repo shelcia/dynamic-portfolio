@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
-const Login = ({ setIsLogin }) => {
+const Login = () => {
   const email = useRef("");
   const password = useRef("");
 
@@ -18,7 +17,7 @@ const Login = ({ setIsLogin }) => {
     event.preventDefault();
     setLoading(true);
 
-    toast.warn("We are verifying. Please Wait !!");
+    toast("We are verifying. Please Wait !!");
 
     const headers = {
       "Content-Type": "application/json",
@@ -60,46 +59,80 @@ const Login = ({ setIsLogin }) => {
   };
   return (
     <React.Fragment>
-      <div className="card p-4 login border border-0 rounded-0 shadow-sm">
-        <div className="card-body">
-          <form onSubmit={onSubmit}>
-            <div className="form-group">
-              <label htmlFor="usr">Email</label>
-              <input
-                type="text"
-                className="form-control"
-                ref={email}
-                required
-              />
-            </div>
-            <div className="form-group mt-4">
-              <label htmlFor="pwd">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                ref={password}
-                required
-              />
-            </div>
-            <div className="text-center pt-4">
-              {loading ? (
-                <button className="btn normal disabled" type="submit" disabled>
-                  Login
-                </button>
-              ) : (
-                <button className="btn normal" type="submit">
-                  Login
-                </button>
-              )}
-            </div>
-            <div className="w-100 text-center pointer-cursor pt-4 mt-4">
-              <p onClick={() => setIsLogin(false)}>
-                Don't have an account ? Then Signup
-              </p>
-            </div>
-          </form>
+      <section className="section section-shaped section-lg">
+        <div className="shape shape-style-1 bg-gradient-default">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </div>
+        <div className="container pt-lg-7">
+          <div className="row justify-content-center">
+            <div className="col-lg-5">
+              <div className="card bg-secondary shadow border-0">
+                <div className="card-body px-lg-5 py-lg-5">
+                  <form onSubmit={onSubmit}>
+                    <div className="form-group mb-3">
+                      <div className="input-group input-group-alternative">
+                        <input
+                          className="form-control"
+                          placeholder="Email"
+                          type="email"
+                          ref={email}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group focused">
+                      <div className="input-group input-group-alternative">
+                        <input
+                          className="form-control"
+                          placeholder="Password"
+                          type="password"
+                          ref={password}
+                        />
+                      </div>
+                    </div>
+                    <div className="custom-control custom-control-alternative custom-checkbox">
+                      <input
+                        className="custom-control-input"
+                        id=" customCheckLogin"
+                        type="checkbox"
+                      />
+                    </div>
+                    <div className="text-center">
+                      {loading ? (
+                        <button disabled className="btn btn-primary my-4">
+                          Sign in
+                        </button>
+                      ) : (
+                        <button type="submit" className="btn btn-primary my-4">
+                          Sign in
+                        </button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className="row mt-3">
+                {/* <div className="col-6">
+                  <a to="" className="text-light">
+                    <small>Forgot password?</small>
+                  </a>
+                </div> */}
+                <div className="col-12">
+                  <Link to="/signup" className="text-light">
+                    <small> Don't have an account ? Then Signup</small>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </React.Fragment>
   );
 };

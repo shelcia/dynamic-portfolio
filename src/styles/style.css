@@ -6,34 +6,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.background {
-  background-color: #ebebeb !important;
-}
-
-.bg-dark {
-  background-color: #151515 !important;
-}
-
-.bg-light {
-  background-color: #f7f7f7 !important;
-}
-
-.pointer-cursor {
-  cursor: pointer !important;
-}
-
-.text-primary {
-  color: #0cba00 !important;
-}
-
-.text-15 {
-  font-size: 1.5rem !important;
-}
-
-.display-3 {
-  font-weight: 500;
-}
-
 .bg-greenishblue {
   background-color: #01b399 !important;
 }
@@ -355,39 +327,6 @@ li.timeline-item::before {
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.form-group .form-control {
-  border: none;
-  background-color: rgba(255, 255, 255, 0) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-  border-radius: 0px;
-  color: rgba(0, 0, 0, 0.8);
-  padding-left: 0px;
-}
-
-.form-group .form-control:focus {
-  border-bottom: 1.3px solid black;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: none !important;
-  border-bottom: 1px solid black !important;
-  -webkit-text-fill-color: black;
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-          box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
 .upload-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -588,88 +527,5 @@ select:-webkit-autofill:focus {
 * {
   font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   scroll-behavior: smooth;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-.home {
-  background-image: url("https://cdn.discordapp.com/attachments/795010536365752320/809517346725036042/ellen-qin-fIMqGvVaATk-unsplash.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-animation: bg 10s linear infinite alternate;
-          animation: bg 10s linear infinite alternate;
-}
-
-.home .login {
-  background: rgba(255, 255, 255, 0.551);
-  background-blend-mode: lighten;
-}
-
-button.normal {
-  padding: 0.65rem 1.4rem;
-  border-radius: 0px;
-  font-size: 1.35rem;
-  text-transform: uppercase;
-  border: 2px solid rgba(0, 0, 0, 0.85);
-  color: rgba(0, 0, 0, 0.85);
-  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px black;
-          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px rgba(0, 0, 0, 0.85) inset, 0px 0px 0px black;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-
-button.normal:hover {
-  color: white;
-  -webkit-box-shadow: 100px 0px 0px rgba(0, 0, 0, 0.85) inset, -100px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
-          box-shadow: 100px 0px 0px rgba(0, 0, 0, 0.85) inset, -100px 0px 0px rgba(0, 0, 0, 0.85) inset, 3px 3px 3px black;
-}
-
-label.h3 {
-  margin-top: 1.5rem;
-}
-
-.icons {
-  border-radius: 50ex;
-  padding: 0.5rem;
-  -webkit-box-shadow: 1px 1px 1px #00000029;
-          box-shadow: 1px 1px 1px #00000029;
-  font-size: 1.5rem;
-  position: absolute;
-  -webkit-animation: spin 4s linear infinite;
-          animation: spin 4s linear infinite;
-}
-
-.fa,
-.fas {
-  font-weight: 900;
-}
-
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes bg {
-  100% {
-    background-position: bottom;
-  }
-}
-
-@keyframes bg {
-  100% {
-    background-position: bottom;
-  }
 }
 /*# sourceMappingURL=style.css.map */

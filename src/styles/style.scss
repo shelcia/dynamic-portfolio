@@ -3,7 +3,7 @@
 @import "./components/helper";
 @import "./components/toggle";
 @import "./components/timeline";
-@import "./components/form";
+// @import "./components/form";
 @import "./components/dropzone";
 @import "./components/typography";
 
@@ -16,63 +16,63 @@ $primary: rgba(0, 0, 0, 0.85);
     "Lucida Sans", Arial, sans-serif;
   scroll-behavior: smooth;
 }
-body {
-  overflow-x: hidden;
-}
-.home {
-  background-image: url("https://cdn.discordapp.com/attachments/795010536365752320/809517346725036042/ellen-qin-fIMqGvVaATk-unsplash.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: bg 10s linear infinite alternate;
-  .login {
-    background: rgba(255, 255, 255, 0.551);
-    background-blend-mode: lighten;
-  }
-}
+// body {
+//   overflow-x: hidden;
+// }
+// .home {
+//   background-image: url("https://cdn.discordapp.com/attachments/795010536365752320/809517346725036042/ellen-qin-fIMqGvVaATk-unsplash.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   animation: bg 10s linear infinite alternate;
+//   .login {
+//     background: rgba(255, 255, 255, 0.551);
+//     background-blend-mode: lighten;
+//   }
+// }
 
-button.normal {
-  padding: 0.65rem 1.4rem;
-  border-radius: 0px;
-  font-size: 1.35rem;
-  text-transform: uppercase;
-  border: 2px solid $primary;
-  color: $primary;
-  box-shadow: 0px 0px 0px $primary inset, -0px 0px 0px $primary inset,
-    0px 0px 0px black;
-  transition: all 0.2s ease-in;
-  &:hover {
-    color: white;
-    box-shadow: 100px 0px 0px $primary inset, -100px 0px 0px $primary inset,
-      3px 3px 3px black;
-  }
-}
+// button.normal {
+//   padding: 0.65rem 1.4rem;
+//   border-radius: 0px;
+//   font-size: 1.35rem;
+//   text-transform: uppercase;
+//   border: 2px solid $primary;
+//   color: $primary;
+//   box-shadow: 0px 0px 0px $primary inset, -0px 0px 0px $primary inset,
+//     0px 0px 0px black;
+//   transition: all 0.2s ease-in;
+//   &:hover {
+//     color: white;
+//     box-shadow: 100px 0px 0px $primary inset, -100px 0px 0px $primary inset,
+//       3px 3px 3px black;
+//   }
+// }
 
-label.h3 {
-  margin-top: 1.5rem;
-}
+// label.h3 {
+//   margin-top: 1.5rem;
+// }
 
-.icons {
-  border-radius: 50ex;
-  padding: 0.5rem;
-  box-shadow: 1px 1px 1px #00000029;
-  font-size: 1.5rem;
-  position: absolute;
-  animation: spin 4s linear infinite;
-}
+// .icons {
+//   border-radius: 50ex;
+//   padding: 0.5rem;
+//   box-shadow: 1px 1px 1px #00000029;
+//   font-size: 1.5rem;
+//   position: absolute;
+//   animation: spin 4s linear infinite;
+// }
 
-.fa,
-.fas {
-  font-weight: 900;
-}
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
+// .fa,
+// .fas {
+//   font-weight: 900;
+// }
+// @keyframes spin {
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
 
-@keyframes bg {
-  100% {
-    background-position: bottom;
-  }
-}
+// @keyframes bg {
+//   100% {
+//     background-position: bottom;
+//   }
+// }

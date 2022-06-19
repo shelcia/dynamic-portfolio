@@ -10,23 +10,34 @@ import Portfolio from "./pages/templates/Portfolio";
 import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 import AuthGuard from "./components/AuthGuard";
 import { Outlet } from "react-router-dom";
+import HomeLayout from "./components/layout/HomeLayout";
 
 const routes = [
   {
     path: "",
-    element: <HomePage />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "signup",
-    element: <Signup />,
-  },
-  {
-    path: "signup",
-    element: <Verification />,
+    element: (
+      <HomeLayout>
+        <Outlet />
+      </HomeLayout>
+    ),
+    children: [
+      {
+        path: "",
+        element: <HomePage />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "verification/:id",
+        element: <Verification />,
+      },
+    ],
   },
   {
     path: "",
