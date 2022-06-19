@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { apiAuth } from "../../services/models/AuthModel";
 
 const Login = () => {
   const email = useRef("");
@@ -11,52 +11,31 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const failedNotify = (message) => toast.error(message);
-
   const onSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
 
     toast("We are verifying. Please Wait !!");
-
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
     const response = {
       email: email.current.value,
       password: password.current.value,
     };
 
-    const body = JSON.stringify(response);
-    const url = `${process.env.REACT_APP_API_LINK}auth/signin`;
-
-    axios
-      .post(url, body, {
-        headers: headers,
-      })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.status === "400") {
-          setLoading(false);
-          failedNotify(response.data.message);
-        } else if (response.data.status === "200") {
-          localStorage.setItem("dynamic-email", email.current.value);
-          localStorage.setItem("dynamic-id", response.data.message.userId);
-          localStorage.setItem("dynamic-token", response.data.message.token);
-          localStorage.setItem("dynamic-name", response.data.message.name);
-          localStorage.setItem(
-            "dynamic-activated",
-            response.data.message.activated
-          );
-          navigate("/dashboard");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        failedNotify(error);
-      });
+    apiAuth.post(response, "signin").then((res) => {
+      if (res.status === "200") {
+        localStorage.setItem("dynamic-email", email.current.value);
+        localStorage.setItem("dynamic-id", res?.message?.userId);
+        localStorage.setItem("dynamic-token", res?.message?.token);
+        localStorage.setItem("dynamic-name", res?.message?.name);
+        localStorage.setItem("dynamic-activated", res?.message?.activated);
+        navigate("/dashboard");
+      } else {
+        setLoading(false);
+        toast.error(res.message);
+      }
+    });
   };
+
   return (
     <React.Fragment>
       <section className="section section-shaped section-lg">
