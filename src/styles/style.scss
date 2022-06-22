@@ -16,6 +16,17 @@ $primary: rgba(0, 0, 0, 0.85);
     "Lucida Sans", Arial, sans-serif;
   scroll-behavior: smooth;
 }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  div {
+    width: 250px;
+    height: 300px;
+  }
+}
+
 // body {
 //   overflow-x: hidden;
 // }

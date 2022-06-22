@@ -1,4 +1,5 @@
 import React from "react";
+import { HiPlus } from "react-icons/hi";
 
 const Experience = ({ experiences, setExperience }) => {
   const handleInputs = (e, id) => {
@@ -130,13 +131,12 @@ const Experience = ({ experiences, setExperience }) => {
                   />
                 </button>
               )}
-              <button className="btn normal py-1 px-3" type="button">
-                <i
-                  className="fas fa-plus"
-                  style={{ fontSize: "25px" }}
-                  onClick={(e) => addExperience(e)}
-                  title="Add Experience"
-                />
+              <button
+                className="btn btn-neutral py-1 px-3"
+                type="button"
+                title="Add Experience"
+              >
+                <HiPlus onClick={(e) => addExperience(e)} />
               </button>
             </div>
           </div>

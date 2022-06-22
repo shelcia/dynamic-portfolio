@@ -73,6 +73,17 @@ export class ApiCore {
       };
     }
 
+    if (options.putFormData) {
+      this.putFormData = (model, additionalParam, isAuthorized) => {
+        return apiProvider.putFormData(
+          options.url,
+          model,
+          additionalParam,
+          isAuthorized
+        );
+      };
+    }
+
     if (options.putById) {
       this.putById = (id, model, signal, additionalParam, isAuthorized) => {
         return apiProvider.putById(

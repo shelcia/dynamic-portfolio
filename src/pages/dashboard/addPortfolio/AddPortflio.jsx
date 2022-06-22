@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Experience from "./Experience";
 import Profile from "./Profile";
 import Projects from "./Projects";
 import SkillSelect from "./SkillsSelect";
 import { theme, font } from "../../templates/context/TypoColor";
 import SocialLinks from "./SocialLinks";
-import axios from "axios";
-import Navbar from "../../../components/Navbar";
 import { Link } from "react-router-dom";
+import { apiCommon } from "../../../services/models/CommonModel";
 
 const AddPortfolio = () => {
   const [file, setFile] = useState(null);
@@ -44,25 +43,15 @@ const AddPortfolio = () => {
     },
   ]);
 
-  const failedNotify = (message) => toast.error(message);
-  const successNotify = (message) => toast.success(message);
-
   const onSubmit = (e) => {
     e.preventDefault();
-    toast.warn("Please Wait! while we are adding...");
-    const link = process.env.REACT_APP_API_LINK;
+
+    toast("Please Wait! while we are adding...");
     const userID = localStorage.getItem("dynamic-id");
-    const token = localStorage.getItem("dynamic-token");
-    const headers = {
-      "auth-token": token,
-    };
-    const headersForm = {
-      "Content-Type": "multipart/form-data",
-      "auth-token": token,
-    };
+
     const formData = new FormData();
     if (!file) {
-      failedNotify("Add Image Please");
+      toast.error("Add Image Please");
       return;
     }
     const body = {
@@ -80,27 +69,37 @@ const AddPortfolio = () => {
     console.log(body);
     formData.append("image", file);
 
-    axios
-      .post(`${link}common/portfolio`, body, {
-        headers: headers,
-      })
-      .then((response) => {
-        console.log(response);
-        if (response.data.status === "200") {
-          axios
-            .put(`${link}common/portfolio/${response.data.id}`, formData, {
-              headers: headersForm,
-            })
-            .then((response) => {
-              if (response.data.status === "200") {
-                successNotify(response.data.message);
-              }
-            })
-            .catch((error) => console.log(error));
-        } else if (response.data.status === "400" || "500" || "401")
-          failedNotify(response.data.message);
-      })
-      .catch((error) => console.log(error));
+    apiCommon.post(body, "portfolio", true).then((res) => {
+      if (res.status === "200") {
+        apiCommon.putFormData(formData, "portfolio", true).then((res) => {
+          if (res.status === "200") {
+            toast.success("Portfolio added !");
+          }
+        });
+      }
+    });
+
+    // axios
+    //   .post(`${link}common/portfolio`, body, {
+    //     headers: headers,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //     if (response.data.status === "200") {
+    //       axios
+    //         .put(`${link}common/portfolio/${response.data.id}`, formData, {
+    //           headers: headersForm,
+    //         })
+    //         .then((response) => {
+    //           if (response.data.status === "200") {
+    //             successNotify(response.data.message);
+    //           }
+    //         })
+    //         .catch((error) => console.log(error));
+    //     } else if (response.data.status === "400" || "500" || "401")
+    //       failedNotify(response.data.message);
+    //   })
+    //   .catch((error) => console.log(error));
 
     // console.log(body);
   };
@@ -108,7 +107,6 @@ const AddPortfolio = () => {
   return (
     <React.Fragment>
       <div className="container-fluid background" style={{ height: "100vh" }}>
-        <Navbar />
         <div className="container">
           <div className="row px-2 pt-5 flex-column">
             <div

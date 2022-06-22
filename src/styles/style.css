@@ -528,4 +528,17 @@ li.timeline-item::before {
   font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   scroll-behavior: smooth;
 }
+
+.portfolio-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+
+.portfolio-grid div {
+  width: 250px;
+  height: 300px;
+}
 /*# sourceMappingURL=style.css.map */

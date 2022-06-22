@@ -2,19 +2,19 @@
 
 import axios from "axios";
 import { handleResponse, handleError } from "./response";
-// import { LOCALHOST_URL } from "../api";
-import { HEROKU_BASE_URL } from "../api";
+import { LOCALHOST_URL } from "../api";
+// import { HEROKU_BASE_URL } from "../api";
 
 // Define your api url from any source.
 // Pulling from your .env file when on the server or from localhost when locally
-const BASE_URL = HEROKU_BASE_URL;
-// const BASE_URL = LOCALHOST_URL;
+// const BASE_URL = HEROKU_BASE_URL;
+const BASE_URL = LOCALHOST_URL;
 
 /** @param {string} resource */
 const getAll = async (resource, signal, isAuthorized = false) => {
   const token = localStorage.getItem("dynamic-token");
 
-  const headers = isAuthorized ? { Authorization: `Bearer ${token}` } : {};
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
 
   try {
     const response = await axios.get(`${BASE_URL}/${resource}`, {
@@ -168,6 +168,43 @@ const put = async (resource, model, signal, isAuthorized = false) => {
     return handleError(error);
   }
 };
+/** @param {string} resource */
+/** @param {object} model */
+const putFormData = async (
+  resource,
+  model,
+  additionalParam,
+  isAuthorized = false
+) => {
+  const token = localStorage.getItem("dynamic-token");
+
+  const headers = isAuthorized
+    ? {
+        "Content-Type": "multipart/form-data",
+        "auth-token": `${token}`,
+      }
+    : { "Content-Type": "multipart/form-data" };
+  try {
+    let response;
+    if (additionalParam === "") {
+      response = await axios.put(`${BASE_URL}/${resource}`, model, {
+        headers: headers,
+      });
+    } else {
+      response = await axios.put(
+        `${BASE_URL}/${resource}/${additionalParam}`,
+        model,
+        {
+          headers: headers,
+        }
+      );
+    }
+    // console.log(await response);
+    return handleResponse(response);
+  } catch (error) {
+    return handleError(error);
+  }
+};
 
 /** @param {string} resource */
 /** @param {object} model */
@@ -232,6 +269,7 @@ export const apiProvider = {
   post,
   postFormData,
   put,
+  putFormData,
   putById,
   patch,
   remove,

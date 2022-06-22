@@ -1,38 +1,31 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ReactLoader from "../../../components/Loader";
-import Navbar from "../../../components/Navbar";
+import { Link, useParams } from "react-router-dom";
+import { PageLoader } from "../../../components/Loaders";
+import { apiCommon } from "../../../services/models/CommonModel";
 
-const EditPortfolio = ({ match }) => {
+const EditPortfolio = () => {
   const [isLoading, setLoading] = useState(true);
   const [portfolioDetails, setPortfolioDetails] = useState({
     name: "",
     headerTitle: "",
     about: "",
   });
-  const link = process.env.REACT_APP_API_LINK;
-  //   const onSubmit = () => {
-  //     console.log("hi");
-  //   };
+
+  const { id } = useParams();
 
   useEffect(() => {
     const ac = new AbortController();
-    const getPortfolio = async () => {
-      try {
-        const portfolio = await axios.get(
-          `${link}common/portfolio/${match.params.id}`
-        );
-        console.log("Details", portfolio.data.message);
-        setPortfolioDetails(portfolio.data.message);
+    const getPortfolio = () =>
+      apiCommon.getSingle(id, ac.signal, "portfolio", true).then((res) => {
+        console.log("Portfolio", res);
+        if (res.status === "200") {
+          setPortfolioDetails(res.message);
+        }
         setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      });
     if (!portfolioDetails.length) getPortfolio();
     return () => ac.abort();
-  }, [link, match.params.id, portfolioDetails.length]);
+  }, [id, portfolioDetails.length]);
 
   const handleInputs = (e) => {
     const newDetails = { ...portfolioDetails, [e.target.name]: e.target.value };
@@ -41,32 +34,43 @@ const EditPortfolio = ({ match }) => {
 
   return (
     <React.Fragment>
-      <div className="container-fluid background" style={{ height: "100vh" }}>
-        <Navbar />
-        {isLoading ? (
-          <ReactLoader />
-        ) : (
-          <div className="container">
-            <div className="row px-2 pt-5 flex-column">
-              <div
-                className="card background py-3 px-5 border-0 border rounded-0 shadow-lg"
-                style={{ overflowY: "scroll", height: "80vh" }}
-              >
-                <div className="d-flex justify-content-between align-items-center">
-                  <h2 className="display-3 text-dark">Edit Portfolio</h2>
-                  <Link to="/dashboard">
-                    <button type="button" className="btn normal">
-                      Go Back
-                    </button>
-                  </Link>
-                </div>
-                <form>
-                  <div className="form-group">
-                    <label htmlFor="name" className="h3">
-                      Name
-                    </label>
+      {isLoading ? (
+        <PageLoader />
+      ) : (
+        <div
+          className="section section-hero section-shaped pt-2"
+          style={{ minHeight: "100vh" }}
+        >
+          <div className="shape shape-style-1 shape-default">
+            <span className="span-150"></span>
+            <span className="span-50"></span>
+            <span className="span-50"></span>
+            <span className="span-75"></span>
+            <span className="span-100"></span>
+            <span className="span-75"></span>
+            <span className="span-50"></span>
+            <span className="span-100"></span>
+            <span className="span-50"></span>
+            <span className="span-100"></span>
+          </div>
+          <div className="container" style={{ marginTop: "4rem" }}>
+            <div
+              className="card background py-3 px-5 border-0 border rounded-0 shadow-lg"
+              style={{ overflowY: "scroll", height: "80vh" }}
+            >
+              <div className="d-flex justify-content-between align-items-center">
+                <h4 className="text-primary">Edit Portfolio</h4>
+                <Link to="/dashboard">
+                  <button type="button" className="btn normal">
+                    Go Back
+                  </button>
+                </Link>
+              </div>
+              <form>
+                <div className="form-group">
+                  <label htmlFor="name">Name</label>
+                  <div className="input-group">
                     <input
-                      type="text"
                       className="form-control"
                       placeholder="John Doe"
                       name="name"
@@ -74,10 +78,10 @@ const EditPortfolio = ({ match }) => {
                       onChange={(e) => handleInputs(e)}
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name" className="h3">
-                      Header Title
-                    </label>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">Header Title</label>
+                  <div className="input-group">
                     <input
                       type="text"
                       className="form-control"
@@ -87,10 +91,10 @@ const EditPortfolio = ({ match }) => {
                       onChange={(e) => handleInputs(e)}
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="name" className="h3">
-                      About
-                    </label>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">About</label>
+                  <div className="input-group">
                     <input
                       type="text"
                       className="form-control"
@@ -100,12 +104,12 @@ const EditPortfolio = ({ match }) => {
                       onChange={(e) => handleInputs(e)}
                     />
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </React.Fragment>
   );
 };

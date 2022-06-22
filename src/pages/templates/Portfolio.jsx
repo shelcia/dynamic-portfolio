@@ -34,6 +34,7 @@ const Portfolio = () => {
     if (!portfolioDetails.length) getPortfolio(id);
     return () => ac.abort();
   }, [link, id, portfolioDetails.length]);
+
   return (
     <React.Fragment>
       {isLoading ? (

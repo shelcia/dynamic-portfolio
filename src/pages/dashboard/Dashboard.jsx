@@ -1,97 +1,64 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import ReactLoader from "../../components/Loader";
+import { ComponentLoader } from "../../components/Loaders";
+import { apiCommon } from "../../services/models/CommonModel";
+import { FaTrash } from "react-icons/fa";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
-  const token = localStorage.getItem("dynamic-token");
   const id = localStorage.getItem("dynamic-id");
-
-  const link = process.env.REACT_APP_API_LINK;
 
   const [isLoading, setLoading] = useState(true);
   const [portfolio, setPortfolio] = useState([]);
 
   useEffect(() => {
     const ac = new AbortController();
-    const getPortfolio = async () => {
-      try {
-        const portfolio = await axios.get(`${link}common/portfolios/${id}`, {
-          headers: { "auth-token": token },
-        });
-        console.log("Portfolio", portfolio.data);
-        console.log(`${link}common/portfolio/${id}`);
-        setPortfolio(portfolio.data.message);
+    const getPortfolio = () =>
+      apiCommon.getSingle(id, ac.signal, "portfolios", true).then((res) => {
+        console.log("Portfolio", res);
+        if (res.status === "200") {
+          setPortfolio(res.message);
+        }
         setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      });
     if (!portfolio.length) getPortfolio();
     return () => ac.abort();
-  }, [id, link, portfolio.length, token]);
+  }, [id, portfolio.length]);
 
   return (
     <React.Fragment>
       <div
-        className="container-fluid background"
+        className="section section-hero section-shaped pt-2"
         style={{ minHeight: "100vh" }}
       >
-        <Navbar />
-
-        <div className="container mt-3 ">
-          <h1 className="mt-2 mb-5 display-4">
-            Hi <span className="text-capitalize">{name}</span>!!
-          </h1>
+        <div className="shape shape-style-1 shape-default">
+          <span className="span-150"></span>
+          <span className="span-50"></span>
+          <span className="span-50"></span>
+          <span className="span-75"></span>
+          <span className="span-100"></span>
+          <span className="span-75"></span>
+          <span className="span-50"></span>
+          <span className="span-100"></span>
+          <span className="span-50"></span>
+          <span className="span-100"></span>
+        </div>
+        <div className="container mt-5 ">
+          <h3 className="mt-2 mb-5 text-capitalize text-white">Hi {name}</h3>
           {isLoading ? (
-            <ReactLoader />
+            <ComponentLoader />
           ) : (
-            <div className="container d-flex" style={{ flexWrap: "wrap" }}>
+            <div className="portfolio-grid">
               {portfolio.map((item) => (
-                <div key={item._id}>
-                  <div
-                    className="card background ml-0 mr-4 border border-0 rounded-0 shadow-lg pointer-cursor d-flex justify-content-center align-items-center"
-                    style={{ width: "250px", height: "300px" }}
-                  >
-                    <Link
-                      to={`/portfolio/${item._id}`}
-                      target="_blank"
-                      className="h3 text-dark"
-                    >
-                      {item.name}
-                    </Link>
-                  </div>
-                  <div className="mt-3 pr-4 d-flex justify-content-between">
-                    <button className="btn normal" title="Download Portfolio">
-                      <i className="fas fa-download"></i>
-                    </button>
-                    <Link to={`/edit-portfolio/${item._id}`} target="_blank">
-                      <button className="btn normal" title="Edit Portfolio">
-                        <i className="fas fa-edit"></i>
-                      </button>
-                    </Link>
-                    <button className="btn normal" title="Share Portfolio">
-                      <i className="fas fa-share"></i>
-                    </button>
-                  </div>
-                </div>
+                <PortfolioCard key={item._id} item={item} />
               ))}
-              <div
-                className="card background ml-0 mr-4 border border-0 rounded-0 shadow-lg d-flex justify-content-center align-items-center pointer-cursor"
-                style={{ width: "250px", height: "300px" }}
-                title="Create Portfolio"
-              >
-                <Link to="/add-portfolio">
-                  <i
-                    className="fas fa-plus text-dark"
-                    style={{ fontSize: "100px" }}
-                  ></i>
-                </Link>
-              </div>
             </div>
           )}
+          <div className="text-center">
+            <Link to="/add-portfolio">
+              <button className="btn btn-success">Add Portfolio</button>
+            </Link>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -99,3 +66,35 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+const PortfolioCard = ({ item }) => (
+  <div className="card ml-0 mr-4 border border-0 rounded-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent">
+    <div className="card-body bg-white w-100">
+      <Link
+        to={`/portfolio/${item._id}`}
+        target="_blank"
+        className="nav-link-inner--text text-uppercase"
+        style={{
+          fontWeight: 600,
+          letterSpacing: 0.35,
+        }}
+      >
+        {item.name}
+      </Link>
+      <p className="text-muted">{item.headerTitle}</p>
+    </div>
+    <div className="card-footer d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
+      <Link to={`/edit-portfolio/${item._id}`} target="_blank">
+        <button className="btn btn-neutral" title="Edit Portfolio">
+          <span className="nav-link-inner--text">Edit</span>
+        </button>
+      </Link>
+      <button className="btn btn-neutral me-0 mr-0" title="Share Portfolio">
+        <span className="nav-link-inner--text">Share</span>
+      </button>
+      <button className="btn btn-danger" title="Delete Portfolio">
+        <FaTrash />
+      </button>
+    </div>
+  </div>
+);

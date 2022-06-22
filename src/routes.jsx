@@ -11,6 +11,7 @@ import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 import AuthGuard from "./components/AuthGuard";
 import { Outlet } from "react-router-dom";
 import HomeLayout from "./components/layout/HomeLayout";
+import DashboardLayout from "./components/layout/DashboardLayout";
 
 const routes = [
   {
@@ -43,7 +44,9 @@ const routes = [
     path: "",
     element: (
       <AuthGuard>
-        <Outlet />
+        <DashboardLayout>
+          <Outlet />
+        </DashboardLayout>
       </AuthGuard>
     ),
     children: [
