@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import "../../styles/argon.css";
+import "../../styles/style.css";
 
 const DashboardLayout = () => {
   return (

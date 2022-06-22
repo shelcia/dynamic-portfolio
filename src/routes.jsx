@@ -54,10 +54,7 @@ const routes = [
         path: "dashboard",
         element: <Dashboard />,
       },
-      {
-        path: "portfolio/:id",
-        element: <Portfolio />,
-      },
+
       {
         path: "add-portfolio",
         element: <AddPortfolio />,
@@ -67,6 +64,10 @@ const routes = [
         element: <EditPortfolio />,
       },
     ],
+  },
+  {
+    path: "portfolio/:id",
+    element: <Portfolio />,
   },
 ];
 

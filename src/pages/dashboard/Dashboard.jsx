@@ -8,7 +8,7 @@ const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
   const id = localStorage.getItem("dynamic-id");
 
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [portfolio, setPortfolio] = useState([]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const Dashboard = () => {
               ))}
             </div>
           )}
-          <div className="text-center">
+          <div className="text-center mt-3">
             <Link to="/add-portfolio">
               <button className="btn btn-success">Add Portfolio</button>
             </Link>
@@ -68,7 +68,7 @@ const Dashboard = () => {
 export default Dashboard;
 
 const PortfolioCard = ({ item }) => (
-  <div className="card ml-0 mr-4 border border-0 rounded-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent">
+  <div className="card ms-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent">
     <div className="card-body bg-white w-100">
       <Link
         to={`/portfolio/${item._id}`}

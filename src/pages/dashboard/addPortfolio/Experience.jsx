@@ -137,6 +137,12 @@ const Experience = ({ experiences, setExperience }) => {
                 title="Add Experience"
               >
                 <HiPlus onClick={(e) => addExperience(e)} />
+                {/* <i
+                  className="fas fa-plus"
+                  style={{ fontSize: "25px" }}
+                  onClick={(e) => addExperience(e)}
+                  title="Add Experience"
+                /> */}
               </button>
             </div>
           </div>

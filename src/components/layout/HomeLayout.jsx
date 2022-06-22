@@ -1,6 +1,10 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FiGithub } from "react-icons/fi";
+import "../../styles/bootstrap.css";
+import "../../styles/argon.css";
+import "../../styles/style.css";
+import { FaBehance } from "react-icons/fa";
 
 const HomeLayout = () => {
   return (
@@ -94,14 +98,26 @@ const HomeLayout = () => {
                   <FiGithub />
                 </span>
               </button>
+              <button
+                target="_blank"
+                href="https://github.com/shelcia/dynamic-portfolio"
+                rel="nofollow"
+                className="btn btn-icon-only btn-facebook rounded-circle"
+                data-toggle="tooltip"
+                data-original-title="Contribute on Github"
+              >
+                <span className="btn-inner--icon btn-fab btn-icon">
+                  <FaBehance />
+                </span>
+              </button>
             </div>
           </div>
           <hr />
           <div className="row align-items-center justify-content-md-between">
             <div className="col-md-6">
               <div className="copyright">
-                &copy; 2020{" "}
-                <a href="!#" target="_blank">
+                &copy; 2022{" "}
+                <a href="www.shelcia-dev.me" target="_blank">
                   Shelcia
                 </a>
                 .

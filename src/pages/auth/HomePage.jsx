@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Img1 from "../../assets/1.png";
+import Img2 from "../../assets/2.png";
+import Img3 from "../../assets/3.png";
 
 const HomePage = () => {
   return (
@@ -69,6 +72,7 @@ const HomePage = () => {
                 <p className="lead">I am still working on it</p>
               </div>
             </div>
+            <TemmplateCarousel />
           </div>
         </div>
         <br />
@@ -79,3 +83,75 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const templates = [
+  {
+    img: Img1,
+    title: "Student Portfolio",
+    caption: "",
+  },
+  {
+    img: Img2,
+    title: "Photographer Portfolio",
+    caption: "",
+  },
+  {
+    img: Img3,
+    title: "Blogger Portfolio",
+    caption: "",
+  },
+];
+
+const TemmplateCarousel = () => (
+  <div
+    id="templateCarousel"
+    className="carousel slide carousel-fade"
+    data-bs-ride="false"
+  >
+    <div className="carousel-indicators">
+      {templates.map((template, index) => (
+        <button
+          key={index}
+          type="button"
+          data-bs-target="#templateCarousel"
+          data-bs-slide-to={index}
+          className={index === 0 ? "active" : ""}
+          aria-current={index === 0 ? "true" : "false"}
+          aria-label={`Slide ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+    <div className="carousel-inner">
+      {templates.map((template, index) => (
+        <div
+          className={index === 0 ? "carousel-item active" : "carousel-item"}
+          key={index}
+        >
+          <img src={template.img} className="d-block w-100" alt="..." />
+          <div className="carousel-caption d-none d-md-block">
+            <h5>{template.title}</h5>
+            <p>{template.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <button
+      className="carousel-control-prev"
+      type="button"
+      data-bs-target="#templateCarousel"
+      data-bs-slide="prev"
+    >
+      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Previous</span>
+    </button>
+    <button
+      className="carousel-control-next"
+      type="button"
+      data-bs-target="#templateCarousel"
+      data-bs-slide="next"
+    >
+      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      <span className="visually-hidden">Next</span>
+    </button>
+  </div>
+);

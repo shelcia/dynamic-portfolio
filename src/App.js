@@ -1,10 +1,8 @@
 import React from "react";
-import "./styles/argon.css";
-import "./styles/style.css";
-
 import { ThemeProvider } from "./pages/templates/context/ThemeContext";
-import { useRoutes } from "react-router";
+
 import routes from "./routes";
+import { useRoutes } from "react-router";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
@@ -532,13 +531,26 @@ li.timeline-item::before {
 .portfolio-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  overflow-x: auto;
   gap: 10px;
 }
 
-.portfolio-grid div {
+.portfolio-grid div.card {
   width: 250px;
   height: 300px;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-caption h5 {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

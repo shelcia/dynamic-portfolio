@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
 import HashLoader from "react-spinners/HashLoader";
 
 const Verification = ({ match }) => {
@@ -39,7 +38,6 @@ const Verification = ({ match }) => {
 
   return (
     <React.Fragment>
-      <ToastContainer />
       <div
         className="container-fluid bg-dark text-light"
         style={{ height: "100vh" }}
