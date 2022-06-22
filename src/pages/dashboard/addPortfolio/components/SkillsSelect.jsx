@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import { skills } from "../../templates/context/SkillsContext";
+import { toast } from "react-hot-toast";
+import { FaTimes } from "react-icons/fa";
+import skills from "../../../../json/skill-names.json";
 
 const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
   const [filtered, setFiltered] = useState([]);
@@ -26,41 +27,46 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
       return;
     }
     setSelectedSkills([...selectedSkills, skill.name]);
+    setFiltered([]);
+    setSkill("");
   };
   const delSkill = (skill) => {
     const newSkillsets = selectedSkills.filter((skills) => skills !== skill);
     setSelectedSkills(newSkillsets);
   };
 
+  // useOutsideAlerter(wrapperRef);
+
   return (
     <React.Fragment>
-      <ToastContainer />
       <div className="form-group">
-        <label htmlFor="skills" className="h3">
+        <label htmlFor="skills" className="lead">
           Skills
         </label>
         <div className="text-light mb-2">
           {selectedSkills.map((skill, index) => (
             <span
-              className="badge badge-dark px-3 py-2 mr-2 mb-1 rounded-sm  border border-dark shadow-sm"
+              className="badge badge-dark px-3 py-2 mr-2 mb-1 rounded-sm border border-dark shadow-sm"
               key={index}
               style={{ fontSize: "0.9rem" }}
             >
               {skill}
-              <i
-                className="fas fa-times pointer-cursor ml-2"
+              <FaTimes
                 onClick={() => delSkill(skill)}
+                className="pointer-cursor ms-2"
               />
             </span>
           ))}
         </div>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Start typing out the skills and click to pick them"
-          value={skill}
-          onChange={(e) => setSkill(e.target.value)}
-        />
+        <div className="input-group">
+          <input
+            className="form-control"
+            placeholder="Start typing out the skills and click to pick them"
+            value={skill}
+            onChange={(e) => setSkill(e.target.value)}
+          />
+        </div>
+
         <ul className="list-group background shadow-lg">
           {filtered !== [] &&
             filtered.map((skill, index) => (

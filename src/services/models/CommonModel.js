@@ -10,7 +10,7 @@ export const apiCommon = new ApiCore({
   put: true,
   putById: true,
   patch: true,
-  delete: true,
+  remove: true,
   url: url,
   //   plural: plural,
   //   single: single,

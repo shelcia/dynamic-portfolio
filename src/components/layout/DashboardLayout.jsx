@@ -1,9 +1,23 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import Login from "../../pages/auth/Login";
 import "../../styles/argon.css";
 import "../../styles/style.css";
 
 const DashboardLayout = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
   return (
     <React.Fragment>
       <nav
@@ -51,9 +65,9 @@ const DashboardLayout = () => {
             </div>
             <ul className="navbar-nav align-items-lg-center ml-lg-auto">
               <li className="nav-item">
-                <Link className="btn btn-neutral" to="/">
+                <button className="btn btn-neutral" onClick={logout}>
                   <span className="nav-link-inner--text">Logout</span>
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -102,3 +116,45 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+export const AuthGuard = ({ children }) => {
+  const isAuthenticate = () => {
+    return localStorage.getItem("dynamic-token") &&
+      localStorage.getItem("dynamic-activated")
+      ? true
+      : false;
+  };
+
+  function useAuth() {
+    // console.log(isAuthenticate(), isExpired);
+    if (!isAuthenticate()) {
+      return true;
+    } else {
+      return true;
+    }
+    // return isAuthenticate() && !isExpired;
+  }
+
+  const navigate = useNavigate();
+
+  const isAuthenticated = useAuth();
+  const { pathname } = useLocation();
+  const [requestedLocation, setRequestedLocation] = useState(null);
+
+  // console.log({ isAuthenticated, requestedLocation, pathname });
+
+  if (!isAuthenticated) {
+    if (pathname !== requestedLocation) {
+      setRequestedLocation(pathname);
+    }
+    navigate("login");
+    return <Login />;
+  }
+
+  if (requestedLocation && pathname !== requestedLocation) {
+    setRequestedLocation(null);
+    return <Navigate to={requestedLocation} />;
+  }
+
+  return <Fragment>{children}</Fragment>;
+};

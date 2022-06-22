@@ -1,29 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ComponentLoader } from "../../components/Loaders";
+import { ComponentLoader } from "../../components/common/CustomLoaders";
 import { apiCommon } from "../../services/models/CommonModel";
 import { FaTrash } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { TemplateContext } from "../../context/TemplateContext";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
-  const id = localStorage.getItem("dynamic-id");
+  const userId = localStorage.getItem("dynamic-id");
 
   const [isLoading, setLoading] = useState(false);
   const [portfolio, setPortfolio] = useState([]);
 
+  const getPortfolio = (id, signal) =>
+    apiCommon.getSingle(id, signal, "portfolios", true).then((res) => {
+      console.log("Portfolio", res);
+      if (res.status === "200") {
+        setPortfolio(res.message);
+      }
+      setLoading(false);
+    });
+
   useEffect(() => {
     const ac = new AbortController();
-    const getPortfolio = () =>
-      apiCommon.getSingle(id, ac.signal, "portfolios", true).then((res) => {
-        console.log("Portfolio", res);
-        if (res.status === "200") {
-          setPortfolio(res.message);
-        }
-        setLoading(false);
-      });
-    if (!portfolio.length) getPortfolio();
+    if (!portfolio.length) getPortfolio(userId, ac.signal);
     return () => ac.abort();
-  }, [id, portfolio.length]);
+  }, [userId, portfolio.length]);
+
+  const delPortfolio = (id) => {
+    apiCommon.remove(id, "portfolio").then((res) => {
+      console.log(res);
+      if (res.status === "200") {
+        toast.success(res.message);
+        getPortfolio(userId);
+      } else {
+        toast.error(res.message);
+      }
+    });
+  };
 
   return (
     <React.Fragment>
@@ -50,24 +65,35 @@ const Dashboard = () => {
           ) : (
             <div className="portfolio-grid">
               {portfolio.map((item) => (
-                <PortfolioCard key={item._id} item={item} />
+                <PortfolioCard
+                  key={item._id}
+                  item={item}
+                  delPortfolio={delPortfolio}
+                />
               ))}
             </div>
           )}
           <div className="text-center mt-3">
-            <Link to="/add-portfolio">
-              <button className="btn btn-success">Add Portfolio</button>
-            </Link>
+            {/* <Link to="/add-portfolio"> */}
+            <button
+              className="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#portfolioModal"
+            >
+              Add Portfolio
+            </button>
+            {/* </Link> */}
           </div>
         </div>
       </div>
+      <AddPortfolioModal />
     </React.Fragment>
   );
 };
 
 export default Dashboard;
 
-const PortfolioCard = ({ item }) => (
+const PortfolioCard = ({ item, delPortfolio }) => (
   <div className="card ms-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent">
     <div className="card-body bg-white w-100">
       <Link
@@ -92,9 +118,61 @@ const PortfolioCard = ({ item }) => (
       <button className="btn btn-neutral me-0 mr-0" title="Share Portfolio">
         <span className="nav-link-inner--text">Share</span>
       </button>
-      <button className="btn btn-danger" title="Delete Portfolio">
+      <button
+        className="btn btn-danger"
+        title="Delete Portfolio"
+        onClick={() => delPortfolio(item._id)}
+      >
         <FaTrash />
       </button>
     </div>
   </div>
 );
+
+const AddPortfolioModal = () => {
+  const [templates] = useContext(TemplateContext);
+  return (
+    <div
+      className="modal fade"
+      id="portfolioModal"
+      tabindex="-1"
+      aria-labelledby="portfolioModalLabel"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="portfolioModalLabel">
+              Choose One
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="modal-body">
+            <div className="row">
+              {templates.map((template, index) => (
+                <div className="col-sm-4 text-center" key={index}>
+                  <img src={template.img} alt="" className="img-fluid" />
+                  <button className="btn btn-primary mt-2">View</button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

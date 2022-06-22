@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
-import Topbar from "./components/TopBar";
-import { ThemeContext } from "./context/ThemeContext";
-import Intro from "./components/Intro";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Works from "./components/Works";
-import Footer from "./components/Footer";
+// import Topbar from "./components/TopBar";
+// import { ThemeContext } from "./context/ThemeContext";
+// import Intro from "./components/Intro";
+// import Projects from "./components/Projects";
+// import Skills from "./components/Skills";
+// import Works from "./components/Works";
+// import Footer from "./components/Footer";
 import { useParams } from "react-router";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
   const [portfolioDetails, setPortfolioDetails] = useState([]);
   const link = process.env.REACT_APP_API_LINK;
-  const [darkTheme, setDarkTheme] = useContext(ThemeContext);
+  // const [darkTheme, setDarkTheme] = useContext(ThemeContext);
 
   const { id } = useParams();
 
@@ -42,12 +42,12 @@ const Portfolio = () => {
       ) : (
         <React.Fragment>
           <div className={`text-${portfolioDetails.font}`}>
-            <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+            {/* <Topbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
             <Intro portfolioDetails={portfolioDetails} />
             <Projects portfolioDetails={portfolioDetails} />
             <Skills portfolioDetails={portfolioDetails} />
             <Works portfolioDetails={portfolioDetails} />
-            <Footer />
+            <Footer /> */}
           </div>
         </React.Fragment>
       )}

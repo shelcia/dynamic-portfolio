@@ -1,4 +1,6 @@
 import React from "react";
+import { FaMinus } from "react-icons/fa";
+import { CustomSimpleInput } from "../../../../components/common/CustomInputs";
 
 const Projects = ({ projects, setProjects }) => {
   const handleInputs = (e, id) => {
@@ -36,12 +38,19 @@ const Projects = ({ projects, setProjects }) => {
   return (
     <React.Fragment>
       <div className="form-group">
-        <label htmlFor="skills" className="h3">
+        <label htmlFor="skills" className="lead">
           Projects
         </label>
         {projects.map((project, index) => (
           <div key={index} className="mt-2">
-            <label htmlFor="title">Project Title</label>
+            <CustomSimpleInput
+              label="Project Title"
+              name="title"
+              value={project.title}
+              placeholder="Attendance Management"
+              onChange={(e) => handleInputs(e, project.id)}
+            />
+            {/* <label htmlFor="title">Project Title</label>
             <input
               type="text"
               name="title"
@@ -50,8 +59,15 @@ const Projects = ({ projects, setProjects }) => {
               value={project.title}
               onChange={(e) => handleInputs(e, project.id)}
               required
+            /> */}
+            <CustomSimpleInput
+              label="Description"
+              name="desc"
+              value={project.desc}
+              placeholder="lorem ipsum"
+              onChange={(e) => handleInputs(e, project.id)}
             />
-            <label htmlFor="title">Description</label>
+            {/* <label htmlFor="title">Description</label>
             <input
               type="text"
               name="desc"
@@ -60,8 +76,15 @@ const Projects = ({ projects, setProjects }) => {
               value={project.desc}
               onChange={(e) => handleInputs(e, project.id)}
               required
+            /> */}
+            <CustomSimpleInput
+              label="Project Link"
+              name="link"
+              value={project.link}
+              placeholder="https://github.com/shelcia/dynamic-portflio"
+              onChange={(e) => handleInputs(e, project.id)}
             />
-            <label htmlFor="title">Project Link</label>
+            {/* <label htmlFor="title">Project Link</label>
             <input
               type="text"
               name="links"
@@ -69,29 +92,31 @@ const Projects = ({ projects, setProjects }) => {
               placeholder="https://github.com/shelcia/dynamic-portflio"
               value={project.link}
               onChange={(e) => handleInputs(e, project.id)}
-            />
+            /> */}
             <div className="text-right w-100">
               {index !== 0 && (
-                <button className="btn normal py-1 px-3 mr-2" type="button">
-                  <i
-                    className="fas fa-minus"
-                    style={{ fontSize: "25px" }}
-                    onClick={(e) => delProject(e, project.id)}
-                    title="Delete Project"
-                  />
+                <button
+                  className="btn btn-danger py-1 px-3 mb-2"
+                  type="button"
+                  onClick={(e) => delProject(e, project.id)}
+                  title="Delete Project"
+                >
+                  <FaMinus />
                 </button>
               )}
-              <button className="btn normal py-1 px-3" type="button">
-                <i
-                  className="fas fa-plus"
-                  style={{ fontSize: "25px" }}
-                  onClick={(e) => addProject(e)}
-                  title="Add Project"
-                />
-              </button>
             </div>
           </div>
         ))}
+        <div className="text-right w-100">
+          <button
+            className="btn btn-neutral py-1 px-3"
+            type="button"
+            onClick={(e) => addProject(e)}
+            title="Add Project"
+          >
+            Add Project
+          </button>
+        </div>
       </div>
     </React.Fragment>
   );

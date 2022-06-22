@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Dropzone from "react-dropzone";
 
-const Profile = ({ file, setFile }) => {
+const Image = ({ file, setFile }) => {
   const [previewSrc, setPreviewSrc] = useState("");
   const [isPreviewAvailable, setIsPreviewAvailable] = useState(false);
   const dropRef = useRef();
@@ -41,7 +41,7 @@ const Profile = ({ file, setFile }) => {
               required
             >
               <input {...getInputProps()} />
-              <p>Drag and drop a file OR click here to select a file</p>
+              <small>Drag and drop a file OR click here to select a file</small>
               {file && (
                 <div>
                   <strong>Selected file:</strong> {file.name}
@@ -57,12 +57,14 @@ const Profile = ({ file, setFile }) => {
             </div>
           ) : (
             <div className="preview-message">
-              <p className="text-danger">No preview available for this file</p>
+              <small className="text-danger">
+                No preview available for this file
+              </small>
             </div>
           )
         ) : (
           <div className="preview-message">
-            <p>Image preview will be shown here after selection</p>
+            <small>Image preview will be shown here after selection</small>
           </div>
         )}
       </div>
@@ -70,4 +72,4 @@ const Profile = ({ file, setFile }) => {
   );
 };
 
-export default Profile;
+export default Image;

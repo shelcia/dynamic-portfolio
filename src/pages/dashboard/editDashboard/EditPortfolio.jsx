@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { PageLoader } from "../../../components/Loaders";
+import { PageLoader } from "../../../components/common/CustomLoaders";
 import { apiCommon } from "../../../services/models/CommonModel";
 
 const EditPortfolio = () => {

@@ -1,25 +1,38 @@
+import { Outlet } from "react-router-dom";
+
+// landing page
 import HomePage from "./pages/auth/HomePage";
 
+// auth pages
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import Verification from "./pages/auth/Verification";
 
+// dashboard pages
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
 import Portfolio from "./pages/templates/Portfolio";
-import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
-import AuthGuard from "./components/AuthGuard";
-import { Outlet } from "react-router-dom";
+// import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
+
+//Layout
 import HomeLayout from "./components/layout/HomeLayout";
-import DashboardLayout from "./components/layout/DashboardLayout";
+import DashboardLayout, {
+  AuthGuard,
+} from "./components/layout/DashboardLayout";
+
+// Context
+import { TemplateProvider } from "./context/TemplateContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const routes = [
   {
     path: "",
     element: (
-      <HomeLayout>
-        <Outlet />
-      </HomeLayout>
+      <TemplateProvider>
+        <HomeLayout>
+          <Outlet />
+        </HomeLayout>
+      </TemplateProvider>
     ),
     children: [
       {
@@ -43,11 +56,13 @@ const routes = [
   {
     path: "",
     element: (
-      <AuthGuard>
-        <DashboardLayout>
-          <Outlet />
-        </DashboardLayout>
-      </AuthGuard>
+      <TemplateProvider>
+        <AuthGuard>
+          <DashboardLayout>
+            <Outlet />
+          </DashboardLayout>
+        </AuthGuard>
+      </TemplateProvider>
     ),
     children: [
       {
@@ -56,18 +71,22 @@ const routes = [
       },
 
       {
-        path: "add-portfolio",
+        path: "add-portfolio/:template",
         element: <AddPortfolio />,
       },
-      {
-        path: "edit-portfolio/:id",
-        element: <EditPortfolio />,
-      },
+      // {
+      //   path: "edit-portfolio/:id",
+      //   element: <EditPortfolio />,
+      // },
     ],
   },
   {
     path: "portfolio/:id",
-    element: <Portfolio />,
+    element: (
+      <ThemeProvider>
+        <Portfolio />
+      </ThemeProvider>
+    ),
   },
 ];
 

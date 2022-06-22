@@ -1,5 +1,4 @@
 import React from "react";
-import { ThemeProvider } from "./pages/templates/context/ThemeContext";
 
 import routes from "./routes";
 import { useRoutes } from "react-router";
@@ -18,7 +17,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Toaster toastOptions={toasterOptions} />
-      <ThemeProvider>{allRoutes}</ThemeProvider>
+      {allRoutes}
     </React.Fragment>
   );
 };

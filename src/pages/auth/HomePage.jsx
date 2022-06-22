@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Img1 from "../../assets/1.png";
-import Img2 from "../../assets/2.png";
-import Img3 from "../../assets/3.png";
+import { TemplateContext } from "../../context/TemplateContext";
 
 const HomePage = () => {
   return (
@@ -30,7 +28,7 @@ const HomePage = () => {
                       Dynamic Portfolio Builder
                     </h1>
                     <h2 className="display-4 font-weight-normal text-white">
-                      Build you portfolio website within seconds
+                      Build your Single Page Portfolio website within 5 minutes
                     </h2>
                     <div className="btn-wrapper mt-4">
                       <Link
@@ -84,74 +82,60 @@ const HomePage = () => {
 
 export default HomePage;
 
-const templates = [
-  {
-    img: Img1,
-    title: "Student Portfolio",
-    caption: "",
-  },
-  {
-    img: Img2,
-    title: "Photographer Portfolio",
-    caption: "",
-  },
-  {
-    img: Img3,
-    title: "Blogger Portfolio",
-    caption: "",
-  },
-];
+const TemmplateCarousel = () => {
+  const [templates] = useContext(TemplateContext);
 
-const TemmplateCarousel = () => (
-  <div
-    id="templateCarousel"
-    className="carousel slide carousel-fade"
-    data-bs-ride="false"
-  >
-    <div className="carousel-indicators">
-      {templates.map((template, index) => (
-        <button
-          key={index}
-          type="button"
-          data-bs-target="#templateCarousel"
-          data-bs-slide-to={index}
-          className={index === 0 ? "active" : ""}
-          aria-current={index === 0 ? "true" : "false"}
-          aria-label={`Slide ${index + 1}`}
-        ></button>
-      ))}
-    </div>
-    <div className="carousel-inner">
-      {templates.map((template, index) => (
-        <div
-          className={index === 0 ? "carousel-item active" : "carousel-item"}
-          key={index}
-        >
-          <img src={template.img} className="d-block w-100" alt="..." />
-          <div className="carousel-caption d-none d-md-block">
-            <h5>{template.title}</h5>
-            <p>{template.caption}</p>
+  return (
+    <div
+      id="templateCarousel"
+      className="carousel slide carousel-fade"
+      data-bs-ride="false"
+    >
+      <div className="carousel-indicators">
+        {templates.map((template, index) => (
+          <button
+            key={index}
+            type="button"
+            data-bs-target="#templateCarousel"
+            data-bs-slide-to={index}
+            className={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+            aria-label={`Slide ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+      <div className="carousel-inner">
+        {templates.map((template, index) => (
+          <div
+            className={index === 0 ? "carousel-item active" : "carousel-item"}
+            key={index}
+          >
+            <img src={template.img} className="d-block w-100" alt="..." />
+            <div className="carousel-caption d-none d-md-block">
+              <h5>{template.title}</h5>
+              <p>{template.caption}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <button
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#templateCarousel"
+        data-bs-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#templateCarousel"
+        data-bs-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
     </div>
-    <button
-      className="carousel-control-prev"
-      type="button"
-      data-bs-target="#templateCarousel"
-      data-bs-slide="prev"
-    >
-      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span className="visually-hidden">Previous</span>
-    </button>
-    <button
-      className="carousel-control-next"
-      type="button"
-      data-bs-target="#templateCarousel"
-      data-bs-slide="next"
-    >
-      <span className="carousel-control-next-icon" aria-hidden="true"></span>
-      <span className="visually-hidden">Next</span>
-    </button>
-  </div>
-);
+  );
+};
