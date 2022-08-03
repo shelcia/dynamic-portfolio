@@ -7,6 +7,7 @@ export const CustomSimpleInput = ({
   placeholder = "",
   onChange = () => {},
   required = true,
+  ...props
 }) => (
   <div className="form-group">
     <label htmlFor={name}>{label}</label>
@@ -18,8 +19,38 @@ export const CustomSimpleInput = ({
         value={value}
         onChange={onChange}
         required={required}
+        {...props}
       />
     </div>
+  </div>
+);
+
+export const CustomTeaxtArea = ({
+  label = "",
+  name = "",
+  value = "",
+  placeholder = "",
+  onChange = () => {},
+  required = true,
+  rows = "3",
+  helper = "",
+  ...props
+}) => (
+  <div className="form-group">
+    <label htmlFor={name}>{label}</label>
+    <div className="input-group">
+      <textarea
+        className="form-control"
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        {...props}
+        rows={rows}
+      />
+    </div>
+    <div className="form-text">{helper}</div>
   </div>
 );
 

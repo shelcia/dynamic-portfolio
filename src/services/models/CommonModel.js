@@ -8,6 +8,7 @@ export const apiCommon = new ApiCore({
   getByParams: true,
   post: true,
   put: true,
+  putFormData: true,
   putById: true,
   patch: true,
   remove: true,

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { CustomSimpleInput } from "../../../../components/common/CustomInputs";
+import {
+  CustomSimpleInput,
+  CustomTeaxtArea,
+} from "../../../../components/common/CustomInputs";
 import Experience from "../components/Experience";
 import Image from "../components/Image";
 import Projects from "../components/Projects";
 import SkillSelect from "../components/SkillsSelect";
 import SocialLinks from "../components/SocialLinks";
+import { apiCommon } from "../../../../services/models/CommonModel";
 
 const Template1 = () => {
   const [data, setData] = useState({
@@ -13,7 +17,7 @@ const Template1 = () => {
     headerTitle: "",
     about: "",
     resumeLink: "",
-    themes: "blue-grad",
+    themes: "blue",
     fontfamily: "poppins",
   });
   const handleInputs = (e) => {
@@ -57,6 +61,8 @@ const Template1 = () => {
       userID: userID,
       name: data.name,
       headerTitle: data.headerTitle,
+      resumeLink: data.resumeLink,
+      template: "template1",
       about: data.about,
       skills: selectedSkills,
       exp: experiences,
@@ -68,39 +74,19 @@ const Template1 = () => {
     console.log(body);
     formData.append("image", file);
 
-    // apiCommon.post(body, "portfolio", true).then((res) => {
-    //   if (res.status === "200") {
-    //     apiCommon.putFormData(formData, "portfolio", true).then((res) => {
-    //       if (res.status === "200") {
-    //         toast.success("Portfolio added !");
-    //       }
-    //     });
-    //   }
-    // });
-
-    // axios
-    //   .post(`${link}common/portfolio`, body, {
-    //     headers: headers,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     if (response.data.status === "200") {
-    //       axios
-    //         .put(`${link}common/portfolio/${response.data.id}`, formData, {
-    //           headers: headersForm,
-    //         })
-    //         .then((response) => {
-    //           if (response.data.status === "200") {
-    //             successNotify(response.data.message);
-    //           }
-    //         })
-    //         .catch((error) => console.log(error));
-    //     } else if (response.data.status === "400" || "500" || "401")
-    //       failedNotify(response.data.message);
-    //   })
-    //   .catch((error) => console.log(error));
-
-    // console.log(body);
+    apiCommon.post(body, "portfolio", true).then((res) => {
+      console.log(res.id);
+      if (res.status === "200") {
+        apiCommon
+          .putFormData(formData, `portfolio/${res.id}`, true)
+          .then((res) => {
+            console.log(res);
+            if (res.status === "200") {
+              toast.success("Portfolio added !");
+            }
+          });
+      }
+    });
   };
 
   return (
@@ -120,12 +106,14 @@ const Template1 = () => {
           placeholder="Full stack developer"
           onChange={handleInputs}
         />
-        <CustomSimpleInput
+        <CustomTeaxtArea
           label="About"
           name="about"
           value={data.about}
           placeholder="I am freelancer aka coolest guy"
           onChange={handleInputs}
+          type="textarea"
+          rows="5"
         />
         <CustomSimpleInput
           label="Resume Link"

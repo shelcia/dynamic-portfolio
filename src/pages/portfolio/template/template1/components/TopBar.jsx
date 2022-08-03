@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-import Toggle from "./Toggle";
+// import { ThemeContext } from "../context/ThemeContext";
+// import Toggle from "./Toggle";
 
 const Topbar = () => {
-  const [darkTheme] = useContext(ThemeContext);
-  const className = darkTheme
-    ? "navbar navbar-expand-md bg-dark navbar-dark"
-    : "navbar navbar-expand-md bg-light navbar-light";
+  // const [darkTheme] = useContext(ThemeContext);
+  // const className = darkTheme
+  //   ? "navbar navbar-expand-md bg-dark navbar-dark"
+  //   : "navbar navbar-expand-md bg-light navbar-light";
   return (
     <React.Fragment>
-      <nav className={className}>
+      <nav
+      // className={className}
+      >
         <a className="navbar-brand" href="/">
           Shelcia
         </a>
@@ -38,9 +40,9 @@ const Topbar = () => {
                 Works
               </a>
             </li>
-            <li className="nav-item ml-4">
+            {/* <li className="nav-item ml-4">
               <Toggle />
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

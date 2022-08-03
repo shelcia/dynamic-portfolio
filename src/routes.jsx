@@ -11,7 +11,7 @@ import Verification from "./pages/auth/Verification";
 // dashboard pages
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
-import Portfolio from "./pages/templates/Portfolio";
+import Portfolio from "./pages/portfolio/Portfolio";
 // import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 
 //Layout

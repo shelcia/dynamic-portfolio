@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+// import { ThemeContext } from "../context/ThemeContext";
 
 const Works = ({ portfolioDetails }) => {
-  const [darkTheme] = useContext(ThemeContext);
-  const className = darkTheme ? "bg-dark text-light" : "bg-light";
+  // const [darkTheme] = useContext(ThemeContext);
+  // const className = darkTheme ? "bg-dark text-light" : "bg-light";
 
   const convertDate = (date) => {
     const dates = new Date(date);
@@ -28,9 +28,9 @@ const Works = ({ portfolioDetails }) => {
         <div className="row">
           <div className="col-lg-7 mx-auto">
             <ul className="timeline">
-              {portfolioDetails.exp.map((port, index) => (
+              {portfolioDetails.exp?.map((port, index) => (
                 <li
-                  className={`timeline-item bg-white rounded ml-3 p-4 shadow ${className}`}
+                  // className={`timeline-item bg-white rounded ml-3 p-4 shadow ${className}`}
                   key={index}
                 >
                   <div className="timeline-arrow"></div>
