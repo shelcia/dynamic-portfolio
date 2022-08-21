@@ -18881,9 +18881,9 @@ Coded by www.creative-tim.com
     font-size: 4.25rem;
   }
   
-  .icon-xl+.icon-text {
+  /* .icon-xl+.icon-text {
     width: calc(100% - $icon-size-xl - 1);
-  }
+  } */
   
   .icon-lg {
     width: 4rem;
@@ -18895,9 +18895,9 @@ Coded by www.creative-tim.com
     font-size: 3.25rem;
   }
   
-  .icon-lg+.icon-text {
+  /* .icon-lg+.icon-text {
     width: calc(100% - $icon-size-lg - 1);
-  }
+  } */
   
   .icon-sm {
     width: 2rem;
@@ -18909,9 +18909,9 @@ Coded by www.creative-tim.com
     font-size: 1.25rem;
   }
   
-  .icon-sm+.icon-text {
+  /* .icon-sm+.icon-text {
     width: calc(100% - $icon-size-sm - 1);
-  }
+  } */
   
   .icon-xs {
     width: 1.25rem;
@@ -18923,9 +18923,9 @@ Coded by www.creative-tim.com
     font-size: 0.5rem !important;
   }
   
-  .icon-xs+.icon-text {
+  /* .icon-xs+.icon-text {
     width: calc(100% - $icon-size-xs - 1);
-  }
+  } */
   
   .icon-shape {
     padding: 12px;
@@ -21874,7 +21874,7 @@ Coded by www.creative-tim.com
   
   .flatpickr-weekwrapper {
     display: inline-block;
-    float: left;
+    /* float: left; */
   }
   
   .flatpickr-weekwrapper .flatpickr-weeks {
@@ -22005,7 +22005,7 @@ Coded by www.creative-tim.com
   .flatpickr-time .flatpickr-am-pm {
     height: inherit;
     display: inline-block;
-    float: left;
+    /* float: left; */
     line-height: inherit;
     color: #393939;
     font-weight: bold;
@@ -23593,7 +23593,7 @@ Coded by www.creative-tim.com
   }
   
   .color-swatch-header .pass-fail-item {
-    float: left;
+    /* float: left; */
     display: inline-block;
     text-align: center;
     padding: 2px;
@@ -23679,7 +23679,7 @@ Coded by www.creative-tim.com
   
   .table-colors .swatch,
   .table-colors:first-child .swatch {
-    float: left;
+    /* float: left; */
     height: 40px;
     width: 40px;
     margin-right: 20px;
@@ -23695,7 +23695,7 @@ Coded by www.creative-tim.com
   
   .table-colors .lozenge,
   .table-colors:first-child .lozenge {
-    float: left;
+    /* float: left; */
     margin: 5px 10px 0 0;
     font-size: 10px;
     display: inline-block;

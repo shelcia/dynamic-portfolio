@@ -12,6 +12,7 @@ const App = () => {
     style: {
       fontWeight: 500,
       fontFamily: "'Poppins', sans-serif",
+      duration: 3000,
     },
   };
 
