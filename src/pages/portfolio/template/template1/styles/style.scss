@@ -40,14 +40,22 @@ $bg-dark-blue-color: #556fff;
   }
 }
 
-.skills-border-blue {
+.skills-border-blue-light {
   border: 3px solid $bg-light-blue-color !important;
   min-width: 75%;
   padding: 0.65rem;
   position: relative;
   z-index: 0;
-
   box-shadow: 10px 10px 0px 0px $bg-light-blue-color;
+}
+
+.skills-border-blue-dark {
+  border: 3px solid $bg-dark-blue-color !important;
+  min-width: 75%;
+  padding: 0.65rem;
+  position: relative;
+  z-index: 0;
+  box-shadow: 10px 10px 0px 0px $bg-dark-blue-color;
 }
 
 .timeline-head {

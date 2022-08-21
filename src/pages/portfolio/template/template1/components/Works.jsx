@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ThemeContext } from "../../../../../context/ThemeContext";
-// import { ThemeContext } from "../context/ThemeContext";
+import Footer from "./Footer";
 
 const Works = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
@@ -51,6 +51,7 @@ const Works = ({ portfolioDetails }) => {
             </ul>
           </Col>
         </Row>
+        <Footer />
       </Container>
     </React.Fragment>
   );

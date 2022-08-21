@@ -3,7 +3,6 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { ThemeContext } from "../../../../../context/ThemeContext";
 
 const Topbar = ({ portfolioDetails }) => {
-  // console.log(portfolioDetails);
   const [darkTheme] = useContext(ThemeContext);
   const className = darkTheme ? "text-light" : "text-dark";
   return (

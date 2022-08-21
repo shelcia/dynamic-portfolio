@@ -47,7 +47,7 @@
   }
 }
 
-.skills-border-blue {
+.skills-border-blue-light {
   border: 3px solid #00458b !important;
   min-width: 75%;
   padding: 0.65rem;
@@ -55,6 +55,16 @@
   z-index: 0;
   -webkit-box-shadow: 10px 10px 0px 0px #00458b;
           box-shadow: 10px 10px 0px 0px #00458b;
+}
+
+.skills-border-blue-dark {
+  border: 3px solid #556fff !important;
+  min-width: 75%;
+  padding: 0.65rem;
+  position: relative;
+  z-index: 0;
+  -webkit-box-shadow: 10px 10px 0px 0px #556fff;
+          box-shadow: 10px 10px 0px 0px #556fff;
 }
 
 .timeline-head {
