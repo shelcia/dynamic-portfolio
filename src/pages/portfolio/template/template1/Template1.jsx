@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Loader from "../../Loader";
 import Intro from "./components/Intro";
 import Toggle from "./components/Toggle";
 import Projects from "./components/Projects";
@@ -7,6 +6,8 @@ import Skills from "./components/Skills";
 import Works from "./components/Works";
 import { useParams } from "react-router";
 import { apiCommon } from "../../../../services/models/CommonModel";
+
+import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import "./styles/style.css";
 
@@ -36,7 +37,7 @@ const Portfolio = () => {
   return (
     <React.Fragment>
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <React.Fragment>
           <div className={`text-${portfolioDetails.font} bg-{}`}>

@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { apiAuth } from "../../services/models/AuthModel";
+import { Pattern1Grad } from "../../components/common/CustomPatterns";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 const Login = () => {
   const email = useRef("");
@@ -39,21 +41,12 @@ const Login = () => {
   return (
     <React.Fragment>
       <section className="section section-shaped section-lg">
-        <div className="shape shape-style-1 bg-gradient-default">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className="container pt-lg-7">
-          <div className="row justify-content-center">
-            <div className="col-lg-5">
-              <div className="card bg-secondary shadow border-0">
-                <div className="card-body px-lg-5 py-lg-5">
+        <Pattern1Grad />
+        <Container className="pt-lg-7">
+          <Row className="justify-content-center">
+            <Col lg={5}>
+              <Card className="bg-secondary shadow border-0">
+                <Card.Body className="px-lg-5 py-lg-5">
                   <form onSubmit={onSubmit}>
                     <div className="form-group mb-3">
                       <div className="input-group input-group-alternative">
@@ -84,33 +77,37 @@ const Login = () => {
                     </div>
                     <div className="text-center">
                       {loading ? (
-                        <button disabled className="btn btn-primary my-4">
+                        <Button className="my-4" variant="primary" disabled>
                           Sign in
-                        </button>
+                        </Button>
                       ) : (
-                        <button type="submit" className="btn btn-primary my-4">
+                        <Button
+                          className="my-4"
+                          variant="primary"
+                          type="submit"
+                        >
                           Sign in
-                        </button>
+                        </Button>
                       )}
                     </div>
                   </form>
-                </div>
-              </div>
-              <div className="row mt-3">
+                </Card.Body>
+              </Card>
+              <Row className="mt-3">
                 {/* <div className="col-6">
                   <a to="" className="text-light">
                     <small>Forgot password?</small>
                   </a>
                 </div> */}
-                <div className="col-12">
+                <Col>
                   <Link to="/signup" className="text-light">
                     <small> Don't have an account ? Then Signup</small>
                   </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </React.Fragment>
   );

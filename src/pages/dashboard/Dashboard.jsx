@@ -5,6 +5,7 @@ import { apiCommon } from "../../services/models/CommonModel";
 import { FaTrash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { TemplateContext } from "../../context/TemplateContext";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
@@ -12,6 +13,7 @@ const Dashboard = () => {
 
   const [isLoading, setLoading] = useState(false);
   const [portfolio, setPortfolio] = useState([]);
+  const [show, setShow] = useState(false);
 
   const getPortfolio = (id, signal) =>
     apiCommon.getSingle(id, signal, "portfolios", true).then((res) => {
@@ -58,7 +60,7 @@ const Dashboard = () => {
           <span className="span-50"></span>
           <span className="span-100"></span>
         </div>
-        <div className="container mt-5 ">
+        <Container className="mt-5">
           <h3 className="mt-2 mb-5 text-capitalize text-white">Hi {name}</h3>
           {isLoading ? (
             <ComponentLoader />
@@ -74,19 +76,13 @@ const Dashboard = () => {
             </div>
           )}
           <div className="text-center mt-3">
-            {/* <Link to="/add-portfolio"> */}
-            <button
-              className="btn btn-success"
-              data-bs-toggle="modal"
-              data-bs-target="#portfolioModal"
-            >
+            <Button variant="success" onClick={() => setShow(true)}>
               Add Portfolio
-            </button>
-            {/* </Link> */}
+            </Button>
           </div>
-        </div>
+        </Container>
       </div>
-      <AddPortfolioModal />
+      <AddPortfolioModal show={show} setShow={setShow} />
     </React.Fragment>
   );
 };
@@ -129,50 +125,32 @@ const PortfolioCard = ({ item, delPortfolio }) => (
   </div>
 );
 
-const AddPortfolioModal = () => {
+const AddPortfolioModal = ({ show, setShow }) => {
   const [templates] = useContext(TemplateContext);
+  const handleClose = () => setShow(false);
+
   return (
-    <div
-      className="modal fade"
-      id="portfolioModal"
-      tabIndex="-1"
-      aria-labelledby="portfolioModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="portfolioModalLabel">
-              Choose One
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <div className="row">
-              {templates.map((template, index) => (
-                <div className="col-sm-4 text-center" key={index}>
-                  <img src={template.img} alt="" className="img-fluid" />
-                  <button className="btn btn-primary mt-2">View</button>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title> Choose One</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Row>
+          {templates.map((template, index) => (
+            <Col sm={4} className="text-center" key={index}>
+              <img src={template.img} alt="" className="img-fluid" />
+              <Button variant="primary" onClick={handleClose} className="mt-2">
+                View
+              </Button>
+            </Col>
+          ))}
+        </Row>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };

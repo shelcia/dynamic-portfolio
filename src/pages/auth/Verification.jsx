@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import HashLoader from "react-spinners/HashLoader";
+import { ComponentLoader } from "../../components/common/CustomLoaders";
 
 const Verification = ({ match }) => {
   const successNotify = (message) => toast.success(message);
@@ -46,11 +46,7 @@ const Verification = ({ match }) => {
           <h3 className="display-2 my-4"> Dynamic Portflio </h3>
 
           {isLoading ? (
-            <HashLoader
-              color="rgb(12, 186, 0)"
-              loading={isLoading}
-              size={150}
-            />
+            <ComponentLoader loading={isLoading}></ComponentLoader>
           ) : (
             <div className="text-center mt-5">
               <i

@@ -2,24 +2,14 @@ import React, { useContext } from "react";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
+import { Pattern3Default } from "../../components/common/CustomPatterns";
 
 const HomePage = () => {
   return (
     <React.Fragment>
-      <div className="wrapper">
+      <section className="wrapper">
         <div className="section section-hero section-shaped">
-          <div className="shape shape-style-3 shape-default">
-            <span className="span-150"></span>
-            <span className="span-50"></span>
-            <span className="span-50"></span>
-            <span className="span-75"></span>
-            <span className="span-100"></span>
-            <span className="span-75"></span>
-            <span className="span-50"></span>
-            <span className="span-100"></span>
-            <span className="span-50"></span>
-            <span className="span-100"></span>
-          </div>
+          <Pattern3Default />
           <div className="page-header">
             <Container className="shape-container d-flex align-items-center py-lg">
               <div className="col px-0">
@@ -76,7 +66,7 @@ const HomePage = () => {
         </div>
         <br />
         <br />
-      </div>
+      </section>
     </React.Fragment>
   );
 };
