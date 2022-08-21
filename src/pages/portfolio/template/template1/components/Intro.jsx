@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
+import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import { ThemeContext } from "../../../../../context/ThemeContext";
 import { LOCALHOST_URL } from "../../../../../services/api";
-// import { ThemeContext } from "../context/ThemeContext";
+import Topbar from "./TopBar";
 // import { social } from "../context/TypoColor";
 
 const Intro = ({ portfolioDetails }) => {
-  // const [darkTheme] = useContext(ThemeContext);
-  // const className = darkTheme ? "bg-dark text-light" : "bg-light";
+  const [darkTheme] = useContext(ThemeContext);
+  const bg = darkTheme ? "bg-dark" : "bg-white";
 
   // const findLogo = (name) => {
   //   const classLogo = social.filter((item) => item.name === name);
@@ -14,28 +16,30 @@ const Intro = ({ portfolioDetails }) => {
   //   return classLogo[0].class;
   // };
 
-  const theme = "light";
+  const theme = darkTheme ? "dark" : "light";
 
   const { id } = useParams();
 
   return (
     <React.Fragment>
-      {/* <div
-        className={`container-fluid ${className}`}
-        style={{ minHeight: "80vh" }}
-      > */}
-      <div className="row" style={{ minHeight: "80vh" }}>
-        <div
-          className={`col-md-7 d-flex flex-column justify-content-center bg-${portfolioDetails.theme}-${theme} px-5`}
+      <Topbar portfolioDetails={portfolioDetails} />
+      <Row
+        style={{ minHeight: "80vh", marginTop: "-10vh" }}
+        className={`${bg}`}
+      >
+        <Col
+          md={7}
+          className={`d-flex flex-column justify-content-center bg-${portfolioDetails.theme}-${theme} px-5`}
           style={{ minHeight: "80vh" }}
         >
-          <p className={`text-${theme} mb-1`}>
-            Hi! I am <b className="fw-bold">{portfolioDetails.name}</b>
-          </p>
-          <p className={`text-${theme}`}>{portfolioDetails.headerTitle}</p>
-          <p className={`text-${theme}`}>{portfolioDetails.about}</p>
-          <div className="d-flex">
-            {/* {portfolioDetails.socialLinks?.map((social) => (
+          <div className="mt-5">
+            <p className="text-white mb-1">
+              Hi! I am <b className="fw-bold">{portfolioDetails.name}</b>
+            </p>
+            <p className="text-white">{portfolioDetails.headerTitle}</p>
+            <p className="text-white">{portfolioDetails.about}</p>
+            <div className="d-flex">
+              {/* {portfolioDetails.socialLinks?.map((social) => (
               <a href={social.link} key={social.id}>
                 <i
                   className={
@@ -44,19 +48,21 @@ const Intro = ({ portfolioDetails }) => {
                 />
               </a>
             ))} */}
+            </div>
           </div>
-        </div>
-        <div className="col-md-5 d-flex align-items-center img-align">
-          <img
-            src={`${LOCALHOST_URL}/common/portfolio/image/${id}`}
-            width="350px"
-            height="350px"
-            className={`profile-${theme}`}
-            alt=""
-          />
-        </div>
-      </div>
-      {/* </div> */}
+        </Col>
+        <Col className="d-flex align-items-center img-align" md={5}>
+          <div className="mt-5">
+            <img
+              src={`${LOCALHOST_URL}/common/portfolio/image/${id}`}
+              width="350px"
+              height="350px"
+              className={`profile-${theme}`}
+              alt=""
+            />
+          </div>
+        </Col>
+      </Row>
     </React.Fragment>
   );
 };

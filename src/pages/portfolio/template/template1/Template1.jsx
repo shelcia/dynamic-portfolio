@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../../Loader";
-import Topbar from "./components/TopBar";
 // import { ThemeContext } from "./context/ThemeContext";
 import Intro from "./components/Intro";
+import Toggle from "./components/Toggle";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Works from "./components/Works";
@@ -26,9 +26,6 @@ const Portfolio = () => {
         apiCommon.getSingle(id, ac.signal, "portfolio").then((portfolio) => {
           setPortfolioDetails(portfolio.message);
         });
-        // const portfolio = await axios.get(`${link}common/portfolio/${id}`);
-        // console.log("Details", portfolio.data.message);
-        // setPortfolioDetails(portfolio.data.message);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -44,10 +41,12 @@ const Portfolio = () => {
         <Loader />
       ) : (
         <React.Fragment>
-          <div className={`text-${portfolioDetails.font}`}>
-            <Topbar
-            // darkTheme={darkTheme} setDarkTheme={setDarkTheme}
-            />
+          <div className={`text-${portfolioDetails.font} bg-{}`}>
+            <Toggle />
+            {/* <Topbar
+              portfolioDetails={portfolioDetails}
+              // darkTheme={darkTheme} setDarkTheme={setDarkTheme}
+            /> */}
             <Intro portfolioDetails={portfolioDetails} />
             <Projects portfolioDetails={portfolioDetails} />
             <Skills portfolioDetails={portfolioDetails} />

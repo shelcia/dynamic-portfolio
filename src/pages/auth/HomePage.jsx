@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
 
@@ -20,7 +21,7 @@ const HomePage = () => {
             <span className="span-100"></span>
           </div>
           <div className="page-header">
-            <div className="container shape-container d-flex align-items-center py-lg">
+            <Container className="shape-container d-flex align-items-center py-lg">
               <div className="col px-0">
                 <div className="row align-items-center justify-content-center">
                   <div className="col-lg-6 text-center">
@@ -41,7 +42,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Container>
           </div>
           <div className="separator separator-bottom separator-skew zindex-100">
             <svg
@@ -60,18 +61,18 @@ const HomePage = () => {
           </div>
         </div>
         <div className="section features-1">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-8 mx-auto text-center">
+          <Container>
+            <Row>
+              <Col md={8} className="mx-auto text-center">
                 <span className="badge badge-primary badge-pill mb-3">
                   templates
                 </span>
                 <h3 className="display-3">Few Templates Available</h3>
                 <p className="lead">I am still working on it</p>
-              </div>
-            </div>
-            <TemmplateCarousel />
-          </div>
+              </Col>
+            </Row>
+            <TemplateCarousel />
+          </Container>
         </div>
         <br />
         <br />
@@ -82,60 +83,20 @@ const HomePage = () => {
 
 export default HomePage;
 
-const TemmplateCarousel = () => {
+const TemplateCarousel = () => {
   const [templates] = useContext(TemplateContext);
 
   return (
-    <div
-      id="templateCarousel"
-      className="carousel slide carousel-fade"
-      data-bs-ride="false"
-    >
-      <div className="carousel-indicators">
-        {templates.map((template, index) => (
-          <button
-            key={index}
-            type="button"
-            data-bs-target="#templateCarousel"
-            data-bs-slide-to={index}
-            className={index === 0 ? "active" : ""}
-            aria-current={index === 0 ? "true" : "false"}
-            aria-label={`Slide ${index + 1}`}
-          ></button>
-        ))}
-      </div>
-      <div className="carousel-inner">
-        {templates.map((template, index) => (
-          <div
-            className={index === 0 ? "carousel-item active" : "carousel-item"}
-            key={index}
-          >
-            <img src={template.img} className="d-block w-100" alt="..." />
-            <div className="carousel-caption d-none d-md-block">
-              <h5>{template.title}</h5>
-              <p>{template.caption}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#templateCarousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#templateCarousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
+    <Carousel>
+      {templates.map((template, index) => (
+        <Carousel.Item interval={1000} key={index}>
+          <img className="d-block w-100" src={template.img} alt="...." />
+          <Carousel.Caption>
+            <h3>{template.title}</h3>
+            <p>{template.caption} </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
   );
 };

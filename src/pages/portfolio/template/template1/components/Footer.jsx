@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
-// import { ThemeContext } from "../context/ThemeContext";
+import React from "react";
 
 const Footer = () => {
-  // const [darkTheme] = useContext(ThemeContext);
-  // const className = darkTheme ? "bg-dark text-light" : "bg-light";
   return (
     <React.Fragment>
-      {/* <div className={`container-fluid ${className} py-4`}> */}
-      <div className="text-center">
-        <p className="mb-0 text-15">Developed with Love and React by Shelcia</p>
+      <div className={`container-fluid bg-tranparent py-4`}>
+        <div className="text-center">
+          <p className="mb-0 text-15">Copyrights © 2022 Shelcia</p>
+        </div>
       </div>
-      {/* </div> */}
     </React.Fragment>
   );
 };

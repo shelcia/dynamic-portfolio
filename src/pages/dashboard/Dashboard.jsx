@@ -135,7 +135,7 @@ const AddPortfolioModal = () => {
     <div
       className="modal fade"
       id="portfolioModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="portfolioModalLabel"
       aria-hidden="true"
     >

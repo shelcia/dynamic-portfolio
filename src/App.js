@@ -3,6 +3,7 @@ import React from "react";
 import routes from "./routes";
 import { useRoutes } from "react-router";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const App = () => {
   const allRoutes = useRoutes(routes);
@@ -16,8 +17,10 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <Toaster toastOptions={toasterOptions} />
-      {allRoutes}
+      <ThemeProvider>
+        <Toaster toastOptions={toasterOptions} />
+        {allRoutes}
+      </ThemeProvider>
     </React.Fragment>
   );
 };
