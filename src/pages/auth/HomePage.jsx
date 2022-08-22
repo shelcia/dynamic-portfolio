@@ -13,8 +13,8 @@ const HomePage = () => {
           <div className="page-header">
             <Container className="shape-container d-flex align-items-center py-lg">
               <div className="col px-0">
-                <div className="row align-items-center justify-content-center">
-                  <div className="col-lg-6 text-center">
+                <Row className="align-items-center justify-content-center">
+                  <Col lg={6} className="text-center">
                     <h1 className="text-white display-1">
                       Dynamic Portfolio Builder
                     </h1>
@@ -29,8 +29,8 @@ const HomePage = () => {
                         <span className="btn-inner--text">Get Started</span>
                       </Link>
                     </div>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </Container>
           </div>
@@ -79,11 +79,11 @@ const TemplateCarousel = () => {
   return (
     <Carousel>
       {templates.map((template, index) => (
-        <Carousel.Item interval={1000} key={index}>
+        <Carousel.Item interval={4000} key={index}>
           <img className="d-block w-100" src={template.img} alt="...." />
           <Carousel.Caption>
-            <h3>{template.title}</h3>
-            <p>{template.caption} </p>
+            <h3 className="text-white">{template.title}</h3>
+            <p className="text-light">{template.caption} </p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}
