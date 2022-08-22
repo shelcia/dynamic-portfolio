@@ -1,22 +1,24 @@
 import React from "react";
-import {
-  FaAngellist,
-  FaBehance,
-  FaBitbucket,
-  FaCodepen,
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-  FaMinus,
-  // FaPlus,
-  FaStackOverflow,
-  FaTumblr,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaMinus } from "react-icons/fa";
 
 const SocialLinks = ({ socialLinks, setSocialLinks }) => {
+  const social = [
+    "Angel list",
+    "Behance",
+    "Bit Bucket",
+    "Codepen",
+    "Dribble",
+    "Github",
+    "Gitlab",
+    "Instagram",
+    "Mail",
+    "Medium",
+    "LinkedIn",
+    "Stack Overflow",
+    "Tumblr",
+    "Twitter",
+    "Youtube",
+  ];
   const handleInputs = (e, id) => {
     const newSocialLinks = socialLinks.map((link) => {
       if (link.id === id) {
@@ -118,54 +120,3 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
 };
 
 export default SocialLinks;
-
-export const social = [
-  {
-    icon: <FaAngellist />,
-    name: "Angel list",
-  },
-  {
-    icon: <FaBehance />,
-    name: "Behance",
-  },
-  {
-    icon: <FaBitbucket />,
-    name: "Bit Bucket",
-  },
-  {
-    icon: <FaCodepen />,
-    name: "Codepen",
-  },
-  {
-    icon: <FaGithub />,
-    name: "Github",
-  },
-  {
-    icon: <FaEnvelope />,
-    name: "Mail",
-  },
-  {
-    icon: <FaMedium />,
-    name: "Medium",
-  },
-  {
-    icon: <FaLinkedin />,
-    name: "LinkedIn",
-  },
-  {
-    icon: <FaStackOverflow />,
-    name: "Stack Overflow",
-  },
-  {
-    icon: <FaTumblr />,
-    name: "Tumblr",
-  },
-  {
-    icon: <FaTwitter />,
-    name: "Twitter",
-  },
-  {
-    icon: <FaYoutube />,
-    name: "Youtube",
-  },
-];

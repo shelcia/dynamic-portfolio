@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { TemplateContext } from "../../context/TemplateContext";
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { Pattern1Default } from "../../components/common/CustomPatterns";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
@@ -44,22 +45,11 @@ const Dashboard = () => {
 
   return (
     <React.Fragment>
-      <div
+      <section
         className="section section-hero section-shaped pt-2"
         style={{ minHeight: "100vh" }}
       >
-        <div className="shape shape-style-1 shape-default">
-          <span className="span-150"></span>
-          <span className="span-50"></span>
-          <span className="span-50"></span>
-          <span className="span-75"></span>
-          <span className="span-100"></span>
-          <span className="span-75"></span>
-          <span className="span-50"></span>
-          <span className="span-100"></span>
-          <span className="span-50"></span>
-          <span className="span-100"></span>
-        </div>
+        <Pattern1Default />
         <Container className="mt-5">
           <h3 className="mt-2 mb-5 text-capitalize text-white">Hi {name}</h3>
           {isLoading ? (
@@ -81,7 +71,7 @@ const Dashboard = () => {
             </Button>
           </div>
         </Container>
-      </div>
+      </section>
       <AddPortfolioModal show={show} setShow={setShow} />
     </React.Fragment>
   );

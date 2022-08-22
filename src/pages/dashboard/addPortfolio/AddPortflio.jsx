@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container, Row } from "react-bootstrap";
+import { Card, Container, Row, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Pattern2Default } from "../../../components/common/CustomPatterns";
 import Template1 from "./templates/Template1";
@@ -22,9 +22,7 @@ const AddPortfolio = () => {
               <div className="d-flex justify-content-between align-items-center">
                 <h4 className="text-primary">Add Portfolio</h4>
                 <Link to="/dashboard">
-                  <button type="button" className="btn btn-info">
-                    Go Back
-                  </button>
+                  <Button variant="info">Go Back</Button>
                 </Link>
               </div>
               <Template />

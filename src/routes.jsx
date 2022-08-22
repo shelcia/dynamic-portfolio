@@ -26,6 +26,14 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 const routes = [
   {
+    path: "portfolio/:id",
+    element: (
+      <ThemeProvider>
+        <Portfolio />
+      </ThemeProvider>
+    ),
+  },
+  {
     path: "",
     element: (
       <TemplateProvider>
@@ -79,14 +87,6 @@ const routes = [
       //   element: <EditPortfolio />,
       // },
     ],
-  },
-  {
-    path: "portfolio/:id",
-    element: (
-      <ThemeProvider>
-        <Portfolio />
-      </ThemeProvider>
-    ),
   },
 ];
 

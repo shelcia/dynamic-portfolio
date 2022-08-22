@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { apiCommon } from "../../../../services/models/CommonModel";
+import { ThemeContext } from "../../../../context/ThemeContext";
+
 import Intro from "./components/Intro";
 import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
 
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import Toggle from "./components/Toggle";
-import { useContext } from "react";
-import { ThemeContext } from "../../../../context/ThemeContext";
 
 import "./styles/style.css";
 
@@ -48,6 +49,7 @@ const Portfolio = () => {
           <div className={`text-${portfolioDetails.font} ${className}`}>
             <Intro portfolioDetails={portfolioDetails} />
             <Gallery portfolioDetails={portfolioDetails} />
+            <Footer portfolioDetails={portfolioDetails} />
           </div>
         </React.Fragment>
       )}

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { ComponentLoader } from "../../components/common/CustomLoaders";
-import "../../styles/argon.css";
 
 const Verification = ({ match }) => {
   const successNotify = (message) => toast.success(message);

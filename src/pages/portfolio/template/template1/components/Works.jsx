@@ -51,7 +51,7 @@ const Works = ({ portfolioDetails }) => {
             </ul>
           </Col>
         </Row>
-        <Footer />
+        <Footer portfolioDetails={portfolioDetails} />
       </Container>
     </React.Fragment>
   );

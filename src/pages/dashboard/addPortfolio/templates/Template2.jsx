@@ -7,7 +7,6 @@ import {
 import { apiCommon } from "../../../../services/models/CommonModel";
 import PhotoGallery from "../components/PhotoGallery";
 import SocialLinks from "../components/SocialLinks";
-import "../../../../styles/argon.css";
 
 const Template2 = () => {
   const [data, setData] = useState({

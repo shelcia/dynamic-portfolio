@@ -1,6 +1,7 @@
 import React from "react";
 import { FaMinus } from "react-icons/fa";
 import { CustomSimpleInput } from "../../../../components/common/CustomInputs";
+import { Row, Col } from "react-bootstrap";
 
 const Experience = ({ experiences, setExperiences }) => {
   const handleInputs = (e, id) => {
@@ -67,16 +68,6 @@ const Experience = ({ experiences, setExperiences }) => {
               placeholder="Amazon"
               onChange={(e) => handleInputs(e, experience.id)}
             />
-            {/* <label htmlFor="name">Company/Institute Name</label>
-            <input
-              type="text"
-              name="name"
-              className="form-control mb-3"
-              placeholder="Amazon"
-              value={experience.title}
-              onChange={(e) => handleInputs(e, experience.id)}
-              required
-            /> */}
             <CustomSimpleInput
               label="Description"
               name="desc"
@@ -84,18 +75,8 @@ const Experience = ({ experiences, setExperiences }) => {
               placeholder="lorem ipsum"
               onChange={(e) => handleInputs(e, experience.id)}
             />
-            {/* <label htmlFor="title">Description</label>
-            <input
-              type="text"
-              name="desc"
-              className="form-control mb-3"
-              placeholder="lorem ipsum"
-              value={experience.desc}
-              onChange={(e) => handleInputs(e, experience.id)}
-              required
-            /> */}
-            <div className="row">
-              <div className="col-sm-6">
+            <Row>
+              <Col sm={6}>
                 <label htmlFor="start">Start Date</label>
                 <div className="input-group">
                   <input
@@ -108,9 +89,9 @@ const Experience = ({ experiences, setExperiences }) => {
                     required
                   />
                 </div>
-              </div>
+              </Col>
               {!experience.current && (
-                <div className="col-sm-6">
+                <Col sm={6}>
                   <label htmlFor="end">End Date</label>
                   <div className="input-group">
                     <input
@@ -122,9 +103,9 @@ const Experience = ({ experiences, setExperiences }) => {
                       onChange={(e) => handleInputs(e, experience.id)}
                     />
                   </div>
-                </div>
+                </Col>
               )}
-            </div>
+            </Row>
 
             <div className="form-check">
               <label className="form-check-label">

@@ -40,20 +40,6 @@ const Gallery = ({ portfolioDetails }) => {
           </Col>
         ))}
       </Row>
-      {/* <div className="row gallery">
-        {portfolioDetails &&
-          portfolioDetails?.photoLinks?.map((photo) => (
-            <div className="col-md-3" key={photo.link}>
-              <img
-                src={photo.link}
-                alt=""
-                width="100%"
-                height="auto"
-                loading="lazy"
-              />
-            </div>
-          ))}
-      </div> */}
     </Container>
   );
 };

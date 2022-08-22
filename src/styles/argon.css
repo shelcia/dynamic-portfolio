@@ -7389,7 +7389,8 @@ Coded by www.creative-tim.com
   }
   
   .bg-dark {
-    background-color: #212529 !important;
+    /* background-color: #212529 !important; */
+    background-color: #212529;
   }
   
   a.bg-dark:hover,

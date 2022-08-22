@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { Pattern1Grad } from "../../components/common/CustomPatterns";
 import { apiAuth } from "../../services/models/AuthModel";
-import "../../styles/argon.css";
 
 const Signup = () => {
   const name = useRef("");
