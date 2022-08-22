@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiCommon } from "../../services/models/CommonModel";
 import Template1 from "./template/template1/Template1";
+import Template2 from "./template/template2/Template2";
 
 const Portfolio = () => {
   return (
@@ -43,7 +44,7 @@ const Template = () => {
     case "template1":
       return <Template1 />;
     case "template2":
-      return <div>Template2 onGoing</div>;
+      return <Template2 />;
     case "template3":
       return <div>Template3 onGoing</div>;
     default:

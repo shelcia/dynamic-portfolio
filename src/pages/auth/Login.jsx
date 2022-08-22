@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { apiAuth } from "../../services/models/AuthModel";
 import { Pattern1Grad } from "../../components/common/CustomPatterns";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import "../../styles/argon.css";
 
 const Login = () => {
   const email = useRef("");

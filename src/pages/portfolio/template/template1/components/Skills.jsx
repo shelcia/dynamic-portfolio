@@ -27,12 +27,6 @@ const Skills = ({ portfolioDetails }) => {
     );
   }
 
-  // const findLogo = (name) => {
-  //   const classLogo = skills.filter((item) => item.name === name);
-  //   // console.log(classLogo);
-  //   return classLogo[0].logo;
-  // };
-
   return (
     <React.Fragment>
       <Container fluid className={`${className} pb-5`} id="skills">

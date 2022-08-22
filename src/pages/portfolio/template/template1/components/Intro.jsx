@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
 import { LOCALHOST_URL } from "../../../../../services/api";
 import Topbar from "./TopBar";
@@ -39,15 +40,18 @@ const Intro = ({ portfolioDetails }) => {
             <p className="text-white">{portfolioDetails.headerTitle}</p>
             <p className="text-white">{portfolioDetails.about}</p>
             <div className="d-flex">
-              {/* {portfolioDetails.socialLinks?.map((social) => (
-              <a href={social.link} key={social.id}>
-                <i
-                  className={
-                    social.name ? `${findLogo(social.name)} social` : ""
-                  }
-                />
-              </a>
-            ))} */}
+              {portfolioDetails.socialLinks?.map((social) => (
+                <a
+                  href={social.link}
+                  key={social.id}
+                  className="me-3 text-white"
+                >
+                  <IconProvider icon={social.name} />
+                </a>
+              ))}
+            </div>
+            <div className="text-center">
+              {portfolioDetails?.resumeLink && <Button>Download Resume</Button>}
             </div>
           </div>
         </Col>

@@ -1,0 +1,38 @@
+.name {
+  position: relative;
+}
+
+.name::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: #000;
+  left: 0;
+  top: 50%;
+  position: absolute;
+}
+
+.name::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: #000;
+  right: 0;
+  top: 50%;
+  position: absolute;
+}
+
+.gallery .col-md-3 {
+  padding: 0.35rem;
+}
+
+.gallery .col-md-3 .img-fluid {
+  margin-top: 0.7rem;
+}
+
+.bg-dark {
+  background-color: #212121 !important;
+}
+/*# sourceMappingURL=style.css.map */

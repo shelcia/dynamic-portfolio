@@ -1,31 +1,22 @@
 import React from "react";
+import { Card, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import { Pattern2Default } from "../../../components/common/CustomPatterns";
 import Template1 from "./templates/Template1";
+import Template2 from "./templates/Template2";
 
 const AddPortfolio = () => {
   return (
     <React.Fragment>
-      <div
+      <section
         className="section section-hero section-shaped pt-2"
         style={{ minHeight: "100vh" }}
       >
-        <div className="shape shape-style-2 shape-default">
-          <span className="span-150"></span>
-          <span className="span-50"></span>
-          <span className="span-50"></span>
-          <span className="span-75"></span>
-          <span className="span-100"></span>
-          <span className="span-75"></span>
-          <span className="span-50"></span>
-          <span className="span-100"></span>
-          <span className="span-50"></span>
-          <span className="span-100"></span>
-        </div>
-
-        <div className="container">
-          <div className="row px-2 pt-5 flex-column">
-            <div
-              className="card background py-3 px-5 border-0 border rounded-0 shadow-lg"
+        <Pattern2Default />
+        <Container>
+          <Row className="px-2 pt-5 flex-column">
+            <Card
+              className="background py-3 px-5 border-0 border rounded-0 shadow-lg"
               style={{ overflowY: "scroll", height: "90vh" }}
             >
               <div className="d-flex justify-content-between align-items-center">
@@ -37,10 +28,10 @@ const AddPortfolio = () => {
                 </Link>
               </div>
               <Template />
-            </div>
-          </div>
-        </div>
-      </div>
+            </Card>
+          </Row>
+        </Container>
+      </section>
     </React.Fragment>
   );
 };
@@ -56,7 +47,7 @@ const Template = () => {
     case "template1":
       return <Template1 />;
     case "template2":
-      return <div>Template2 onGoing</div>;
+      return <Template2 />;
     case "template3":
       return <div>Template3 onGoing</div>;
     default:

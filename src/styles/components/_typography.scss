@@ -77,3 +77,30 @@
     }
   }
 }
+
+.text-baskerville {
+  * {
+    font-family: "Baskervvile", Georgia, "Times New Roman", Times, serif !important;
+    i.skills {
+      font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
+    }
+  }
+}
+
+.text-poppins {
+  * {
+    font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode",
+      "Lucida Grande", "Lucida Sans", Arial, sans-serif !important;
+    i.skills {
+      font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
+    }
+  }
+}

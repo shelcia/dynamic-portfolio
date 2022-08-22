@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Intro from "./components/Intro";
-import Toggle from "./components/Toggle";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Works from "./components/Works";
 import { useParams } from "react-router";
 import { apiCommon } from "../../../../services/models/CommonModel";
+import Intro from "./components/Intro";
+import Gallery from "./components/Gallery";
 
 import { PageLoader } from "../../../../components/common/CustomLoaders";
+
+import Toggle from "./components/Toggle";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../context/ThemeContext";
 
 import "./styles/style.css";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
   const [portfolioDetails, setPortfolioDetails] = useState([]);
+
+  const [darkTheme] = useContext(ThemeContext);
+  const className = darkTheme ? "bg-dark text-white" : "bg-white";
 
   const { id } = useParams();
 
@@ -40,12 +44,10 @@ const Portfolio = () => {
         <PageLoader />
       ) : (
         <React.Fragment>
-          <div className={`text-${portfolioDetails.font}`}>
-            <Toggle />
+          <Toggle />
+          <div className={`text-${portfolioDetails.font} ${className}`}>
             <Intro portfolioDetails={portfolioDetails} />
-            <Projects portfolioDetails={portfolioDetails} />
-            <Skills portfolioDetails={portfolioDetails} />
-            <Works portfolioDetails={portfolioDetails} />
+            <Gallery portfolioDetails={portfolioDetails} />
           </div>
         </React.Fragment>
       )}

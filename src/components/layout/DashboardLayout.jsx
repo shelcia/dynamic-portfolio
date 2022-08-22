@@ -7,7 +7,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Login from "../../pages/auth/Login";
-import "../../styles/argon.css";
 import "../../styles/style.css";
 
 const DashboardLayout = () => {

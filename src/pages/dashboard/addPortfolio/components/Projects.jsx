@@ -50,16 +50,6 @@ const Projects = ({ projects, setProjects }) => {
               placeholder="Attendance Management"
               onChange={(e) => handleInputs(e, project.id)}
             />
-            {/* <label htmlFor="title">Project Title</label>
-            <input
-              type="text"
-              name="title"
-              className="form-control mb-3"
-              placeholder="Attendance Management"
-              value={project.title}
-              onChange={(e) => handleInputs(e, project.id)}
-              required
-            /> */}
             <CustomSimpleInput
               label="Description"
               name="desc"
@@ -67,16 +57,6 @@ const Projects = ({ projects, setProjects }) => {
               placeholder="lorem ipsum"
               onChange={(e) => handleInputs(e, project.id)}
             />
-            {/* <label htmlFor="title">Description</label>
-            <input
-              type="text"
-              name="desc"
-              className="form-control mb-3"
-              placeholder="lorem ipsum"
-              value={project.desc}
-              onChange={(e) => handleInputs(e, project.id)}
-              required
-            /> */}
             <CustomSimpleInput
               label="Project Link"
               name="link"
@@ -84,15 +64,6 @@ const Projects = ({ projects, setProjects }) => {
               placeholder="https://github.com/shelcia/dynamic-portflio"
               onChange={(e) => handleInputs(e, project.id)}
             />
-            {/* <label htmlFor="title">Project Link</label>
-            <input
-              type="text"
-              name="links"
-              className="form-control mb-3"
-              placeholder="https://github.com/shelcia/dynamic-portflio"
-              value={project.link}
-              onChange={(e) => handleInputs(e, project.id)}
-            /> */}
             <div className="text-right w-100">
               {index !== 0 && (
                 <button

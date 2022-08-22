@@ -3,6 +3,7 @@ import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
 import { Pattern3Default } from "../../components/common/CustomPatterns";
+import "../../styles/argon.css";
 
 const HomePage = () => {
   return (

@@ -10,6 +10,7 @@ import Projects from "../components/Projects";
 import SkillSelect from "../components/SkillsSelect";
 import SocialLinks from "../components/SocialLinks";
 import { apiCommon } from "../../../../services/models/CommonModel";
+import "../../../../styles/argon.css";
 
 const Template1 = () => {
   const [data, setData] = useState({

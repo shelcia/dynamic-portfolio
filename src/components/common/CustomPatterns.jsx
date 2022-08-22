@@ -25,3 +25,18 @@ export const Pattern1Grad = () => (
     <span></span>
   </div>
 );
+
+export const Pattern2Default = () => (
+  <div className="shape shape-style-2 shape-default">
+    <span className="span-150"></span>
+    <span className="span-50"></span>
+    <span className="span-50"></span>
+    <span className="span-75"></span>
+    <span className="span-100"></span>
+    <span className="span-75"></span>
+    <span className="span-50"></span>
+    <span className="span-100"></span>
+    <span className="span-50"></span>
+    <span className="span-100"></span>
+  </div>
+);

@@ -472,6 +472,32 @@ input:checked + .toggle .star--6 {
   font-family: "Font Awesome 5 Free" !important;
 }
 
+.text-baskerville * {
+  font-family: "Baskervvile", Georgia, "Times New Roman", Times, serif !important;
+}
+
+.text-baskerville * i.skills {
+  font-family: "devicon" !important;
+}
+
+.text-baskerville * i.far,
+.text-baskerville * i.social {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
+.text-poppins * {
+  font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif !important;
+}
+
+.text-poppins * i.skills {
+  font-family: "devicon" !important;
+}
+
+.text-poppins * i.far,
+.text-poppins * i.social {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
 * {
   font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   scroll-behavior: smooth;
@@ -497,9 +523,5 @@ input:checked + .toggle .star--6 {
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-.carousel-caption h5 {
-  color: white;
 }
 /*# sourceMappingURL=style.css.map */

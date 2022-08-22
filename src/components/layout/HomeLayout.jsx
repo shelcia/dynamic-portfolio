@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FiGithub } from "react-icons/fi";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../styles/argon.css";
 import "../../styles/style.css";
 import { FaBehance } from "react-icons/fa";
 
