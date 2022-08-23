@@ -2,13 +2,12 @@
 
 import axios from "axios";
 import { handleResponse, handleError } from "./response";
-import { LOCALHOST_URL } from "../api";
-// import { HEROKU_BASE_URL } from "../api";
+// import { LOCALHOST_URL } from "../api";
+import { HEROKU_BASE_URL } from "../api";
 
 // Define your api url from any source.
-// Pulling from your .env file when on the server or from localhost when locally
-// const BASE_URL = HEROKU_BASE_URL;
-const BASE_URL = LOCALHOST_URL;
+const BASE_URL = HEROKU_BASE_URL;
+// const BASE_URL = LOCALHOST_URL;
 
 /** @param {string} resource */
 const getAll = async (resource, signal, isAuthorized = false) => {

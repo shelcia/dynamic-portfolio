@@ -111,7 +111,6 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
             title="Add Social Link"
           >
             Add Social Link
-            {/* <FaPlus /> */}
           </button>
         </div>
       </div>
