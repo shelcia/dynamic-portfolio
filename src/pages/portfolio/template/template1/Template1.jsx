@@ -40,7 +40,7 @@ const Portfolio = () => {
         <PageLoader />
       ) : (
         <React.Fragment>
-          <div className={`text-${portfolioDetails.font}`}>
+          <div className={`text-${portfolioDetails.font} template1`}>
             <Toggle />
             <Intro portfolioDetails={portfolioDetails} />
             <Projects portfolioDetails={portfolioDetails} />

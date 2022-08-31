@@ -35,7 +35,7 @@ const DashboardLayout = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Button variant="neutral" onClick={logout}>
+              <Button variant="neutral" onClick={() => logout()}>
                 <span className="nav-link-inner--text">Logout</span>
               </Button>
             </Nav>
@@ -58,13 +58,7 @@ export const AuthGuard = ({ children }) => {
   };
 
   function useAuth() {
-    // console.log(isAuthenticate(), isExpired);
-    if (!isAuthenticate()) {
-      return true;
-    } else {
-      return true;
-    }
-    // return isAuthenticate() && !isExpired;
+    return isAuthenticate();
   }
 
   const navigate = useNavigate();
@@ -73,13 +67,11 @@ export const AuthGuard = ({ children }) => {
   const { pathname } = useLocation();
   const [requestedLocation, setRequestedLocation] = useState(null);
 
-  // console.log({ isAuthenticated, requestedLocation, pathname });
-
   if (!isAuthenticated) {
     if (pathname !== requestedLocation) {
       setRequestedLocation(pathname);
     }
-    navigate("login");
+    navigate("/login");
     return <Login />;
   }
 

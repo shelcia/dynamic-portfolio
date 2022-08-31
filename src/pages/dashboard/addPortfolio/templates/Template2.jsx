@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import {
   CustomSimpleInput,
   CustomTeaxtArea,
@@ -24,6 +25,8 @@ const Template2 = () => {
       link: "",
     },
   ]);
+
+  const navigate = useNavigate();
 
   const handleInputs = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -52,6 +55,9 @@ const Template2 = () => {
       console.log(res.id);
       if (res.status === "200") {
         toast.success("Portfolio added !");
+        navigate(`/dashboard`);
+      } else {
+        toast.error("Portfolio addition failed !");
       }
     });
   };

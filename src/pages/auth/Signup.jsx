@@ -27,15 +27,12 @@ const Signup = () => {
       type: "user",
     };
 
-    apiAuth.post(response, "signin").then((res) => {
+    apiAuth.post(response, "register").then((res) => {
       if (res.status === "200") {
-        // localStorage.setItem("dynamic-email", email.current.value);
-        // localStorage.setItem("dynamic-id", res?.message?.userId);
-        // localStorage.setItem("dynamic-token", res?.message?.token);
-        // localStorage.setItem("dynamic-name", res?.message?.name);
-        // localStorage.setItem("dynamic-activated", res?.message?.activated);
-        toast.success("Signup is succesfull! Please login");
-        navigate("/dashboard");
+        toast.success(
+          "Signup is successfull! You will receive a mail through which verify your account snd login"
+        );
+        navigate("/login");
       } else {
         setLoading(false);
         toast.error(res.message);

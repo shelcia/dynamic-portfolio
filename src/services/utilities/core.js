@@ -85,12 +85,11 @@ export class ApiCore {
     }
 
     if (options.putById) {
-      this.putById = (id, model, signal, additionalParam, isAuthorized) => {
+      this.putById = (id, model, additionalParam, isAuthorized) => {
         return apiProvider.putById(
           options.url,
           id,
           model,
-          signal,
           additionalParam,
           isAuthorized
         );

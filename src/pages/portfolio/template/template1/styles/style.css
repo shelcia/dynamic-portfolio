@@ -1,3 +1,7 @@
+.template1 {
+  overflow-x: hidden;
+}
+
 .bg-dark {
   background-color: #212121;
 }

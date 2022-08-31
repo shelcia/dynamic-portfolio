@@ -10,6 +10,7 @@ import Projects from "../components/Projects";
 import SkillSelect from "../components/SkillsSelect";
 import SocialLinks from "../components/SocialLinks";
 import { apiCommon } from "../../../../services/models/CommonModel";
+import { useNavigate } from "react-router-dom";
 
 const Template1 = () => {
   const [data, setData] = useState({
@@ -46,6 +47,8 @@ const Template1 = () => {
 
   const [file, setFile] = useState(null);
 
+  const navigate = useNavigate();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -75,18 +78,21 @@ const Template1 = () => {
     formData.append("image", file);
 
     apiCommon.post(body, "portfolio", true).then((res) => {
-      console.log(res.id);
+      // console.log(res.id);
       if (res.status === "200") {
         apiCommon
           .putFormData(formData, `portfolio/${res.id}`, true)
           .then((res) => {
-            console.log(res);
+            // console.log(res);
             if (res.status === "200") {
               toast.success("Portfolio added !");
             }
           });
+      } else {
+        toast.error("Portfolio addition failed !");
       }
     });
+    navigate(`/dashboard`);
   };
 
   return (

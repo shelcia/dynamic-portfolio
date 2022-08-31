@@ -12,9 +12,9 @@ const Topbar = ({ portfolioDetails }) => {
         expand="lg"
         variant="dark"
         className="bg-transparent"
-        style={{ zIndex: 1000, height: "10vh" }}
+        style={{ zIndex: 1000, height: "14vh" }}
       >
-        <Container className="ms-0 me-0">
+        <Container fluid>
           <Navbar.Brand>{portfolioDetails?.name}</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -33,31 +33,6 @@ const Topbar = ({ portfolioDetails }) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* <Navbar
-        collapseOnSelect
-        expand="lg"
-        variant="dark"
-        className="bg-transparent position-absolute w-100 justify-content-between"
-        style={{ zIndex: 1000 }}
-      >
-        <Container className="position-relative ms-0 me-0">
-          <Navbar.Brand>{portfolioDetails?.name}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav style={{ marginLeft: "100%" }}>
-              {["Projects", "Skills", "Experience"].map((nav, idx) => (
-                <Nav.Link
-                  key={idx}
-                  href={`#${nav.toLowerCase()}`}
-                  className="text-dark"
-                >
-                  {nav}
-                </Nav.Link>
-              ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar> */}
     </React.Fragment>
   );
 };

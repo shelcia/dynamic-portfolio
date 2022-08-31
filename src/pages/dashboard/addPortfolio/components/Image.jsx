@@ -68,6 +68,19 @@ const Image = ({ file, setFile }) => {
           </div>
         )}
       </div>
+      <div className="text-end my-3">
+        <button
+          className="btn btn-danger py-1 px-3"
+          onClick={(e) => {
+            setFile(null);
+            setPreviewSrc("");
+            setIsPreviewAvailable(false);
+          }}
+          title="Delete Image"
+        >
+          Delete Image
+        </button>
+      </div>
     </React.Fragment>
   );
 };

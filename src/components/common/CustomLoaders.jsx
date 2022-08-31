@@ -5,7 +5,7 @@ export const ComponentLoader = () => {
   return (
     <React.Fragment>
       <div className="d-flex justify-content-center align-items-center">
-        <LineWave color="grey" />
+        <LineWave color="#5e72e4" />
       </div>
     </React.Fragment>
   );
@@ -18,8 +18,8 @@ export const PageLoader = ({ content }) => {
         className="d-flex justify-content-center align-items-center flex-column"
         style={{ height: "100vh", width: "100%" }}
       >
-        <LineWave color="grey" />
-        <p className="mt-3">Loading {content}.....</p>
+        <LineWave height="300" width="300" color="#5e72e4" />
+        <p className="mt-3 lead">Loading {content}.....</p>
       </div>
     </React.Fragment>
   );

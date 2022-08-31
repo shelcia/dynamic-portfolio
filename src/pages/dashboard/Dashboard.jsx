@@ -5,8 +5,9 @@ import { apiCommon } from "../../services/models/CommonModel";
 import { FaTrash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { TemplateContext } from "../../context/TemplateContext";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { Pattern1Default } from "../../components/common/CustomPatterns";
+import { RWebShare } from "react-web-share";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
@@ -33,7 +34,7 @@ const Dashboard = () => {
 
   const delPortfolio = (id) => {
     apiCommon.remove(id, "portfolio").then((res) => {
-      console.log(res);
+      // console.log(res);
       if (res.status === "200") {
         toast.success(res.message);
         getPortfolio(userId);
@@ -80,8 +81,8 @@ const Dashboard = () => {
 export default Dashboard;
 
 const PortfolioCard = ({ item, delPortfolio }) => (
-  <div className="card ms-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent">
-    <div className="card-body bg-white w-100">
+  <Card className="ms-0 pointer-cursor d-flex justify-content-center align-items-center bg-transparent border-0">
+    <Card.Body className="bg-white w-100">
       <Link
         to={`/portfolio/${item._id}`}
         target="_blank"
@@ -94,16 +95,29 @@ const PortfolioCard = ({ item, delPortfolio }) => (
         {item.name}
       </Link>
       <p className="text-muted">{item.headerTitle}</p>
-    </div>
-    <div className="card-footer d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
+    </Card.Body>
+    <Card.Footer className="d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
       <Link to={`/edit-portfolio/${item._id}`} target="_blank">
         <button className="btn btn-neutral" title="Edit Portfolio">
           <span className="nav-link-inner--text">Edit</span>
         </button>
       </Link>
-      <button className="btn btn-neutral me-0 mr-0" title="Share Portfolio">
-        <span className="nav-link-inner--text">Share</span>
-      </button>
+      <RWebShare
+        data={{
+          text: "Hey I made this portfolio using dynamic portfolio web app",
+          url: `https://dynamic--portfolio.vercel.app/portfolio/${item._id}`,
+          title: "Share your Portfolio",
+        }}
+        onClick={() => {
+          console.info("share successful!");
+          toast.success("Successful !");
+        }}
+      >
+        <button className="btn btn-neutral me-0 mr-0" title="Share Portfolio">
+          <span className="nav-link-inner--text">Share</span>
+        </button>
+      </RWebShare>
+
       <button
         className="btn btn-danger"
         title="Delete Portfolio"
@@ -111,8 +125,8 @@ const PortfolioCard = ({ item, delPortfolio }) => (
       >
         <FaTrash />
       </button>
-    </div>
-  </div>
+    </Card.Footer>
+  </Card>
 );
 
 const AddPortfolioModal = ({ show, setShow }) => {
@@ -128,10 +142,23 @@ const AddPortfolioModal = ({ show, setShow }) => {
         <Row>
           {templates.map((template, index) => (
             <Col sm={4} className="text-center" key={index}>
-              <img src={template.img} alt="" className="img-fluid" />
-              <Button variant="primary" onClick={handleClose} className="mt-2">
-                View
-              </Button>
+              <img
+                src={template.img}
+                alt=""
+                width={130}
+                height={75}
+                style={{ objectFit: "cover" }}
+              />
+              <Link to={`/add-portfolio/template${index + 1}`}>
+                <Button
+                  variant="primary"
+                  onClick={handleClose}
+                  className="mt-2"
+                  size="sm"
+                >
+                  Choose
+                </Button>
+              </Link>
             </Col>
           ))}
         </Row>

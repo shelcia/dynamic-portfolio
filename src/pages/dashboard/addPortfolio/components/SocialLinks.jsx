@@ -69,8 +69,8 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
                     onChange={(e) => handleInputs(e, socialhandle.id)}
                   >
                     {social.map((social, index) => (
-                      <option className={social.name} key={index}>
-                        {social.name}
+                      <option className={social} key={index}>
+                        {social}
                       </option>
                     ))}
                   </select>

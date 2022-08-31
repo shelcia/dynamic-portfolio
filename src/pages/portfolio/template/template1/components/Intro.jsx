@@ -3,7 +3,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
-import { LOCALHOST_URL } from "../../../../../services/api";
+import { HEROKU_BASE_URL } from "../../../../../services/api";
 import Topbar from "./TopBar";
 // import { social } from "../context/TypoColor";
 
@@ -25,7 +25,7 @@ const Intro = ({ portfolioDetails }) => {
     <React.Fragment>
       <Topbar portfolioDetails={portfolioDetails} />
       <Row
-        style={{ minHeight: "80vh", marginTop: "-10vh" }}
+        style={{ minHeight: "80vh", marginTop: "-15vh" }}
         className={`${bg}`}
       >
         <Col
@@ -58,11 +58,12 @@ const Intro = ({ portfolioDetails }) => {
         <Col className="d-flex align-items-center img-align" md={5}>
           <div className="mt-5">
             <img
-              src={`${LOCALHOST_URL}/common/portfolio/image/${id}`}
+              src={`${HEROKU_BASE_URL}/common/portfolio/image/${id}`}
               width="350px"
               height="350px"
               className={`profile-${theme}`}
               alt=""
+              loading="lazy"
             />
           </div>
         </Col>
