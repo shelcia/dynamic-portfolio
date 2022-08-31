@@ -3,7 +3,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
-import { HEROKU_BASE_URL } from "../../../../../services/api";
+import { VERCEL_BASE_URL } from "../../../../../services/api";
 import Topbar from "./TopBar";
 // import { social } from "../context/TypoColor";
 
@@ -58,7 +58,7 @@ const Intro = ({ portfolioDetails }) => {
         <Col className="d-flex align-items-center img-align" md={5}>
           <div className="mt-5">
             <img
-              src={`${HEROKU_BASE_URL}/common/portfolio/image/${id}`}
+              src={`${VERCEL_BASE_URL}/common/portfolio/image/${id}`}
               width="350px"
               height="350px"
               className={`profile-${theme}`}
