@@ -8,3 +8,5 @@ export const VERCEL_BASE_URL =
 
 export const AWS_BASE_URL =
   "http://dynamicportfoliobackend-env.eba-4b3y4qar.us-east-1.elasticbeanstalk.com/api";
+
+export const CYCLIC_BASE_URL = "https://cute-ruby-tuna-wrap.cyclic.app/api";

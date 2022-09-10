@@ -2,10 +2,10 @@
 
 import axios from "axios";
 import { handleResponse, handleError } from "./response";
-import { AWS_BASE_URL } from "../api";
+import { CYCLIC_BASE_URL } from "../api";
 
 // Define your api url from any source.
-const BASE_URL = AWS_BASE_URL;
+const BASE_URL = CYCLIC_BASE_URL;
 // const BASE_URL = LOCALHOST_URL;
 
 const token = localStorage.getItem("dynamic-token");
