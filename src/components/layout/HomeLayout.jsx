@@ -53,30 +53,38 @@ const HomeLayout = () => {
               </h4>
             </Col>
             <Col lg={6} className="text-lg-end btn-wrapper">
-              <button
-                target="_blank"
+              <a
                 href="https://github.com/shelcia/dynamic-portfolio"
-                rel="nofollow"
-                className="btn btn-icon-only btn-github rounded-circle"
-                data-toggle="tooltip"
-                data-original-title="Contribute on Github"
-              >
-                <span className="btn-inner--icon btn-fab btn-icon">
-                  <FiGithub />
-                </span>
-              </button>
-              <button
                 target="_blank"
-                href="https://github.com/shelcia/dynamic-portfolio"
-                rel="nofollow"
-                className="btn btn-icon-only btn-facebook rounded-circle"
-                data-toggle="tooltip"
-                data-original-title="Contribute on Github"
+                rel="noreferrer"
+                className="tooltip-custom me-2"
               >
-                <span className="btn-inner--icon btn-fab btn-icon">
-                  <FaBehance />
-                </span>
-              </button>
+                <span className="tooltiptext">Contribute on Github</span>
+                <button
+                  className="btn btn-icon-only btn-github rounded-circle"
+                  aria-labelledby="github"
+                >
+                  <span className="btn-inner--icon btn-fab btn-icon">
+                    <FiGithub />
+                  </span>
+                </button>
+              </a>
+              <a
+                href="https://www.behance.net/shelcia/projects"
+                target="_blank"
+                rel="noreferrer"
+                className="tooltip-custom"
+              >
+                <span className="tooltiptext">Lookup on Behance</span>
+                <button
+                  className="btn btn-icon-only btn-facebook rounded-circle"
+                  aria-labelledby="behance"
+                >
+                  <span className="btn-inner--icon btn-fab btn-icon">
+                    <FaBehance />
+                  </span>
+                </button>
+              </a>
             </Col>
           </Row>
           <hr />

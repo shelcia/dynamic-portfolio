@@ -33,6 +33,13 @@ const Dashboard = () => {
   }, [userId, portfolio.length]);
 
   const delPortfolio = (id) => {
+    if (
+      id === "630f44611ddb0f899c66e399" ||
+      id === "630f51c81ddb0f899c66e39a"
+    ) {
+      toast.error("You cannot portfolio of demo user !");
+      return;
+    }
     apiCommon.remove(id, "portfolio").then((res) => {
       // console.log(res);
       if (res.status === "200") {
@@ -97,11 +104,15 @@ const PortfolioCard = ({ item, delPortfolio }) => (
       <p className="text-muted">{item.headerTitle}</p>
     </Card.Body>
     <Card.Footer className="d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
-      <Link to={`/edit-portfolio/${item._id}`} target="_blank">
+      {/* <Link to={`/edit-portfolio/${item._id}`} target="_blank"> */}
+      <div className="tooltip-custom">
+        <span className="tooltiptext">Edit portfolio is not enabled yet !</span>
         <button className="btn btn-neutral" title="Edit Portfolio">
           <span className="nav-link-inner--text">Edit</span>
         </button>
-      </Link>
+      </div>
+
+      {/* </Link> */}
       <RWebShare
         data={{
           text: "Hey I made this portfolio using dynamic portfolio web app",
@@ -157,6 +168,16 @@ const AddPortfolioModal = ({ show, setShow }) => {
                   size="sm"
                 >
                   Choose
+                </Button>
+              </Link>
+              <Link to={`/portfolio/${template.id}`} target="_blank">
+                <Button
+                  variant="secondary"
+                  onClick={handleClose}
+                  className="mt-2"
+                  size="sm"
+                >
+                  Preview
                 </Button>
               </Link>
             </Col>
