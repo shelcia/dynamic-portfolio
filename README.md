@@ -15,6 +15,10 @@ As of now two templates are available with dark and light mode.
 
 MVP is completed **This is an Ongoing Project**.
 
+Backend : https://github.com/shelcia/dynamic-portfolio-backend.git
+
+Contributions to backend are also counted for KWOC and Codepeak
+
 > Please free to contribute !
 
 ---
