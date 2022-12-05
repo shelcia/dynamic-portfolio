@@ -34,9 +34,8 @@ MVP is completed **This is an Ongoing Project**.
 If you want to just try out then user this email id and password.
 
 ```
-email:golda.mueller0@ethereal.email
-password:	TvQhFDEzZuaDB7yvy5
-[space included]
+email: evert.medhurst52@ethereal.email
+password: password
 ```
 
 ---
