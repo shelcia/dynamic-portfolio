@@ -11,7 +11,7 @@ The aim of the website is to provide several templates, each catering to the use
 
 At present, there are two templates for the user to work with.
 
-[Template 1 - Student Portfolio](https://dynamic-portfolio.netlixfy.app/portfolio/630f44611ddb0f899c66e399)
+[Template 1 - Student Portfolio](https://dynamic-portfolio.netlify.app/portfolio/630f44611ddb0f899c66e399)
 
 [Template 2 - Photographer Portfolio](https://dynamic-portfolio.netlify.app/portfolio/630f51c81ddb0f899c66e39a)
 
@@ -45,7 +45,6 @@ password:	TvQhFDEzZuaDB7yvy5
 
 Here is an overview of the **flow of control** of the website.
 
-
 ![Screen 1](./screens/Screen1.png)
 This is the first screen shown on running the website. It covers basic data and utility of the site.
 
@@ -53,7 +52,7 @@ This is the first screen shown on running the website. It covers basic data and 
 Upon scrolling down on the initial page, you get a carousel, which shows examples of templates that can be used (Here, two.)
 
 ![Screen 3](./screens/signup.png)
-The signup page collects data, thereby registering the members onto the site. 
+The signup page collects data, thereby registering the members onto the site.
 
 ![Screen 4](./screens/Signin.png)
 After the one time sign-up, everytime a user wants to log into their account, they have to go through this site.
