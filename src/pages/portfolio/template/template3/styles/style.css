@@ -1,0 +1,63 @@
+.bg-dark-3 {
+  background-color: #111111;
+}
+
+.icon--light-3,
+.icon--dark-3 {
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.icon--light-3:hover,
+.icon--dark-3:hover {
+  border-radius: 50ex;
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+}
+
+.icon--light-3:hover {
+  -webkit-animation: pulse-light-icon 1s;
+          animation: pulse-light-icon 1s;
+}
+
+.icon--dark-3:hover {
+  -webkit-animation: pulse-dark-icon 1s;
+          animation: pulse-dark-icon 1s;
+}
+
+@-webkit-keyframes pulse-light-icon {
+  0% {
+    box-shadow: 0 0 0 0 rgb(200, 200, 200);
+  }
+}
+
+@keyframes pulse-light-icon {
+  0% {
+    box-shadow: 0 0 0 0 rgb(200, 200, 200);
+  }
+}
+@-webkit-keyframes pulse-dark-icon {
+  0% {
+    box-shadow: 0 0 0 0 white;
+  }
+}
+@keyframes pulse-dark-icon {
+  0% {
+    box-shadow: 0 0 0 0 white;
+  }
+}
+.behance-cards:hover .project-card:not(:hover) {
+  filter: brightness(0.9) saturate(0) contrast(1) blur(1.2px);
+}
+.behance-cards .project-card {
+  cursor: pointer;
+  background-color: #1a1a2e;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 1rem !important;
+  transition: transform 200ms ease-in;
+}
+.behance-cards .project-card:hover {
+  transform: scale(1.05) translateZ(0);
+}/*# sourceMappingURL=style.css.map */

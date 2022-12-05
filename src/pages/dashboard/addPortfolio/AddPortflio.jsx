@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Pattern2Default } from "../../../components/common/CustomPatterns";
 import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
+import Template3 from "./templates/Template3";
 
 const AddPortfolio = () => {
   return (
@@ -39,7 +40,7 @@ export default AddPortfolio;
 const Template = () => {
   const { template } = useParams();
 
-  console.log(template);
+  // console.log(template);
 
   switch (template) {
     case "template1":
@@ -47,7 +48,9 @@ const Template = () => {
     case "template2":
       return <Template2 />;
     case "template3":
-      return <div>Template3 onGoing</div>;
+      return <Template3 />;
+    case "template4":
+      return <div>Template4 onGoing</div>;
     default:
       return <div>Nothing</div>;
   }

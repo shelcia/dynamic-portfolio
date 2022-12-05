@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import Img1 from "../assets/1.webp";
 import Img2 from "../assets/2.webp";
+import Img3 from "../assets/3.webp";
 // import Img3 from "../assets/3.png";
 
 export const TemplateContext = createContext();
@@ -18,6 +19,12 @@ export const TemplateProvider = ({ children }) => {
       title: "Photographer Portfolio",
       caption: "",
       id: "630f51c81ddb0f899c66e39a",
+    },
+    {
+      img: Img3,
+      title: "Designer/Writer Portfolio",
+      caption: "",
+      id: "638e3ff00640c1002987cc1e",
     },
     // {
     //   img: Img3,

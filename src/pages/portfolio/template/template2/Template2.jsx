@@ -5,11 +5,11 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 
 import Intro from "./components/Intro";
 import Gallery from "./components/Gallery";
-import Footer from "./components/Footer";
+import Footer from "../common/Footer";
+
+import Toggle from "../common/Toggle";
 
 import { PageLoader } from "../../../../components/common/CustomLoaders";
-
-import Toggle from "./components/Toggle";
 
 import "./styles/style.css";
 

@@ -147,7 +147,7 @@ const AddPortfolioModal = ({ show, setShow }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title> Choose One</Modal.Title>
+        <Modal.Title>Choose One</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Row>

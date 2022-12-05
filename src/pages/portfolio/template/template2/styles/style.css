@@ -1,7 +1,6 @@
 .name {
   position: relative;
 }
-
 .name::before {
   content: "";
   display: block;
@@ -12,7 +11,6 @@
   top: 50%;
   position: absolute;
 }
-
 .name::after {
   content: "";
   display: block;
@@ -27,12 +25,10 @@
 .gallery .col-md-3 {
   padding: 0.35rem;
 }
-
 .gallery .col-md-3 .img-fluid {
   margin-top: 0.7rem;
 }
 
 .bg-dark {
   background-color: #212121 !important;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

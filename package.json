@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/baskervville": "^4.5.10",
+    "@fontsource/cabin": "^4.5.9",
+    "@fontsource/inter": "^4.5.14",
+    "@fontsource/poppins": "^4.5.10",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",

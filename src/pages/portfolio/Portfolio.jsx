@@ -4,6 +4,7 @@ import { PageLoader } from "../../components/common/CustomLoaders";
 import { apiCommon } from "../../services/models/CommonModel";
 import Template1 from "./template/template1/Template1";
 import Template2 from "./template/template2/Template2";
+import Template3 from "./template/template3/Template3";
 
 const Portfolio = () => {
   return (
@@ -50,6 +51,8 @@ const TemplateFeed = ({ template }) => {
     case "template2":
       return <Template2 />;
     case "template3":
+      return <Template3 />;
+    case "template4":
       return <div>Template3 onGoing</div>;
     default:
       return <div>Nothing</div>;

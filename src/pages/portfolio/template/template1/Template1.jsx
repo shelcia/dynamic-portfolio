@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Intro from "./components/Intro";
-import Toggle from "./components/Toggle";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Works from "./components/Works";
+import Toggle from "../common/Toggle";
 import { useParams } from "react-router";
 import { apiCommon } from "../../../../services/models/CommonModel";
 

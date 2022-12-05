@@ -91,6 +91,34 @@
   }
 }
 
+.text-cabin {
+  * {
+    font-family: "Cabin", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    i.skills {
+      font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
+    }
+  }
+}
+
+.text-inter {
+  * {
+    font-family: "Inter", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    i.skills {
+      font-family: "devicon" !important;
+    }
+    i.far,
+    i.social {
+      font-family: "Font Awesome 5 Free" !important;
+    }
+  }
+}
+
 .text-poppins {
   * {
     font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode",

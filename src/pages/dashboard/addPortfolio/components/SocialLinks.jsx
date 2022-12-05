@@ -19,6 +19,7 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
     "Twitter",
     "Youtube",
   ];
+
   const handleInputs = (e, id) => {
     const newSocialLinks = socialLinks.map((link) => {
       if (link.id === id) {
@@ -31,8 +32,9 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
       return link;
     });
     setSocialLinks(newSocialLinks);
-    console.log(socialLinks);
+    // console.log(socialLinks);
   };
+
   const addSocial = (e, id) => {
     e.preventDefault();
     const newSocialHandle = [
@@ -45,11 +47,13 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
     ];
     setSocialLinks(newSocialHandle);
   };
+
   const delSocial = (e, id) => {
     e.preventDefault();
     const newSocialHandle = socialLinks.filter((social) => social.id !== id);
     setSocialLinks(newSocialHandle);
   };
+
   return (
     <React.Fragment>
       <div className="form-group">
