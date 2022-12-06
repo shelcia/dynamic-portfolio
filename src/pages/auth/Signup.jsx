@@ -55,6 +55,8 @@ const Signup = () => {
                           className="form-control"
                           placeholder="Name"
                           ref={name}
+                          minLength="3"
+                          required
                         />
                       </div>
                     </div>
@@ -65,6 +67,9 @@ const Signup = () => {
                           placeholder="Email"
                           type="email"
                           ref={email}
+                          pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                          minLength="6"
+                          required
                         />
                       </div>
                     </div>
@@ -75,6 +80,8 @@ const Signup = () => {
                           placeholder="Password"
                           type="password"
                           ref={password}
+                          minLength="6"
+                          required
                         />
                       </div>
                     </div>
