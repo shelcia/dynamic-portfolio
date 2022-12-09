@@ -22,6 +22,8 @@ const Intro = ({ portfolioDetails }) => {
               href={social.link}
               key={social.id}
               className={`me-3 ${textTheme}`}
+              target="_blank"
+              rel="noreferrer"
             >
               <IconProvider icon={social.name} />
             </a>
