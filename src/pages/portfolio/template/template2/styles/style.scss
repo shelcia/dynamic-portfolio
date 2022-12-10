@@ -1,3 +1,9 @@
+.ba1::before,.ba1::after{
+  background: white;
+}
+.ba2::before,.ba2::after{
+  background: black;
+}
 .name {
   position: relative;
 
@@ -6,7 +12,7 @@
     display: block;
     width: 120px;
     height: 2px;
-    background: #000;
+    
     left: 0;
     top: 50%;
     position: absolute;
@@ -16,12 +22,13 @@
     display: block;
     width: 120px;
     height: 2px;
-    background: #000;
+    
     right: 0;
     top: 50%;
     position: absolute;
   }
 }
+
 .gallery {
   .col-md-3 {
     padding: 0.35rem;
