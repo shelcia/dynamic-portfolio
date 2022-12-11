@@ -14,6 +14,9 @@ import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
 import Portfolio from "./pages/portfolio/Portfolio";
 // import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 
+// Not Found Page/404 catch
+import NotFoundPage from "./pages/NotFoundPage";
+
 //Layout
 import HomeLayout from "./components/layout/HomeLayout";
 import DashboardLayout, {
@@ -87,6 +90,22 @@ const routes = [
       //   element: <EditPortfolio />,
       // },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <TemplateProvider>
+        <HomeLayout>
+          <Outlet />
+        </HomeLayout>
+      </TemplateProvider>
+    ),
+    children: [
+      {
+        path: "*",
+        element: <NotFoundPage />
+      },
+    ]
   },
 ];
 
