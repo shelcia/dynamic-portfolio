@@ -23,6 +23,7 @@ import DashboardLayout, {
 // Context
 import { TemplateProvider } from "./context/TemplateContext";
 import { ThemeProvider } from "./context/ThemeContext";
+import Blog_template from "./pages/Blog_templates/template";
 
 const routes = [
   {
@@ -81,6 +82,10 @@ const routes = [
       {
         path: "add-portfolio/:template",
         element: <AddPortfolio />,
+      },
+      {
+        path: "blog-template",
+        element: <Blog_template />,
       },
       // {
       //   path: "edit-portfolio/:id",
