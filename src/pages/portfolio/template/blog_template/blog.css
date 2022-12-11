@@ -1,0 +1,122 @@
+.image{
+    height: 80vh;
+    width: 100vw;
+    position: absolute;
+    margin-top: 0rem;
+
+}
+
+.main{
+    margin-top: 0rem;
+    position: relative;
+
+}
+
+.contain{
+   margin-top: 7rem;
+   position: absolute;
+   margin-left: 5rem;
+}
+
+
+
+
+.blog-1{
+    margin-left: -19rem;
+    margin-top: -1rem;
+    position: absolute;
+   
+}
+
+.blog_1{
+    position: absolute;
+    margin-left: -19rem;
+    margin-top: 2rem;
+    text-align: left;
+    
+}
+
+.blog-2{
+    margin-left: -27.6rem;
+    margin-top: 7rem;
+    position: absolute;
+   
+}
+
+.blog_2{
+    position: absolute;
+    margin-left: -27.6rem;
+    margin-top: 10rem;
+    text-align: left;
+}
+
+.blog-3{
+    margin-left: -35.6rem;
+    margin-top: 15rem;
+    position: absolute;
+   
+}
+
+.blog_3{
+    position: absolute;
+    margin-left: -35.6rem;
+    margin-top: 18rem;
+    text-align: left;
+}
+
+.about{
+    margin-left: 4rem;
+    margin-top: 1rem;
+    font-weight: bolder;
+}
+
+.blog{
+    margin-left: 10rem;
+    margin-top: 1rem;
+    font-weight: bolder;
+
+
+}
+
+.blog_4{
+    position: absolute;
+    text-align: left;
+    width: 55rem;
+    margin-left: -19rem;
+    opacity: 0;
+}
+
+.content-2{
+    position: absolute;
+}
+
+.btn-1{
+    position: absolute;
+    margin-left: -5rem;
+    margin-top: 0.4rem;
+    background: none;
+    border: none;
+
+}
+
+.btn-2{
+    position: absolute;
+    margin-left: 2.3rem;
+    margin-top: 0.4rem;
+    background: none;
+    border: none;
+}
+
+.pic{
+    margin-top: -30rem;
+    position: absolute;
+
+}
+
+.u-1{
+    text-decoration: none;
+}
+
+
+
+
