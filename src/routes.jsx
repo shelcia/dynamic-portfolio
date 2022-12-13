@@ -85,7 +85,7 @@ const routes = [
       },
       {
         path: "blog-template",
-        element: <Blog_template />,
+        element: <BlogTemplate />,
       },
       // {
       //   path: "edit-portfolio/:id",

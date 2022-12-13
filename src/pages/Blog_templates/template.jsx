@@ -1,4 +1,4 @@
-const Blog_template = () => {
+const BlogTemplate = () => {
 
     const show1 = () => {
         document.getElementById('h1').style.opacity = "0";
@@ -69,7 +69,7 @@ const Blog_template = () => {
                             <div className="col-md-6 ml-auto mr-auto">
                                 <div className="profile" >
                                     <div className="avatar" style={{ width: "8rem", marginTop: "2rem" }}>
-                                        <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" />
+                                        <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" alt="image not loaded"/>
                                     </div>
                                     <div className="name">
                                         <h3 className="title mt-5">Jessica Carter</h3>
@@ -154,4 +154,4 @@ const Blog_template = () => {
     );
 }
 
-export default Blog_template;
+export default BlogTemplate;
