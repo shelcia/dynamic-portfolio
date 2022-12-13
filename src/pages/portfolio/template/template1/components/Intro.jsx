@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Row, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { useParams } from "react-router";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
@@ -16,7 +16,6 @@ const Intro = ({ portfolioDetails }) => {
   //   // console.log(classLogo);
   //   return classLogo[0].class;
   // };
-
   const theme = darkTheme ? "dark" : "light";
 
   const { id } = useParams();
@@ -41,13 +40,17 @@ const Intro = ({ portfolioDetails }) => {
             <p className="text-white">{portfolioDetails.about}</p>
             <div className="d-flex">
               {portfolioDetails.socialLinks?.map((social) => (
+                <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
                 <a
                   href={social.link}
                   key={social.id}
                   className="me-3 text-white"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <IconProvider icon={social.name} />
                 </a>
+                </OverlayTrigger> 
               ))}
             </div>
             <div className="text-center">
