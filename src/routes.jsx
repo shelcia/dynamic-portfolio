@@ -23,7 +23,6 @@ import DashboardLayout, {
 // Context
 import { TemplateProvider } from "./context/TemplateContext";
 import { ThemeProvider } from "./context/ThemeContext";
-import Blog_template from "./pages/Blog_templates/template";
 import BlogTemplate from "./pages/Blog_templates/template";
 
 const routes = [
