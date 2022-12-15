@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container } from "react-bootstrap";
+import { Container, OverlayTrigger, Tooltip } from "react-bootstrap";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
 
@@ -18,6 +18,7 @@ const Intro = ({ portfolioDetails }) => {
             {portfolioDetails.headerTitle}
           </h4>
           {portfolioDetails.socialLinks?.map((social) => (
+            <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
             <a
               href={social.link}
               key={social.id}
@@ -27,6 +28,7 @@ const Intro = ({ portfolioDetails }) => {
             >
               <IconProvider icon={social.name} />
             </a>
+            </OverlayTrigger> 
           ))}
           <p className="mt-2">{portfolioDetails.about}</p>
         </div>
