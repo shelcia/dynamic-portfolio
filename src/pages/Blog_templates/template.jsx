@@ -59,13 +59,13 @@ const BlogTemplate = () => {
                                 <div className="profile-tabs">
                                     <ul role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link" href="#studio" role="tab" data-toggle="tab" onClick={show1}>
+                                            <a className="nav-link" href="#studio" role="tab" data-toggle="tab">
                                                 <i className="material-icons" id="about" style={{ fontSize: "1.5rem" }}>About</i>
 
                                             </a>
                                         </li>
                                         <li className="nav-item" style={{ position: "absolute", top: "57%", left: "70%", }}>
-                                            <a className="nav-link" href="#studio" role="tab" data-toggle="tab" onClick={show2}>
+                                            <a className="nav-link" href="#studio" role="tab" data-toggle="tab" >
                                                 <i className="material-icons" style={{ fontSize: "1.5rem" }} id="blog">Blog</i>
 
                                             </a>
