@@ -1,33 +1,5 @@
 const BlogTemplate = () => {
 
-    const show1 = () => {
-        document.getElementById('h1').style.opacity = "0";
-        document.getElementById('h2').style.opacity = "0";
-        document.getElementById('h3').style.opacity = "0";
-        document.getElementById('h4').style.opacity = "0";
-        document.getElementById('h5').style.opacity = "0";
-        document.getElementById('h6').style.opacity = "0";
-        document.getElementById('heading_2').style.opacity = "0.7";
-        document.getElementById('blog').style.textDecoration = "none";
-        document.getElementById('about').style.textDecoration = "underline";
-
-
-
-
-    }
-    const show2 = () => {
-        document.getElementById('heading_2').style.opacity = "0";
-        document.getElementById('h1').style.opacity = "1";
-        document.getElementById('h2').style.opacity = "1";
-        document.getElementById('h3').style.opacity = "1";
-        document.getElementById('h4').style.opacity = "1";
-        document.getElementById('h5').style.opacity = "1";
-        document.getElementById('h6').style.opacity = "1";
-        document.getElementById('blog').style.textDecoration = "underline";
-        document.getElementById('about').style.textDecoration = "none";
-
-
-    }
 
     return (
 
