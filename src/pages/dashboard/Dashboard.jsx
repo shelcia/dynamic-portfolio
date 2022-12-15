@@ -132,8 +132,13 @@ const PortfolioCard = ({ item, delPortfolio }) => (
       <button
         className="btn btn-danger"
         title="Delete Portfolio"
-        onClick={() => delPortfolio(item._id)}
-      >
+        onClick={() => {
+          const confirm = window.confirm('Are you sure you want to delete?');
+          if(confirm===true){
+            delPortfolio(item._id)
+          }
+        } 
+      }>
         <FaTrash />
       </button>
     </Card.Footer>
