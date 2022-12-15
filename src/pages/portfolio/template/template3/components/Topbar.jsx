@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
 
@@ -33,6 +33,7 @@ const Topbar = ({ portfolioDetails }) => {
         </Col>
         <Col md="4" className="text-end">
           {portfolioDetails.socialLinks?.map((social) => (
+            <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
             <a
               href={social.link}
               key={social.id}
@@ -40,6 +41,7 @@ const Topbar = ({ portfolioDetails }) => {
             >
               <IconProvider icon={social.name} />
             </a>
+            </OverlayTrigger>
           ))}
         </Col>
       </Row>
