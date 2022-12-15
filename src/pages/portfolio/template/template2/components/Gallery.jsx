@@ -30,6 +30,7 @@ const Gallery = ({ portfolioDetails }) => {
           <Col md={3} key={idx}>
             {col?.map((photo) => (
               <Image
+                className="image-card"
                 src={photo?.link}
                 loading="lazy"
                 fluid
