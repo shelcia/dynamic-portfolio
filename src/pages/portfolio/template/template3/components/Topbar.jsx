@@ -37,6 +37,8 @@ const Topbar = ({ portfolioDetails }) => {
               href={social.link}
               key={social.id}
               className={`me-3 ${iconTheme}`}
+              target="_blank"
+              rel="noreferrer"
             >
               <IconProvider icon={social.name} />
             </a>
