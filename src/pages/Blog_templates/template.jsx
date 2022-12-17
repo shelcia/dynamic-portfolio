@@ -1,9 +1,14 @@
+
+import { useState } from "react";
+
 const BlogTemplate = () => {
 
+    const [showtab, setshowtab] = useState(1);
+    const handletab = (e) => {
+        setshowtab(e);
+    }
 
     return (
-
-
 
         <body className="profile-page" >
             <nav className="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
@@ -41,7 +46,7 @@ const BlogTemplate = () => {
                             <div className="col-md-6 ml-auto mr-auto">
                                 <div className="profile" >
                                     <div className="avatar" style={{ width: "8rem", marginTop: "2rem" }}>
-                                        <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" alt="not-loaded"/>
+                                        <img src="https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg" alt="not-loaded" />
                                     </div>
                                     <div className="name">
                                         <h3 className="title mt-5">Jessica Carter</h3>
@@ -60,13 +65,13 @@ const BlogTemplate = () => {
                                     <ul role="tablist">
                                         <li className="nav-item">
                                             <a className="nav-link" href="#studio" role="tab" data-toggle="tab" >
-                                                <i className="material-icons" id="about" style={{ fontSize: "1.5rem" }}>About</i>
+                                                <i className={showtab === 1 ? "material-icons active" : "material-icons"} id="about" style={{ fontSize: "1.5rem" }} onClick={() => handletab(1)}>About</i>
 
                                             </a>
                                         </li>
                                         <li className="nav-item" style={{ position: "absolute", top: "57%", left: "70%", }}>
                                             <a className="nav-link" href="#studio" role="tab" data-toggle="tab">
-                                                <i className="material-icons" style={{ fontSize: "1.5rem" }} id="blog">Blog</i>
+                                                <i className={showtab === 2 ? "material-icons active" : "material-icons"} style={{ fontSize: "1.5rem" }} id="blog" onClick={() => handletab(2)}>Blog</i>
 
                                             </a>
                                         </li>
@@ -80,22 +85,18 @@ const BlogTemplate = () => {
                             <div className="tab-pane active text-center gallery" id="studio">
                                 <div className="row" >
                                     <div >
-                                        <h5 style={{ textAlign: "left", opacity: "0.7", }} id="heading_2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus natus amet dolores? Hic quis nostrum accusamus, saepe soluta necessitatibus voluptatibus, aut veritatis velit culpa asperiores qui, quo placeat doloribus sed!
+{showtab===1 && <div> <h5 style={{ textAlign: "left", opacity: "0.7", }} id="heading_2" className={showtab === 1 ? "active" : ""}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus natus amet dolores? Hic quis nostrum accusamus, saepe soluta necessitatibus voluptatibus, aut veritatis velit culpa asperiores qui, quo placeat doloribus sed!
                                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dolore iusto error dicta ullam deserunt quas, sequi blanditiis non sapiente id rem cumque dignissimos quibusdam nostrum molestias mollitia possimus quam.
                                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam numquam fugit excepturi magnam animi a pariatur at corrupti! Voluptates fugiat, ut enim ab perspiciatis iure fugit vitae dolorem pariatur consequatur?
                                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, eius reiciendis? Incidunt, impedit aspernatur maxime non excepturi ullam officiis eligendi at quaerat facilis, cupiditate quasi magni, eius laudantium modi voluptates.
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod exercitationem modi vel doloremque mollitia quia rerum fuga magnam, esse, laboriosam est, quibusdam quae aperiam. Culpa maiores fugit inventore dolorum reiciendis.</h5>
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod exercitationem modi vel doloremque mollitia quia rerum fuga magnam, esse, laboriosam est, quibusdam quae aperiam. Culpa maiores fugit inventore dolorum reiciendis.</h5></div>}
+                 { showtab ===2 &&   <div style={{height:"35vw"}}>                                           <h1 id="h1" style={{ position: "absolute", top: "50%" }} className={showtab === 2 ? "active" : ""}>Blog1</h1><h3 id="h2" style={{ position: "absolute", top: "57%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left" }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae quo reprehenderit sed. Nulla sed animi perferendis non magnam asperiores nobis sit? Nesciunt illo excepturi quis deserunt eos nisi aperiam quod.</h3><h1 id="h3" style={{ position: "absolute", top: "68%" }}>Blog2</h1><h3 id="h4" style={{ position: "absolute", top: "75%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis consectetur tempora eos debitis iure id animi molestiae minima nulla eveniet omnis dolores quisquam illum quia fugit, assumenda autem dolore?</h3><h1 id="h5" style={{ position: "absolute", top: "83%" }}>Blog3</h1><h3 id="h6" style={{ position: "absolute", top: "90%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left" }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem nam aperiam ad numquam quasi quam, doloremque exercitationem? Officia debitis, sit quam voluptatum, nemo eum facere quasi nostrum cupiditate delectus eaque!</h3>
+                                        </div>}                       
+                                      
 
-                                        <h1 id="h1" style={{ position: "absolute", top: "50%", opacity: "0" }}>Blog1</h1>
-                                        <h3 id="h2" style={{ position: "absolute", top: "57%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left", opacity: "0" }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae quo reprehenderit sed. Nulla sed animi perferendis non magnam asperiores nobis sit? Nesciunt illo excepturi quis deserunt eos nisi aperiam quod.</h3>
-                                        <h1 id="h3" style={{ position: "absolute", top: "68%", opacity: "0" }}>Blog2</h1>
-                                        <h3 id="h4" style={{ position: "absolute", top: "75%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left", opacity: "0" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis consectetur tempora eos debitis iure id animi molestiae minima nulla eveniet omnis dolores quisquam illum quia fugit, assumenda autem dolore?</h3>
-                                        <h1 id="h5" style={{ position: "absolute", top: "83%", opacity: "0" }}>Blog3</h1>
-                                        <h3 id="h6" style={{ position: "absolute", top: "90%", fontSize: "1rem", width: "64rem", left: "12.7%", textAlign: "left", opacity: "0" }} >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem nam aperiam ad numquam quasi quam, doloremque exercitationem? Officia debitis, sit quam voluptatum, nemo eum facere quasi nostrum cupiditate delectus eaque!</h3>
 
 
                                     </div>
-
 
                                 </div>
                             </div>
