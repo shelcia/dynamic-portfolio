@@ -133,12 +133,28 @@ const PortfolioCard = ({ item, delPortfolio }) => (
         className="btn btn-danger"
         title="Delete Portfolio"
         onClick={() => {
-          const confirm = window.confirm('Are you sure you want to delete?');
-          if(confirm===true){
-            delPortfolio(item._id)
-          }
-        } 
-      }>
+          toast((t) => (
+            <span>
+              Are you sure you want to <b>delete</b>?
+              <Button
+                variant="danger"
+                size="sm"
+                className="ml-2"
+                onClick={() => {
+                  toast.dismiss(t.id);
+                  delPortfolio(item._id);
+                }}
+              >
+                <FaTrash />
+              </Button>
+            </span>
+          ));
+          // const confirm = window.confirm("Are you sure you want to delete?");
+          // if (confirm === true) {
+          //   delPortfolio(item._id);
+          // }
+        }}
+      >
         <FaTrash />
       </button>
     </Card.Footer>
