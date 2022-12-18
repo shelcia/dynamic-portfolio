@@ -8,36 +8,41 @@ import { TemplateContext } from "../../context/TemplateContext";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { Pattern1Default } from "../../components/common/CustomPatterns";
 import { RWebShare } from "react-web-share";
+import { demoPortfolioIds } from "../../context/DemoContext";
+import { PortfoliosContext } from "../../context/PortfoliosContext";
+import { useCallback } from "react";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
   const userId = localStorage.getItem("dynamic-id");
 
+  const [portfolios, setPortfolios] = useContext(PortfoliosContext);
+
   const [isLoading, setLoading] = useState(false);
-  const [portfolio, setPortfolio] = useState([]);
   const [show, setShow] = useState(false);
 
-  const getPortfolio = (id, signal) =>
-    apiCommon.getSingle(id, signal, "portfolios", true).then((res) => {
-      console.log("Portfolio", res);
-      if (res.status === "200") {
-        setPortfolio(res.message);
-      }
-      setLoading(false);
-    });
+  const getPortfolio = useCallback(
+    (id, signal) =>
+      apiCommon.getSingle(id, signal, "portfolios", true).then((res) => {
+        // console.log("Portfolio", res);
+        if (res.status === "200") {
+          setPortfolios(res.message);
+        }
+        setLoading(false);
+      }),
+    [setPortfolios]
+  );
 
   useEffect(() => {
     const ac = new AbortController();
-    if (!portfolio.length) getPortfolio(userId, ac.signal);
+    const id = localStorage.getItem("dynamic-id");
+    getPortfolio(id, ac.signal);
     return () => ac.abort();
-  }, [userId, portfolio.length]);
+  }, [getPortfolio]);
 
   const delPortfolio = (id) => {
-    if (
-      id === "630f44611ddb0f899c66e399" ||
-      id === "630f51c81ddb0f899c66e39a"
-    ) {
-      toast.error("You cannot portfolio of demo user !");
+    if (demoPortfolioIds.includes(id)) {
+      toast.error("You cannot delete portfolio of demo user !");
       return;
     }
     apiCommon.remove(id, "portfolio").then((res) => {
@@ -64,7 +69,7 @@ const Dashboard = () => {
             <ComponentLoader />
           ) : (
             <div className="portfolio-grid">
-              {portfolio.map((item) => (
+              {portfolios.map((item) => (
                 <PortfolioCard
                   key={item._id}
                   item={item}
@@ -133,6 +138,10 @@ const PortfolioCard = ({ item, delPortfolio }) => (
         className="btn btn-danger"
         title="Delete Portfolio"
         onClick={() => {
+          if (demoPortfolioIds.includes(item._id)) {
+            toast.error("You cannot delete portfolio of demo user !");
+            return;
+          }
           toast((t) => (
             <span>
               Are you sure you want to <b>delete</b>?
@@ -149,10 +158,6 @@ const PortfolioCard = ({ item, delPortfolio }) => (
               </Button>
             </span>
           ));
-          // const confirm = window.confirm("Are you sure you want to delete?");
-          // if (confirm === true) {
-          //   delPortfolio(item._id);
-          // }
         }}
       >
         <FaTrash />

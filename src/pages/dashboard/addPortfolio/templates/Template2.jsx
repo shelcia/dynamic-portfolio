@@ -9,7 +9,7 @@ import { apiCommon } from "../../../../services/models/CommonModel";
 import PhotoGallery from "../components/PhotoGallery";
 import SocialLinks from "../components/SocialLinks";
 
-const Template2 = () => {
+const Template2 = ({ getPortfolios }) => {
   const [data, setData] = useState({
     name: "",
     headerTitle: "",
@@ -55,6 +55,7 @@ const Template2 = () => {
       console.log(res.id);
       if (res.status === "200") {
         toast.success("Portfolio added !");
+        getPortfolios();
         navigate(`/dashboard`);
       } else {
         toast.error("Portfolio addition failed !");

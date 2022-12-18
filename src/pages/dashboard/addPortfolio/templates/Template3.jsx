@@ -8,7 +8,7 @@ import SocialLinks from "../components/SocialLinks";
 import { apiCommon } from "../../../../services/models/CommonModel";
 import { useNavigate } from "react-router-dom";
 
-const Template3 = () => {
+const Template3 = ({ getPortfolios }) => {
   const [data, setData] = useState({
     name: "",
     headerTitle: "",
@@ -52,6 +52,7 @@ const Template3 = () => {
         toast.error("Portfolio addition failed !");
       }
     });
+    getPortfolios();
     navigate(`/dashboard`);
   };
 

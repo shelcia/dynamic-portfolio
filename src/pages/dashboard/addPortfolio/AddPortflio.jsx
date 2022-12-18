@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Container, Row, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Pattern2Default } from "../../../components/common/CustomPatterns";
 import Template1 from "./templates/Template1";
 import Template2 from "./templates/Template2";
 import Template3 from "./templates/Template3";
+import { PortfoliosContext } from "../../../context/PortfoliosContext";
+import { apiCommon } from "../../../services/models/CommonModel";
 
 const AddPortfolio = () => {
   return (
@@ -42,13 +44,25 @@ const Template = () => {
 
   // console.log(template);
 
+  const [, setPortfolios] = useContext(PortfoliosContext);
+
+  const getPortfolios = () => {
+    const userId = localStorage.getItem("dynamic-id");
+    apiCommon.getSingle(userId, undefined, "portfolios", true).then((res) => {
+      // console.log("Portfolio", res);
+      if (res.status === "200") {
+        setPortfolios(res.message);
+      }
+    });
+  };
+
   switch (template) {
     case "template1":
-      return <Template1 />;
+      return <Template1 getPortfolios={getPortfolios} />;
     case "template2":
-      return <Template2 />;
+      return <Template2 getPortfolios={getPortfolios} />;
     case "template3":
-      return <Template3 />;
+      return <Template3 getPortfolios={getPortfolios} />;
     case "template4":
       return <div>Template4 onGoing</div>;
     default:

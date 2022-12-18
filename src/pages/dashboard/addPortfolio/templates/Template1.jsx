@@ -12,7 +12,7 @@ import SocialLinks from "../components/SocialLinks";
 import { apiCommon } from "../../../../services/models/CommonModel";
 import { useNavigate } from "react-router-dom";
 
-const Template1 = () => {
+const Template1 = ({ getPortfolios }) => {
   const [data, setData] = useState({
     name: "",
     headerTitle: "",
@@ -74,7 +74,7 @@ const Template1 = () => {
       theme: data.themes,
       font: data.fontfamily,
     };
-    console.log(body);
+    // console.log(body);
     formData.append("image", file);
 
     apiCommon.post(body, "portfolio", true).then((res) => {
@@ -92,6 +92,7 @@ const Template1 = () => {
         toast.error("Portfolio addition failed !");
       }
     });
+    getPortfolios();
     navigate(`/dashboard`);
   };
 

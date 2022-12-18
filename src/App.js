@@ -4,6 +4,7 @@ import routes from "./routes";
 import { useRoutes } from "react-router";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./context/ThemeContext";
+import { PortfoliosProvider } from "./context/PortfoliosContext";
 
 const App = () => {
   const allRoutes = useRoutes(routes);
@@ -19,8 +20,10 @@ const App = () => {
   return (
     <React.Fragment>
       <ThemeProvider>
-        <Toaster toastOptions={toasterOptions} />
-        {allRoutes}
+        <PortfoliosProvider>
+          <Toaster toastOptions={toasterOptions} />
+          {allRoutes}
+        </PortfoliosProvider>
       </ThemeProvider>
     </React.Fragment>
   );
