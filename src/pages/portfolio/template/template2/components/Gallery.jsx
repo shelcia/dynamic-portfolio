@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
+import ImageModal from "./ImageModal";
 
 const Gallery = ({ portfolioDetails }) => {
   let col1, col2, col3, col4;
@@ -22,6 +23,9 @@ const Gallery = ({ portfolioDetails }) => {
       portfolioDetails.photoLinks?.length
     );
   }
+  const [show, setShow] = useState(false);
+  const [selectedImageLink, setSelectedImageLink] = useState();
+  const [selectedImageId, setSelectedImageId] = useState();
 
   return (
     <Container fluid>
@@ -30,16 +34,30 @@ const Gallery = ({ portfolioDetails }) => {
           <Col md={3} key={idx}>
             {col?.map((photo) => (
               <Image
-                className="image-card"
                 src={photo?.link}
                 loading="lazy"
                 fluid
                 key={photo.id}
                 width="100%"
+                onClick={()=>{
+                  
+                  setSelectedImageLink(photo?.link)
+                  setSelectedImageId(photo?.id)
+                  setShow(true)
+
+                }}
               />
             ))}
           </Col>
         ))}
+        {portfolioDetails.photoLinks && (
+            <ImageModal
+              id={selectedImageId}
+              link={selectedImageLink}
+              show={show}
+              setShow={setShow}
+            />
+          )}
       </Row>
     </Container>
   );
