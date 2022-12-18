@@ -1,21 +1,34 @@
+import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
+import { PageLoader } from "./components/common/CustomLoaders";
+
+const Loadable = (Component) => (props) =>
+  (
+    <Suspense fallback={<PageLoader />}>
+      <Component {...props} />
+    </Suspense>
+  );
 
 // landing page
-import HomePage from "./pages/auth/HomePage";
+const HomePage = Loadable(lazy(() => import("./pages/auth/HomePage")));
 
 // auth pages
-import Login from "./pages/auth/Login";
-import Signup from "./pages/auth/Signup";
-import Verification from "./pages/auth/Verification";
+const Login = Loadable(lazy(() => import("./pages/auth/Login")));
+const Signup = Loadable(lazy(() => import("./pages/auth/Signup")));
+const Verification = Loadable(lazy(() => import("./pages/auth/Verification")));
 
 // dashboard pages
-import Dashboard from "./pages/dashboard/Dashboard";
-import AddPortfolio from "./pages/dashboard/addPortfolio/AddPortflio";
-import Portfolio from "./pages/portfolio/Portfolio";
+const Dashboard = Loadable(lazy(() => import("./pages/dashboard/Dashboard")));
+const AddPortfolio = Loadable(
+  lazy(() => import("./pages/dashboard/addPortfolio/AddPortflio"))
+);
+const Portfolio = Loadable(lazy(() => import("./pages/portfolio/Portfolio")));
 // import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 
 // Not Found Page/404 catch
-import NotFoundPage from "./pages/NotFoundPage";
+const NotFoundPage = Loadable(
+  lazy(() => import("./pages/others/NotFoundPage"))
+);
 
 //Layout
 import HomeLayout from "./components/layout/HomeLayout";
@@ -94,18 +107,10 @@ const routes = [
   {
     path: "*",
     element: (
-      <TemplateProvider>
-        <HomeLayout>
-          <Outlet />
-        </HomeLayout>
-      </TemplateProvider>
+      <HomeLayout>
+        <NotFoundPage />
+      </HomeLayout>
     ),
-    children: [
-      {
-        path: "*",
-        element: <NotFoundPage />
-      },
-    ]
   },
 ];
 

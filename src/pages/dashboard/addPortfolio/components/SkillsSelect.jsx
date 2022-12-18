@@ -68,7 +68,7 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
         </div>
 
         <ul className="list-group background shadow-lg">
-          {filtered !== [] &&
+          {filtered.length !== 0 &&
             filtered.map((skill, index) => (
               <li
                 key={index}

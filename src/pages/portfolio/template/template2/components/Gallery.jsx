@@ -5,7 +5,7 @@ import ImageModal from "./ImageModal";
 const Gallery = ({ portfolioDetails }) => {
   let col1, col2, col3, col4;
 
-  if (portfolioDetails !== {}) {
+  if (Object.keys(portfolioDetails).length !== 0) {
     col1 = portfolioDetails.photoLinks?.slice(
       0,
       portfolioDetails.photoLinks?.length / 4
@@ -39,25 +39,23 @@ const Gallery = ({ portfolioDetails }) => {
                 fluid
                 key={photo.id}
                 width="100%"
-                onClick={()=>{
-                  
-                  setSelectedImageLink(photo?.link)
-                  setSelectedImageId(photo?.id)
-                  setShow(true)
-
+                onClick={() => {
+                  setSelectedImageLink(photo?.link);
+                  setSelectedImageId(photo?.id);
+                  setShow(true);
                 }}
               />
             ))}
           </Col>
         ))}
         {portfolioDetails.photoLinks && (
-            <ImageModal
-              id={selectedImageId}
-              link={selectedImageLink}
-              show={show}
-              setShow={setShow}
-            />
-          )}
+          <ImageModal
+            id={selectedImageId}
+            link={selectedImageLink}
+            show={show}
+            setShow={setShow}
+          />
+        )}
       </Row>
     </Container>
   );

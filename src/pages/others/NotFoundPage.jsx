@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Pattern3Default } from "../components/common/CustomPatterns";
+import { Pattern3Default } from "../../components/common/CustomPatterns";
 
 const NotFoundPage = () => {
   return (
@@ -14,11 +14,9 @@ const NotFoundPage = () => {
               <div className="col px-0">
                 <Row className="align-items-center justify-content-center">
                   <Col lg={6} className="text-center">
-                    <h1 className="text-white display-1">
-                      404 Not Found
-                    </h1>
+                    <h1 className="text-white display-1">404 Not Found</h1>
                     <h2 className="display-4 font-weight-normal text-white">
-                      We couldn't find the page you are looking for. 
+                      We couldn't find the page you are looking for.
                     </h2>
                     <div className="btn-wrapper mt-4">
                       <Link

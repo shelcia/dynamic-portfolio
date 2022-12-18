@@ -12,8 +12,8 @@ const Skills = ({ portfolioDetails }) => {
   // console.log(portfolioDetails.skills);
   let col1, col2, col3;
 
-  if (portfolioDetails !== {}) {
-    col1 = portfolioDetails.skills?.slice(
+  if (Object.keys(portfolioDetails).length !== 0) {
+    col1 = portfolioDetails?.skills?.slice(
       0,
       portfolioDetails.skills?.length / 3 + 1
     );
