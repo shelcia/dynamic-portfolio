@@ -107,10 +107,18 @@ const routes = [
   {
     path: "*",
     element: (
-      <HomeLayout>
-        <NotFoundPage />
-      </HomeLayout>
+      <TemplateProvider>
+        <HomeLayout>
+          <Outlet />
+        </HomeLayout>
+      </TemplateProvider>
     ),
+    children: [
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      },
+    ],
   },
 ];
 
