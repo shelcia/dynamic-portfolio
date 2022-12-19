@@ -41,6 +41,7 @@ const Projects = ({ portfolioDetails }) => {
               theme={portfolioDetails.theme}
               show={show}
               setShow={setShow}
+              pageTheme={darkTheme}
             />
           )}
         </Row>
