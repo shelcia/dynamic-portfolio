@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { apiAuth } from "../../services/models/AuthModel";
 import { Pattern1Grad } from "../../components/common/CustomPatterns";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Form } from "react-bootstrap";
+import * as yup from 'yup'
+import { useFormik } from 'formik'
 
 const Login = () => {
   const email = useRef("");
@@ -11,12 +13,27 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: yup.object().shape({
+      email: yup.string()
+        .email("Must be a valid email")
+        .max(255)
+        .required("Email is required"),
+      password: yup.string()
+      .min(6, "Minimum 6 characters required")
+      .required("Password is required"),
+      
+    }),
+    onSubmit: () => {
+      onSubmit()
+    },
+  });
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setLoading(true);
-
+  const onSubmit = () => {
     toast("We are verifying. Please Wait !!");
     const response = {
       email: email.current.value,
@@ -32,7 +49,6 @@ const Login = () => {
         localStorage.setItem("dynamic-activated", res?.message?.activated);
         navigate("/dashboard");
       } else {
-        setLoading(false);
         toast.error(res.message);
       }
     });
@@ -47,55 +63,46 @@ const Login = () => {
             <Col lg={5}>
               <Card className="bg-secondary shadow border-0">
                 <Card.Body className="px-lg-5 py-lg-5">
-                  <form onSubmit={onSubmit}>
-                    <div className="form-group mb-3">
-                      <div className="input-group input-group-alternative">
-                        <input
-                          className="form-control"
-                          placeholder="Email"
-                          type="email"
-                          ref={email}
-                          pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                          minLength="6"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group focused">
-                      <div className="input-group input-group-alternative">
-                        <input
-                          className="form-control"
-                          placeholder="Password"
-                          type="password"
-                          ref={password}
-                          minLength="6"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="custom-control custom-control-alternative custom-checkbox">
-                      <input
-                        className="custom-control-input"
-                        id=" customCheckLogin"
-                        type="checkbox"
+                  <Form onSubmit={formik.handleSubmit}>
+                    <Form.Group className="mb-3 position-relative" >
+                      <Form.Label id="1">Email</Form.Label>
+                      <Form.Control
+                        name="email"
+                        placeholder="name@example.com"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        isInvalid={formik.errors.email}
+                        ref={email}
                       />
-                    </div>
-                    <div className="text-center">
-                      {loading ? (
-                        <Button className="my-4" variant="primary" disabled>
-                          Sign in
-                        </Button>
-                      ) : (
-                        <Button
-                          className="my-4"
-                          variant="primary"
-                          type="submit"
-                        >
-                          Sign in
-                        </Button>
-                      )}
-                    </div>
-                  </form>
+                      <Form.Control.Feedback type="invalid" tooltip>
+                        {formik.errors.email}
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group className="mb-3 position-relative">
+                      <Form.Label id="2">Password</Form.Label>
+                      <Form.Control
+                        name="password"
+                        type="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        isInvalid={formik.errors.password}
+                        ref={password}
+                      />
+                      <Form.Control.Feedback type="invalid" tooltip>
+                        {formik.errors.password}
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group className="mb-3 mt-5">
+                      <Form.Control 
+                        style={{color: '#FFFFFF'}}
+                        className="bg-blue"
+                        value={"SIGN IN"}
+                        type="submit"
+                      />
+                    </Form.Group>
+                  </Form>
                 </Card.Body>
               </Card>
               <Row className="mt-3">
