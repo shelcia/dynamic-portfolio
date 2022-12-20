@@ -11,11 +11,11 @@ The aim of the website is to provide several templates, each catering to the use
 
 At present, there are three templates for the user to work with.
 
-[Template 1 - Student Portfolio](https://dynamic-portfolio.netlify.app/portfolio/630f44611ddb0f899c66e399)
+[Template 1 - Student Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f44611ddb0f899c66e399)
 
-[Template 2 - Photographer Portfolio](https://dynamic-portfolio.netlify.app/portfolio/630f51c81ddb0f899c66e39a)
+[Template 2 - Photographer Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f51c81ddb0f899c66e39a)
 
-[Template 3 - Designer/Writer Portfolio](https://dynamic-portfolio.netlify.app/portfolio/638e3ff00640c1002987cc1e)
+[Template 3 - Designer/Writer Portfolio](https://dynamic--portfolio.vercel.app/portfolio/638e3ff00640c1002987cc1e)
 
 MVP is completed **This is an Ongoing Project**.
 
