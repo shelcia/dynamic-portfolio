@@ -64,7 +64,7 @@ const Login = () => {
               <Card className="bg-secondary shadow border-0">
                 <Card.Body className="px-lg-5 py-lg-5">
                   <Form onSubmit={formik.handleSubmit}>
-                    <Form.Group className="mb-3 position-relative" >
+                    <Form.Group className="position-relative" >
                       <Form.Label id="1">Email</Form.Label>
                       <Form.Control
                         name="email"
@@ -72,14 +72,19 @@ const Login = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={formik.errors.email}
+                        isInvalid={
+                          Boolean(formik.touched.email&&formik.errors.email)
+                        }
+                        className={
+                          Boolean(formik.touched.email&&formik.errors.email)?"mb-5":"mb-3"
+                        }
                         ref={email}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
                         {formik.errors.email}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="mb-3 position-relative">
+                    <Form.Group className="position-relative">
                       <Form.Label id="2">Password</Form.Label>
                       <Form.Control
                         name="password"
@@ -87,14 +92,19 @@ const Login = () => {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={formik.errors.password}
+                        isInvalid={
+                          Boolean(formik.touched.password&&formik.errors.password)
+                        }
+                        className={
+                          Boolean(formik.touched.password&&formik.errors.password)?"mb-5":"mb-4"
+                        }
                         ref={password}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
                         {formik.errors.password}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="mb-3 mt-5">
+                    <Form.Group className="mb-3">
                       <Form.Control 
                         style={{color: '#FFFFFF'}}
                         className="bg-blue"
