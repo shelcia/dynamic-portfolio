@@ -72,8 +72,12 @@ const Login = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={formik.errors.email}
-                        className={formik.errors.email?"mb-5":"mb-3"}
+                        isInvalid={
+                          Boolean(formik.touched.email&&formik.errors.email)
+                        }
+                        className={
+                          Boolean(formik.touched.email&&formik.errors.email)?"mb-5":"mb-3"
+                        }
                         ref={email}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
@@ -88,8 +92,12 @@ const Login = () => {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={formik.errors.password}
-                        className={formik.errors.password?"mb-5":"mb-4"}
+                        isInvalid={
+                          Boolean(formik.touched.password&&formik.errors.password)
+                        }
+                        className={
+                          Boolean(formik.touched.password&&formik.errors.password)?"mb-5":"mb-4"
+                        }
                         ref={password}
                       />
                       <Form.Control.Feedback type="invalid" tooltip>
