@@ -37,13 +37,13 @@ const Works = ({ portfolioDetails }) => {
                   key={index}
                 >
                   <div className="timeline-arrow"></div>
-                  <h1 className="mb-2 timeline-head">{port.name}</h1>
+                  <h1 className="mb-2 timeline-head text-white">{port.name}</h1>
                   <span className="h5 text-gray">
                     {port.start ? convertDate(port.start) : ""} -{" "}
                     {port.end && !port.current ? convertDate(port.end) : ""}
                     {port.current && "Present"}
                   </span>
-                  <p className="mt-3 font-weight-light text-dark">
+                  <p className="mt-3 font-weight-light text-gray">
                     {port.desc}
                   </p>
                 </li>
