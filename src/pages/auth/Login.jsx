@@ -42,12 +42,12 @@ const Login = () => {
     };
 
     apiAuth.post(response, "signin").then((res) => {
-      if (res.status === "200") {
+      if (res?.status === "200") {
         localStorage.setItem("dynamic-email", email.current.value);
-        localStorage.setItem("dynamic-id", res?.message?.userId);
-        localStorage.setItem("dynamic-token", res?.message?.token);
-        localStorage.setItem("dynamic-name", res?.message?.name);
-        localStorage.setItem("dynamic-activated", res?.message?.activated);
+        localStorage.setItem("dynamic-id", res.message?.userId);
+        localStorage.setItem("dynamic-token", res.message?.token);
+        localStorage.setItem("dynamic-name", res.message?.name);
+        localStorage.setItem("dynamic-activated", res.message?.activated);
         navigate("/dashboard");
       } else {
         toast.error(res.message);

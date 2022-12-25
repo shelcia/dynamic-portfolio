@@ -13,17 +13,17 @@ const Skills = ({ portfolioDetails }) => {
   let col1, col2, col3;
 
   if (Object.keys(portfolioDetails).length !== 0) {
-    col1 = portfolioDetails?.skills?.slice(
+    col1 = portfolioDetails.skills?.slice(
       0,
-      portfolioDetails.skills?.length / 3 + 1
+      portfolioDetails.skills.length / 3 + 1
     );
     col2 = portfolioDetails.skills?.slice(
-      portfolioDetails.skills?.length / 3 + 1,
-      (portfolioDetails.skills?.length * 2) / 3 + 1
+      portfolioDetails.skills.length / 3 + 1,
+      (portfolioDetails.skills.length * 2) / 3 + 1
     );
     col3 = portfolioDetails.skills?.slice(
-      (portfolioDetails.skills?.length * 2) / 3 + 1,
-      portfolioDetails.skills?.length
+      (portfolioDetails.skills.length * 2) / 3 + 1,
+      portfolioDetails.skills.length
     );
   }
 

@@ -9,19 +9,19 @@ const Gallery = ({ portfolioDetails }) => {
   if (Object.keys(portfolioDetails).length !== 0) {
     col1 = portfolioDetails.photoLinks?.slice(
       0,
-      portfolioDetails.photoLinks?.length / 4
+      portfolioDetails.photoLinks.length / 4
     );
     col2 = portfolioDetails.photoLinks?.slice(
-      portfolioDetails.photoLinks?.length / 4,
-      portfolioDetails.photoLinks?.length / 2
+      portfolioDetails.photoLinks.length / 4,
+      portfolioDetails.photoLinks.length / 2
     );
     col3 = portfolioDetails.photoLinks?.slice(
-      portfolioDetails.photoLinks?.length / 2,
-      (portfolioDetails.photoLinks?.length * 3) / 4
+      portfolioDetails.photoLinks.length / 2,
+      (portfolioDetails.photoLinks.length * 3) / 4
     );
     col4 = portfolioDetails.photoLinks?.slice(
-      (portfolioDetails.photoLinks?.length * 3) / 4,
-      portfolioDetails.photoLinks?.length
+      (portfolioDetails.photoLinks.length * 3) / 4,
+      portfolioDetails.photoLinks.length
     );
   }
   const [show, setShow] = useState(false);

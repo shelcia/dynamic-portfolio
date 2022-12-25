@@ -32,7 +32,7 @@ const Topbar = ({ portfolioDetails }) => {
           </h1>
         </Col>
         <Col md="4" className="text-end">
-          {portfolioDetails.socialLinks?.map((social) => (
+          {portfolioDetails?.socialLinks?.map((social) => (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>{social.name}</Tooltip>}
