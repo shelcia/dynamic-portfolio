@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ComponentLoader } from "../../components/common/CustomLoaders";
 import { apiCommon } from "../../services/models/CommonModel";
@@ -10,7 +10,6 @@ import { Pattern1Default } from "../../components/common/CustomPatterns";
 import { RWebShare } from "react-web-share";
 import { demoPortfolioIds } from "../../context/DemoContext";
 import { PortfoliosContext } from "../../context/PortfoliosContext";
-import { useCallback } from "react";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
@@ -125,7 +124,7 @@ const PortfolioCard = ({ item, delPortfolio }) => (
           title: "Share your Portfolio",
         }}
         onClick={() => {
-          console.info("share successful!");
+          // console.info("share successful!");
           toast.success("Successful !");
         }}
       >
