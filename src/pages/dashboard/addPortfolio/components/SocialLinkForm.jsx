@@ -1,17 +1,16 @@
-import { useFormik } from 'formik'
-import React from 'react'
+import { useFormik } from "formik";
+import React from "react";
 import { FaMinus } from "react-icons/fa";
-import { Form } from 'react-bootstrap';
-import * as Yup from "yup"
-import { ValidationError } from '../enums/ErrorCode'
+import { Form } from "react-bootstrap";
+import * as Yup from "yup";
+import { ValidationError } from "../enums/ErrorCode";
 
 const SocialLinkForm = ({
   delSocial,
   socialhandle,
   handleInputs,
-  socialFormToBeValidate
+  socialFormToBeValidate,
 }) => {
-
   const social = [
     "Angel list",
     "Behance",
@@ -32,20 +31,14 @@ const SocialLinkForm = ({
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      link: '',
+      name: "",
+      link: "",
     },
     validationSchema: Yup.object().shape({
-      name: Yup
-        .string()
-        .required("Select social handle"),
-      link: Yup
-        .string()
-        .required("Required")
-        .url("Must be a valid url")
+      name: Yup.string().required("Select social handle"),
+      link: Yup.string().required("Required").url("Must be a valid url"),
     }),
-  })
-
+  });
 
   return (
     <React.Fragment>
@@ -56,54 +49,37 @@ const SocialLinkForm = ({
               <Form.Label>Social Handle</Form.Label>
               <Form.Select
                 name="name"
-                value={
-                  formik.values.name
-                }
+                value={formik.values.name}
                 onChange={(e) => {
-                  formik.handleChange(e)
-                  handleInputs(e, socialhandle.id)
+                  formik.handleChange(e);
+                  handleInputs(e, socialhandle.id);
                 }}
                 onBlur={formik.handleBlur}
                 isInvalid={
-                  Boolean(formik.touched.name
-                    && formik.errors.name) ||
-                  (socialFormToBeValidate.has(socialhandle.id) ?
-                    (
-                      (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                        ValidationError.SOCIAL_HANDLE_REQ)
-                    )
-                    :
-                    false
-                  )
+                  Boolean(formik.touched.name && formik.errors.name) ||
+                  (socialFormToBeValidate.has(socialhandle.id)
+                    ? socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                      ValidationError.SOCIAL_HANDLE_REQ
+                    : false)
                 }
                 className={
-                  Boolean(formik.touched.name
-                    && formik.errors.name) ? "mb-5" : ""
+                  formik.touched.name && formik.errors.name ? "mb-5" : ""
                 }
               >
                 <option value="">Handle</option>
-                {
-                  social.map((social, index) => (
-                    <option className={social} key={index}>
-                      {social}
-                    </option>
-                  ))
-                }
+                {social.map((social, index) => (
+                  <option className={social} key={index}>
+                    {social}
+                  </option>
+                ))}
               </Form.Select>
               <Form.Control.Feedback type="invalid" tooltip>
-                {
-                  formik.touched.name ?
-                    formik.errors.name
-                    : (
-                      socialFormToBeValidate.has(socialhandle.id) &&
-                      (
-                        (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                          ValidationError.SOCIAL_HANDLE_REQ)
-                      ) &&
-                      socialFormToBeValidate.get(socialhandle.id)["message"]
-
-                    )
-                }
+                {formik.touched.name
+                  ? formik.errors.name
+                  : socialFormToBeValidate.has(socialhandle.id) &&
+                    socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                      ValidationError.SOCIAL_HANDLE_REQ &&
+                    socialFormToBeValidate.get(socialhandle.id)["message"]}
               </Form.Control.Feedback>
             </Form.Group>
           </div>
@@ -114,53 +90,38 @@ const SocialLinkForm = ({
               <Form.Label>Link</Form.Label>
               <Form.Control
                 name="link"
-                value={
-                  formik.values.link
-                }
+                value={formik.values.link}
                 onChange={(e) => {
-                  formik.handleChange(e)
-                  handleInputs(e, socialhandle.id)
+                  formik.handleChange(e);
+                  handleInputs(e, socialhandle.id);
                 }}
                 onBlur={formik.handleBlur}
                 isInvalid={
-                  Boolean(formik.touched.link
-                    && formik.errors.link) ||
-                  (socialFormToBeValidate.has(socialhandle.id) ?
-                    (
-                      (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                        ValidationError.SOCIAL_LINK_REQ) ||
-                      (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                        ValidationError.SOCIAL_LINK_URL)
-                    )
-                    :
-                    false)
+                  Boolean(formik.touched.link && formik.errors.link) ||
+                  (socialFormToBeValidate.has(socialhandle.id)
+                    ? socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                        ValidationError.SOCIAL_LINK_REQ ||
+                      socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                        ValidationError.SOCIAL_LINK_URL
+                    : false)
                 }
                 placeholder="eg. www.portfolio.com"
                 className={
-                  Boolean(formik.touched.link
-                    && formik.errors.link) ||
-                    socialFormToBeValidate.has(socialhandle.id)
-                    ? "mb-5" : ""
+                  Boolean(formik.touched.link && formik.errors.link) ||
+                  socialFormToBeValidate.has(socialhandle.id)
+                    ? "mb-5"
+                    : ""
                 }
-              >
-              </Form.Control>
+              ></Form.Control>
               <Form.Control.Feedback type="invalid" tooltip>
-                {
-                  formik.touched.link ?
-                    formik.errors.link
-                    : (
-                      socialFormToBeValidate.has(socialhandle.id) &&
-                      (
-                        (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                          ValidationError.SOCIAL_LINK_REQ) ||
-                        (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
-                          ValidationError.SOCIAL_LINK_URL)
-                      ) &&
-                      socialFormToBeValidate.get(socialhandle.id)["message"]
-
-                    )
-
-                }
+                {formik.touched.link
+                  ? formik.errors.link
+                  : socialFormToBeValidate.has(socialhandle.id) &&
+                    (socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                      ValidationError.SOCIAL_LINK_REQ ||
+                      socialFormToBeValidate.get(socialhandle.id)["errCode"] ===
+                        ValidationError.SOCIAL_LINK_URL) &&
+                    socialFormToBeValidate.get(socialhandle.id)["message"]}
               </Form.Control.Feedback>
             </Form.Group>
           </div>
@@ -170,14 +131,16 @@ const SocialLinkForm = ({
           <button
             className="btn btn-danger mb-2 py-1 px-3"
             title="Delete Project"
-            onClick={(e) => { delSocial(e, socialhandle.id) }}
+            onClick={(e) => {
+              delSocial(e, socialhandle.id);
+            }}
           >
             <FaMinus />
           </button>
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default SocialLinkForm
+export default SocialLinkForm;

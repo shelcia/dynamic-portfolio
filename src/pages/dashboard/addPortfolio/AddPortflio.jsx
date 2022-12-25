@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useContext } from "react";
 import { Card, Container, Row, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
@@ -47,6 +48,7 @@ const Template = () => {
   const [, setPortfolios] = useContext(PortfoliosContext);
 
   const getPortfolios = () => {
+    // eslint-disable-next-line no-undef
     const userId = localStorage.getItem("dynamic-id");
     apiCommon.getSingle(userId, undefined, "portfolios", true).then((res) => {
       // console.log("Portfolio", res);

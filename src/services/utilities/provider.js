@@ -63,12 +63,11 @@ const getSingle = async (
 /** @param {string} resource */
 /** @param {string} params */
 const getByParams = async (resource, params, signal, isAuthorized = false) => {
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
   try {
     const response = await axios.get(`${BASE_URL}/${resource}?${params}`, {
       signal: signal,
-      headers: {
-        "auth-token": token,
-      },
+      headers: headers,
     });
     return handleResponse(response);
   } catch (error) {
@@ -118,7 +117,7 @@ const postFormData = async (
   additionalParam,
   isAuthorized = false
 ) => {
-  console.log("invoked");
+  // console.log("invoked");
   const headers = isAuthorized
     ? {
         "Content-Type": "multipart/form-data",
@@ -153,10 +152,10 @@ const postFormData = async (
 /** @param {string} resource */
 /** @param {object} model */
 const put = async (resource, model, signal, isAuthorized = false) => {
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
+
   try {
-    const response = await axios.put(`${BASE_URL}/${resource}`, model, {
-      signal: signal,
-    });
+    const response = await axios.put(`${BASE_URL}/${resource}`, model, headers);
     return handleResponse(response);
   } catch (error) {
     return handleError(error);
@@ -233,12 +232,11 @@ const putById = async (
 /** @param {string} resource */
 /** @param {object} model */
 const patch = async (resource, model, signal, isAuthorized = false) => {
+  const headers = isAuthorized ? { "auth-token": `${token}` } : {};
   try {
     const response = await axios.patch(`${BASE_URL}/${resource}`, model, {
       signal: signal,
-      headers: {
-        "auth-token": token,
-      },
+      headers: headers,
     });
     return handleResponse(response);
   } catch (error) {

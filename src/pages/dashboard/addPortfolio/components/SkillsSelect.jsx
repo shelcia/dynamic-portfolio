@@ -71,9 +71,12 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
           {filtered.length !== 0 &&
             filtered.map((skill, index) => (
               <li
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                role="button"
                 key={index}
                 className="list-group-item background pointer-cursor"
                 onClick={() => addSkill(skill)}
+                onKeyDown={() => addSkill(skill)}
               >
                 {skill.name}
               </li>

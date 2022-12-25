@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import ImageModal from "./ImageModal";
-import { ComponentLoader } from "../../../../../components/common/CustomLoaders"
+import { ComponentLoader } from "../../../../../components/common/CustomLoaders";
 
 const Gallery = ({ portfolioDetails }) => {
   let col1, col2, col3, col4;
@@ -34,13 +34,13 @@ const Gallery = ({ portfolioDetails }) => {
         {[col1, col2, col3, col4].map((col, idx) => (
           <Col md={3} key={idx}>
             {col?.map((photo) => (
-                <MyImage
-                  key={photo.id}
-                  photo={photo}
-                  setSelectedImageId={setSelectedImageId}
-                  setSelectedImageLink={setSelectedImageLink}
-                  setShow={setShow} 
-                />
+              <MyImage
+                key={photo.id}
+                photo={photo}
+                setSelectedImageId={setSelectedImageId}
+                setSelectedImageLink={setSelectedImageLink}
+                setShow={setShow}
+              />
             ))}
           </Col>
         ))}
@@ -59,38 +59,31 @@ const Gallery = ({ portfolioDetails }) => {
 
 export default Gallery;
 
-
 export const MyImage = ({
   photo,
   setSelectedImageLink,
   setSelectedImageId,
-  setShow
-})=>{
-  const [loaded, isLoaded] = useState(false)
+  setShow,
+}) => {
+  const [loaded, isLoaded] = useState(false);
 
-  return(
+  return (
     <React.Fragment>
       <Image
         key={photo.id}
         fluid
         src={photo.link}
-        width={'100%'}
+        width={"100%"}
         onClick={() => {
           setSelectedImageLink(photo?.link);
           setSelectedImageId(photo?.id);
           setShow(true);
         }}
-        onLoad ={()=>{
-          isLoaded(true)
+        onLoad={() => {
+          isLoaded(true);
         }}
-          />
-        {
-        (!loaded) &&
-          <ComponentLoader
-          key={photo.id+'sibling'}
-        />
-        }
+      />
+      {!loaded && <ComponentLoader key={photo.id + "sibling"} />}
     </React.Fragment>
-  )
-
-}
+  );
+};

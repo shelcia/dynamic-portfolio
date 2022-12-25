@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Pattern1Default = () => (
   <div className="shape shape-style-1 shape-default">
     <span className="span-150"></span>

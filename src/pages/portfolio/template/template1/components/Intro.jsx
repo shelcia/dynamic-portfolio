@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Col, Row, OverlayTrigger, Tooltip} from "react-bootstrap";
+import { Button, Col, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router";
 import IconProvider from "../../../../../context/IconContext";
 import { ThemeContext } from "../../../../../context/ThemeContext";
@@ -40,17 +40,20 @@ const Intro = ({ portfolioDetails }) => {
             <p className="text-white">{portfolioDetails.about}</p>
             <div className="d-flex">
               {portfolioDetails.socialLinks?.map((social) => (
-                <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
-                <a
-                  href={social.link}
+                <OverlayTrigger
                   key={social.id}
-                  className="me-3 text-white"
-                  target="_blank"
-                  rel="noreferrer"
+                  placement="top"
+                  overlay={<Tooltip>{social.name}</Tooltip>}
                 >
-                  <IconProvider icon={social.name} />
-                </a>
-                </OverlayTrigger> 
+                  <a
+                    href={social.link}
+                    className="me-3 text-white"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <IconProvider icon={social.name} />
+                  </a>
+                </OverlayTrigger>
               ))}
             </div>
             <div className="text-center">

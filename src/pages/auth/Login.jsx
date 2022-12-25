@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { apiAuth } from "../../services/models/AuthModel";
 import { Pattern1Grad } from "../../components/common/CustomPatterns";
 import { Card, Col, Container, Row, Form } from "react-bootstrap";
-import * as yup from 'yup'
-import { useFormik } from 'formik'
+import * as yup from "yup";
+import { useFormik } from "formik";
 
 const Login = () => {
   const email = useRef("");
@@ -15,21 +15,22 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
     validationSchema: yup.object().shape({
-      email: yup.string()
+      email: yup
+        .string()
         .email("Must be a valid email")
         .max(255)
         .required("Email is required"),
-      password: yup.string()
-      .min(6, "Minimum 6 characters required")
-      .required("Password is required"),
-      
+      password: yup
+        .string()
+        .min(6, "Minimum 6 characters required")
+        .required("Password is required"),
     }),
     onSubmit: () => {
-      onSubmit()
+      onSubmit();
     },
   });
 
@@ -64,7 +65,7 @@ const Login = () => {
               <Card className="bg-secondary shadow border-0">
                 <Card.Body className="px-lg-5 py-lg-5">
                   <Form onSubmit={formik.handleSubmit}>
-                    <Form.Group className="position-relative" >
+                    <Form.Group className="position-relative">
                       <Form.Label id="1">Email</Form.Label>
                       <Form.Control
                         name="email"
@@ -72,11 +73,13 @@ const Login = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={
-                          Boolean(formik.touched.email&&formik.errors.email)
-                        }
+                        isInvalid={Boolean(
+                          formik.touched.email && formik.errors.email
+                        )}
                         className={
-                          Boolean(formik.touched.email&&formik.errors.email)?"mb-5":"mb-3"
+                          formik.touched.email && formik.errors.email
+                            ? "mb-5"
+                            : "mb-3"
                         }
                         ref={email}
                       />
@@ -92,11 +95,13 @@ const Login = () => {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={
-                          Boolean(formik.touched.password&&formik.errors.password)
-                        }
+                        isInvalid={Boolean(
+                          formik.touched.password && formik.errors.password
+                        )}
                         className={
-                          Boolean(formik.touched.password&&formik.errors.password)?"mb-5":"mb-4"
+                          formik.touched.password && formik.errors.password
+                            ? "mb-5"
+                            : "mb-4"
                         }
                         ref={password}
                       />
@@ -105,8 +110,8 @@ const Login = () => {
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3">
-                      <Form.Control 
-                        style={{color: '#FFFFFF'}}
+                      <Form.Control
+                        style={{ color: "#FFFFFF" }}
                         className="bg-blue"
                         value={"SIGN IN"}
                         type="submit"
@@ -123,6 +128,7 @@ const Login = () => {
                 </div> */}
                 <Col>
                   <Link to="/signup" className="text-light">
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     <small> Don't have an account ? Then Signup</small>
                   </Link>
                 </Col>

@@ -1,7 +1,8 @@
-import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 import { PageLoader } from "./components/common/CustomLoaders";
 
+// eslint-disable-next-line react/display-name
 const Loadable = (Component) => (props) =>
   (
     <Suspense fallback={<PageLoader />}>

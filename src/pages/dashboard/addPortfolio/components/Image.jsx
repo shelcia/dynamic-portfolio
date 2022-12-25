@@ -71,7 +71,7 @@ const Image = ({ file, setFile }) => {
       <div className="text-end my-3">
         <button
           className="btn btn-danger py-1 px-3"
-          onClick={(e) => {
+          onClick={() => {
             setFile(null);
             setPreviewSrc("");
             setIsPreviewAvailable(false);

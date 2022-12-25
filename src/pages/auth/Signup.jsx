@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Container, Row, Col, Card, Form } from "react-bootstrap";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { Pattern1Grad } from "../../components/common/CustomPatterns";
 import { apiAuth } from "../../services/models/AuthModel";
-import * as yup from 'yup'
-import { useFormik } from 'formik'
+import * as yup from "yup";
+import { useFormik } from "formik";
 
 const Signup = () => {
   const name = useRef("");
@@ -16,24 +16,24 @@ const Signup = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      password: '',
+      name: "",
+      email: "",
+      password: "",
     },
     validationSchema: yup.object().shape({
-      name: yup.string()
-        .required("Name is required"),
-      email: yup.string()
+      name: yup.string().required("Name is required"),
+      email: yup
+        .string()
         .email("Must be a valid email")
         .max(255)
         .required("Email is required"),
-      password: yup.string()
+      password: yup
+        .string()
         .min(6, "Minimum 6 characters required")
         .required("Password is required"),
-
     }),
     onSubmit: () => {
-      onSubmit()
+      onSubmit();
     },
   });
 
@@ -68,18 +68,20 @@ const Signup = () => {
               <Card className="bg-secondary shadow border-0">
                 <Card.Body className="px-lg-5 py-lg-5">
                   <Form onSubmit={formik.handleSubmit}>
-                    <Form.Group className="position-relative" >
+                    <Form.Group className="position-relative">
                       <Form.Label id="1">Name</Form.Label>
                       <Form.Control
                         name="name"
                         value={formik.values.name}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={
-                          Boolean(formik.touched.name&&formik.errors.name)
-                        }
+                        isInvalid={Boolean(
+                          formik.touched.name && formik.errors.name
+                        )}
                         className={
-                          Boolean(formik.touched.name&&formik.errors.name)?"mb-5":"mb-4"
+                          formik.touched.name && formik.errors.name
+                            ? "mb-5"
+                            : "mb-4"
                         }
                         ref={name}
                       />
@@ -87,7 +89,7 @@ const Signup = () => {
                         {formik.errors.name}
                       </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="position-relative" >
+                    <Form.Group className="position-relative">
                       <Form.Label id="1">Email</Form.Label>
                       <Form.Control
                         name="email"
@@ -95,11 +97,13 @@ const Signup = () => {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={
-                          Boolean(formik.touched.email&&formik.errors.email)
-                        }
+                        isInvalid={Boolean(
+                          formik.touched.email && formik.errors.email
+                        )}
                         className={
-                          Boolean(formik.touched.email&&formik.errors.email)?"mb-5":"mb-4"
+                          formik.touched.email && formik.errors.email
+                            ? "mb-5"
+                            : "mb-4"
                         }
                         ref={email}
                       />
@@ -115,11 +119,13 @@ const Signup = () => {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        isInvalid={
-                          Boolean(formik.touched.password&&formik.errors.password)
-                        }
+                        isInvalid={Boolean(
+                          formik.touched.password && formik.errors.password
+                        )}
                         className={
-                          Boolean(formik.touched.password&&formik.errors.password)?"mb-5":"mb-4"
+                          formik.touched.password && formik.errors.password
+                            ? "mb-5"
+                            : "mb-4"
                         }
                         ref={password}
                       />
@@ -128,8 +134,8 @@ const Signup = () => {
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3">
-                      <Form.Control 
-                        style={{color: '#FFFFFF'}}
+                      <Form.Control
+                        style={{ color: "#FFFFFF" }}
                         className="bg-blue"
                         value={"Sign up"}
                         type="submit"

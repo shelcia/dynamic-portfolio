@@ -16,7 +16,7 @@ const NotFoundPage = () => {
                   <Col lg={6} className="text-center">
                     <h1 className="text-white display-1">404 Not Found</h1>
                     <h2 className="display-4 font-weight-normal text-white">
-                      We couldn't find the page you are looking for.
+                      We couldn&#39;t find the page you are looking for.
                     </h2>
                     <div className="btn-wrapper mt-4">
                       <Link
