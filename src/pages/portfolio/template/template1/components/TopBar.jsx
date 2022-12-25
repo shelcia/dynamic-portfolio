@@ -16,7 +16,7 @@ const Topbar = ({ portfolioDetails }) => {
   };
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize");
+    return () => window.removeEventListener("resize", handleResize);
   });
   return (
     <React.Fragment>

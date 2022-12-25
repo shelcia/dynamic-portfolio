@@ -57,7 +57,7 @@ const Intro = ({ portfolioDetails }) => {
               ))}
             </div>
             <div className="text-center">
-              {portfolioDetails?.resumeLink && <Button>Download Resume</Button>}
+              {portfolioDetails.resumeLink && <Button>Download Resume</Button>}
             </div>
           </div>
         </Col>
