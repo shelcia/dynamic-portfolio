@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMinus } from "react-icons/fa";
 import { Form } from "react-bootstrap";
 import * as Yup from "yup";
@@ -21,6 +21,13 @@ const PhotoLinkForm = ({
       link: Yup.string().required("Required").url("Must be a valid url"),
     }),
   });
+
+  
+  useEffect(() => {
+    if ( photo) {
+      formik.setValues(photo);
+    }
+  }, [photo]);
 
   return (
     <React.Fragment>

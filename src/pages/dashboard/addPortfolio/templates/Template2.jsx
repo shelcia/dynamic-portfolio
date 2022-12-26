@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import {
 //   CustomSimpleInput,
 //   CustomTeaxtArea,
@@ -13,7 +13,7 @@ import * as Yup from "yup";
 import { Form } from "react-bootstrap";
 import { ErrorMessage, ValidationError } from "../enums/ErrorCode";
 
-const Template2 = ({ getPortfolios }) => {
+const Template2 = ({ portfolioDetails, getPortfolios }) => {
   const [data] = useState({
     name: "",
     headerTitle: "",
@@ -26,13 +26,14 @@ const Template2 = ({ getPortfolios }) => {
     new Map()
   );
   const [photoFormToBeValidate, setPhotoFormToBeValidate] = useState(new Map());
-
+ 
   const [photoLinks, setPhotoLinks] = useState([
     {
       id: 1,
       link: "",
     },
   ]);
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -117,12 +118,17 @@ const Template2 = ({ getPortfolios }) => {
       onSubmit(values);
     },
   });
+  useEffect(() => {
+    if (portfolioDetails) {
+      formik.setValues(portfolioDetails);
+      console.log(formik.values);
+      setSocialLinks(portfolioDetails.socialLinks);
+      setPhotoLinks(portfolioDetails.photoLinks);
+    }
+  }, [portfolioDetails]);
 
   const onSubmit = (val) => {
     // e.preventDefault();
-
-    toast("Please Wait! while we are adding...");
-
     const userID = localStorage.getItem("dynamic-id");
 
     const body = {
@@ -136,17 +142,32 @@ const Template2 = ({ getPortfolios }) => {
       photoLinks: photoLinks,
     };
     console.log(body);
+    if (portfolioDetails) {
+      toast("Please Wait! while we are updating...");
 
-    apiCommon.post(body, "portfolio", true).then((res) => {
-      console.log(res.id);
-      if (res.status === "200") {
-        toast.success("Portfolio added !");
-        getPortfolios();
-        navigate("/dashboard");
-      } else {
-        toast.error("Portfolio addition failed !");
-      }
-    });
+      apiCommon.putById(id, body, "portfolio", true).then((res) => {
+        if (res.status === "200") {
+          toast.success("Portfolio updated !");
+
+          getPortfolios();
+          navigate("/dashboard");
+        } else {
+          toast.error("Portfolio updation failed !");
+        }
+      });
+    } else {
+      toast("Please Wait! while we are adding...");
+      apiCommon.post(body, "portfolio", true).then((res) => {
+        console.log(res.id);
+        if (res.status === "200") {
+          toast.success("Portfolio added !");
+          getPortfolios();
+          navigate("/dashboard");
+        } else {
+          toast.error("Portfolio addition failed !");
+        }
+      });
+    }
   };
 
   return (
@@ -222,7 +243,7 @@ const Template2 = ({ getPortfolios }) => {
         <Form.Group className="mb-3 mt-5">
           <div className="text-right mt-5 mb-4">
             <button type="submit" className="btn btn-primary">
-              Submit
+              {portfolioDetails ? "Update" : "Submit"}
             </button>
           </div>
         </Form.Group>
