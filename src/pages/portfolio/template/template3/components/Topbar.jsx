@@ -32,17 +32,20 @@ const Topbar = ({ portfolioDetails }) => {
           </h1>
         </Col>
         <Col md="4" className="text-end">
-          {portfolioDetails.socialLinks?.map((social) => (
-            <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
-            <a
-              href={social.link}
+          {portfolioDetails?.socialLinks?.map((social) => (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>{social.name}</Tooltip>}
               key={social.id}
-              className={`me-3 ${iconTheme}`}
-              target="_blank"
-              rel="noreferrer"
             >
-              <IconProvider icon={social.name} />
-            </a>
+              <a
+                href={social.link}
+                className={`me-3 ${iconTheme}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconProvider icon={social.name} />
+              </a>
             </OverlayTrigger>
           ))}
         </Col>

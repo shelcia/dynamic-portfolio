@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import PhotoLinkForm from './PhotoLinkForm'
+import PhotoLinkForm from "./PhotoLinkForm";
 
 const PhotoGallery = ({
   photoLinks,
@@ -31,7 +31,7 @@ const PhotoGallery = ({
     setPhotoLinks(newPhotos);
 
     if (photoFormToBeValidate.size) {
-      setPhotoFormToBeValidate(new Map())
+      setPhotoFormToBeValidate(new Map());
     }
   };
   const addPhoto = (e) => {

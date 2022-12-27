@@ -35,7 +35,7 @@ const SocialLinks = ({ socialLinks, setSocialLinks }) => {
     // console.log(socialLinks);
   };
 
-  const addSocial = (e, id) => {
+  const addSocial = (e) => {
     e.preventDefault();
     const newSocialHandle = [
       ...socialLinks,

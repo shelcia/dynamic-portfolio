@@ -16,7 +16,6 @@ const SocialLinks = ({
   socialFormToBeValidate,
   setSocialFormToBeValidate,
 }) => {
-
   const handleInputs = (e, id) => {
     const newSocialLinks = socialLinks.map((link) => {
       if (link.id === id) {
@@ -30,11 +29,11 @@ const SocialLinks = ({
     });
     setSocialLinks(newSocialLinks);
     if (socialFormToBeValidate.size) {
-      setSocialFormToBeValidate(new Map())
+      setSocialFormToBeValidate(new Map());
     }
   };
 
-  const addSocial = (e, id) => {
+  const addSocial = (e) => {
     e.preventDefault();
     const newSocialHandle = [
       ...socialLinks,
@@ -59,13 +58,13 @@ const SocialLinks = ({
         <label htmlFor="skills" className="lead">
           Social Links/Handle
         </label>
-        {socialLinks.map((socialhandle, index) => (
-          <SocialLinkForm key={socialhandle.id}
+        {socialLinks.map((socialhandle) => (
+          <SocialLinkForm
+            key={socialhandle.id}
             delSocial={delSocial}
             socialhandle={socialhandle}
             handleInputs={handleInputs}
             socialFormToBeValidate={socialFormToBeValidate}
-
           />
         ))}
         <div className="text-right w-100">

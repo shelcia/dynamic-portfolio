@@ -1,5 +1,5 @@
-import React, { useContext, useState , useEffect} from "react";
-import { Container, Nav, Navbar , CloseButton} from "react-bootstrap";
+import React, { useContext, useState, useEffect } from "react";
+import { Container, Nav, Navbar, CloseButton } from "react-bootstrap";
 import { ThemeContext } from "../../../../../context/ThemeContext";
 
 const Topbar = ({ portfolioDetails }) => {
@@ -9,14 +9,15 @@ const Topbar = ({ portfolioDetails }) => {
 
   const handleResize = () => {
     if (window.innerWidth < 992) {
-        setIsMobile(true)
+      setIsMobile(true);
     } else {
-        setIsMobile(false)
+      setIsMobile(false);
     }
   };
   useEffect(() => {
-    window.addEventListener("resize", handleResize)
-  })
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  });
   return (
     <React.Fragment>
       <Navbar
@@ -29,14 +30,16 @@ const Topbar = ({ portfolioDetails }) => {
         <Container fluid>
           <Navbar.Brand>{portfolioDetails?.name}</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav" className={isMobile?"pt-2":""}>
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className={isMobile ? "pt-2" : ""}
+          >
             <Nav className="me-auto"></Nav>
             <Nav className="navbar-list">
               {isMobile && (
-                <Nav.Link
-                  className="d-flex justify-content-end"                  
-                  href="#"
-                ><CloseButton/></Nav.Link>
+                <Nav.Link className="d-flex justify-content-end" href="#">
+                  <CloseButton />
+                </Nav.Link>
               )}
               {["Projects", "Skills", "Experience"].map((nav, idx) => (
                 <Nav.Link

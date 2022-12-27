@@ -5,11 +5,12 @@
 
 # 📌 Introduction
 
-Dynamic Portfolio helps you create simple websites by just filling out forms. This helps remove the burden of writing hundreds of lines of code, or the financial loss of paying a professional website developer to create your personal website for you.
+Dynamic Portfolio helps you create simple websites by just filling out forms. This helps remove the burden of writing hundreds of lines of code, or the financial loss of paying a professional website developer to create your website for you.
 
-The aim of the website is to provide several templates, each catering to the user's individual needs, both in light and dark mode.
+The website aims to provide several templates, each catering to the user's individual needs, both in light and dark mode.
+At present, there are three templates for the users to work with.
 
-At present, there are three templates for the user to work with.
+At present, there are three templates for the users to work with.
 
 [Template 1 - Student Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f44611ddb0f899c66e399)
 
@@ -27,11 +28,9 @@ MVP is completed **This is an Ongoing Project**.
 
 [Web app is hosted here at Vercel](https://dynamic--portfolio.vercel.app/)
 
----
-
 **_P.S Enter valid mail when registering_**
 
-If you want to just try out then user this email id and password.
+If you want to just try it out then use this email id and password.
 
 ```
 email: evert.medhurst52@ethereal.email
@@ -40,11 +39,37 @@ password: password
 
 ---
 
-# ⭐ Screens
+# ⭐ Templates
 
-Here is an overview of the **flow of control** of the website.
+[Template 1 - Student Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f44611ddb0f899c66e399)
 
-![Screen 1](./screens/Screen1.png)
+![Template 1](./screens/templates/1.png)
+
+![Template 1](./screens/templates/2.png)
+
+---
+
+[Template 2 - Photographer Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f51c81ddb0f899c66e39a)
+
+![Template 2](./screens/templates/3.png)
+
+![Template 2](./screens/templates/4.png)
+
+---
+
+[Template 3 - Designer/Writer Portfolio using Behance and Medium Feeds](https://dynamic--portfolio.vercel.app/portfolio/638e3ff00640c1002987cc1e)
+
+![Template 3](./screens/templates/5.png)
+
+![Template 3](./screens/templates/6.png)
+
+# Usage
+
+Here is an overview of the **flow of control** within the website.
+
+[Flow of Control](https://scribehow.com/shared/Dynamic_Portfolio_Flow__TGbaYP7nSk-Yy9-nWzQJ_Q)
+
+<!-- ![Screen 1](./screens/Screen1.png)
 This is the first screen shown on running the website. It covers basic data and utility of the site.
 
 ![Screen 2](./screens/Screen1scroll.png)
@@ -69,4 +94,4 @@ After making the choice, we are redirected to a data-filling page. This is the o
 This is the light version of the Student Portfolio.
 
 ![Screen 9](./screens/dark.png)
-This is the dark version of the Student Portfolio.
+This is the dark version of the Student Portfolio. -->

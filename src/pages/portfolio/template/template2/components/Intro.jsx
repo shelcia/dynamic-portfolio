@@ -6,7 +6,7 @@ import { ThemeContext } from "../../../../../context/ThemeContext";
 const Intro = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
   const textTheme = darkTheme ? "text-white" : "text-dark";
-  const ab= darkTheme ? "ba1" : "ba2";
+  const ab = darkTheme ? "ba1" : "ba2";
   return (
     <section>
       <Container fluid className="text-center">
@@ -18,17 +18,20 @@ const Intro = ({ portfolioDetails }) => {
             {portfolioDetails.headerTitle}
           </h4>
           {portfolioDetails.socialLinks?.map((social) => (
-            <OverlayTrigger placement="top" overlay={<Tooltip>{social.name}</Tooltip>}>
-            <a
-              href={social.link}
+            <OverlayTrigger
               key={social.id}
-              className={`me-3 ${textTheme}`}
-              target="_blank" 
-              rel="noreferrer" 
+              placement="top"
+              overlay={<Tooltip>{social.name}</Tooltip>}
             >
-              <IconProvider icon={social.name} />
-            </a>
-            </OverlayTrigger> 
+              <a
+                href={social.link}
+                className={`me-3 ${textTheme}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconProvider icon={social.name} />
+              </a>
+            </OverlayTrigger>
           ))}
           <p className="mt-2">{portfolioDetails.about}</p>
         </div>

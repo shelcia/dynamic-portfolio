@@ -26,7 +26,7 @@ const Verification = () => {
             toast.error(response.message);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           setIsLoading(false);
           toast.error(error);
         });

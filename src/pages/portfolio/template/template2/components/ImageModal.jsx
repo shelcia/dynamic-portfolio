@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal , Image} from "react-bootstrap";
+import { Modal, Image } from "react-bootstrap";
 
 const ImageModal = ({ id, link, show, setShow }) => {
   const handleClose = () => {
@@ -9,22 +9,17 @@ const ImageModal = ({ id, link, show, setShow }) => {
 
   return (
     <React.Fragment>
-      <Modal 
-        show={show} 
+      <Modal
+        show={show}
         onHide={handleClose}
         style={{
-          display: 'block',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          width: '100%'
+          display: "block",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "100%",
         }}
-        >
-        <Image
-            src={link}
-            key={id}
-            height='100%'
-            width='100%'
-        />
+      >
+        <Image src={link} key={id} height="100%" width="100%" />
       </Modal>
     </React.Fragment>
   );

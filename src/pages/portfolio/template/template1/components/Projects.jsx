@@ -5,9 +5,11 @@ import ProjectModal from "./ProjectModal";
 
 const Projects = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
+
   const bgTheme = darkTheme ? "bg-dark text-light" : "bg-white";
   const theme = darkTheme ? "dark" : "light";
   const titleTheme = darkTheme ? "text-white" : "text-dark";
+
   const [show, setShow] = useState(false);
   const [selectedProject, setSelectedProject] = useState(0);
 
@@ -16,7 +18,7 @@ const Projects = ({ portfolioDetails }) => {
       <Container fluid className={`${bgTheme}`} id="projects">
         <h1 className={`display-3 ${titleTheme} px-3 py-5`}> Projects </h1>
         <Row className="mt-4 px-3">
-          {portfolioDetails.projects?.map((project, index) => (
+          {portfolioDetails?.projects?.map((project, index) => (
             <Col key={index + 1} md={4}>
               <Card
                 style={{ height: "200px" }}
@@ -32,12 +34,12 @@ const Projects = ({ portfolioDetails }) => {
               </Card>
             </Col>
           ))}
-          {portfolioDetails.projects && (
+          {portfolioDetails?.projects && (
             <ProjectModal
               selectedProject={selectedProject}
-              title={portfolioDetails?.projects[selectedProject]?.title}
-              desc={portfolioDetails?.projects[selectedProject]?.desc}
-              link={portfolioDetails?.projects[selectedProject]?.link}
+              title={portfolioDetails.projects[selectedProject]?.title}
+              desc={portfolioDetails.projects[selectedProject]?.desc}
+              link={portfolioDetails.projects[selectedProject]?.link}
               theme={portfolioDetails.theme}
               show={show}
               setShow={setShow}

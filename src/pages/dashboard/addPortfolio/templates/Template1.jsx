@@ -229,7 +229,7 @@ const Template1 = ({ getPortfolios }) => {
       theme: data.themes,
       font: data.fontfamily,
     };
-    // console.log(body);
+
     formData.append("image", file);
 
     apiCommon.post(body, "portfolio", true).then((res) => {
@@ -242,7 +242,6 @@ const Template1 = ({ getPortfolios }) => {
         toast.error("Portfolio addition failed !");
       }
     });
-
   };
 
 
