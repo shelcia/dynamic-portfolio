@@ -43,25 +43,25 @@ password: password
 
 [Template 1 - Student Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f44611ddb0f899c66e399)
 
-![Template 1](./screens/templates/1.png)
+![Template 1](https://i.postimg.cc/2ys52BKZ/1.png)
 
-![Template 1](./screens/templates/2.png)
+![Template 1](https://i.postimg.cc/mgNrykNP/2.png)
 
 ---
 
 [Template 2 - Photographer Portfolio](https://dynamic--portfolio.vercel.app/portfolio/630f51c81ddb0f899c66e39a)
 
-![Template 2](./screens/templates/3.png)
+![Template 2](https://i.postimg.cc/9MSXQ7Vn/3.png)
 
-![Template 2](./screens/templates/4.png)
+![Template 2](https://i.postimg.cc/zfxX4QQ5/4.png)
 
 ---
 
 [Template 3 - Designer/Writer Portfolio using Behance and Medium Feeds](https://dynamic--portfolio.vercel.app/portfolio/638e3ff00640c1002987cc1e)
 
-![Template 3](./screens/templates/5.png)
+![Template 3](https://i.postimg.cc/kM6KFNVD/5.png)
 
-![Template 3](./screens/templates/6.png)
+![Template 3](https://i.postimg.cc/NLvg1vK8/6.png)
 
 # Usage
 
