@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaTimes } from "react-icons/fa";
 import skills from "../../../../json/skill-names.json";
+import { Form } from "react-bootstrap";
 
 const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
   const [filtered, setFiltered] = useState([]);
@@ -39,10 +40,10 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
 
   return (
     <React.Fragment>
-      <div className="form-group">
-        <label htmlFor="skills" className="lead">
+      <Form.Group className="mb-3 position-relative">
+        <Form.Label className="lead">
           Skills
-        </label>
+        </Form.Label>
         <div className="text-light mb-2">
           {selectedSkills.map((skill, index) => (
             <span
@@ -58,28 +59,29 @@ const SkillSelect = ({ selectedSkills, setSelectedSkills }) => {
             </span>
           ))}
         </div>
-        <div className="input-group">
-          <input
-            className="form-control"
+          <Form.Control
             placeholder="Start typing out the skills and click to pick them"
             value={skill}
-            onChange={(e) => setSkill(e.target.value)}
-          />
-        </div>
+            onChange={(e) => {
+              setSkill(e.target.value)}}
+            
+            >
+          </Form.Control>
+            <ul className="list-group background shadow-lg">
+                {filtered.length !== 0 &&
+                  filtered.map((skill, index) => (
+                    <li
+                    key={index}
+                    className="list-group-item background pointer-cursor"
+                    onClick={() => addSkill(skill)}
+                    >
+                      {skill.name}
+                    </li>
+                ))}
+            </ul>
 
-        <ul className="list-group background shadow-lg">
-          {filtered.length !== 0 &&
-            filtered.map((skill, index) => (
-              <li
-                key={index}
-                className="list-group-item background pointer-cursor"
-                onClick={() => addSkill(skill)}
-              >
-                {skill.name}
-              </li>
-            ))}
-        </ul>
-      </div>
+          
+      </Form.Group>
     </React.Fragment>
   );
 };
