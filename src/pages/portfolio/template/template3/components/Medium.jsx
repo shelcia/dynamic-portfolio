@@ -8,7 +8,7 @@ const Medium = ({ portfolioDetails }) => {
   const textTheme = darkTheme ? "text-white" : "text-dark";
 
   useEffect(() => {
-    const url = portfolioDetails?.mediumRssLink;
+    const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${portfolioDetails?.mediumRssLink}`;
 
     const fetchData = async () => {
       try {

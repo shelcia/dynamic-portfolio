@@ -114,6 +114,7 @@ const Experience = ({ experiences, setExperiences }) => {
                   className="form-check-input"
                   name="current"
                   value={experience.current}
+                  checked={experience.current}
                   onChange={(e) => handleCheck(e, experience.id)}
                 />
                 Currently Working
