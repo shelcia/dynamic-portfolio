@@ -24,7 +24,7 @@ const AddPortfolio = Loadable(
   lazy(() => import("./pages/dashboard/addPortfolio/AddPortflio"))
 );
 const Portfolio = Loadable(lazy(() => import("./pages/portfolio/Portfolio")));
-// import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
+import EditPortfolio from "./pages/dashboard/editDashboard/EditPortfolio";
 
 // Not Found Page/404 catch
 const NotFoundPage = Loadable(
@@ -99,10 +99,10 @@ const routes = [
         path: "add-portfolio/:template",
         element: <AddPortfolio />,
       },
-      // {
-      //   path: "edit-portfolio/:id",
-      //   element: <EditPortfolio />,
-      // },
+      {
+        path: "edit-portfolio/:id",
+        element: <EditPortfolio />,
+      },
     ],
   },
   {

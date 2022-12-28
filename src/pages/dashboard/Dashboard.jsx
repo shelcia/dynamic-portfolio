@@ -108,15 +108,14 @@ const PortfolioCard = ({ item, delPortfolio }) => (
       <p className="text-muted">{item.headerTitle}</p>
     </Card.Body>
     <Card.Footer className="d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
-      {/* <Link to={`/edit-portfolio/${item._id}`} target="_blank"> */}
+      <Link to={`/edit-portfolio/${item._id}`} target="_blank">
       <div className="tooltip-custom">
-        <span className="tooltiptext">Edit portfolio is not enabled yet !</span>
         <button className="btn btn-neutral" title="Edit Portfolio">
           <span className="nav-link-inner--text">Edit</span>
         </button>
       </div>
 
-      {/* </Link> */}
+      </Link>
       <RWebShare
         data={{
           text: "Hey I made this portfolio using dynamic portfolio web app",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import {
   CustomSimpleInput,
@@ -10,9 +10,10 @@ import Projects from "../components/Projects";
 import SkillSelect from "../components/SkillsSelect";
 import SocialLinks from "../components/SocialLinks";
 import { apiCommon } from "../../../../services/models/CommonModel";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { CYCLIC_BASE_URL } from "../../../../services/api";
 
-const Template1 = ({ getPortfolios }) => {
+const Template1 = ({portfolioDetails, getPortfolios }) => {
   const [data, setData] = useState({
     name: "",
     headerTitle: "",
@@ -45,6 +46,20 @@ const Template1 = ({ getPortfolios }) => {
     },
   ]);
 
+  const [newImage, setNewImage] = useState(true);
+  const { id } = useParams();
+
+  useEffect(() => {
+    if ( portfolioDetails) {
+      setNewImage(false);
+      setData( portfolioDetails);
+      setSocialLinks( portfolioDetails.socialLinks);
+      setSelectedSkills( portfolioDetails.skills);
+      setProjects( portfolioDetails.projects);
+      setExperiences( portfolioDetails.exp);
+    }
+  }, [ portfolioDetails]);
+
   const [file, setFile] = useState(null);
 
   const navigate = useNavigate();
@@ -52,14 +67,9 @@ const Template1 = ({ getPortfolios }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    toast("Please Wait! while we are adding...");
+    const formData = new FormData();
     const userID = localStorage.getItem("dynamic-id");
 
-    const formData = new FormData();
-    if (!file) {
-      toast.error("Add Image Please");
-      return;
-    }
     const body = {
       userID: userID,
       name: data.name,
@@ -74,26 +84,57 @@ const Template1 = ({ getPortfolios }) => {
       theme: data.themes,
       font: data.fontfamily,
     };
+    // console.log(body);
+    if ( portfolioDetails) {
+      toast("Please Wait! while we are updating...");
 
-    formData.append("image", file);
-
-    apiCommon.post(body, "portfolio", true).then((res) => {
-      // console.log(res.id);
-      if (res.status === "200") {
-        apiCommon
-          .putFormData(formData, `portfolio/${res.id}`, true)
-          .then((res) => {
-            // console.log(res);
-            if (res.status === "200") {
-              toast.success("Portfolio added !");
-            }
-          });
-      } else {
-        toast.error("Portfolio addition failed !");
+      if (newImage && !file) {
+        toast.error("Add Image Please");
+        return;
       }
-    });
-    getPortfolios();
-    navigate("/dashboard");
+      if (newImage) {
+        formData.append("image", file);
+      }
+
+      apiCommon.putById(id, body, "portfolio", true).then((res) => {
+        if (res.status === "200") {
+          if (newImage) {
+            apiCommon
+              .putFormData(formData, `portfolio/${id}`, true)
+          }
+               toast.success("Portfolio updated !");
+               getPortfolios();
+               navigate("/dashboard");
+        } else {
+          toast.error("Portfolio updation failed !");
+        }
+      });
+    } else {
+      toast("Please Wait! while we are adding...");
+      if (!file) {
+        toast.error("Add Image Please");
+        return;
+      }
+      formData.append("image", file);
+
+      apiCommon.post(body, "portfolio", true).then((res) => {
+        // console.log(res.id);
+        if (res.status === "200") {
+          apiCommon
+            .putFormData(formData, `portfolio/${res.id}`, true)
+            .then((res) => {
+              // console.log(res);
+              if (res.status === "200") {
+                toast.success("Portfolio added !");
+                getPortfolios();
+                navigate("/dashboard");
+              }
+            });
+        } else {
+          toast.error("Portfolio addition failed !");
+        }
+      });
+    }
   };
 
   return (
@@ -135,8 +176,40 @@ const Template1 = ({ getPortfolios }) => {
         />
         <div className="form-group">
           <label htmlFor="about">Profile Image</label>
-          <Image setFile={setFile} file={file} />
+          { portfolioDetails && newImage && (
+            <div className="text-end my-3">
+              <button
+                className="btn btn-danger py-1 px-3"
+                title="Delete New Image"
+                onClick={(e) => setNewImage(false)}
+              >
+                X
+              </button>
+            </div>
+          )}
+          {!newImage && (
+            <>
+              <img
+                src={`${CYCLIC_BASE_URL}/common/portfolio/image/${id}`}
+                width="350px"
+                height="350px"
+                style={{ display: "block", margin: "auto" }}
+                alt=""
+                loading="lazy"
+              />
+              <div className="text-right w-100">
+                <button
+                  className="btn btn-neutral py-1 px-3"
+                  onClick={(e) => setNewImage(true)}
+                  title="Add New Image"
+                >
+                  Add New Image
+                </button>
+              </div>
+            </>
+          )}
         </div>
+        {newImage && <Image setFile={setFile} file={file} />}
         <Projects projects={projects} setProjects={setProjects} />
         <SkillSelect
           selectedSkills={selectedSkills}
@@ -187,7 +260,7 @@ const Template1 = ({ getPortfolios }) => {
 
         <div className="text-right mt-5 mb-4">
           <button type="submit" className="btn btn-primary">
-            Submit
+            { portfolioDetails ? "Update" : "Submit"}
           </button>
         </div>
       </form>
