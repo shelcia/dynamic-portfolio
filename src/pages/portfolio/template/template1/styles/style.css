@@ -127,4 +127,11 @@ li.timeline-item::before {
 }
 .toggle-div svg {
   margin-top: 18px;
+}
+
+.template1 .btn-resume-1 {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 0px;
+  text-transform: capitalize;
 }/*# sourceMappingURL=style.css.map */
