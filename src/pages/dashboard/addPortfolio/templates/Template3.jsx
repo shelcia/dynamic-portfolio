@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 // import {
 //   CustomSimpleInput,
@@ -6,18 +6,19 @@ import toast from "react-hot-toast";
 // } from "../../../../components/common/CustomInputs";
 import SocialLinks from "../components/SocialLinks2.0";
 import { apiCommon } from "../../../../services/models/CommonModel";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Form } from "react-bootstrap";
 import { ErrorMessage, ValidationError } from "../enums/ErrorCode";
 
-const Template3 = ({ getPortfolios }) => {
+const Template3 = ({portfolioDetails, getPortfolios }) => {
   const [data] = useState({
     themes: "black",
     fontfamily: "inter",
   });
 
+  const { id } = useParams();
   const [socialLinks, setSocialLinks] = useState([]);
   const [socialFormToBeValidate, setSocialFormToBeValidate] = useState(
     // eslint-disable-next-line no-undef
@@ -25,6 +26,7 @@ const Template3 = ({ getPortfolios }) => {
   );
 
   const navigate = useNavigate();
+
 
   const socialLinkValidationSchema = Yup.object().shape({
     link: Yup.string()
@@ -87,8 +89,7 @@ const Template3 = ({ getPortfolios }) => {
   const onSubmit = (val) => {
     // e.preventDefault();
 
-    toast("Please Wait! while we are adding...");
-    // eslint-disable-next-line no-undef
+       // eslint-disable-next-line no-undef
     const userID = localStorage.getItem("dynamic-id");
 
     const body = {
@@ -96,25 +97,49 @@ const Template3 = ({ getPortfolios }) => {
       name: val.name,
       about: val.about,
       headerTitle: val.headerTitle,
-      behanceRssLink: `https://api.rss2json.com/v1/api.json?rss_url=https://www.behance.net/feeds/user?username=${val.behanceRssLink}`,
-      mediumRssLink: `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${val.mediumRssLink}`,
+      behanceRssLink: val.behanceRssLink,
+      mediumRssLink: val.mediumRssLink,
       socialLinks: socialLinks,
       template: "template3",
       theme: data.themes,
       font: data.fontfamily,
     };
     // console.log(body);
+    if ( portfolioDetails) {
+      toast("Please Wait! while we are updating...");
 
+     
+
+      apiCommon.putById(id, body, "portfolio", true).then((res) => {
+        if (res.status === "200") {
+          toast.success("Portfolio updated !");
+          getPortfolios();
+          navigate("/dashboard");
+        } else {
+          toast.error("Portfolio updation failed !");
+        }
+      });
+    }else {
+    toast("Please Wait! while we are adding...");
     apiCommon.post(body, "portfolio", true).then((res) => {
       if (res.status === "200") {
         toast.success("Portfolio added !");
+        getPortfolios();
+        navigate("/dashboard");
       } else {
         toast.error("Portfolio addition failed !");
       }
     });
-    getPortfolios();
-    navigate("/dashboard");
   };
+}
+
+  useEffect(() => {
+    if ( portfolioDetails) {
+      formik.setValues(portfolioDetails);
+      console.log(formik.values);
+      setSocialLinks( portfolioDetails.socialLinks);
+    }
+  }, [ portfolioDetails]);
 
   return (
     <React.Fragment>
@@ -228,9 +253,9 @@ const Template3 = ({ getPortfolios }) => {
         <Form.Group className="mb-3 mt-5">
           <div className="text-right mt-5 mb-4">
             <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
+          {portfolioDetails ? "Update" : "Submit"}
+          </button>
+        </div>
         </Form.Group>
       </Form>
     </React.Fragment>

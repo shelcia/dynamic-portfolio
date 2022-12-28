@@ -1,46 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Card, Container, Row, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { PageLoader } from "../../../components/common/CustomLoaders";
+import { PortfoliosContext } from "../../../context/PortfoliosContext";
 import { apiCommon } from "../../../services/models/CommonModel";
+import Template1 from "../addPortfolio/templates/Template1";
+import Template2 from "../addPortfolio/templates/Template2";
+import Template3 from "../addPortfolio/templates/Template3";
+
 
 const EditPortfolio = () => {
-  const [isLoading, setLoading] = useState(true);
+  const { id } = useParams();
   const [portfolioDetails, setPortfolioDetails] = useState({
     name: "",
     headerTitle: "",
+    resumeLink: "",
     about: "",
   });
+  const [template, setTemplate] = useState();
 
-  const { id } = useParams();
-
+  
   useEffect(() => {
     const ac = new AbortController();
     const getPortfolio = () =>
       apiCommon.getSingle(id, ac.signal, "portfolio", true).then((res) => {
-        console.log("Portfolio", res);
         if (res.status === "200") {
           setPortfolioDetails(res.message);
+          setTemplate(res.message.template);
+
         }
-        setLoading(false);
       });
-    if (!portfolioDetails.length) getPortfolio();
+  if (!portfolioDetails.length) getPortfolio();
     return () => ac.abort();
   }, [id, portfolioDetails.length]);
-
-  const handleInputs = (e) => {
-    const newDetails = { ...portfolioDetails, [e.target.name]: e.target.value };
-    setPortfolioDetails(newDetails);
-  };
+    
 
   return (
     <React.Fragment>
-      {isLoading ? (
-        <PageLoader />
-      ) : (
-        <div
-          className="section section-hero section-shaped pt-2"
-          style={{ minHeight: "100vh" }}
-        >
+      <section
+        className="section section-hero section-shaped pt-2"
+        style={{ minHeight: "100vh" }}
+      >
+        
           <div className="shape shape-style-1 shape-default">
             <span className="span-150"></span>
             <span className="span-50"></span>
@@ -53,65 +54,55 @@ const EditPortfolio = () => {
             <span className="span-50"></span>
             <span className="span-100"></span>
           </div>
-          <div className="container" style={{ marginTop: "4rem" }}>
-            <div
-              className="card background py-3 px-5 border-0 border rounded-0 shadow-lg"
-              style={{ overflowY: "scroll", height: "80vh" }}
+        <Container>
+          <Row className="px-2 pt-5 flex-column">
+            <Card
+              className="background py-3 px-5 border-0 border rounded-0 shadow-lg"
+              style={{ overflowY: "scroll", height: "90vh" }}
             >
               <div className="d-flex justify-content-between align-items-center">
                 <h4 className="text-primary">Edit Portfolio</h4>
                 <Link to="/dashboard">
-                  <button type="button" className="btn normal">
-                    Go Back
-                  </button>
+                  <Button variant="info">Go Back</Button>
                 </Link>
               </div>
-              <form>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <div className="input-group">
-                    <input
-                      className="form-control"
-                      placeholder="John Doe"
-                      name="name"
-                      value={portfolioDetails.name}
-                      onChange={(e) => handleInputs(e)}
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="name">Header Title</label>
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="John Doe"
-                      name="headerTitle"
-                      value={portfolioDetails.headerTitle}
-                      onChange={(e) => handleInputs(e)}
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="name">About</label>
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="John Doe"
-                      name="about"
-                      value={portfolioDetails.about}
-                      onChange={(e) => handleInputs(e)}
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
+              {!template ? (
+        <PageLoader />
+      ) :<Template template={template} portfolioDetails={portfolioDetails} />}
+            </Card>
+          </Row>
+        </Container>
+      </section>
     </React.Fragment>
   );
 };
-
 export default EditPortfolio;
+
+const Template = (props) => {
+  const [, setPortfolios] = useContext(PortfoliosContext);
+
+  const getPortfolios = () => {
+    const userId = localStorage.getItem("dynamic-id");
+    apiCommon.getSingle(userId, undefined, "portfolios", true).then((res) => {
+      // console.log("Portfolio", res);
+      if (res.status === "200") {
+        setPortfolios(res.message);
+      }
+    });
+  };
+
+  console.log(props.template);
+
+  switch (props.template) {
+    case "template1":
+      return <Template1 getPortfolios={getPortfolios} portfolioDetails={props.portfolioDetails} />;
+    case "template2":
+      return <Template2 getPortfolios={getPortfolios} portfolioDetails={props.portfolioDetails} />;
+    case "template3":
+      return <Template3 getPortfolios={getPortfolios} portfolioDetails={props.portfolioDetails} />;
+    case "template4":
+      return <div>Template4 onGoing</div>;
+    default:
+      return <div>Nothing</div>;
+  }
+};

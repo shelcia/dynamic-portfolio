@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ComponentLoader } from "../../components/common/CustomLoaders";
 import { apiCommon } from "../../services/models/CommonModel";
@@ -10,7 +10,6 @@ import { Pattern1Default } from "../../components/common/CustomPatterns";
 import { RWebShare } from "react-web-share";
 import { demoPortfolioIds } from "../../context/DemoContext";
 import { PortfoliosContext } from "../../context/PortfoliosContext";
-import { useCallback } from "react";
 
 const Dashboard = () => {
   const name = localStorage.getItem("dynamic-name");
@@ -109,15 +108,14 @@ const PortfolioCard = ({ item, delPortfolio }) => (
       <p className="text-muted">{item.headerTitle}</p>
     </Card.Body>
     <Card.Footer className="d-flex justify-content-between w-100 px-0 py-2 bg-transparent border-0">
-      {/* <Link to={`/edit-portfolio/${item._id}`} target="_blank"> */}
+      <Link to={`/edit-portfolio/${item._id}`} target="_blank">
       <div className="tooltip-custom">
-        <span className="tooltiptext">Edit portfolio is not enabled yet !</span>
         <button className="btn btn-neutral" title="Edit Portfolio">
           <span className="nav-link-inner--text">Edit</span>
         </button>
       </div>
 
-      {/* </Link> */}
+      </Link>
       <RWebShare
         data={{
           text: "Hey I made this portfolio using dynamic portfolio web app",
@@ -125,7 +123,7 @@ const PortfolioCard = ({ item, delPortfolio }) => (
           title: "Share your Portfolio",
         }}
         onClick={() => {
-          console.info("share successful!");
+          // console.info("share successful!");
           toast.success("Successful !");
         }}
       >

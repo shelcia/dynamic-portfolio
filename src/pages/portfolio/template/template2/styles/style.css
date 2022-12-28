@@ -1,9 +1,11 @@
-.ba1::before,.ba1::after{
+.ba1::before, .ba1::after {
   background: white;
 }
-.ba2::before,.ba2::after{
+
+.ba2::before, .ba2::after {
   background: black;
 }
+
 .name {
   position: relative;
 }
@@ -11,7 +13,7 @@
   content: "";
   display: block;
   width: 120px;
-  height: 2px; 
+  height: 2px;
   left: 0;
   top: 50%;
   position: absolute;
