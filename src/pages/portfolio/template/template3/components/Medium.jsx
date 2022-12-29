@@ -8,7 +8,7 @@ const Medium = ({ portfolioDetails }) => {
   const textTheme = darkTheme ? "text-white" : "text-dark";
 
   useEffect(() => {
-    const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${portfolioDetails?.mediumRssLink}`;
+    const url = portfolioDetails?.mediumRssLink;
 
     const fetchData = async () => {
       try {
@@ -35,7 +35,7 @@ const Medium = ({ portfolioDetails }) => {
   return (
     <Row className="mt-5 px-4 pb-5" id="medium">
       <Col md="12">
-        {articles.map((article, index) => (
+        {articles?.map((article, index) => (
           <Card
             className="p-4 mb-4"
             key={index + 1}

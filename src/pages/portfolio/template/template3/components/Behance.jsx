@@ -9,7 +9,7 @@ const Behance = ({ portfolioDetails }) => {
   const [designs, setDesigns] = useState([]);
 
   useEffect(() => {
-    const url = `https://api.rss2json.com/v1/api.json?rss_url=https://www.behance.net/feeds/user?username=${portfolioDetails?.behanceRssLink}`;
+    const url = portfolioDetails?.behanceRssLink;
     const fetchData = async () => {
       try {
         const response = await fetch(url);

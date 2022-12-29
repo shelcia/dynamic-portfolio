@@ -97,8 +97,8 @@ const Template3 = ({portfolioDetails, getPortfolios }) => {
       name: val.name,
       about: val.about,
       headerTitle: val.headerTitle,
-      behanceRssLink: val.behanceRssLink,
-      mediumRssLink: val.mediumRssLink,
+      behanceRssLink: `https://api.rss2json.com/v1/api.json?rss_url=https://www.behance.net/feeds/user?username=${val.behanceRssLink}`,
+      mediumRssLink: `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${val.mediumRssLink}`,
       socialLinks: socialLinks,
       template: "template3",
       theme: data.themes,
@@ -135,6 +135,12 @@ const Template3 = ({portfolioDetails, getPortfolios }) => {
 
   useEffect(() => {
     if ( portfolioDetails) {
+      const behanceRssUsername = portfolioDetails.behanceRssLink.split('=').pop()
+      const mediumRssUsername = portfolioDetails.mediumRssLink.split('@').pop()
+
+      portfolioDetails.behanceRssLink = behanceRssUsername
+      portfolioDetails.mediumRssLink = mediumRssUsername
+
       formik.setValues(portfolioDetails);
       console.log(formik.values);
       setSocialLinks( portfolioDetails.socialLinks);
