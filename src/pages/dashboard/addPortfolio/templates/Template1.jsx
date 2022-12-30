@@ -96,20 +96,26 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
 
     const experienceValidationSchema = Yup
     .object().shape({
-      name: Yup
+      current: Yup
+        .boolean(),
+      end: Yup
         .string()
-        .required(ValidationError.EXPERIENCE_NAME_REQ),
+        .when("current",{
+          is: false,
+          then: Yup
+            .string()
+            .required(ValidationError.EXPERIENCE_END_REQ),
+        }),
+      start: Yup
+        .date()
+        .typeError(ValidationError.EXPERIENCE_START_REQ)
+        .required(ValidationError.EXPERIENCE_START_REQ),
       desc: Yup
         .string()
         .required(ValidationError.EXPERIENCE_DESC_REQ),
-      start: Yup
-        .date()
-        .required(ValidationError.EXPERIENCE_START_REQ),
-      end: Yup
-        .date()
-        .required(ValidationError.EXPERIENCE_END_REQ),
-      current: Yup
-        .boolean()
+      name: Yup
+        .string()
+        .required(ValidationError.EXPERIENCE_NAME_REQ),
     })
   const formik = useFormik({
     initialValues: {
