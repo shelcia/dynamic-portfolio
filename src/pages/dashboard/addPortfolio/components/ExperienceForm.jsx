@@ -145,7 +145,7 @@ const ExperienceForm = ({
                 name="start"
                 type="date"
                 value={
-                  formik.values.start
+                  formik.values.start || ""
                 }
                 onChange={(e) => {
                   formik.handleChange(e)
@@ -198,7 +198,7 @@ const ExperienceForm = ({
                 name="end"
                 type="date"
                 value={
-                  formik.values.end
+                  formik.values.end || ""
                 }
                 onChange={(e) => {
                   formik.handleChange(e)
