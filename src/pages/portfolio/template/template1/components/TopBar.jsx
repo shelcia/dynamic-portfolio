@@ -5,6 +5,7 @@ import { ThemeContext } from "../../../../../context/ThemeContext";
 const Topbar = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
   const className = darkTheme ? "text-light" : "text-dark";
+  const variantType = darkTheme ? "dark" : "light";
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
@@ -23,12 +24,12 @@ const Topbar = ({ portfolioDetails }) => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        variant="dark"
+        variant={`${variantType}`}
         className="bg-transparent"
         style={{ zIndex: 1000, height: "14vh" }}
       >
         <Container fluid>
-          <Navbar.Brand>{portfolioDetails?.name}</Navbar.Brand>
+          <Navbar.Brand className="text-white">{portfolioDetails?.name}</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
