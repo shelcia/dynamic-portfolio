@@ -500,3 +500,19 @@ input:checked + .toggle .star--6 {
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=style.css.map */
+
+.topbtn{
+  position: fixed;
+  right: 0;
+  margin-top: -2rem;
+  bottom: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 100%;
+  background-color: aqua;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 1rem;
+
+}
+
