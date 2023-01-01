@@ -6,7 +6,8 @@ import Footer from "./Footer";
 const Works = ({ portfolioDetails }) => {
   const [darkTheme] = useContext(ThemeContext);
   const bgTheme = darkTheme ? "dark" : "light";
-  const className = "bg-dark text-light";
+  const className = darkTheme ?"bg-dark": "bg-white";
+  const textC = darkTheme ? "white" : "black";
 
   const convertDate = (date) => {
     const dates = new Date(date);
@@ -33,11 +34,11 @@ const Works = ({ portfolioDetails }) => {
             <ul className="timeline">
               {portfolioDetails.exp?.map((port, index) => (
                 <li
-                  className={`timeline-item bg-white rounded ml-3 p-4 shadow ${className}`}
+                  className={`timeline-item rounded ml-3 p-4 shadow ${className}`}
                   key={index}
                 >
                   <div className="timeline-arrow"></div>
-                  <h1 className="mb-2 timeline-head text-white">{port.name}</h1>
+                  <h1 className={`mb-2 timeline-head text-${textC}`}>{port.name}</h1>
                   <span className="h5 text-gray">
                     {port.start ? convertDate(port.start) : ""} -{" "}
                     {port.end && !port.current ? convertDate(port.end) : ""}
