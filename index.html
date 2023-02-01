@@ -14,9 +14,114 @@
       content="Build your Portfolio website under 5 mins"
     />
     <title>Dynamic Portfolio</title>
+    <style>
+        *{
+         scroll-behavior: smooth;
+        }
+        /* ****     Reset CSS     **** */
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ****     ScrollTopButton     **** */
+.scroll-top-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh; 
+  right: calc(4.25rem + 1vw);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all 0.3s ease-out;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+    </style>
   </head>
   <body>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <button class="scroll-top-btn hidden">&#11014;</button>
   </body>
+  <script>
+
+    const d = document,
+      w = window;
+    
+    d.addEventListener("DOMContentLoaded", (e) =>{
+        scrollToTop(".scroll-top-btn");
+    });
+    
+    
+    function scrollToTop(btnScroll) {
+      const $scrollBtn = d.querySelector(btnScroll);
+    
+      d.addEventListener("scroll", (e) => {
+        let scrollTop = w.pageYOffset || d.documentElement.scrollTop;
+    
+        if (scrollTop > 100) {
+          $scrollBtn.classList.remove("hidden");
+        } else {
+          $scrollBtn.classList.add("hidden");
+        }
+        /* console.log(w.pageYOffset, d.documentElement.scrollTop); */
+      });
+      d.addEventListener("click", (e) => {
+        if (e.target.matches(btnScroll)) {
+          w.scrollTo({
+            behavior: "smooth",
+            top: 0,
+          });
+        }
+      });
+    }
+    
+      
+    </script>
 </html>
