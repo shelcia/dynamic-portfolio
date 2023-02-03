@@ -34,7 +34,7 @@
 
 .img-align {
   justify-content: left;
-  margin-left: -80px;
+  margin-left: -50px;
 }
 @media only screen and (max-width: 770px) {
   .img-align {

@@ -642,10 +642,9 @@ Coded by www.creative-tim.com
   
   .row {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -30px;
+    margin-left: -15px;
   }
   
   .no-gutters {
