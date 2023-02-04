@@ -1,8 +1,10 @@
-.ba1::before, .ba1::after {
+.ba1::before,
+.ba1::after {
   background: white;
 }
 
-.ba2::before, .ba2::after {
+.ba2::before,
+.ba2::after {
   background: black;
 }
 
@@ -12,7 +14,7 @@
 .name::before {
   content: "";
   display: block;
-  width: 120px;
+  width: 11%;
   height: 2px;
   left: 0;
   top: 50%;
@@ -21,7 +23,7 @@
 .name::after {
   content: "";
   display: block;
-  width: 120px;
+  width: 11%;
   height: 2px;
   right: 0;
   top: 50%;
@@ -37,4 +39,4 @@
 
 .bg-dark {
   background-color: #212121 !important;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
