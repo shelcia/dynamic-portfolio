@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import { FiGithub } from "react-icons/fi";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import { FaBehance } from "react-icons/fa";
-import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+import { FiGithub } from "react-icons/fi";
+import { Link, Outlet } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/argon.css";
@@ -21,7 +21,7 @@ const HomeLayout = () => {
             D.
           </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav" style={{ marginTop: "60px" }}>
             <Nav className="me-auto"></Nav>
             <Nav>
               <Link className="btn btn-neutral" to="/login">
