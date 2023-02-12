@@ -493,4 +493,10 @@ input:checked + .toggle .star--6 {
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
-}/*# sourceMappingURL=style.css.map */
+}
+.carousel-caption div.p{
+  font: bold;
+  text-shadow: gray;
+}
+.
+/*# sourceMappingURL=style.css.map */

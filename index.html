@@ -13,10 +13,77 @@
       name="description"
       content="Build your Portfolio website under 5 mins"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <title>Dynamic Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- nav bar start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Dynamic Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavLightDropdown" aria-controls="navbarNavlightDropdown'" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavlightDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <!-- <a class="nav-link" href="">Templates</a> -->
+            <li class="nav-item">
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Templates
+                </button>
+                <ul class="dropdown-menu dropdown-menu-light">
+                  <li><a class="dropdown-item" href="https://dynamic--portfolio.vercel.app/portfolio/630f44611ddb0f899c66e399">Student Portfolio</a></li>
+                  <li><a class="dropdown-item" href="https://dynamic--portfolio.vercel.app/portfolio/630f51c81ddb0f899c66e39a">Photographer Portfolio</a></li>
+                  <li><a class="dropdown-item" href="https://dynamic--portfolio.vercel.app/portfolio/638e3ff00640c1002987cc1e">Designer/Writer Portfolio</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item" >
+              <button class="btn btn-outline-success"  aria-current="page" onclick="">Login</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- nav bar end -->
+    <img src="/screens/others/homepage1.jpg" class="d-block w-100" alt="..." index="-z">
+    <div class="carousel-caption">
+      <h1 class="display-2">Dynamic Portfolio<br>
+         Builder
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+      </h1>
+    </div>
+<!-- footer -->
+    <div class="card">
+      <div class="card-header">
+        Copyright © <a href="index.html">Dynamic-Portfolio</a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">About website</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aperiam sint a eum incidunt expedita voluptas blanditiis, non tenetur, obcaecati maxime! Minus, accusamus excepturi? Nostrum maiores ipsam pariatur quidem molestiae!</p>
+        <a href="#" class="btn btn-primary">Social media
+        </a>
+      </div>
+    </div>
+    <!-- end of footer -->
+
   </body>
 </html>
