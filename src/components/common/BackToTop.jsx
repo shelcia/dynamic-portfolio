@@ -23,7 +23,19 @@ export default function BackToTop() {
     <>
     
     {backToTop && (
-        <a href="#" className="to-top">
+        <a href="#" className="to-top" style={{backgroundColor: 'white',
+            position: 'fixed',
+            bottom: '16px',
+            right: '26px',
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '47px',
+            opacity: '1',
+            transition: 'all .4s'}}>
         <BsFillArrowUpCircleFill/>
       </a>
 

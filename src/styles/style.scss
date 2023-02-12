@@ -3,7 +3,7 @@
 @import "./components/dropzone";
 @import "./components/tooltip";
 @import "./components/typography";
-
+@import"./components/scrolltotop";
 * {
   font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -26,20 +26,4 @@
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
-}
-.to-top{
-  background-color: white;
-  position: fixed;
-  bottom: 16px;
-  right: 26px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 47px;
-  /* opacity: 1;
-  pointer-events: none; */
-  transition: all .4s;
 }
