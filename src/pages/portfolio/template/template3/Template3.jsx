@@ -17,6 +17,7 @@ import "./styles/style.css";
 import Behance from "./components/Behance";
 import Medium from "./components/Medium";
 import Footer from "../common/Footer";
+import BackToTop from "../../../../components/common/BackToTop";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -78,6 +79,7 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
+      <BackToTop/>
     </React.Fragment>
   );
 };
