@@ -5,6 +5,7 @@ import { useRoutes } from "react-router";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./context/ThemeContext";
 import { PortfoliosProvider } from "./context/PortfoliosContext";
+import BackToTopButton from "./components/BackToTopButton";
 
 const App = () => {
   const allRoutes = useRoutes(routes);
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <React.Fragment>
+      <BackToTopButton />
       <ThemeProvider>
         <PortfoliosProvider>
           <Toaster toastOptions={toasterOptions} />
