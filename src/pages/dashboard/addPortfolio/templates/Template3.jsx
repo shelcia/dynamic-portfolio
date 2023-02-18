@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 //   CustomSimpleInput,
 //   CustomTeaxtArea,
 // } from "../../../../components/common/CustomInputs";
-import SocialLinks from "../components/SocialLinks2.0";
+import { SocialLinks } from "../components/SocialLinks2.0";
 import { apiCommon } from "../../../../services/models/CommonModel";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
@@ -212,7 +212,7 @@ const Template3 = ({portfolioDetails, getPortfolios }) => {
           setSocialFormToBeValidate={setSocialFormToBeValidate}
         />
         <Form.Group className="mb-3 position-relative">
-          <Form.Label>Behance Username</Form.Label>
+          <Form.Label>Behance Username (without '=')</Form.Label>
           <Form.Control
             name="behanceRssLink"
             value={formik.values.behanceRssLink}
