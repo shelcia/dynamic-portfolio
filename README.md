@@ -24,6 +24,33 @@ MVP is completed **This is an Ongoing Project**.
 
 ---
 
+# 📌 Workflow of The Project
+
+   ⭐ Sign up Or LOgin: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
+   
+   ⭐ Choose a template: Once signed up, users will be able to browse through three different templates for them. They can select a template that best suits them.
+   
+   ⭐ Add content: Users will be able to add their own content.
+   
+   ⭐ You are done now .
+   
+---
+
+# 📌 Aim of the Project
+   
+   ⭐ Provide a simple and easy-to-use platform for users to create their own websites without       needing any technical skills or knowledge. 
+   
+   ⭐ The aim is to empower users to create their own online presence .
+   
+   ⭐ No need any knowledge just fill form and you are done .
+   
+   ⭐ No burden to write codes and all.
+      
+   ⭐ Free of cost no paying anymore to .
+   
+---
+
+
 ## ⭐ Deployment
 
 [Web app is hosted here at Vercel](https://dynamic--portfolio.vercel.app/)
