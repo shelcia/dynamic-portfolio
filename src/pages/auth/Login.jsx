@@ -64,6 +64,21 @@ const Login = () => {
             <Col lg={5}>
               <Card className="bg-secondary shadow border-0">
                 <Card.Body className="px-lg-5 py-lg-5">
+                  <div className="alert alert-default p-2" role="alert">
+                    <h5 className="text-white mb-0">Demo User</h5>
+                    <p
+                      className="text-white mb-0"
+                      style={{ fontSize: "0.75rem" }}
+                    >
+                      <span>Email:</span> evert.medhurst52@ethereal.email
+                    </p>
+                    <p
+                      className="text-white mb-0"
+                      style={{ fontSize: "0.75rem" }}
+                    >
+                      <span>Password:</span> password
+                    </p>
+                  </div>
                   <Form onSubmit={formik.handleSubmit}>
                     <Form.Group className="position-relative">
                       <Form.Label id="1">Email</Form.Label>

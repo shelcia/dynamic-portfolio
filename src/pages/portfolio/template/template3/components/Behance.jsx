@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React, { useContext, useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { ThemeContext } from "../../../../../context/ThemeContext";
@@ -19,11 +20,14 @@ const Behance = ({ portfolioDetails }) => {
           setDesigns(results.items);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     };
     fetchData();
   }, [portfolioDetails?.behanceRssLink]);
+
+  // console.log(designs[0]?.content.split('src="')[1].split('"><br>')[0]);
 
   return (
     <React.Fragment>
@@ -39,7 +43,9 @@ const Behance = ({ portfolioDetails }) => {
               <a href={project.link} target={"_blank"} rel="noreferrer">
                 <Card className="project-card border-0">
                   <Card.Img
-                    src={project.thumbnail}
+                    src={
+                      project?.content?.split('src="')[1]?.split('"><br>')[0]
+                    }
                     alt="Card image"
                     height={200}
                     width={"100%"}

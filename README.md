@@ -3,6 +3,8 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
+<!-- [README-Hindi.md](Hindi Translation) -->
+
 # 📌 Introduction
 
 Dynamic Portfolio helps you create simple websites by just filling out forms. This helps remove the burden of writing hundreds of lines of code, or the financial loss of paying a professional website developer to create your website for you.
@@ -26,30 +28,29 @@ MVP is completed **This is an Ongoing Project**.
 
 # 📌 Workflow of The Project
 
-   ⭐ Sign up Or LOgin: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
-   
-   ⭐ Choose a template: Once signed up, users will be able to browse through three different templates for them. They can select a template that best suits them.
-   
-   ⭐ Add content: Users will be able to add their own content.
-   
-   ⭐ You are done now .
-   
+⭐ Sign up Or LOgin: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
+
+⭐ Choose a template: Once signed up, users will be able to browse through three different templates for them. They can select a template that best suits them.
+
+⭐ Add content: Users will be able to add their own content.
+
+⭐ You are done now .
+
 ---
 
 # 📌 Aim of the Project
-   
-   ⭐ Provide a simple and easy-to-use platform for users to create their own websites without       needing any technical skills or knowledge. 
-   
-   ⭐ The aim is to empower users to create their own online presence .
-   
-   ⭐ No need any knowledge just fill form and you are done .
-   
-   ⭐ No burden to write codes and all.
-      
-   ⭐ Free of cost no paying anymore to .
-   
----
 
+⭐ Provide a simple and easy-to-use platform for users to create their own websites without needing any technical skills or knowledge.
+
+⭐ The aim is to empower users to create their own online presence .
+
+⭐ No need any knowledge just fill form and you are done .
+
+⭐ No burden to write codes and all.
+
+⭐ Free of cost no paying anymore to .
+
+---
 
 ## ⭐ Deployment
 

@@ -8,15 +8,16 @@ import Intro from "./components/Intro";
 
 import Toggle from "../common/Toggle";
 
-// import Gallery from "./components/Gallery";
-// import Footer from "./components/Footer";
-
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
-import "./styles/style.css";
 import Behance from "./components/Behance";
 import Medium from "./components/Medium";
 import Footer from "../common/Footer";
+
+import Grad1 from "../../../../assets/gradients/gradient-1.svg";
+import Grad2 from "../../../../assets/gradients/gradient-2.svg";
+
+import "./styles/style.css";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -33,13 +34,14 @@ const Portfolio = () => {
     const getPortfolio = async (id) => {
       try {
         apiCommon.getSingle(id, ac.signal, "portfolio").then((portfolio) => {
-          console.log(portfolio.message);
+          // console.log(portfolio.message);
           if (portfolio.status === "200") {
             setPortfolioDetails(portfolio.message);
           }
         });
         setLoading(false);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     };
@@ -64,6 +66,12 @@ const Portfolio = () => {
         <PageLoader />
       ) : (
         <React.Fragment>
+          <img src={Grad1} alt="" style={{ position: "absolute" }} />
+          <img
+            src={Grad2}
+            alt=""
+            style={{ position: "absolute", top: "150vh" }}
+          />
           <Toggle />
           <div className={`text-${portfolioDetails.font} ${className}`}>
             <Topbar portfolioDetails={portfolioDetails} />
