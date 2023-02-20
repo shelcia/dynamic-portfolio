@@ -11,13 +11,13 @@ import SkillSelect from "../components/SkillsSelect";
 import { apiCommon } from "../../../../services/models/CommonModel";
 import SocialLinks from "../components/SocialLinks2.0";
 import { useFormik } from "formik";
-import * as Yup from "yup"
+import * as Yup from "yup";
 import { Form } from "react-bootstrap";
 import { ErrorMessage, ValidationError } from "../enums/ErrorCode";
 import { useNavigate, useParams } from "react-router-dom";
 import { CYCLIC_BASE_URL } from "../../../../services/api";
 
-const Template1 = ({portfolioDetails, getPortfolios }) => {
+const Template1 = ({ portfolioDetails, getPortfolios }) => {
   const [data, setData] = useState({
     name: "",
     headerTitle: "",
@@ -28,9 +28,15 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
   });
 
   const [socialLinks, setSocialLinks] = useState([]);
-  const [socialFormToBeValidate, setSocialFormToBeValidate] = useState(new Map())
-  const [projectFormToBeValidate, setProjectFormToBeValidate] = useState(new Map())
-  const [experienceFormToBeValidate, setExperienceFormToBeValidate]=useState(new Map())
+  const [socialFormToBeValidate, setSocialFormToBeValidate] = useState(
+    new Map()
+  );
+  const [projectFormToBeValidate, setProjectFormToBeValidate] = useState(
+    new Map()
+  );
+  const [experienceFormToBeValidate, setExperienceFormToBeValidate] = useState(
+    new Map()
+  );
   const [projects, setProjects] = useState([
     {
       id: Date.now(),
@@ -55,175 +61,145 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    if ( portfolioDetails) {
+    if (portfolioDetails) {
       setNewImage(false);
-      setData( portfolioDetails);
-      setSocialLinks( portfolioDetails.socialLinks);
-      setSelectedSkills( portfolioDetails.skills);
-      setProjects( portfolioDetails.projects);
-      setExperiences( portfolioDetails.exp);
+      setData(portfolioDetails);
+      setSocialLinks(portfolioDetails.socialLinks);
+      setSelectedSkills(portfolioDetails.skills);
+      setProjects(portfolioDetails.projects);
+      setExperiences(portfolioDetails.exp);
     }
-  }, [ portfolioDetails]);
+  }, [portfolioDetails]);
 
   const [file, setFile] = useState(null);
 
   const navigate = useNavigate();
 
-  const socialLinkValidationSchema = Yup
-    .object().shape({
-      link: Yup
-        .string()
-        .required(ValidationError.SOCIAL_LINK_REQ)
-        .url(ValidationError.SOCIAL_LINK_URL),
-      name: Yup
-        .string()
-        .required(ValidationError.SOCIAL_HANDLE_REQ),
-  })
+  const socialLinkValidationSchema = Yup.object().shape({
+    link: Yup.string()
+      .required(ValidationError.SOCIAL_LINK_REQ)
+      .url(ValidationError.SOCIAL_LINK_URL),
+    name: Yup.string().required(ValidationError.SOCIAL_HANDLE_REQ),
+  });
 
-  const projectValidationSchema = Yup
-    .object().shape({
-      title: Yup
-        .string()
-        .required(ValidationError.PROJECT_TITLE_REQ),
-      desc: Yup
-        .string()
-        .required(ValidationError.PROJECT_DESC_REQ),
-      links: Yup
-        .string()
-        .required(ValidationError.PROJECT_LINKS_REQ)
-        .url(ValidationError.PROJECT_LINKS_URL),
-    })
+  const projectValidationSchema = Yup.object().shape({
+    title: Yup.string().required(ValidationError.PROJECT_TITLE_REQ),
+    desc: Yup.string().required(ValidationError.PROJECT_DESC_REQ),
+    links: Yup.string()
+      .required(ValidationError.PROJECT_LINKS_REQ)
+      .url(ValidationError.PROJECT_LINKS_URL),
+  });
 
-    const experienceValidationSchema = Yup
-    .object().shape({
-      current: Yup
-        .boolean(),
-      end: Yup
-        .string()
-        .when("current",{
-          is: false,
-          then: Yup
-            .string()
-            .required(ValidationError.EXPERIENCE_END_REQ),
-        }),
-      start: Yup
-        .date()
-        .typeError(ValidationError.EXPERIENCE_START_REQ)
-        .required(ValidationError.EXPERIENCE_START_REQ),
-      desc: Yup
-        .string()
-        .required(ValidationError.EXPERIENCE_DESC_REQ),
-      name: Yup
-        .string()
-        .required(ValidationError.EXPERIENCE_NAME_REQ),
-    })
+  const experienceValidationSchema = Yup.object().shape({
+    current: Yup.boolean(),
+    end: Yup.string().when("current", {
+      is: false,
+      then: Yup.string().required(ValidationError.EXPERIENCE_END_REQ),
+    }),
+    start: Yup.date()
+      .typeError(ValidationError.EXPERIENCE_START_REQ)
+      .required(ValidationError.EXPERIENCE_START_REQ),
+    desc: Yup.string().required(ValidationError.EXPERIENCE_DESC_REQ),
+    name: Yup.string().required(ValidationError.EXPERIENCE_NAME_REQ),
+  });
   const formik = useFormik({
     initialValues: {
-      name: '',
-      headerTitle: '',
-      about: '',
-      resumeLink: '',
+      name: "",
+      headerTitle: "",
+      about: "",
+      resumeLink: "",
     },
 
     validationSchema: Yup.object().shape({
-      name: Yup.string()
-        .required('Required'),
-      headerTitle: Yup.string()
-        .required('Required'),
-      about: Yup.string()
-        .required('Required'),
-      resumeLink: Yup.string()
-        .required('Required')
-        .url('Must be a valid url'),
+      name: Yup.string().required("Required"),
+      headerTitle: Yup.string().required("Required"),
+      about: Yup.string().required("Required"),
+      resumeLink: Yup.string().required("Required").url("Must be a valid url"),
     }),
 
-    onSubmit: values => {
-      
+    onSubmit: (values) => {
       //Validate social handle and link
-      const _socialFormToBeValidate = new Map()
+      const _socialFormToBeValidate = new Map();
 
-      socialLinks.forEach((val)=>{
+      socialLinks.forEach((val) => {
         try {
           socialLinkValidationSchema.validateSync({
-            "name": val.name,
-            "link": val.link,
-          })
+            name: val.name,
+            link: val.link,
+          });
         } catch (error) {
-          _socialFormToBeValidate.set(val.id,{
+          _socialFormToBeValidate.set(val.id, {
             id: val.id,
             errCode: error.message,
-            message: ErrorMessage[error.message]
-          })
+            message: ErrorMessage[error.message],
+          });
         }
-      })
+      });
 
-      if(_socialFormToBeValidate.size){
-        setSocialFormToBeValidate(_socialFormToBeValidate)
-        return
+      if (_socialFormToBeValidate.size) {
+        setSocialFormToBeValidate(_socialFormToBeValidate);
+        return;
       }
 
       //Validate project title , description and link
-      const _projectFormToBeValidate = new Map()
+      const _projectFormToBeValidate = new Map();
 
-      projects.forEach((val)=>{
+      projects.forEach((val) => {
         try {
           projectValidationSchema.validateSync({
-            "title": val.title,
-            "desc": val.desc,
-            "links": val.links,
-          })
+            title: val.title,
+            desc: val.desc,
+            links: val.links,
+          });
         } catch (error) {
-          _projectFormToBeValidate.set(val.id,{
+          _projectFormToBeValidate.set(val.id, {
             id: val.id,
             errCode: error.message,
-            message: ErrorMessage[error.message]
-          })
+            message: ErrorMessage[error.message],
+          });
         }
-      })
+      });
 
-      if(_projectFormToBeValidate.size){
-        setProjectFormToBeValidate(_projectFormToBeValidate)
-        return
+      if (_projectFormToBeValidate.size) {
+        setProjectFormToBeValidate(_projectFormToBeValidate);
+        return;
       }
 
       //Validate experience name , description and date
-      const _experienceFormToBeValidate = new Map()
+      const _experienceFormToBeValidate = new Map();
 
-      experiences.forEach((val)=>{
+      experiences.forEach((val) => {
         try {
           experienceValidationSchema.validateSync({
-            "name": val.name,
-            "desc":val.desc,
-            "start":val.start,
-            "end":val.end,
-            "current":val.current,
-          })
+            name: val.name,
+            desc: val.desc,
+            start: val.start,
+            end: val.end,
+            current: val.current,
+          });
         } catch (error) {
-          _experienceFormToBeValidate.set(val.id,{
+          _experienceFormToBeValidate.set(val.id, {
             id: val.id,
             errCode: error.message,
-            message: ErrorMessage[error.message]
-          })
+            message: ErrorMessage[error.message],
+          });
         }
-      })
+      });
 
-      if(_experienceFormToBeValidate.size){
-        setExperienceFormToBeValidate(_experienceFormToBeValidate)
-        return
+      if (_experienceFormToBeValidate.size) {
+        setExperienceFormToBeValidate(_experienceFormToBeValidate);
+        return;
       }
 
-      
       //SUBMIT IF NO VALIDATION ERROR
-      onSubmit(values)
-      
+      onSubmit(values);
     },
-
   });
 
   const onSubmit = (val) => {
     // e.preventDefault();
 
-    if(selectedSkills.length<=0){
+    if (selectedSkills.length <= 0) {
       toast.error("Select atleast one skill");
       return;
     }
@@ -239,13 +215,13 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
       resumeLink: val.resumeLink,
       socialLinks: socialLinks,
       skills: selectedSkills,
-      exp:experiences,
+      exp: experiences,
       projects: projects,
       theme: data.themes,
       font: data.fontfamily,
     };
     // console.log(body);
-    if ( portfolioDetails) {
+    if (portfolioDetails) {
       toast("Please Wait! while we are updating...");
 
       if (newImage && !file) {
@@ -255,21 +231,19 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
       if (newImage) {
         formData.append("image", file);
       }
-      if(selectedSkills.length<=0){
-      toast.error("Select atleast one skill");
-      return;
-    }
-
+      if (selectedSkills.length <= 0) {
+        toast.error("Select atleast one skill");
+        return;
+      }
 
       apiCommon.putById(id, body, "portfolio", true).then((res) => {
         if (res.status === "200") {
           if (newImage) {
-            apiCommon
-              .putFormData(formData, `portfolio/${id}`, true)
+            apiCommon.putFormData(formData, `portfolio/${id}`, true);
           }
-               toast.success("Portfolio updated !");
-               getPortfolios();
-               navigate("/dashboard");
+          toast.success("Portfolio updated !");
+          getPortfolios();
+          navigate("/dashboard");
         } else {
           toast.error("Portfolio updation failed !");
         }
@@ -281,10 +255,10 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
         return;
       }
       formData.append("image", file);
-       if(selectedSkills.length<=0){
-      toast.error("Select atleast one skill");
-      return;
-    }
+      if (selectedSkills.length <= 0) {
+        toast.error("Select atleast one skill");
+        return;
+      }
       apiCommon.post(body, "portfolio", true).then((res) => {
         // console.log(res.id);
         if (res.status === "200") {
@@ -305,26 +279,22 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
     }
   };
 
-
   return (
     <React.Fragment>
       <Form onSubmit={formik.handleSubmit}>
-      <Form.Group className="mb-3 position-relative">
+        <Form.Group className="mb-3 position-relative">
           <Form.Label>Name</Form.Label>
           <Form.Control
             name="name"
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            isInvalid={
-              Boolean(formik.touched.name&&formik.errors.name)
-            }
+            isInvalid={Boolean(formik.touched.name && formik.errors.name)}
             placeholder="John Doe"
             className={
-              Boolean(formik.touched.name&&formik.errors.name)?"mb-5":""
+              Boolean(formik.touched.name && formik.errors.name) ? "mb-5" : ""
             }
-          >
-          </Form.Control>
+          ></Form.Control>
           <Form.Control.Feedback type="invalid" tooltip>
             {formik.errors.name}
           </Form.Control.Feedback>
@@ -336,38 +306,35 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
             value={formik.values.headerTitle}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            isInvalid={
-              Boolean(formik.touched.headerTitle&&formik.errors.headerTitle)
-            }
+            isInvalid={Boolean(
+              formik.touched.headerTitle && formik.errors.headerTitle
+            )}
             placeholder="Full stack developer"
             className={
-              Boolean(formik.touched.headerTitle&&formik.errors.headerTitle)?"mb-5":""
+              Boolean(formik.touched.headerTitle && formik.errors.headerTitle)
+                ? "mb-5"
+                : ""
             }
-          >
-          </Form.Control>
+          ></Form.Control>
           <Form.Control.Feedback type="invalid" tooltip>
             {formik.errors.headerTitle}
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3 position-relative">
           <Form.Label>About</Form.Label>
-          <Form.Control as={"textarea"}
+          <Form.Control
+            as={"textarea"}
             name="about"
             value={formik.values.about}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            isInvalid={
-              Boolean(formik.touched.about
-                && formik.errors.about)
-            }
+            isInvalid={Boolean(formik.touched.about && formik.errors.about)}
             placeholder="I am freelancer aka coolest guy"
             className={
-              Boolean(formik.touched.about
-                && formik.errors.about)?"mb-5":""
+              Boolean(formik.touched.about && formik.errors.about) ? "mb-5" : ""
             }
             rows={5}
-          >
-          </Form.Control>
+          ></Form.Control>
           <Form.Control.Feedback type="invalid" tooltip>
             {formik.errors.about}
           </Form.Control.Feedback>
@@ -379,15 +346,16 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
             value={formik.values.resumeLink}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            isInvalid={
-              Boolean(formik.touched.resumeLink&&formik.errors.resumeLink)
-            }
+            isInvalid={Boolean(
+              formik.touched.resumeLink && formik.errors.resumeLink
+            )}
             placeholder="www.drive.google/resume"
             className={
-              Boolean(formik.touched.resumeLink&&formik.errors.resumeLink)?"mb-5":""
+              Boolean(formik.touched.resumeLink && formik.errors.resumeLink)
+                ? "mb-5"
+                : ""
             }
-          >
-          </Form.Control>
+          ></Form.Control>
           <Form.Control.Feedback type="invalid" tooltip>
             {formik.errors.resumeLink}
           </Form.Control.Feedback>
@@ -398,10 +366,10 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
           socialFormToBeValidate={socialFormToBeValidate}
           setSocialFormToBeValidate={setSocialFormToBeValidate}
         />
-        
+
         <div className="form-group">
           <label htmlFor="about">Profile Image</label>
-          { portfolioDetails && newImage && (
+          {portfolioDetails && newImage && (
             <div className="text-end my-3">
               <button
                 className="btn btn-danger py-1 px-3"
@@ -452,11 +420,11 @@ const Template1 = ({portfolioDetails, getPortfolios }) => {
           setExperienceFormToBeValidate={setExperienceFormToBeValidate}
         />
         <Form.Group className="mb-3 mt-5">
-        <div className="text-right mt-5 mb-4">
-          <button type="submit" className="btn btn-primary">
-            { portfolioDetails ? "Update" : "Submit"}
-          </button>
-        </div>
+          <div className="text-right mt-5 mb-4">
+            <button type="submit" className="btn btn-primary">
+              {portfolioDetails ? "Update" : "Submit"}
+            </button>
+          </div>
         </Form.Group>
       </Form>
     </React.Fragment>

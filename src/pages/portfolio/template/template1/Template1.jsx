@@ -10,6 +10,7 @@ import { apiCommon } from "../../../../services/models/CommonModel";
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import "./styles/style.css";
+import BackToTop from "../../../../components/common/BackToTop";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -41,7 +42,7 @@ const Portfolio = () => {
       ) : (
         <React.Fragment>
           <div className={`text-${portfolioDetails.font} template1`}>
-            <Toggle />
+            <Toggle  style={{bottom:'30px'}}/>
             <Intro portfolioDetails={portfolioDetails} />
             <Projects portfolioDetails={portfolioDetails} />
             <Skills portfolioDetails={portfolioDetails} />
@@ -49,6 +50,7 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
+      <BackToTop/>
     </React.Fragment>
   );
 };

@@ -13,6 +13,7 @@ import { PageLoader } from "../../../../components/common/CustomLoaders";
 import Behance from "./components/Behance";
 import Medium from "./components/Medium";
 import Footer from "../common/Footer";
+import BackToTop from "../../../../components/common/BackToTop";
 
 import Grad1 from "../../../../assets/gradients/gradient-1.svg";
 import Grad2 from "../../../../assets/gradients/gradient-2.svg";
@@ -86,6 +87,7 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
+      <BackToTop/>
     </React.Fragment>
   );
 };

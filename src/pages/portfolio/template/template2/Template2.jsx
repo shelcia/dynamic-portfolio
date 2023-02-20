@@ -12,6 +12,7 @@ import Toggle from "../common/Toggle";
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import "./styles/style.css";
+import BackToTop from "../../../../components/common/BackToTop";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -53,6 +54,7 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
+      <BackToTop/>
     </React.Fragment>
   );
 };

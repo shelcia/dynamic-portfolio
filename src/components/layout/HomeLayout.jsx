@@ -7,8 +7,10 @@ import { Link, Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/argon.css";
 import "../../styles/style.css";
+import BackToTop from "../common/BackToTop";
 
 const HomeLayout = () => {
+ 
   return (
     <React.Fragment>
       <Navbar
@@ -35,6 +37,9 @@ const HomeLayout = () => {
         </Container>
       </Navbar>
       <Outlet />
+
+
+
       <footer className="footer">
         <Container>
           <Row className="row-grid align-items-center mb-5">
@@ -114,6 +119,10 @@ const HomeLayout = () => {
           </Row>
         </Container>
       </footer>
+      
+
+      <BackToTop/>
+      
     </React.Fragment>
   );
 };
