@@ -23,11 +23,12 @@ export default function BackToTop() {
     <>
     
     {backToTop && (
-        <a href="#" className="to-top" style={{backgroundColor: 'white',
+        <a href="#" className="to-top" style={{
+            color: 'blue',
             position: 'fixed',
             bottom: '10px',
-            right: '12px',
-            width: '50px',
+            right: '65px',
+            width: '55px',
             height: '50px',
             borderRadius: '50%',
             border: 0,
