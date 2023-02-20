@@ -1,31 +1,45 @@
-.ba1::before,.ba1::after{
+$tab-device: 700px;
+
+.ba1::before,
+.ba1::after {
   background: white;
 }
-.ba2::before,.ba2::after{
+.ba2::before,
+.ba2::after {
   background: black;
 }
+
 .name {
   position: relative;
 
   &::before {
     content: "";
     display: block;
-    width: 120px;
+    width: 200px;
     height: 2px;
-    
+
     left: 0;
     top: 50%;
     position: absolute;
+
+    @media only screen and (max-width: $tab-device) {
+      width: 50px;
+    }
   }
+
   &::after {
     content: "";
     display: block;
-    width: 120px;
+    width: 200px;
     height: 2px;
-    
+
     right: 0;
     top: 50%;
     position: absolute;
+
+    @media only screen and (max-width: $tab-device) {
+      width: 50px;
+    }
   }
 }
 

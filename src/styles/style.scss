@@ -2,8 +2,9 @@
 @import "./components/toggle";
 @import "./components/dropzone";
 @import "./components/tooltip";
+@import "./components/breakpoints";
 @import "./components/typography";
-// @import"./components/scrolltotop";
+
 * {
   font-family: "Poppins", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -26,4 +27,44 @@
 
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+$mobile-device: 400px;
+
+.toggle-div {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 70px;
+  right: 10px;
+  background-color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  svg {
+    margin-top: 18px;
+  }
+  @media only screen and (max-width: $mobile-device) {
+    right: 30px;
+  }
+}
+
+.back-to-top-div {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 70px;
+  right: 80px;
+  background-color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  svg {
+    margin-top: 18px;
+  }
+  @media only screen and (max-width: $mobile-device) {
+    right: 95px;
+  }
 }

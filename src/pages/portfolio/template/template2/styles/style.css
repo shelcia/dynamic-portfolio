@@ -14,20 +14,30 @@
 .name::before {
   content: "";
   display: block;
-  width: 11%;
+  width: 200px;
   height: 2px;
   left: 0;
   top: 50%;
   position: absolute;
 }
+@media only screen and (max-width: 700px) {
+  .name::before {
+    width: 50px;
+  }
+}
 .name::after {
   content: "";
   display: block;
-  width: 11%;
+  width: 200px;
   height: 2px;
   right: 0;
   top: 50%;
   position: absolute;
+}
+@media only screen and (max-width: 700px) {
+  .name::after {
+    width: 50px;
+  }
 }
 
 .gallery .col-md-3 {
@@ -39,4 +49,4 @@
 
 .bg-dark {
   background-color: #212121 !important;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

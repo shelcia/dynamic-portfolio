@@ -1,3 +1,5 @@
+$mobile-device: 400px;
+
 .bg-dark-3 {
   background-color: #111111;
 }
@@ -55,6 +57,21 @@
     transition: transform 200ms ease-in;
     &:hover {
       transform: scale(1.05) translateZ(0);
+    }
+  }
+}
+
+.template3 {
+  .user-name {
+    @media only screen and (max-width: $mobile-device) {
+      margin-top: 50px;
+    }
+  }
+
+  .socials {
+    text-align: right;
+    @media only screen and (max-width: $mobile-device) {
+      text-align: center;
     }
   }
 }

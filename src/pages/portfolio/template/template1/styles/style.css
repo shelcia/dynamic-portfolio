@@ -34,7 +34,7 @@
 
 .img-align {
   justify-content: left;
-  margin-left: -50px;
+  margin-left: -80px;
 }
 @media only screen and (max-width: 770px) {
   .img-align {
@@ -112,23 +112,6 @@ li.timeline-item::before {
   z-index: 400;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
-.toggle-div {
-  position: fixed;
-  width: 52px;
-  height: 50px;
-  bottom: 10px;
-  right: 10px;
-  background-color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 
 .template1 .btn-resume-1 {
   background-color: transparent;

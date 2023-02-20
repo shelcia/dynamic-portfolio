@@ -13,7 +13,7 @@ import { PageLoader } from "../../../../components/common/CustomLoaders";
 import Behance from "./components/Behance";
 import Medium from "./components/Medium";
 import Footer from "../common/Footer";
-import BackToTop from "../../../../components/common/BackToTop";
+import BackToTop from "../common/BackToTop";
 
 import Grad1 from "../../../../assets/gradients/gradient-1.svg";
 import Grad2 from "../../../../assets/gradients/gradient-2.svg";
@@ -67,14 +67,21 @@ const Portfolio = () => {
         <PageLoader />
       ) : (
         <React.Fragment>
-          <img src={Grad1} alt="" style={{ position: "absolute" }} />
+          <img
+            src={Grad1}
+            alt=""
+            style={{ position: "absolute", maxWidth: "100%" }}
+          />
           <img
             src={Grad2}
             alt=""
-            style={{ position: "absolute", top: "150vh" }}
+            style={{ position: "absolute", top: "150vh", maxWidth: "100%" }}
           />
           <Toggle />
-          <div className={`text-${portfolioDetails.font} ${className}`}>
+          <BackToTop />
+          <div
+            className={`text-${portfolioDetails.font} ${className} template3`}
+          >
             <Topbar portfolioDetails={portfolioDetails} />
             <Intro portfolioDetails={portfolioDetails} />
             {checkFields("behanceRssLink") && (
@@ -87,7 +94,6 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
-      <BackToTop/>
     </React.Fragment>
   );
 };

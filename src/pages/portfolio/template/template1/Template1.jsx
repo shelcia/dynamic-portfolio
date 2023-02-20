@@ -4,13 +4,14 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Works from "./components/Works";
 import Toggle from "../common/Toggle";
+import BackToTop from "../common/BackToTop";
+
 import { useParams } from "react-router";
 import { apiCommon } from "../../../../services/models/CommonModel";
 
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import "./styles/style.css";
-import BackToTop from "../../../../components/common/BackToTop";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ const Portfolio = () => {
         });
         setLoading(false);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     };
@@ -42,7 +44,8 @@ const Portfolio = () => {
       ) : (
         <React.Fragment>
           <div className={`text-${portfolioDetails.font} template1`}>
-            <Toggle  style={{bottom:'30px'}}/>
+            <Toggle style={{ bottom: "30px" }} />
+            <BackToTop />
             <Intro portfolioDetails={portfolioDetails} />
             <Projects portfolioDetails={portfolioDetails} />
             <Skills portfolioDetails={portfolioDetails} />
@@ -50,7 +53,6 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
-      <BackToTop/>
     </React.Fragment>
   );
 };

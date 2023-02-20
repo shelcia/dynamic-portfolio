@@ -8,15 +8,11 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Login from "../../pages/auth/Login";
-import {BsFillArrowUpCircleFill} from 'react-icons/bs'
-
 
 import "../../styles/argon.css";
 import "../../styles/style.css";
-import BackToTop from "../common/BackToTop";
 
 const DashboardLayout = () => {
-  
   const navigate = useNavigate();
 
   const logout = () => {
@@ -46,7 +42,6 @@ const DashboardLayout = () => {
         </Container>
       </Navbar>
       <Outlet />
-     <BackToTop/>
     </React.Fragment>
   );
 };

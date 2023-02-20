@@ -14,7 +14,7 @@ const Topbar = ({ portfolioDetails }) => {
   return (
     <React.Fragment>
       <Row className="pt-4 px-4">
-        <Col md="4">
+        <Col md="4" className="menu">
           {portfolioDetails?.behanceRssLink && (
             <a href="#behance" className={`${textTheme} me-3`}>
               Behance
@@ -26,12 +26,12 @@ const Topbar = ({ portfolioDetails }) => {
             </a>
           )}
         </Col>
-        <Col md="4" className="text-center">
+        <Col md="4" className="text-center user-name">
           <h1 className={`text-uppercase fs-6 fw-lighter ${textTheme}`}>
             {portfolioDetails?.name}
           </h1>
         </Col>
-        <Col md="4" className="text-end">
+        <Col md="4" className="socials">
           {portfolioDetails?.socialLinks?.map((social) => (
             <OverlayTrigger
               placement="top"

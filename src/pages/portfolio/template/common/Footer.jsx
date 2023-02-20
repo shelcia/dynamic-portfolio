@@ -6,7 +6,7 @@ const Footer = ({ portfolioDetails }) => {
     <footer>
       <Container className="bg-tranparent py-4">
         <div className="text-center">
-          <p className="mb-0">Copyrights © 2022 {portfolioDetails?.name}</p>
+          <p className="mb-0">Copyrights © 2023 {portfolioDetails?.name}</p>
         </div>
       </Container>
     </footer>

@@ -7,7 +7,6 @@ import { Link, Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/argon.css";
 import "../../styles/style.css";
-import BackToTop from "../common/BackToTop";
 
 const HomeLayout = () => {
  
@@ -118,11 +117,7 @@ const HomeLayout = () => {
             </Col>
           </Row>
         </Container>
-      </footer>
-      
-
-      <BackToTop/>
-      
+      </footer>      
     </React.Fragment>
   );
 };

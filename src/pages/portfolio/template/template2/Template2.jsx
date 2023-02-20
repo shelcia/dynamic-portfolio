@@ -8,11 +8,11 @@ import Gallery from "./components/Gallery";
 import Footer from "../common/Footer";
 
 import Toggle from "../common/Toggle";
+import BackToTop from "../common/BackToTop";
 
 import { PageLoader } from "../../../../components/common/CustomLoaders";
 
 import "./styles/style.css";
-import BackToTop from "../../../../components/common/BackToTop";
 
 const Portfolio = () => {
   const [isLoading, setLoading] = useState(true);
@@ -33,6 +33,7 @@ const Portfolio = () => {
         });
         setLoading(false);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     };
@@ -47,6 +48,7 @@ const Portfolio = () => {
       ) : (
         <React.Fragment>
           <Toggle />
+          <BackToTop />
           <div className={`text-${portfolioDetails.font} ${className}`}>
             <Intro portfolioDetails={portfolioDetails} />
             <Gallery portfolioDetails={portfolioDetails} />
@@ -54,7 +56,6 @@ const Portfolio = () => {
           </div>
         </React.Fragment>
       )}
-      <BackToTop/>
     </React.Fragment>
   );
 };

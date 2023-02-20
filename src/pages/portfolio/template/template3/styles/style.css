@@ -12,34 +12,20 @@
 .icon--dark-3:hover {
   border-radius: 50ex;
   box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
-  -webkit-animation: pulse 1s;
-          animation: pulse 1s;
+  animation: pulse 1s;
 }
 
 .icon--light-3:hover {
-  -webkit-animation: pulse-light-icon 1s;
-          animation: pulse-light-icon 1s;
+  animation: pulse-light-icon 1s;
 }
 
 .icon--dark-3:hover {
-  -webkit-animation: pulse-dark-icon 1s;
-          animation: pulse-dark-icon 1s;
-}
-
-@-webkit-keyframes pulse-light-icon {
-  0% {
-    box-shadow: 0 0 0 0 rgb(200, 200, 200);
-  }
+  animation: pulse-dark-icon 1s;
 }
 
 @keyframes pulse-light-icon {
   0% {
     box-shadow: 0 0 0 0 rgb(200, 200, 200);
-  }
-}
-@-webkit-keyframes pulse-dark-icon {
-  0% {
-    box-shadow: 0 0 0 0 white;
   }
 }
 @keyframes pulse-dark-icon {
@@ -60,4 +46,18 @@
 }
 .behance-cards .project-card:hover {
   transform: scale(1.05) translateZ(0);
+}
+
+@media only screen and (max-width: 400px) {
+  .template3 .user-name {
+    margin-top: 50px;
+  }
+}
+.template3 .socials {
+  text-align: right;
+}
+@media only screen and (max-width: 400px) {
+  .template3 .socials {
+    text-align: center;
+  }
 }/*# sourceMappingURL=style.css.map */
