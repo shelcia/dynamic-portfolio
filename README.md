@@ -97,6 +97,14 @@ Here is an overview of the **flow of control** within the website.
 
 [Flow of Control](https://scribehow.com/shared/Dynamic_Portfolio_Flow__TGbaYP7nSk-Yy9-nWzQJ_Q)
 
+
+<br>
+
+<h1 align=center> Project Admin 💻</h1>
+
+  <p align="center">
+  <a href="https://github.com/shelcia"><img src="https://avatars.githubusercontent.com/shelcia" width="20%" /></a>
+
 <!-- ![Screen 1](./screens/Screen1.png)
 This is the first screen shown on running the website. It covers basic data and utility of the site.
 
