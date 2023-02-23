@@ -111,6 +111,16 @@ Here is an overview of the **flow of control** within the website.
   <a href="https://github.com/shelcia"><img src="https://avatars.githubusercontent.com/shelcia" width="20%" /></a>
 
 
+<h1 align=center> Our Amazing Contributors 👨‍👨‍👦‍👦❤️</h1>
+
+Thanks to all the contributors who worked for this project to stay alive! 😊😎
+
+<a align="center" href="https://github.com/shelcia/dynamic-portfolio/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=shelcia/dynamic-portfolio&&max=817" />  
+</a>
+
+
+
 ---
 <div align="center">
     <h3><b>Take a moment to star ⭐ the project if you like it</b></h3>
