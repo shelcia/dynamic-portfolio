@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@fontsource/baskervville": "^4.5.10",
-    "@fontsource/cabin": "^4.5.9",
+    "@fontsource/cabin": "^5.0.3",
     "@fontsource/inter": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "axios": "^1.2.1",
