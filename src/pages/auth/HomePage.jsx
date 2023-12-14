@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Carousel, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
 import { Pattern3Default } from "../../components/common/CustomPatterns";
-
 const HomePage = () => {
   return (
     <React.Fragment>
@@ -75,11 +74,22 @@ export default HomePage;
 
 const TemplateCarousel = () => {
   const [templates] = useContext(TemplateContext);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % templates.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [index]);
 
   return (
-    <Carousel>
+    <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
       {templates.map((template, index) => (
-        <Carousel.Item interval={4000} key={index}>
+        <Carousel.Item key={index}>
           <img className="d-block w-100" src={template.img} alt="...." />
           <Carousel.Caption>
             <h3 className="text-white">{template.title}</h3>
