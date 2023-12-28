@@ -50,7 +50,14 @@
   z-index: 0;
   box-shadow: 10px 10px 0px 0px #00458b;
 }
-
+.skills-border-blue-light:hover {
+  transform: translate(3px,3px);
+  box-shadow: 7px 7px 0px 0px #00458b;
+  cursor: pointer;
+  color: beige;
+  background-color: #556fff;
+  transition: 0.2s;
+}
 .skills-border-blue-dark {
   border: 3px solid #556fff !important;
   min-width: 75%;
@@ -58,6 +65,15 @@
   position: relative;
   z-index: 0;
   box-shadow: 10px 10px 0px 0px #556fff;
+}
+
+.skills-border-blue-dark:hover{
+  transform: translate(3px,3px);
+  box-shadow: 7px 7px 0px 0px rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  color: beige;
+  background-color: #556fff;
+  transition: 0.2s;
 }
 
 .timeline-head {
