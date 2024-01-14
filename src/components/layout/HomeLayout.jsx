@@ -95,7 +95,7 @@ const HomeLayout = () => {
           <Row>
             <Col md={6}>
               <div className="copyright">
-                &copy; 2022{" "}
+                &copy; 2024{" "}
                 <a
                   href="https://shelcia-dev.me/"
                   target="_blank"
