@@ -28,7 +28,7 @@ MVP is completed **This is an Ongoing Project**.
 
 # 📌 Workflow of The Project
 
-⭐ Sign up Or LOgin: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
+⭐ Sign up Or log in: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
 
 ⭐ Choose a template: Once signed up, users will be able to browse through three different templates for them. They can select a template that best suits them.
 
@@ -44,11 +44,11 @@ MVP is completed **This is an Ongoing Project**.
 
 ⭐ The aim is to empower users to create their own online presence .
 
-⭐ No need any knowledge just fill form and you are done .
+⭐ No need for any prior knowledge just fill form and you are done .
 
 ⭐ No burden to write codes and all.
 
-⭐ Free of cost no paying anymore to .
+⭐ Free of cost no paying any more to .
 
 ---
 
