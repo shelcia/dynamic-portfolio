@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
 import { Pattern3Default } from "../../components/common/CustomPatterns";
-import "./home.css"
+import "../../styles/components/home.scss"
 
 const HomePage = () => {
   const [templates] = useContext(TemplateContext);
