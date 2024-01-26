@@ -1,16 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TemplateContext } from "../../context/TemplateContext";
 import { Pattern3Default } from "../../components/common/CustomPatterns";
+import "../../styles/components/_home.scss"
+
 const HomePage = () => {
+  const [templates] = useContext(TemplateContext);
   return (
     <React.Fragment>
       <section className="wrapper">
         <div className="section section-hero section-shaped">
           <Pattern3Default />
           <div className="page-header">
-            <Container className="shape-container d-flex align-items-center py-lg">
+            <Container className="shape-container d-flex align-items-center py-lg" style={{justifyContent:"center"}}>
               <div className="col px-0">
                 <Row className="align-items-center justify-content-center">
                   <Col lg={6} className="text-center">
@@ -49,7 +52,7 @@ const HomePage = () => {
             </svg>
           </div>
         </div>
-        <div className="section features-1">
+        <div className="section features-1  new-shape">
           <Container>
             <Row>
               <Col md={8} className="mx-auto text-center">
@@ -60,7 +63,23 @@ const HomePage = () => {
                 <p className="lead">I am still working on it</p>
               </Col>
             </Row>
-            <TemplateCarousel />
+            {/* <TemplateCarousel /> */}
+            <div className="card-container">
+              <input type="radio" name="slider" id="item-1" checked />
+              <input type="radio" name="slider" id="item-2" />
+              <input type="radio" name="slider" id="item-3" />
+              <div className="cards">
+                <label className="card" htmlFor="item-1" id="song-1">
+                  <img src={templates[0].img} alt="template" />
+                </label>
+                <label className="card" htmlFor="item-2" id="song-2">
+                  <img src={templates[1].img} alt="template" />
+                </label>
+                <label className="card" htmlFor="item-3" id="song-3">
+                  <img src={templates[2].img} alt="template" />
+                </label>
+              </div>
+            </div>
           </Container>
         </div>
         <br />
@@ -72,31 +91,31 @@ const HomePage = () => {
 
 export default HomePage;
 
-const TemplateCarousel = () => {
-  const [templates] = useContext(TemplateContext);
-  const [index, setIndex] = useState(0);
+// const TemplateCarousel = () => {
+//   const [templates] = useContext(TemplateContext);
+//   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % templates.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [index]);
+//   const handleSelect = (selectedIndex) => {
+//     setIndex(selectedIndex);
+//   };
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setIndex((prevIndex) => (prevIndex + 1) % templates.length);
+//     }, 5000);
+//     return () => clearInterval(interval);
+//   }, [index]);
 
-  return (
-    <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
-      {templates.map((template, index) => (
-        <Carousel.Item key={index}>
-          <img className="d-block w-100" src={template.img} alt="...." />
-          <Carousel.Caption>
-            <h3 className="text-white">{template.title}</h3>
-            <p className="text-light">{template.caption} </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      ))}
-    </Carousel>
-  );
-};
+//   return (
+//     <Carousel activeIndex={index} onSelect={handleSelect} interval={null}>
+//       {templates.map((template, index) => (
+//         <Carousel.Item key={index}>
+//           <img className="d-block w-100" src={template.img} alt="...." />
+//           <Carousel.Caption>
+//             <h3 className="text-white">{template.title}</h3>
+//             <p className="text-light">{template.caption} </p>
+//           </Carousel.Caption>
+//         </Carousel.Item>
+//       ))}
+//     </Carousel>
+//   );
+// };
