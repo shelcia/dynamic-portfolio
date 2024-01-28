@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { TemplateContext } from "../../context/TemplateContext";
-import { Pattern3Default } from "../../components/common/CustomPatterns";
+import React, { useContext, useEffect, useState } from 'react';
+import { Carousel, Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { TemplateContext } from '../../context/TemplateContext';
+import { Pattern3Default } from '../../components/common/CustomPatterns';
+import { motion } from 'framer-motion';
 const HomePage = () => {
   return (
     <React.Fragment>
@@ -14,20 +15,53 @@ const HomePage = () => {
               <div className="col px-0">
                 <Row className="align-items-center justify-content-center">
                   <Col lg={6} className="text-center">
-                    <h1 className="text-white display-1">
+                    <motion.h1
+                      initial={{ opacity: 0, x: -150 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 1,
+                        type: 'spring',
+                        stiffness: 90,
+                        delay: 0.2,
+                      }}
+                      className="text-white display-1"
+                    >
                       Dynamic Portfolio Builder
-                    </h1>
-                    <h2 className="display-4 font-weight-normal text-white">
+                    </motion.h1>
+                    <motion.h2
+                      initial={{ opacity: 0, x: 150 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 1,
+                        type: 'spring',
+                        stiffness: 90,
+                        delay: 0.7,
+                      }}
+                      className="display-4 font-weight-normal text-white"
+                    >
                       Build your Single Page Portfolio website within 5 minutes
-                    </h2>
-                    <div className="btn-wrapper mt-4">
+                    </motion.h2>
+                    <motion.div
+                      initial={{ opacity: 0, y: 150 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 1,
+                        type: 'spring',
+                        stiffness: 90,
+                        delay: 1,
+                      }}
+                      className="btn-wrapper mt-4"
+                    >
                       <Link
                         to="/signup"
                         className="btn btn-success btn-icon mt-3 mb-sm-0"
                       >
                         <span className="btn-inner--text">Get Started</span>
                       </Link>
-                    </div>
+                    </motion.div>
                   </Col>
                 </Row>
               </div>

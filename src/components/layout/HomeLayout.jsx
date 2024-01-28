@@ -1,15 +1,15 @@
-import React from "react";
-import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
-import { FaBehance } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
-import { Link, Outlet } from "react-router-dom";
+import React from 'react';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { FaBehance } from 'react-icons/fa';
+import { FiGithub } from 'react-icons/fi';
+import { Link, Outlet } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../styles/argon.css";
-import "../../styles/style.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/argon.css';
+import '../../styles/style.css';
 
 const HomeLayout = () => {
- 
   return (
     <React.Fragment>
       <Navbar
@@ -18,26 +18,52 @@ const HomeLayout = () => {
         className="navbar-transparent navbar-light py-2"
       >
         <Container>
-          <Link className="navbar-brand mr-lg-5" to="/">
-            D.
-          </Link>
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              type: 'spring',
+              stiffness: 90,
+              delay: 0.1,
+            }}
+          >
+            <Link className="navbar-brand mr-lg-5" to="/">
+              D.
+            </Link>
+          </motion.div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav" style={{ marginTop: "60px" }}>
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            style={{ marginTop: '60px' }}
+          >
             <Nav className="me-auto"></Nav>
             <Nav>
-              <Link className="btn btn-neutral" to="/login">
-                <span className="nav-link-inner--text">Login</span>
-              </Link>
-              <Link className="btn btn-neutral btn-icon" to="/signup">
-                <span className="nav-link-inner--text">Signup</span>
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  type: 'spring',
+                  stiffness: 90,
+                  delay: 0.1,
+                }}
+              >
+                <Link className="btn btn-neutral" to="/login">
+                  <span className="nav-link-inner--text">Login</span>
+                </Link>
+
+                <Link className="btn btn-neutral btn-icon" to="/signup">
+                  <span className="nav-link-inner--text">Signup</span>
+                </Link>
+              </motion.div>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <Outlet />
-
-
 
       <footer className="footer">
         <Container>
@@ -47,12 +73,12 @@ const HomeLayout = () => {
                 This is an open source project
               </h3>
               <h4 className="mb-0 font-weight-light">
-                Pages inspired from{"  "}
+                Pages inspired from{'  '}
                 <a href="https://www.creative-tim.com/product/argon-design-system">
                   argon system
                 </a>
-                {"  "}
-                by{"  "}
+                {'  '}
+                by{'  '}
                 <a href="https://www.creative-tim.com">Creative Tim</a>
               </h4>
             </Col>
@@ -95,7 +121,7 @@ const HomeLayout = () => {
           <Row>
             <Col md={6}>
               <div className="copyright">
-                &copy; 2024{" "}
+                &copy; 2024{' '}
                 <a
                   href="https://shelcia-dev.me/"
                   target="_blank"
@@ -117,7 +143,7 @@ const HomeLayout = () => {
             </Col>
           </Row>
         </Container>
-      </footer>      
+      </footer>
     </React.Fragment>
   );
 };

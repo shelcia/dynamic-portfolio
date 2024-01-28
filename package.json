@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "formik": "^2.4.2",
+    "framer-motion": "^11.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
