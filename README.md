@@ -7,10 +7,9 @@
 
 # 📌 Introduction
 
-Dynamic Portfolio helps you create simple websites by just filling out forms. This helps remove the burden of writing hundreds of lines of code, or the financial loss of paying a professional website developer to create your website for you.
+Dynamic Portfolio helps you create simple websites by merely filling out forms. This helps remove the burden of writing hundreds of lines of code, or the financial loss of paying a professional website developer to create your website for you.
 
 The website aims to provide several templates, each catering to the user's individual needs, both in light and dark mode.
-At present, there are three templates for the users to work with.
 
 At present, there are three templates for the users to work with.
 
@@ -28,9 +27,9 @@ MVP is completed **This is an Ongoing Project**.
 
 # 📌 Workflow of The Project
 
-⭐ Sign up Or LOgin: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
+⭐ Sign up Or Login: Users will sign up for a Dynamic Portfolio account to gain access to the platform. They can sign up using their email address.
 
-⭐ Choose a template: Once signed up, users will be able to browse through three different templates for them. They can select a template that best suits them.
+⭐ Choose a template: Once signed up, users will be able to browse through three different templates. Users will select the template that best suits them.
 
 ⭐ Add content: Users will be able to add their own content.
 
@@ -44,11 +43,11 @@ MVP is completed **This is an Ongoing Project**.
 
 ⭐ The aim is to empower users to create their own online presence .
 
-⭐ No need any knowledge just fill form and you are done .
+⭐ No coding knowledge required, just fill out a few forms and you are done .
 
-⭐ No burden to write codes and all.
+⭐ No need to write code at all.
 
-⭐ Free of cost no paying anymore to .
+⭐ Completely free.
 
 ---
 
@@ -58,7 +57,7 @@ MVP is completed **This is an Ongoing Project**.
 
 **_P.S Enter valid mail when registering_**
 
-If you want to just try it out then use this email id and password.
+If you want to try it out then use this email id and password.
 
 ```
 email: evert.medhurst52@ethereal.email
@@ -113,7 +112,7 @@ Here is an overview of the **flow of control** within the website.
 
 <h1 align=center> Our Amazing Contributors 👨‍👨‍👦‍👦❤️</h1>
 
-Thanks to all the contributors who worked for this project to stay alive! 😊😎
+Thanks to all the contributors who worked to keep this project alive! 😊😎
 
 <a align="center" href="https://github.com/shelcia/dynamic-portfolio/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=shelcia/dynamic-portfolio&&max=817" />  
